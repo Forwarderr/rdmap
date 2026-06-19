@@ -1,0 +1,66 @@
+[
+  {
+    "id": "stage0",
+    "title": "0. Foundations",
+    "subtitle": "Non-Negotiable Skills",
+    "color": "text-rose-500",
+    "gradient": "from-rose-500 to-pink-500",
+    "details": [
+      { "title": "Linux Mastery", "items": ["Bash scripting", "Process inspection (ps, lsof)", "ELF binaries", "Permissions & SElinux"] },
+      { "title": "Programming Core", "items": ["Java (Legacy/Decompilation)", "Kotlin (Modern Apps)", "C/C++ (Native Libs)", "Smali (Bytecode)"] },
+      { "title": "Computer Architecture", "items": ["ARM64 (AArch64)", "Registers & Endianness", "Stack/Heap", "Memory Mapping"] }
+    ]
+  },
+  {
+    "id": "stage1",
+    "title": "1. Beginner",
+    "subtitle": "Android Internals",
+    "color": "text-orange-500",
+    "gradient": "from-orange-500 to-amber-500",
+    "details": [
+      { "title": "Android System Arch", "items": ["Zygote & ART Runtime", "Binder IPC", "PackageManager", "Keystore & Play Protect"] },
+      { "title": "APK Anatomy", "items": ["classes.dex & AndroidManifest", "APK Signing (v2/v3/v4)", "Split APKs (AAB)"] },
+      { "title": "Static Analysis", "items": ["Tools: JADX, Apktool", "Decompile & Rebuild", "Debug Failures"] },
+      { "title": "Dalvik / ART", "items": ["DEX Format", "OAT/ODEX", "JIT/AOT Compilation"] }
+    ]
+  },
+  {
+    "id": "stage2",
+    "title": "2. Intermediate",
+    "subtitle": "Real Reverse Engineering",
+    "color": "text-amber-500",
+    "gradient": "from-amber-400 to-yellow-500",
+    "details": [
+      { "title": "Adv. Static Analysis", "items": ["Obfuscators & Packers", "Control-flow flattening", "Reflection abuse", "Deobfuscation"] },
+      { "title": "Dynamic Analysis", "items": ["Frida & Objection", "Xposed / LSPosed", "Hooking Native/Java", "Runtime Modification"] },
+      { "title": "Network Analysis", "items": ["TLS Interception", "Cert Pinning Bypass", "gRPC & WebSocket", "Burp Suite / Wireshark"] },
+      { "title": "Root Detection", "items": ["SafetyNet / Play Integrity", "TEE checks", "Bootloader flags", "Magisk Hiding"] }
+    ]
+  },
+  {
+    "id": "stage3",
+    "title": "3. Advanced",
+    "subtitle": "Modern Defense & Attack",
+    "color": "text-cyan-500",
+    "gradient": "from-cyan-400 to-blue-500",
+    "details": [
+      { "title": "Native Reversing", "items": ["Ghidra / IDA / Radare2", "JNI Bridge Analysis", "Symbol Stripping", "Inline Assembly"] },
+      { "title": "Packers & VM", "items": ["DexGuard / Tencent Protect", "Memory Reconstruction", "Anti-debug traps", "Custom VMs"] },
+      { "title": "Anti-Tamper", "items": ["Signature Self-checks", "CRC Verification", "Runtime Hash Validation"] },
+      { "title": "Malware Analysis", "items": ["Dropper Chains", "Accessibility Abuse", "Encrypted C2", "RAT Payloads"] }
+    ]
+  },
+  {
+    "id": "stage4",
+    "title": "4. Expert",
+    "subtitle": "Mobile Security Eng",
+    "color": "text-violet-500",
+    "gradient": "from-violet-500 to-purple-500",
+    "details": [
+      { "title": "Exploit Research", "items": ["Binder Vulnerabilities", "Privilege Escalation", "Kernel Interface Bugs", "Deep CVE Study"] },
+      { "title": "TEE", "items": ["ARM TrustZone", "Keymaster / StrongBox", "Secure Enclave Logic"] },
+      { "title": "Play Integrity", "items": ["Attestation Chains", "Hardware-backed Proofs", "Behavioral ML"] },
+      { "title": "Scale & Tools", "items": ["Automated Pipelines", "Custom Frida Scripts", "Dex Parsers", "Kernel Modules"] }
+    ]
+  }
+]
