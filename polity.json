@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "id": "economy_101",
+    "title": "Laxmikanth Polity",
+    "subtitle": "Complete Chapter-by-Chapter Guide to the Indian Constitution",
+    "completionTitle": "CONSTITUTIONAL MASTER!",
+    "completionMessage": "You have traversed the entire landscape of Indian Polity. Your foundation for the Civil Services is now rock solid."
+  },
+  "stages": [
+    {
+      "id": "part-1-framework",
+      "title": "Constitutional Framework",
+      "subtitle": "The Bedrock (Chapters 1-11)",
+      "color": "text-blue-700",
+      "details": [
+        {
+          "title": "The Evolution",
+          "items": [
+            "Historical Background (1773 Regulating Act to 1947 Independence Act)",
+            "Making of the Constitution (Committees & Objectives Resolution)",
+            "Salient Features (Sources & Lengthiest Written Constitution)",
+            "Preamble (Key words & Amendability)"
+          ]
+        },
+        {
+          "title": "Citizens & Territory",
+          "items": [
+            "Union and its Territory (Art 1-4, Reorganisation of States)",
+            "Citizenship (Constitutional Provisions & Citizenship Act 1955)"
+          ]
+        },
+        {
+          "title": "The Rights & Duties",
+          "items": [
+            "Fundamental Rights (Art 12-35, Writs, Exceptions)",
+            "DPSP (Socialistic, Gandhian, Liberal-Intellectual)",
+            "Fundamental Duties (Swaran Singh Committee, List of 11)",
+            "Amendment of Constitution (Art 368, Types of Majority)",
+            "Basic Structure (Kesavananda Bharati Case evolution)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-2-system",
+      "title": "System of Government",
+      "subtitle": "The Mechanics (Chapters 12-16)",
+      "color": "text-indigo-600",
+      "details": [
+        {
+          "title": "Governance & Federalism",
+          "items": [
+            "Parliamentary System (Features, Merits, Demerits)",
+            "Federal System (Federal vs Unitary Features)",
+            "Centre-State Relations (Legislative, Administrative, Financial)",
+            "Inter-State Relations (Water Disputes, Councils, Zonal Councils)",
+            "Emergency Provisions (Art 352, 356, 360)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-3-central-govt",
+      "title": "Central Government",
+      "subtitle": "The Union Executive & Legislature (Chapters 17-29)",
+      "color": "text-red-600",
+      "details": [
+        {
+          "title": "The Executive",
+          "items": [
+            "President (Election, Powers, Veto, Impeachment)",
+            "Vice-President (Election, Functions)",
+            "Prime Minister (Power, Relationship with President)",
+            "Central Council of Ministers (Responsibility, Appointment)",
+            "Cabinet Committees (Standing & Ad hoc)"
+          ]
+        },
+        {
+          "title": "The Parliament",
+          "items": [
+            "Parliament (Sessions, Devices, Bills, Budget, Funds)",
+            "Parliamentary Committees (PAC, Estimates, COPU)",
+            "Parliamentary Forums & Groups"
+          ]
+        },
+        {
+          "title": "Judiciary",
+          "items": [
+            "Supreme Court (Jurisdiction, Judicial Review)",
+            "Judicial Activism & PIL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-4-state-govt",
+      "title": "State Government",
+      "subtitle": "State Executive & Legislature (Chapters 30-37)",
+      "color": "text-emerald-600",
+      "details": [
+        {
+          "title": "State Machinery",
+          "items": [
+            "Governor (Powers, Discretion, Appointment)",
+            "Chief Minister & State Council of Ministers",
+            "State Legislature (Composition, Duration, Legislative Procedure)",
+            "High Court (Organization, Jurisdiction)",
+            "Subordinate Courts (District Judges, NALSA, Lok Adalats)",
+            "Special Provisions for some States (Art 371 to 371-J)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-5-local-govt",
+      "title": "Local Government",
+      "subtitle": "Grassroots Democracy (Chapters 38-39)",
+      "color": "text-yellow-700",
+      "details": [
+        {
+          "title": "Democratic Decentralization",
+          "items": [
+            "Panchayati Raj (Evolution, 73rd Amendment, PESA Act)",
+            "Municipalities (Evolution, 74th Amendment, Types of Urban Govt)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-6-union-territories",
+      "title": "UTs and Special Areas",
+      "subtitle": "Unique Administrations (Chapters 40-41)",
+      "color": "text-orange-600",
+      "details": [
+        {
+          "title": "Special Zones",
+          "items": [
+            "Union Territories (Administration, Special Provisions Delhi)",
+            "Scheduled and Tribal Areas (5th and 6th Schedules)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-7-constitutional-bodies",
+      "title": "Constitutional Bodies",
+      "subtitle": "The Autonomous Pillars (Chapters 42-56)",
+      "color": "text-purple-700",
+      "details": [
+        {
+          "title": "Election & Finance",
+          "items": [
+            "Election Commission",
+            "UPSC and SPSC",
+            "Finance Commission",
+            "GST Council"
+          ]
+        },
+        {
+          "title": "Rights & Legal",
+          "items": [
+            "National Commission for SCs, STs, and BCs",
+            "Special Officer for Linguistic Minorities",
+            "Comptroller and Auditor General (CAG)",
+            "Attorney General & Advocate General"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-8-non-constitutional",
+      "title": "Non-Constitutional Bodies",
+      "subtitle": "Statutory & Executive (Chapters 57-67)",
+      "color": "text-pink-600",
+      "details": [
+        {
+          "title": "Policy & Transparency",
+          "items": [
+            "NITI Aayog (Composition, Objectives)",
+            "NHRC and SHRC",
+            "Central Information Commission (CIC) & SIC"
+          ]
+        },
+        {
+          "title": "Vigilance & Investigation",
+          "items": [
+            "Central Vigilance Commission (CVC)",
+            "CBI and Lokpal/Lokayuktas",
+            "National Investigation Agency (NIA)",
+            "National Disaster Management Authority (NDMA)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-9-dimensions",
+      "title": "Other Dimensions",
+      "subtitle": "Rights & Protections (Chapters 68-73)",
+      "color": "text-cyan-700",
+      "details": [
+        {
+          "title": "Legal Rights",
+          "items": [
+            "Official Languages",
+            "Public Services",
+            "Tribunals (Administrative & Others)",
+            "Rights and Liabilities of Govt",
+            "Special Provisions for Certain Classes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-10-dynamics",
+      "title": "Political Dynamics",
+      "subtitle": "The Working Force (Chapters 74-80)",
+      "color": "text-gray-700",
+      "details": [
+        {
+          "title": "Electoral & Party Politics",
+          "items": [
+            "Political Parties (National vs Regional)",
+            "Elections (System, Reforms, Voting Behaviour)",
+            "Anti-Defection Law (10th Schedule)",
+            "Pressure Groups & National Integration",
+            "Foreign Policy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-11-working-reviews",
+      "title": "Working and Reviews of Constitution",
+      "subtitle": "Workings & Reviews (Chapters 81+)",
+      "color": "text-black",
+      "details": [
+        {
+          "title": "Working of Constitution",
+          "items":  [
+              "Establishes India as a Sovereign, Socialist, Secular, Democratic Republic",
+      "Ensures separation of powers among Legislature, Executive, and Judiciary",
+      "Provides Fundamental Rights to citizens for protection of liberties",
+      "Imposes Fundamental Duties to promote responsible citizenship",
+      "Implements Directive Principles for social and economic justice",
+      "Defines Union-State relations through federal structure",
+      "Regulates parliamentary democracy with elected representatives",
+      "Empowers independent institutions like Election Commission and CAG",
+      "Provides emergency provisions for national security and stability",
+      "Allows constitutional amendments for adaptability",
+      "Ensures judicial review to protect constitutional supremacy",
+      "Guarantees equality before law and equal protection",
+      "Supports local governance through Panchayati Raj and Municipalities",
+      "Maintains balance between rigidity and flexibility",
+      "Promotes social reform through constitutional provisions"
+          ]
+        },
+        {
+          "title": "Reviews",
+          "items": [
+            "Judicial review by Supreme Court and High Courts",
+      "Interpretation of Constitution through landmark judgments",
+      "Protection of Basic Structure Doctrine",
+      "Review of legislative actions for constitutionality",
+      "Checking executive excesses",
+      "Ensuring protection of Fundamental Rights",
+      "Power to strike down unconstitutional laws",
+      "Public Interest Litigation for social justice",
+      "Monitoring federal balance disputes",
+      "Review of constitutional amendments",
+      "Upholding rule of law",
+      "Ensuring independence of judiciary",
+      "Advisory jurisdiction of Supreme Court",
+      "Review petitions for correcting judicial errors",
+      "Curative petitions as final remedy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-12-schedules",
+      "title": "Schedules",
+      "subtitle": "The Schedules",
+      "color": "text-orange-700",
+      "details": [
+        {
+          "title": "Schedules",
+          "items": [
+            "First Schedule: States and Union Territories",
+      "Second Schedule: Salaries and allowances",
+      "Third Schedule: Oaths and affirmations",
+      "Fourth Schedule: Rajya Sabha seats allocation",
+      "Fifth Schedule: Scheduled Areas administration",
+      "Sixth Schedule: Tribal areas governance",
+      "Seventh Schedule: Union, State, Concurrent Lists",
+      "Eighth Schedule: Official languages",
+      "Ninth Schedule: Protected laws",
+      "Tenth Schedule: Anti-defection law",
+      "Eleventh Schedule: Panchayati Raj subjects",
+      "Twelfth Schedule: Municipal subjects"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-13-amendments-reforms",
+      "title": "Amendments & Reforms",
+      "subtitle": "Important amendments and reforms",
+      "color": "text-green-700",
+      "details": [
+        {
+          "title": "Amendments & Reforms",
+          "items": [
+            "Article 368 provides the procedure for constitutional amendment",
+      "Amendments can be initiated only in Parliament",
+      "Constitution Amendment Bills cannot be introduced in State Legislatures",
+      "Amendments require Presidential assent",
+      "Judicial review applies to constitutional amendments",
+      "Basic Structure Doctrine limits Parliament’s amending power",
+      "First Amendment (1951): Added reasonable restrictions to Fundamental Rights",
+      "First Amendment (1951): Inserted Ninth Schedule for land reforms",
+      "Seventh Amendment (1956): Reorganized states on linguistic basis",
+      "Ninth Amendment (1960): Adjusted territory after Indo-Pak agreement",
+      "Tenth Amendment (1961): Incorporation of Dadra and Nagar Haveli",
+      "Twelfth Amendment (1962): Incorporation of Goa, Daman and Diu",
+      "Thirteenth Amendment (1962): Special status to Nagaland",
+      "Fourteenth Amendment (1962): Puducherry made Union Territory",
+      "Twenty-Fourth Amendment (1971): Restored Parliament’s power to amend Fundamental Rights",
+      "Twenty-Fifth Amendment (1971): Limited right to property compensation",
+      "Twenty-Sixth Amendment (1971): Abolished privy purses",
+      "Twenty-Seventh Amendment (1971): Special provision for Mizoram",
+      "Thirty-Fourth Amendment (1974): Extended Ninth Schedule protections",
+      "Thirty-Sixth Amendment (1975): Sikkim became a state",
+      "Thirty-Eighth Amendment (1975): Enhanced Emergency powers",
+      "Thirty-Ninth Amendment (1975): Protected election of PM and Speaker",
+      "Forty-Second Amendment (1976): Added Socialist, Secular, Integrity in Preamble",
+      "Forty-Second Amendment (1976): Strengthened Central Government powers",
+      "Forty-Second Amendment (1976): Introduced Fundamental Duties",
+      "Forty-Fourth Amendment (1978): Restored civil liberties after Emergency",
+      "Forty-Fourth Amendment (1978): Made Right to Property a legal right",
+      "Fifty-Second Amendment (1985): Introduced Anti-Defection Law",
+      "Fifty-Third Amendment (1986): Statehood for Mizoram",
+      "Fifty-Fifth Amendment (1986): Statehood for Arunachal Pradesh",
+      "Sixty-First Amendment (1989): Reduced voting age from 21 to 18",
+      "Sixty-Ninth Amendment (1991): Special status to Delhi (NCT)",
+      "Seventy-First Amendment (1992): Added Manipuri, Konkani, Nepali to languages",
+      "Seventy-Third Amendment (1992): Constitutional status to Panchayati Raj",
+      "Seventy-Fourth Amendment (1992): Constitutional status to Municipalities",
+      "Seventy-Seventh Amendment (1995): Reservation in promotion for SC/ST",
+      "Eighty-First Amendment (2000): Carry forward of vacancies",
+      "Eighty-Fifth Amendment (2001): Consequential seniority for SC/ST",
+      "Eighty-Sixth Amendment (2002): Right to Education (Article 21A)",
+      "Eighty-Seventh Amendment (2003): Delimitation based on 2001 Census",
+      "Ninety-First Amendment (2003): Limited size of Council of Ministers",
+      "Ninety-Second Amendment (2003): Added Bodo, Dogri, Maithili, Santhali",
+      "Ninety-Seventh Amendment (2011): Cooperative societies reform",
+      "Ninety-Ninth Amendment (2014): NJAC for judicial appointments",
+      "One Hundred and First Amendment (2016): Introduced GST",
+      "One Hundred and Second Amendment (2018): NCBC constitutional status",
+      "One Hundred and Third Amendment (2019): EWS reservation (10%)",
+      "One Hundred and Fourth Amendment (2020): Extended SC/ST reservation in legislatures",
+      "One Hundred and Fifth Amendment (2021): Restored State power over OBC lists",
+      "One Hundred and Sixth Amendment (2023): Women’s Reservation (33%)",
+      "Abolition of Right to Property as Fundamental Right",
+      "Strengthening of federal structure through reorganization acts",
+      "Empowerment of local self-government institutions",
+      "Judicial reforms through constitutional interpretation",
+      "Expansion of language recognition",
+      "Reforms in electoral system through amendments",
+      "Social justice expansion through reservation policies",
+      "Economic reforms through GST framework",
+      "Administrative reforms via ministerial limits",
+      "Strengthening of cooperative federalism",
+      "Protection of tribal and regional interests",
+      "Integration of princely states",
+      "Adjustment of inter-state boundaries",
+      "Modernization of governance structures",
+      "Digitization and transparency reforms",
+      "Adaptation to globalization challenges",
+      "Balancing parliamentary sovereignty and judicial supremacy",
+      "Evolution of welfare state through amendments",
+      "Continuous updating of constitutional framework",
+      "Use of amendments for nation-building",
+      "Ensuring constitutional flexibility",
+      "Preventing authoritarian tendencies",
+      "Preserving democratic institutions",
+      "Promoting inclusive development",
+      "Responding to socio-political movements",
+      "Harmonizing tradition with modernity"
+          ]
+        }
+      ]
+    }
+  ]
+}
