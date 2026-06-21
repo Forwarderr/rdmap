@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "id": "indian_polity_governance_master_roadmap",
+    "title": "Indian Polity, Governance & UP State Administration",
+    "subtitle": "A comprehensive milestone roadmap covering constitutional history, core provisions, statutory architecture, governance, and state-specific administration.",
+    "completionTitle": "POLITY MASTERED!",
+    "completionMessage": "Incredible job! You have systematically covered the entire landscape of Indian Polity, Governance, and State Administration. From historical foundations to current dynamics, you now hold a profound, structured understanding of the Constitution and the functioning of the State."
+  },
+  "stages": [
+    {
+      "id": "stage-historical-constitutional-foundations",
+      "title": "Historical & Constitutional Foundations",
+      "subtitle": "Company Rule, Crown Rule, and the Constituent Assembly",
+      "color": "text-blue-600",
+      "details": [
+        {
+          "title": "East India Company Rule (1773–1853)",
+          "items": [
+            "Regulating Act 1773 (Governor General, Executive Council, Supreme Court)",
+            "Amending Act 1781",
+            "Pitt's India Act 1784",
+            "Charter Act 1793",
+            "Charter Act 1813",
+            "Charter Act 1833",
+            "Charter Act 1853"
+          ]
+        },
+        {
+          "title": "The Crown Rule (1858–1947)",
+          "items": [
+            "Government of India Act 1858",
+            "Indian Councils Act 1861 & 1892",
+            "Morley-Minto Reforms 1909 & Montagu-Chelmsford Reforms 1919",
+            "Simon Commission & Round Table Conferences",
+            "Government of India Act 1935",
+            "August Offer, Cripps Mission & Wavell Plan",
+            "Cabinet Mission & Mountbatten Plan",
+            "Indian Independence Act 1947"
+          ]
+        },
+        {
+          "title": "Constituent Assembly & Making of the Constitution",
+          "items": [
+            "Formation, Composition, and Working of the Assembly",
+            "Core Committees (Drafting Committee, Union Constitution Committee, Fundamental Rights Committee, Provincial Constitution Committee)",
+            "Role of Constitutional Advisor B.N. Rau",
+            "Objective Resolution, Adoption, and Enforcement of the Constitution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-philosophy-core-identity",
+      "title": "Philosophy & Core Identity of the Constitution",
+      "subtitle": "Salient Features, Preamble, and Basic Structure",
+      "color": "text-indigo-600",
+      "details": [
+        {
+          "title": "Nature & Salient Features",
+          "items": [
+            "Meaning, Sources, and Nature of the Constitution",
+            "Structural Features (Written, Lengthiest, Blending of Rigidity & Flexibility)",
+            "Systemic Features (Parliamentary System, Federal System, Independent Judiciary, Judicial Review, Secularism, Rule of Law)"
+          ]
+        },
+        {
+          "title": "The Preamble",
+          "items": [
+            "Historical Background and Evolution",
+            "Core Keywords: Sovereign, Socialist, Secular, Democratic, Republic",
+            "Core Values: Justice, Liberty, Equality, Fraternity",
+            "Preamble Cases: Berubari Union Case vs. Kesavananda Bharati Case"
+          ]
+        },
+        {
+          "title": "Amendment & Basic Structure",
+          "items": [
+            "Article 368: Amending Power and Procedures (Simple, Special, and State Ratification)",
+            "Evolution of Basic Structure: Kesavananda Bharati case benchmark",
+            "Core Components: Judicial Review, Rule of Law, Federalism, Secularism, Democracy, Independence of Judiciary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-territory-citizen-individual-rights",
+      "title": "Territory, Citizenship & Individual Rights",
+      "subtitle": "Articles 1 to 51A",
+      "color": "text-cyan-600",
+      "details": [
+        {
+          "title": "Union & Its Territory (Articles 1–4)",
+          "items": [
+            "Article 1 and the Territory of India",
+            "Admission, Formation of New States, and Alteration of Boundaries",
+            "Administration of Union Territories"
+          ]
+        },
+        {
+          "title": "Citizenship (Articles 5–11)",
+          "items": [
+            "Constitutional Provisions & Citizenship Act 1955",
+            "Acquisition: Birth, Descent, Registration, Naturalization, Incorporation",
+            "Loss of Citizenship: Renunciation, Termination, Deprivation",
+            "Overseas Citizenship of India (OCI) framework"
+          ]
+        },
+        {
+          "title": "Fundamental Rights (Articles 12–35)",
+          "items": [
+            "Right to Equality (Articles 14, 15, 16, 17, 18)",
+            "Right to Freedom (Articles 19 [Speech, Assembly, Association, Movement, Residence, Profession], 20, 21, 21A, 22)",
+            "Right Against Exploitation (Articles 23, 24)",
+            "Right to Freedom of Religion (Articles 25, 26, 27, 28)",
+            "Cultural and Educational Rights (Articles 29, 30)",
+            "Constitutional Remedies (Article 32 Writs: Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto)"
+          ]
+        },
+        {
+          "title": "DPSP & Fundamental Duties",
+          "items": [
+            "Socialist Principles (Articles 38, 39, 39A, 41, 42, 43, 47)",
+            "Gandhian Principles (Articles 40, 43, 46, 48)",
+            "Liberal-Intellectual Principles (Articles 44, 48A, 50, 51)",
+            "Fundamental Duties: Article 51A, 42nd & 86th Amendments, and the Eleven Duties"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-constitutional-amendments-history",
+      "title": "Milestone Amendments",
+      "subtitle": "Key Constitutional Shifts",
+      "color": "text-amber-600",
+      "details": [
+        {
+          "title": "Early & Mid-Term Alterations",
+          "items": [
+            "1st Amendment & 7th Amendment",
+            "24th Amendment & 25th Amendment",
+            "42nd Amendment (The Mini-Constitution) & 44th Amendment"
+          ]
+        },
+        {
+          "title": "Modern Political & Structural Shifts",
+          "items": [
+            "52nd Amendment (Anti-Defection Law) & 61st Amendment (Voting Age)",
+            "69th Amendment (Delhi NCR) & 73rd/74th Amendments (Local Governance)",
+            "86th Amendment (Education) & 91st Amendment (Cabinet Size Limit)",
+            "97th Amendment (Co-operative Societies)"
+          ]
+        },
+        {
+          "title": "Recent Landmark Amendments",
+          "items": [
+            "101st Amendment (GST introduction)",
+            "102nd Amendment (NCBC Constitutional Status) & 103rd Amendment (EWS Quota)",
+            "104th Amendment (SC/ST Reservation Extension) & 105th Amendment (State OBC Lists)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-the-union-executive-legislature",
+      "title": "The Union Executive & Parliament",
+      "subtitle": "Machinery of Central Governance",
+      "color": "text-purple-600",
+      "details": [
+        {
+          "title": "The Union Executive",
+          "items": [
+            "President: Election, Qualifications, Oath, Tenure, and Impeachment",
+            "Presidential Powers: Executive, Legislative, Financial, Judicial, Diplomatic, Military, and Emergency Powers",
+            "Vice President: Election, Powers, and Removal",
+            "Prime Minister: Appointment, Powers, Functions, and Position",
+            "Council of Ministers: Collective & Individual Responsibility, Cabinet, and Cabinet Committees"
+          ]
+        },
+        {
+          "title": "Parliament: Houses & Officers",
+          "items": [
+            "Lok Sabha: Composition, Speaker, Deputy Speaker, and Sessions",
+            "Rajya Sabha: Composition, Chairman, Deputy Chairman, and Special Powers"
+          ]
+        },
+        {
+          "title": "Legislative Procedures & Devices",
+          "items": [
+            "Types of Bills: Ordinary Bill, Money Bill, Financial Bill, Constitutional Amendment Bill",
+            "Joint Sitting Mechanism",
+            "Parliamentary Devices: Question Hour, Zero Hour, Adjournment Motion, No-Confidence Motion, Censure Motion, Calling Attention Motion, Privilege Motion, Cut Motions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-judiciary-federal-dynamics",
+      "title": "Judiciary & Federal Dynamics",
+      "subtitle": "Courts, Centre-State Relations, and Emergencies",
+      "color": "text-emerald-600",
+      "details": [
+        {
+          "title": "The Integrated Judicial System",
+          "items": [
+            "Supreme Court: Composition, Appointment, and Jurisdictions (Original, Appellate, Advisory, Review)",
+            "Concepts: Judicial Review, Judicial Activism, Public Interest Litigation (PIL)",
+            "High Courts: Composition, Jurisdiction, and Writ Jurisdiction",
+            "Subordinate Courts: District Court, Sessions Court, Family Court, Lok Adalat, Gram Nyayalaya"
+          ]
+        },
+        {
+          "title": "Federalism & Centre-State Relations",
+          "items": [
+            "Federal vs. Unitary Features of the Indian State",
+            "Three-Fold Relations: Legislative, Administrative, and Financial Relations",
+            "Inter-State Cooperation: Inter-State Council and Zonal Councils"
+          ]
+        },
+        {
+          "title": "Emergency Provisions",
+          "items": [
+            "National Emergency: Grounds, Effects on Rights/Federalism, and Revocation",
+            "President's Rule (Article 356): Imposition and Impact",
+            "Financial Emergency (Article 360)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-institutional-architecture",
+      "title": "Institutional Architecture",
+      "subtitle": "Constitutional, Statutory, and Regulatory Bodies",
+      "color": "text-teal-600",
+      "details": [
+        {
+          "title": "Constitutional Bodies",
+          "items": [
+            "Election Commission of India & Union Public Service Commission (UPSC)",
+            "Finance Commission, Comptroller and Auditor General (CAG)",
+            "Attorney General of India & Advocate General of the State",
+            "National Commissions: NC for SCs, NC for STs, NC for Backward Classes (NCBC)"
+          ]
+        },
+        {
+          "title": "Statutory Bodies",
+          "items": [
+            "National Human Rights Commission (NHRC) & State Human Rights Commission (SHRC)",
+            "Central Information Commission (CIC) & Central Vigilance Commission (CVC)",
+            "Lokpal, Lokayukta, and National Green Tribunal (NGT)"
+          ]
+        },
+        {
+          "title": "Regulatory Bodies",
+          "items": [
+            "Reserve Bank of India (RBI) & Securities and Exchange Board of India (SEBI)",
+            "Insurance Regulatory and Development Authority (IRDAI)",
+            "Telecom Regulatory Authority of India (TRAI)",
+            "Pension Fund Regulatory and Development Authority (PFRDA) & Central Electricity Regulatory Commission (CERC)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-local-government-elections-politics",
+      "title": "Local Government, Elections & Political Dynamics",
+      "subtitle": "Grassroots Democracy, Electoral Machinery, and Rights",
+      "color": "text-rose-600",
+      "details": [
+        {
+          "title": "Local Self-Government",
+          "items": [
+            "Panchayati Raj (73rd Amendment): Gram Sabha, Gram Panchayat, Panchayat Samiti, Zila Parishad, State Finance Commission",
+            "Municipal Government (74th Amendment): Municipal Corporation, Municipal Council, Nagar Panchayat, Metropolitan Planning Committee"
+          ]
+        },
+        {
+          "title": "Elections & Political Parties",
+          "items": [
+            "Electoral Framework: Electoral Roll, Delimitation, Model Code of Conduct (MCC), EVM, VVPAT, Election Petitions",
+            "Political Parties: National vs. State Parties Recognition Criteria",
+            "Anti-Defection Law: Tenth Schedule mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-governance-rights-based-legislation",
+      "title": "Governance, Pressure Groups & International Relations",
+      "subtitle": "Accountability Frameworks and External Interface",
+      "color": "text-orange-600",
+      "details": [
+        {
+          "title": "Governance Mechanisms",
+          "items": [
+            "Concepts: Good Governance, Transparency, Accountability",
+            "Tools: Citizen's Charter, E-Governance, Social Audit, Sevottam Model, Public Service Delivery systems"
+          ]
+        },
+        {
+          "title": "Rights-Based Legislation",
+          "items": [
+            "Right to Information (RTI) Act",
+            "Right to Education (RTE) Act",
+            "Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)",
+            "National Food Security Act (NFSA)",
+            "Forest Rights Act (FRA)"
+          ]
+        },
+        {
+          "title": "Civil Society & Pressure Groups",
+          "items": [
+            "Role of Non-Governmental Organizations (NGOs)",
+            "Self-Help Groups (SHGs), Civil Society networks, and Pressure Groups"
+          ]
+        },
+        {
+          "title": "International Relations (Polity Linked)",
+          "items": [
+            "Structure and interface with the United Nations (UN)",
+            "World Trade Organization (WTO), International Monetary Fund (IMF), World Bank",
+            "International Court of Justice (ICJ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-uttar-pradesh-polity-state-governance",
+      "title": "Uttar Pradesh Polity & State Governance",
+      "subtitle": "State Administration Framework",
+      "color": "text-violet-600",
+      "details": [
+        {
+          "title": "State Executive & Legislature",
+          "items": [
+            "Governor of UP: Powers, Discretions, and Constitutional Role",
+            "Chief Minister & Council of Ministers of UP",
+            "Bicameral Structure: UP Legislative Assembly & UP Legislative Council"
+          ]
+        },
+        {
+          "title": "State Institutional Network",
+          "items": [
+            "UP High Court (Allahabad High Court and Lucknow Bench)",
+            "Uttar Pradesh Public Service Commission (UPPSC)",
+            "State Election Commission & State Finance Commission of UP",
+            "Lokayukta of Uttar Pradesh"
+          ]
+        },
+        {
+          "title": "Local Governance in UP",
+          "items": [
+            "Panchayati Raj Institutions implementation in UP",
+            "Urban Governance frameworks across UP Municipalities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-current-affairs-dynamic-framework",
+      "title": "Current Affairs & Dynamic Framework",
+      "subtitle": "Contemporary Evolutions and Legal Updates",
+      "color": "text-pink-600",
+      "details": [
+        {
+          "title": "Legal & Constitutional Evolutions",
+          "items": [
+            "Recent Constitutional Cases and Benchmark Supreme Court Judgments",
+            "Newly introduced Bills, passed Acts, and latest Constitutional Amendments"
+          ]
+        },
+        {
+          "title": "Systemic Reforms",
+          "items": [
+            "Electoral Reforms and Model Code enforcement updates",
+            "Governance Reforms, Administrative Updates, and critical Parliamentary Developments"
+          ]
+        }
+      ]
+    }
+  ]
+}
