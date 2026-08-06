@@ -1,0 +1,1148 @@
+{
+  "meta": {
+    "id": "java_roadmap",
+    "title": "Java Language (Beginner → Expert)",
+    "subtitle": "Complete Masterclass & Architecture Roadmap",
+    "completionTitle": "JAVA MASTERED",
+    "completionMessage": "Congratulations! You have covered the entire Java roadmap from core syntax to bytecode and JVM internals!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Java Ecosystem",
+      "subtitle": "Foundations & Architecture Overview",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Understand why Java exists",
+          "items": [
+            "History of Java",
+            "Java philosophy",
+            "\"Write Once, Run Anywhere\"",
+            "Evolution of Java"
+          ]
+        },
+        {
+          "title": "Java Editions",
+          "items": [
+            "Java SE",
+            "Java EE (Jakarta overview)",
+            "Java ME"
+          ]
+        },
+        {
+          "title": "JDK Distributions & Cycles",
+          "items": [
+            "OpenJDK",
+            "Oracle JDK",
+            "Eclipse Temurin",
+            "Java Release Cycle",
+            "Long-Term Support (LTS) releases",
+            "Android's relationship with OpenJDK"
+          ]
+        },
+        {
+          "title": "Execution Pipeline",
+          "items": [
+            "Source Code → Compiler → Bytecode → Virtual Machine → Execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Java Installation & Toolchain",
+      "subtitle": "CLI Tools & Environment Setup",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Components & Tools",
+          "items": [
+            "JDK",
+            "JRE (legacy concept)",
+            "JVM",
+            "javac",
+            "java",
+            "jar",
+            "javadoc",
+            "jshell",
+            "javap"
+          ]
+        },
+        {
+          "title": "Environment Configuration",
+          "items": [
+            "Environment variables",
+            "CLASSPATH",
+            "PATH",
+            "Module path"
+          ]
+        },
+        {
+          "title": "Core Workflows",
+          "items": [
+            "Compilation",
+            "Execution",
+            "Packaging",
+            "Inspection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Java Syntax",
+      "subtitle": "Basic Language Constructs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Language Basics",
+          "items": [
+            "Variables",
+            "Identifiers",
+            "Keywords",
+            "Comments",
+            "Statements",
+            "Expressions",
+            "Blocks",
+            "Scope",
+            "Naming conventions",
+            "Coding standards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Data Types",
+      "subtitle": "Type System & Memory Basics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Primitive Types",
+          "items": [
+            "boolean",
+            "byte",
+            "short",
+            "char",
+            "int",
+            "long",
+            "float",
+            "double"
+          ]
+        },
+        {
+          "title": "Reference Types",
+          "items": [
+            "Objects",
+            "Arrays",
+            "Interfaces",
+            "Enums",
+            "Records (modern Java)"
+          ]
+        },
+        {
+          "title": "Type Mechanics",
+          "items": [
+            "Default values",
+            "Literal forms",
+            "Numeric promotion",
+            "Overflow",
+            "Underflow",
+            "Boxing",
+            "Unboxing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Operators",
+      "subtitle": "Expressions & Bitwise Manipulations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Operator Types",
+          "items": [
+            "Arithmetic",
+            "Comparison",
+            "Logical",
+            "Assignment",
+            "Unary",
+            "Bitwise",
+            "Shift",
+            "Ternary",
+            "instanceof",
+            "Modern pattern matching (overview)"
+          ]
+        },
+        {
+          "title": "Practical Applications",
+          "items": [
+            "Permission flags",
+            "Masks",
+            "Binary operations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Control Flow",
+      "subtitle": "Branching, Loops & State Control",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structures",
+          "items": [
+            "if / else",
+            "switch",
+            "Enhanced switch",
+            "Pattern matching for switch (modern Java)",
+            "for loop",
+            "while loop",
+            "do-while loop",
+            "Enhanced for",
+            "break",
+            "continue",
+            "return",
+            "Labels"
+          ]
+        },
+        {
+          "title": "Practical Logic",
+          "items": [
+            "Nested loops",
+            "State machines",
+            "Parsing logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Methods",
+      "subtitle": "Modularization & Call Stack Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Method Declarations & Types",
+          "items": [
+            "Method declaration",
+            "Method definition",
+            "Parameters",
+            "Return values",
+            "Method overloading",
+            "Varargs",
+            "Recursion",
+            "Tail recursion concepts",
+            "Static methods",
+            "Instance methods",
+            "Generic methods"
+          ]
+        },
+        {
+          "title": "Execution Mechanics",
+          "items": [
+            "Stack frames",
+            "Local variables",
+            "Parameter passing",
+            "Return mechanism"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Arrays",
+      "subtitle": "Data Structures & Memory Layout",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Array Concepts & Types",
+          "items": [
+            "Single-dimensional arrays",
+            "Multi-dimensional arrays",
+            "Jagged arrays",
+            "Array covariance",
+            "Array copying",
+            "Array initialization",
+            "Memory layout"
+          ]
+        },
+        {
+          "title": "Arrays Utility Class",
+          "items": [
+            "Searching",
+            "Sorting",
+            "Binary search",
+            "Comparison"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Object-Oriented Programming",
+      "subtitle": "Core OOP Principles & Design Concepts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Class & Object Structure",
+          "items": [
+            "Classes",
+            "Objects",
+            "Fields",
+            "Methods",
+            "Constructors",
+            "this",
+            "super",
+            "static",
+            "final",
+            "Access modifiers",
+            "Packages"
+          ]
+        },
+        {
+          "title": "OOP Pillars & Relationships",
+          "items": [
+            "Encapsulation",
+            "Inheritance",
+            "Composition",
+            "Aggregation",
+            "Association",
+            "Polymorphism",
+            "Abstraction"
+          ]
+        },
+        {
+          "title": "Object Mechanics",
+          "items": [
+            "Object lifecycle",
+            "Object identity",
+            "Object equality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Object Class",
+      "subtitle": "The Root Class & Inherited Primitives",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Inherited Methods",
+          "items": [
+            "equals()",
+            "hashCode()",
+            "toString()",
+            "clone()",
+            "finalize() (legacy)",
+            "getClass()",
+            "wait()",
+            "notify()",
+            "notifyAll()"
+          ]
+        },
+        {
+          "title": "Core Concepts",
+          "items": [
+            "Identity vs Equality",
+            "Hashing",
+            "Synchronization primitives"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Interfaces",
+      "subtitle": "Abstractions & Contract-Based Design",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interface Features",
+          "items": [
+            "Interface declarations",
+            "Default methods",
+            "Static methods",
+            "Functional interfaces",
+            "Marker interfaces",
+            "Multiple inheritance of interfaces",
+            "SAM (Single Abstract Method)"
+          ]
+        },
+        {
+          "title": "Design Applications",
+          "items": [
+            "Listener patterns",
+            "Callbacks",
+            "Strategy pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Abstract Classes",
+      "subtitle": "Partial Abstraction & Frameworks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Concepts",
+          "items": [
+            "Abstract methods",
+            "Abstract classes",
+            "Template Method pattern",
+            "Partial implementations",
+            "Framework design"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Inner Classes",
+      "subtitle": "Nested Types & Compiler Artifacts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Inner Class Varieties",
+          "items": [
+            "Member inner classes",
+            "Static nested classes",
+            "Anonymous classes",
+            "Local classes"
+          ]
+        },
+        {
+          "title": "Compiler & Reverse Engineering",
+          "items": [
+            "Compiler-generated classes",
+            "Synthetic access methods",
+            "Recognize anonymous classes in decompiled Android apps"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Enumerations",
+      "subtitle": "Type-Safe Constants",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Enum Structure & Usage",
+          "items": [
+            "Enum declaration",
+            "Enum constructors",
+            "Enum methods",
+            "Enum constants",
+            "Switch on enums"
+          ]
+        },
+        {
+          "title": "Under the Hood",
+          "items": [
+            "Special compiler behavior",
+            "Generated methods"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Packages & Modules",
+      "subtitle": "Encapsulation & JPMS Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Package Fundamentals",
+          "items": [
+            "Packages",
+            "Imports",
+            "Static imports"
+          ]
+        },
+        {
+          "title": "Module System (JPMS)",
+          "items": [
+            "Module system overview",
+            "Exports directive",
+            "Requires directive",
+            "Opens directive",
+            "Reflection implications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Exceptions",
+      "subtitle": "Error Handling & Call Propagation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Exception Hierarchy",
+          "items": [
+            "Throwable",
+            "Error",
+            "Exception",
+            "RuntimeException",
+            "Checked exceptions",
+            "Unchecked exceptions",
+            "Custom exceptions"
+          ]
+        },
+        {
+          "title": "Control Constructs",
+          "items": [
+            "try",
+            "catch",
+            "finally",
+            "throw",
+            "throws",
+            "Multi-catch",
+            "Suppressed exceptions",
+            "Try-with-resources"
+          ]
+        },
+        {
+          "title": "Under the Hood",
+          "items": [
+            "Stack traces",
+            "Exception propagation",
+            "Exception tables",
+            "Compiler output"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Strings",
+      "subtitle": "Text Processing & Internal Performance",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "String Management",
+          "items": [
+            "String",
+            "StringBuilder",
+            "StringBuffer",
+            "String Pool",
+            "Interning",
+            "Immutability"
+          ]
+        },
+        {
+          "title": "Text Processing & Encoding",
+          "items": [
+            "Formatting",
+            "Regex",
+            "Pattern",
+            "Matcher",
+            "Unicode",
+            "UTF-16",
+            "Character encoding",
+            "Performance considerations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Generics",
+      "subtitle": "Type Safety & Erasure Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Generic Usage",
+          "items": [
+            "Generic classes",
+            "Generic methods",
+            "Type parameters",
+            "Wildcards",
+            "Upper bounds",
+            "Lower bounds",
+            "Multiple bounds",
+            "Raw types"
+          ]
+        },
+        {
+          "title": "Type Erasure & Low-Level Mechanics",
+          "items": [
+            "Type erasure",
+            "Bridge methods",
+            "Generic arrays",
+            "Reflection limitations",
+            "Understand why generic information disappears in compiled code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Collections Framework",
+      "subtitle": "Data Structures & Internal Implementation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "List Implementations",
+          "items": [
+            "ArrayList",
+            "LinkedList",
+            "Vector",
+            "Stack"
+          ]
+        },
+        {
+          "title": "Queue & Deque Implementations",
+          "items": [
+            "Queue",
+            "Deque",
+            "PriorityQueue"
+          ]
+        },
+        {
+          "title": "Set Implementations",
+          "items": [
+            "HashSet",
+            "LinkedHashSet",
+            "TreeSet"
+          ]
+        },
+        {
+          "title": "Map Implementations",
+          "items": [
+            "HashMap",
+            "LinkedHashMap",
+            "TreeMap",
+            "WeakHashMap",
+            "IdentityHashMap",
+            "Hashtable",
+            "EnumMap",
+            "ConcurrentHashMap"
+          ]
+        },
+        {
+          "title": "Deep Analysis for Each Collection",
+          "items": [
+            "Internal storage",
+            "Memory layout",
+            "Resizing",
+            "Iteration",
+            "Collision handling",
+            "Performance",
+            "Thread safety",
+            "Usage patterns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Iterators",
+      "subtitle": "Traversal Protocols & Safety",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Iterator Types & Behavior",
+          "items": [
+            "Iterator",
+            "ListIterator",
+            "Spliterator",
+            "Fail-fast behavior",
+            "Concurrent modification",
+            "Enhanced for loop implementation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Lambdas",
+      "subtitle": "Functional Syntax & Dynamic Bytecode",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Constructs",
+          "items": [
+            "Lambda syntax",
+            "Functional interfaces",
+            "Captured variables",
+            "Method references",
+            "Anonymous class replacement",
+            "Compiler-generated bytecode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Stream API",
+      "subtitle": "Declarative Processing & Pipelines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Stream Operations",
+          "items": [
+            "Stream creation",
+            "Intermediate operations",
+            "Terminal operations",
+            "filter",
+            "map",
+            "flatMap",
+            "reduce",
+            "collect",
+            "sorted",
+            "distinct",
+            "peek"
+          ]
+        },
+        {
+          "title": "Advanced Processing",
+          "items": [
+            "Parallel streams",
+            "Collectors",
+            "Performance tuning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Date & Time API",
+      "subtitle": "java.time & Temporal Handling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Temporal Classes",
+          "items": [
+            "Instant",
+            "LocalDate",
+            "LocalTime",
+            "LocalDateTime",
+            "Duration",
+            "Period",
+            "ZoneId",
+            "ZonedDateTime",
+            "DateTimeFormatter",
+            "Legacy interoperability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — File I/O & NIO",
+      "subtitle": "Streams, Channels & Serialization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Classic File I/O",
+          "items": [
+            "File",
+            "InputStream",
+            "OutputStream",
+            "Reader",
+            "Writer",
+            "Buffered streams",
+            "Serialization",
+            "Deserialization"
+          ]
+        },
+        {
+          "title": "NIO (New I/O)",
+          "items": [
+            "Path",
+            "Files",
+            "Channels",
+            "ByteBuffer",
+            "MappedByteBuffer",
+            "WatchService"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Reflection",
+      "subtitle": "Runtime Metaprogramming & Introspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Reflection API",
+          "items": [
+            "Class",
+            "Method",
+            "Field",
+            "Constructor",
+            "Annotation",
+            "AccessibleObject",
+            "Invocation",
+            "Dynamic loading",
+            "Proxy classes"
+          ]
+        },
+        {
+          "title": "Performance & Reverse Engineering",
+          "items": [
+            "Reflection performance",
+            "Reflection restrictions",
+            "Framework & obfuscation usage in reverse engineering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Annotations",
+      "subtitle": "Metadata & Compile-Time Processing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Annotation Usage & Creation",
+          "items": [
+            "Built-in annotations",
+            "Custom annotations",
+            "@Target",
+            "@Retention",
+            "@Inherited",
+            "@Documented",
+            "@Repeatable"
+          ]
+        },
+        {
+          "title": "Processing Pipelines",
+          "items": [
+            "Annotation processing",
+            "Compile-time processing",
+            "Runtime annotations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Concurrency",
+      "subtitle": "Multithreading, Locks & Asynchronous Models",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Threads & Executors",
+          "items": [
+            "Thread",
+            "Runnable",
+            "Callable",
+            "Future",
+            "Executor",
+            "ExecutorService",
+            "ForkJoinPool",
+            "CompletableFuture"
+          ]
+        },
+        {
+          "title": "Synchronization & Atomics",
+          "items": [
+            "Synchronization",
+            "volatile",
+            "Locks",
+            "ReadWriteLock",
+            "Atomic classes",
+            "ThreadLocal"
+          ]
+        },
+        {
+          "title": "Concurrency Challenges",
+          "items": [
+            "Deadlocks",
+            "Race conditions",
+            "Memory visibility",
+            "Happens-before relationship"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Java Memory Model (JMM)",
+      "subtitle": "Memory Structures & Visibility Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Areas & Layouts",
+          "items": [
+            "Heap",
+            "Stack",
+            "Method Area",
+            "Metaspace",
+            "String Pool",
+            "Object layout"
+          ]
+        },
+        {
+          "title": "Optimization & Execution Rules",
+          "items": [
+            "References",
+            "Escape analysis",
+            "Garbage collection roots",
+            "Memory barriers",
+            "Synchronization",
+            "Visibility",
+            "Reordering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Garbage Collection",
+      "subtitle": "Memory Reclamation Algorithms & References",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "GC Algorithms & Generations",
+          "items": [
+            "Reference counting (historical)",
+            "Mark and Sweep",
+            "Mark and Compact",
+            "Copying collectors",
+            "Generational GC",
+            "Young generation",
+            "Old generation",
+            "Minor GC",
+            "Major GC",
+            "Full GC",
+            "Stop-the-world pauses"
+          ]
+        },
+        {
+          "title": "Reference Types & Queues",
+          "items": [
+            "Weak references",
+            "Soft references",
+            "Phantom references",
+            "Reference queues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Class Loading",
+      "subtitle": "Runtime Class Subsystem Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ClassLoader Hierarchy",
+          "items": [
+            "Bootstrap ClassLoader",
+            "Platform ClassLoader",
+            "Application ClassLoader",
+            "Custom ClassLoaders"
+          ]
+        },
+        {
+          "title": "Class Lifecycle",
+          "items": [
+            "Class loading",
+            "Class verification",
+            "Preparation",
+            "Resolution",
+            "Initialization",
+            "Static initialization",
+            "Class unloading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — JVM Internals",
+      "subtitle": "Execution Engine & Runtime Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Runtime Subsystems",
+          "items": [
+            "Bytecode execution",
+            "Stack frames",
+            "Operand stack",
+            "Local variables",
+            "Constant pool",
+            "Method invocation",
+            "Virtual dispatch",
+            "Dynamic dispatch"
+          ]
+        },
+        {
+          "title": "Compilation & Architecture Comparison",
+          "items": [
+            "JIT compilation",
+            "Interpreter",
+            "HotSpot architecture (for Java SE)",
+            "Comparing JVM concepts to Android's ART"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Bytecode",
+      "subtitle": "Class Structure & Assembly Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": ".class File Anatomy",
+          "items": [
+            ".class format",
+            "Constant pool",
+            "Method tables",
+            "Field tables",
+            "Attributes"
+          ]
+        },
+        {
+          "title": "Instruction Analysis",
+          "items": [
+            "Instruction set overview",
+            "Bytecode verification",
+            "Disassembly with javap",
+            "Mapping Java source to bytecode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Compiler Behavior",
+      "subtitle": "AST Transformations & Lowering",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Transformation Rules",
+          "items": [
+            "if/else transformations",
+            "switch lowering",
+            "loop constructs",
+            "try/catch generation",
+            "synchronized lowering",
+            "lambdas compilation",
+            "inner classes synthesis",
+            "enums generation",
+            "generics erasure",
+            "records synthesis",
+            "pattern matching lowering"
+          ]
+        },
+        {
+          "title": "Analysis",
+          "items": [
+            "Recognizing compiler-generated constructs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Design Patterns",
+      "subtitle": "Classic Creational, Structural & Behavioral Patterns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Creational Patterns",
+          "items": [
+            "Singleton",
+            "Factory",
+            "Builder",
+            "Prototype"
+          ]
+        },
+        {
+          "title": "Structural Patterns",
+          "items": [
+            "Adapter",
+            "Bridge",
+            "Composite",
+            "Decorator",
+            "Facade",
+            "Flyweight",
+            "Proxy"
+          ]
+        },
+        {
+          "title": "Behavioral Patterns",
+          "items": [
+            "Observer",
+            "Strategy",
+            "State",
+            "Command",
+            "Mediator",
+            "Visitor",
+            "Chain of Responsibility",
+            "Iterator",
+            "Template Method"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reverse Engineering Perspective",
+      "subtitle": "Decompilation, DEX/Smali & Pattern Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Translation Pipeline",
+          "items": [
+            "Java Source → Java Bytecode → DEX → Smali → Decompiler Output → Recovered Logic"
+          ]
+        },
+        {
+          "title": "Decompiler & Binary Artifacts",
+          "items": [
+            "Synthetic methods",
+            "Bridge methods",
+            "Anonymous classes",
+            "Lambdas",
+            "Generic erasure",
+            "Enum implementation",
+            "Switch lowering",
+            "Compiler optimizations",
+            "Inlined constants"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Java Source Code Reading",
+      "subtitle": "Production Codebases & Reference Architectures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core JDK & Platform Sources",
+          "items": [
+            "OpenJDK collections",
+            "OpenJDK concurrency utilities",
+            "Android framework Java source"
+          ]
+        },
+        {
+          "title": "Industry Libraries & Frameworks",
+          "items": [
+            "AndroidX libraries",
+            "Google libraries",
+            "Apache Commons",
+            "OkHttp",
+            "Retrofit",
+            "Gson",
+            "Moshi"
+          ]
+        }
+      ]
+    }
+  ]
+}
