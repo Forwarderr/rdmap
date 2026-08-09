@@ -1,0 +1,953 @@
+Android Application Reverse Engineering Methodologies
+
+Part 1 — Java-Based Android Applications (Beginner → Expert)
+
+> Goal: Learn the complete methodology for understanding a traditional Java-based Android application. This roadmap focuses on reconstructing architecture, execution flow, framework interaction, and runtime behavior from the APK. It assumes you already have the foundational knowledge from the general reverse engineering methodology and now want a Java-specific workflow.
+
+
+
+> Core Principle:
+Java APKs are object-oriented systems built around the Android Framework. Recover the architecture first, then the implementation.
+
+
+
+
+---
+
+Stage 1 — Technology Identification
+
+Before reading any code, confirm the application is primarily Java.
+
+Study
+
+Package structure
+
+DEX structure
+
+Java compiler artifacts
+
+Absence or minimal use of Kotlin metadata
+
+Java language constructs
+
+XML layouts
+
+AndroidX usage
+
+Jetpack libraries
+
+Native library presence
+
+Third-party frameworks
+
+Generated code
+
+Produce a technology profile.
+
+
+---
+
+Stage 2 — APK Intelligence Gathering
+
+Collect
+
+Application information
+
+Package name
+
+Version
+
+Target SDK
+
+Minimum SDK
+
+Permissions
+
+Components
+
+Intent filters
+
+Processes
+
+Native libraries
+
+Resources
+
+Assets
+
+Certificates
+
+Framework dependencies
+
+Create an application profile before opening classes.
+
+
+---
+
+Stage 3 — Architecture Fingerprinting
+
+Determine
+
+Application architecture
+
+Layered architecture
+
+MVC
+
+MVP
+
+MVVM
+
+Repository pattern
+
+Dependency Injection
+
+Modular structure
+
+Package organization
+
+Generated infrastructure
+
+Subsystem boundaries
+
+
+---
+
+Stage 4 — Package Analysis
+
+Categorize packages into
+
+Application
+
+↓
+
+Presentation
+
+↓
+
+Business Logic
+
+↓
+
+Persistence
+
+↓
+
+Networking
+
+↓
+
+Utilities
+
+↓
+
+Configuration
+
+↓
+
+Framework Integration
+
+↓
+
+Third-party Libraries
+
+↓
+
+Generated Code
+
+Prioritize application packages.
+
+
+---
+
+Stage 5 — AndroidManifest Analysis
+
+Recover
+
+Application class
+
+Launcher Activity
+
+Activities
+
+Fragments (via usage)
+
+Services
+
+BroadcastReceivers
+
+ContentProviders
+
+Intent filters
+
+Permissions
+
+Deep links
+
+Processes
+
+Metadata
+
+Backup configuration
+
+Network Security Config
+
+Manifest often reveals the application's external architecture.
+
+
+---
+
+Stage 6 — Resource Reconstruction
+
+Study
+
+Layouts
+
+Menus
+
+Styles
+
+Themes
+
+Animations
+
+Navigation graphs
+
+Drawables
+
+Fonts
+
+Strings
+
+Raw resources
+
+Assets
+
+Localization
+
+Correlate every important resource with Java code.
+
+
+---
+
+Stage 7 — UI Architecture Recovery
+
+Identify
+
+Activities
+
+Fragments
+
+Custom Views
+
+Dialogs
+
+Adapters
+
+RecyclerViews
+
+ViewPagers
+
+Navigation
+
+UI controllers
+
+Recover the screen hierarchy.
+
+
+---
+
+Stage 8 — Lifecycle Reconstruction
+
+Map
+
+Application
+
+↓
+
+Activity
+
+↓
+
+Fragment
+
+↓
+
+View
+
+↓
+
+Lifecycle callbacks
+
+↓
+
+Business logic
+
+Understand framework ownership.
+
+
+---
+
+Stage 9 — Event Flow Recovery
+
+Trace
+
+Touch events
+
+Button clicks
+
+Menus
+
+Dialogs
+
+Permissions
+
+Activity results
+
+Navigation
+
+Broadcasts
+
+Notifications
+
+Each user interaction begins an execution path.
+
+
+---
+
+Stage 10 — Object-Oriented Reconstruction
+
+Recover
+
+Classes
+
+Interfaces
+
+Inheritance
+
+Composition
+
+Aggregation
+
+Factories
+
+Managers
+
+Repositories
+
+Controllers
+
+Services
+
+Utilities
+
+Design patterns
+
+Focus on responsibilities.
+
+
+---
+
+Stage 11 — Java Language Pattern Recognition
+
+Recognize
+
+Constructors
+
+Static initialization
+
+Anonymous classes
+
+Inner classes
+
+Enums
+
+Interfaces
+
+Abstract classes
+
+Inheritance
+
+Method overloading
+
+Method overriding
+
+Generics
+
+Collections
+
+Exception handling
+
+Understand how Java constructs appear after compilation.
+
+
+---
+
+Stage 12 — Call Graph Reconstruction
+
+Build
+
+Application startup graph
+
+Feature graphs
+
+Subsystem graphs
+
+Caller relationships
+
+Callee relationships
+
+Framework callbacks
+
+Callback chains
+
+Prioritize architectural hubs.
+
+
+---
+
+Stage 13 — Control Flow Reconstruction
+
+Study
+
+Conditions
+
+Loops
+
+Switches
+
+Exception handling
+
+Early returns
+
+Recursive calls
+
+State machines
+
+Compiler-generated branches
+
+Recover high-level algorithms.
+
+
+---
+
+Stage 14 — Data Flow Reconstruction
+
+Trace
+
+User input
+
+↓
+
+Validation
+
+↓
+
+Transformation
+
+↓
+
+Repository
+
+↓
+
+Database
+
+↓
+
+UI
+
+Track
+
+Objects
+
+Collections
+
+Bundles
+
+Intents
+
+Parcelable data
+
+Persistent state
+
+
+---
+
+Stage 15 — Java Memory Model
+
+Analyze
+
+Object allocation
+
+References
+
+Aliasing
+
+Mutability
+
+Static objects
+
+Singletons
+
+Object lifetime
+
+Garbage collection implications
+
+State ownership
+
+
+---
+
+Stage 16 — Collection Analysis
+
+Study
+
+ArrayList
+
+LinkedList
+
+HashMap
+
+HashSet
+
+TreeMap
+
+Queue
+
+Stack
+
+Concurrent collections
+
+Track
+
+Ownership
+
+Mutation
+
+Iteration
+
+Propagation
+
+Collections often represent application state.
+
+
+---
+
+Stage 17 — Thread Reconstruction
+
+Identify
+
+Main thread
+
+Background threads
+
+Executors
+
+Thread pools
+
+Handler
+
+Looper
+
+Runnable
+
+Synchronization
+
+Concurrency boundaries
+
+Correlate thread transitions with execution.
+
+
+---
+
+Stage 18 — Exception Flow
+
+Recover
+
+Validation failures
+
+Business exceptions
+
+Framework exceptions
+
+Recovery logic
+
+Fallback behavior
+
+Logging
+
+Understand exceptional execution separately from the happy path.
+
+
+---
+
+Stage 19 — Framework API Usage
+
+Classify API usage.
+
+Examples
+
+UI
+
+Storage
+
+Networking
+
+Location
+
+Camera
+
+Media
+
+Bluetooth
+
+Sensors
+
+Notifications
+
+Binder
+
+System services
+
+Understand why each API is used.
+
+
+---
+
+Stage 20 — Binder Interaction
+
+Trace
+
+Framework API
+
+↓
+
+Manager
+
+↓
+
+Binder
+
+↓
+
+System Service
+
+↓
+
+Response
+
+Separate Java logic from framework execution.
+
+
+---
+
+Stage 21 — Intent Reconstruction
+
+Track
+
+Intent creation
+
+Extras
+
+Flags
+
+Resolution
+
+Delivery
+
+Consumption
+
+Results
+
+Recover component communication.
+
+
+---
+
+Stage 22 — Persistence Reconstruction
+
+Identify
+
+SQLite
+
+Room
+
+SharedPreferences
+
+DataStore
+
+Files
+
+Cache
+
+Assets
+
+Serialization
+
+Migration
+
+Recover data ownership.
+
+
+---
+
+Stage 23 — Network Reconstruction
+
+Recover
+
+HTTP clients
+
+API interfaces
+
+Serialization
+
+Models
+
+Authentication
+
+Caching
+
+Retries
+
+Response processing
+
+Map networking to business features.
+
+
+---
+
+Stage 24 — Dependency Analysis
+
+Recover
+
+Third-party libraries
+
+AndroidX
+
+Jetpack
+
+Utility libraries
+
+Generated infrastructure
+
+Framework boundaries
+
+Understand external dependencies before analyzing them.
+
+
+---
+
+Stage 25 — Generated Code Recognition
+
+Separate
+
+ViewBinding
+
+DataBinding
+
+Room
+
+Navigation
+
+Parcelable
+
+Compiler-generated bridges
+
+Synthetic accessors
+
+Focus investigation on handwritten logic.
+
+
+---
+
+Stage 26 — Native Boundary Detection
+
+Locate
+
+native methods
+
+System.loadLibrary()
+
+JNI wrappers
+
+Native callbacks
+
+Cross-language transitions
+
+Even Java applications may rely on native libraries.
+
+
+---
+
+Stage 27 — Runtime Correlation
+
+Validate static understanding against runtime behavior.
+
+Observe
+
+Startup
+
+Navigation
+
+State changes
+
+Database access
+
+Network activity
+
+Lifecycle
+
+Thread changes
+
+Binder interactions
+
+Update architecture accordingly.
+
+
+---
+
+Stage 28 — Feature Reconstruction
+
+Recover complete workflows.
+
+Example
+
+User Login
+
+↓
+
+Activity
+
+↓
+
+Validation
+
+↓
+
+Repository
+
+↓
+
+API
+
+↓
+
+Response
+
+↓
+
+Persistence
+
+↓
+
+Navigation
+
+Repeat for every major feature.
+
+
+---
+
+Stage 29 — Architecture Validation
+
+Verify
+
+Package organization
+
+Call graphs
+
+Control flow
+
+Data flow
+
+Lifecycle
+
+Runtime
+
+Framework interactions
+
+AOSP behavior
+
+Only finalize conclusions after validation.
+
+
+---
+
+Stage 30 — Documentation
+
+Produce
+
+Architecture diagram
+
+Feature inventory
+
+Package map
+
+Dependency graph
+
+Call graphs
+
+Data-flow diagrams
+
+Sequence diagrams
+
+Lifecycle diagrams
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 31 — Common Java APK Investigation Mistakes
+
+Avoid
+
+Reading classes alphabetically.
+
+Ignoring the Android framework lifecycle.
+
+Treating package names as architecture.
+
+Spending excessive time on generated code.
+
+Following utility classes before understanding features.
+
+Ignoring object ownership and state.
+
+Assuming decompiled Java perfectly matches original source.
+
+
+
+---
+
+Stage 32 — Java APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify and profile a Java-based Android application.
+
+✅ Recover its architecture, package structure, and major subsystems.
+
+✅ Reconstruct lifecycle-driven execution and framework interactions.
+
+✅ Build call graphs, control-flow graphs, and data-flow models for Java code.
+
+✅ Trace objects, state, collections, Intents, and persistence through the application.
+
+✅ Distinguish handwritten business logic from generated and framework code.
+
+✅ Correlate static analysis with runtime observations.
+
+✅ Produce comprehensive, evidence-based documentation explaining the application's architecture and behavior.
+
+
+
+---
+
+Next Part
+
+Part 2 — Kotlin-Based Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section focuses on Kotlin-specific reverse engineering: compiler-generated artifacts, metadata, coroutines, Flow, suspend functions, default arguments, sealed classes, inline/value classes, extension functions, delegated properties, Compose interactions, and how Kotlin language features are represented in DEX, Smali, and decompiled code.

@@ -1,0 +1,960 @@
+Android Application Reverse Engineering Methodologies
+
+Part 13 — Android Game Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android games regardless of the underlying engine. While engine-specific methodologies (Unity, Unreal, native engines, etc.) explain individual technologies, this section focuses on the architecture common to most games: gameplay systems, world simulation, rendering, input, persistence, networking, and performance. By the end of this section, you should be able to reconstruct a game's complete design and execution model.
+
+
+
+> Core Principle:
+Games are real-time simulation systems. Recover the simulation first, then the supporting systems.
+
+
+
+
+---
+
+Stage 1 — Game Technology Fingerprinting
+
+Determine the game's technology stack.
+
+Identify
+
+Unity
+
+Unreal Engine
+
+Native Engine
+
+Custom Engine
+
+Godot
+
+Cocos2d-x
+
+LibGDX
+
+Defold
+
+Solar2D
+
+Flutter Games
+
+Java Games
+
+Hybrid Games
+
+WebView Games
+
+Determine
+
+Engine
+
+Rendering backend
+
+Physics engine
+
+Audio engine
+
+Networking model
+
+Plugin architecture
+
+
+---
+
+Stage 2 — Game Architecture
+
+Understand the complete architecture.
+
+Android
+
+↓
+
+Game Engine
+
+↓
+
+Core Systems
+
+↓
+
+Gameplay Systems
+
+↓
+
+Rendering
+
+↓
+
+Audio
+
+↓
+
+Networking
+
+↓
+
+Persistence
+
+↓
+
+GPU
+
+Separate engine code from game-specific systems.
+
+
+---
+
+Stage 3 — Startup Sequence
+
+Recover
+
+Application
+
+↓
+
+Engine initialization
+
+↓
+
+Asset loading
+
+↓
+
+Configuration
+
+↓
+
+Game initialization
+
+↓
+
+Save loading
+
+↓
+
+First scene
+
+↓
+
+Main menu
+
+↓
+
+Gameplay
+
+Understand the entire startup pipeline.
+
+
+---
+
+Stage 4 — Scene / World Architecture
+
+Recover
+
+Scenes
+
+Levels
+
+Maps
+
+Zones
+
+Worlds
+
+Instances
+
+Persistent worlds
+
+Streaming worlds
+
+Transitions
+
+Each game organizes the world differently.
+
+
+---
+
+Stage 5 — Entity Architecture
+
+Recover
+
+Players
+
+NPCs
+
+Enemies
+
+Bosses
+
+Projectiles
+
+Items
+
+Objects
+
+Interactive elements
+
+Environment
+
+Vehicles
+
+Pets
+
+Followers
+
+Understand ownership and hierarchy.
+
+
+---
+
+Stage 6 — Component Systems
+
+Study
+
+Transform
+
+Movement
+
+Health
+
+Inventory
+
+Animation
+
+AI
+
+Combat
+
+Audio
+
+Rendering
+
+Networking
+
+Physics
+
+Many games use component-based architecture.
+
+
+---
+
+Stage 7 — Gameplay Loop
+
+Recover
+
+Initialization
+
+↓
+
+Input
+
+↓
+
+Simulation
+
+↓
+
+AI
+
+↓
+
+Physics
+
+↓
+
+Animation
+
+↓
+
+Rendering
+
+↓
+
+Audio
+
+↓
+
+Frame Complete
+
+↓
+
+Repeat
+
+This loop is the heart of every game.
+
+
+---
+
+Stage 8 — Input Architecture
+
+Recover
+
+Touch
+
+Multi-touch
+
+Joystick
+
+Virtual controls
+
+Gestures
+
+Keyboard
+
+Mouse
+
+Controller
+
+Sensor input
+
+Map every input to gameplay.
+
+
+---
+
+Stage 9 — Camera System
+
+Study
+
+Camera modes
+
+Follow camera
+
+Free camera
+
+Orbit
+
+Zoom
+
+Cutscenes
+
+Transitions
+
+Effects
+
+Camera behavior often explains gameplay.
+
+
+---
+
+Stage 10 — Player System
+
+Recover
+
+Movement
+
+Health
+
+Inventory
+
+Equipment
+
+Skills
+
+Statistics
+
+Progression
+
+Experience
+
+Save data
+
+Player architecture is central.
+
+
+---
+
+Stage 11 — Enemy AI
+
+Recover
+
+AI architecture
+
+Behavior trees
+
+State machines
+
+Navigation
+
+Target selection
+
+Combat
+
+Patrol
+
+Detection
+
+Recovery
+
+Death
+
+Map AI behavior at a system level.
+
+
+---
+
+Stage 12 — Combat System
+
+Recover
+
+Damage
+
+Weapons
+
+Armor
+
+Skills
+
+Abilities
+
+Buffs
+
+Debuffs
+
+Critical hits
+
+Cooldowns
+
+Combat events
+
+Understand combat mechanics.
+
+
+---
+
+Stage 13 — Physics System
+
+Study
+
+Collision
+
+Movement
+
+Rigid bodies
+
+Triggers
+
+Raycasting
+
+Vehicles
+
+Projectiles
+
+Destruction
+
+Simulation
+
+Physics drives many interactions.
+
+
+---
+
+Stage 14 — Animation System
+
+Recover
+
+Idle
+
+Walk
+
+Run
+
+Attack
+
+Jump
+
+Death
+
+Skill animations
+
+UI animations
+
+Cutscenes
+
+Animation blending
+
+
+---
+
+Stage 15 — Rendering Pipeline
+
+Study
+
+Scene
+
+↓
+
+Visibility
+
+↓
+
+Lighting
+
+↓
+
+Materials
+
+↓
+
+Particles
+
+↓
+
+Post-processing
+
+↓
+
+UI
+
+↓
+
+GPU
+
+Understand how each frame is produced.
+
+
+---
+
+Stage 16 — UI Architecture
+
+Recover
+
+HUD
+
+Inventory
+
+Menus
+
+Settings
+
+Pause
+
+Store
+
+Achievements
+
+Leaderboard
+
+Dialogs
+
+Tutorials
+
+Separate gameplay UI from engine UI.
+
+
+---
+
+Stage 17 — Audio System
+
+Recover
+
+Background music
+
+Sound effects
+
+Voice
+
+Ambient audio
+
+Spatial audio
+
+Audio events
+
+Mixers
+
+Audio triggers
+
+Map sound to gameplay.
+
+
+---
+
+Stage 18 — Resource Management
+
+Recover
+
+Textures
+
+Models
+
+Materials
+
+Animations
+
+Audio
+
+Fonts
+
+Localization
+
+Configuration
+
+Streaming assets
+
+Asset bundles
+
+Determine how resources are loaded and managed.
+
+
+---
+
+Stage 19 — Inventory System
+
+Recover
+
+Items
+
+Categories
+
+Equipment
+
+Stacking
+
+Capacity
+
+Sorting
+
+Crafting
+
+Storage
+
+Ownership
+
+Inventory often drives progression.
+
+
+---
+
+Stage 20 — Economy System
+
+Recover
+
+Coins
+
+Premium currency
+
+Rewards
+
+Shop
+
+Purchases
+
+Loot
+
+Crafting
+
+Trading
+
+Progression
+
+Understand economic relationships.
+
+
+---
+
+Stage 21 — Save System
+
+Recover
+
+Profiles
+
+Progress
+
+Configuration
+
+Achievements
+
+Inventory
+
+Statistics
+
+Cloud synchronization
+
+Local persistence
+
+Track persistent game state.
+
+
+---
+
+Stage 22 — Multiplayer Architecture
+
+Recover
+
+Lobby
+
+Authentication
+
+Matchmaking
+
+Rooms
+
+Replication
+
+Synchronization
+
+Authority
+
+Chat
+
+Friends
+
+Guilds
+
+Map multiplayer systems conceptually.
+
+
+---
+
+Stage 23 — Online Services
+
+Recover
+
+Achievements
+
+Leaderboards
+
+Cloud saves
+
+Analytics
+
+Ads
+
+Authentication
+
+Push notifications
+
+Events
+
+Seasonal content
+
+Document external integrations.
+
+
+---
+
+Stage 24 — Live Operations
+
+Study
+
+Events
+
+Battle passes
+
+Daily rewards
+
+Limited-time content
+
+Challenges
+
+Rotations
+
+Content updates
+
+Configuration
+
+Many modern games separate live content from application updates.
+
+
+---
+
+Stage 25 — Plugin Analysis
+
+Inventory
+
+Ads
+
+Analytics
+
+Cloud
+
+Payments
+
+Social SDKs
+
+Voice
+
+Streaming
+
+Authentication
+
+Platform services
+
+Separate plugins from game systems.
+
+
+---
+
+Stage 26 — Native Integration
+
+Recover
+
+Engine
+
+↓
+
+JNI
+
+↓
+
+Android
+
+↓
+
+System services
+
+↓
+
+Hardware
+
+Understand where the game depends on Android.
+
+
+---
+
+Stage 27 — Runtime Observation
+
+Validate
+
+Startup
+
+Gameplay
+
+Scene transitions
+
+Combat
+
+Inventory
+
+Saving
+
+Networking
+
+Rendering
+
+Performance
+
+Update architectural understanding.
+
+
+---
+
+Stage 28 — Complete Gameplay Reconstruction
+
+Produce feature models.
+
+Example
+
+Player Login
+
+↓
+
+Profile
+
+↓
+
+World Load
+
+↓
+
+Gameplay
+
+↓
+
+Combat
+
+↓
+
+Rewards
+
+↓
+
+Save
+
+↓
+
+Cloud Sync
+
+Repeat for every major gameplay loop.
+
+
+---
+
+Stage 29 — Architecture Documentation
+
+Produce
+
+Game architecture
+
+Scene graph
+
+Gameplay subsystem map
+
+Entity hierarchy
+
+Inventory model
+
+Economy model
+
+Networking model
+
+Save architecture
+
+Plugin inventory
+
+Execution timeline
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 30 — Common Game Investigation Mistakes
+
+Avoid
+
+Treating a game like a conventional business application.
+
+Focusing on engine internals before understanding gameplay systems.
+
+Following rendering code before reconstructing gameplay architecture.
+
+Ignoring state ownership and progression systems.
+
+Mixing engine features with game-specific mechanics.
+
+Analyzing isolated scenes instead of complete gameplay loops.
+
+
+
+---
+
+Stage 31 — Game Application Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify the engine and technology stack used by an Android game.
+
+✅ Reconstruct game architecture, gameplay loops, and world organization.
+
+✅ Recover entity systems, AI, combat, physics, rendering, UI, audio, inventory, economy, persistence, and multiplayer architecture.
+
+✅ Distinguish engine infrastructure from game-specific systems.
+
+✅ Correlate runtime observations with static architecture to understand gameplay behavior.
+
+✅ Produce comprehensive documentation describing the complete design and execution model of an Android game, independent of the underlying engine.
+
+
+
+---
+
+Next Part
+
+Part 14 — Android Enterprise, Banking & Large-Scale Business Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on complex business applications with modular architectures, offline synchronization, dependency injection, repositories, background work, enterprise networking, local persistence, feature modules, and large-scale application organization.

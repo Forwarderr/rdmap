@@ -1,0 +1,883 @@
+Android Application Reverse Engineering Methodologies
+
+Part 9 — Hybrid Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to reverse engineer Android applications built from multiple technologies. Modern Android applications often combine Java, Kotlin, C/C++, Flutter, React Native, Unity, WebView, and third-party SDKs into one APK. Your objective is to reconstruct one coherent architecture spanning multiple runtimes rather than analyzing each technology in isolation.
+
+
+
+> Core Principle:
+Treat a hybrid APK as a distributed software system living inside one process (or several). Recover the boundaries first, then reconstruct how the runtimes cooperate.
+
+
+
+
+---
+
+Stage 1 — Hybrid Technology Fingerprinting
+
+Identify every technology present.
+
+Possible combinations
+
+Java
+
+Kotlin
+
+Native C/C++
+
+Flutter
+
+React Native
+
+Unity
+
+Unreal Engine
+
+WebView
+
+Xamarin/.NET
+
+Compose
+
+XML Views
+
+Third-party SDKs
+
+Do not stop after identifying the first framework.
+
+
+---
+
+Stage 2 — Runtime Inventory
+
+Inventory every runtime.
+
+Examples
+
+Android Runtime (ART)
+
+↓
+
+Flutter Engine
+
+↓
+
+Dart Runtime
+
+↓
+
+JNI
+
+↓
+
+Native Runtime
+
+↓
+
+JavaScript Runtime
+
+↓
+
+.NET Runtime
+
+↓
+
+Unity Runtime
+
+↓
+
+Unreal Runtime
+
+Map all active execution environments.
+
+
+---
+
+Stage 3 — Architecture Classification
+
+Classify the application.
+
+Examples
+
+Java host + Flutter
+
+Flutter + Native
+
+Java + Native
+
+Kotlin + Native
+
+Unity + Android
+
+React Native + Native
+
+WebView + Native
+
+Compose + Native
+
+Enterprise hybrid
+
+Document the dominant runtime.
+
+
+---
+
+Stage 4 — Execution Ownership
+
+Ask
+
+Who owns startup?
+
+Who owns UI?
+
+Who owns state?
+
+Who owns networking?
+
+Who owns persistence?
+
+Who owns rendering?
+
+Who owns business logic?
+
+Ownership often changes across technologies.
+
+
+---
+
+Stage 5 — Startup Reconstruction
+
+Trace
+
+Android Process
+
+↓
+
+Application
+
+↓
+
+Framework Initialization
+
+↓
+
+Secondary Runtime Initialization
+
+↓
+
+Plugin Registration
+
+↓
+
+Application Startup
+
+↓
+
+First Screen
+
+Multiple runtimes frequently initialize sequentially.
+
+
+---
+
+Stage 6 — Runtime Boundary Detection
+
+Locate transitions.
+
+Examples
+
+ART ↔ JNI
+
+ART ↔ Flutter
+
+Flutter ↔ Native
+
+React ↔ Native
+
+Unity ↔ Android
+
+WebView ↔ Java
+
+.NET ↔ Android
+
+Each boundary requires separate reasoning.
+
+
+---
+
+Stage 7 — Cross-Runtime Call Graphs
+
+Build graphs crossing technologies.
+
+Example
+
+Java
+
+↓
+
+JNI
+
+↓
+
+Native
+
+↓
+
+Flutter
+
+↓
+
+Platform Channel
+
+↓
+
+Java
+
+↓
+
+Android Framework
+
+Do not isolate graphs by language.
+
+
+---
+
+Stage 8 — Cross-Runtime Data Flow
+
+Track
+
+Objects
+
+Messages
+
+JSON
+
+Parcelable
+
+Bundles
+
+Platform messages
+
+JNI objects
+
+Native buffers
+
+Serialized models
+
+Data changes representation across boundaries.
+
+
+---
+
+Stage 9 — State Ownership
+
+Determine
+
+Application state
+
+↓
+
+Framework state
+
+↓
+
+Flutter state
+
+↓
+
+React state
+
+↓
+
+Native state
+
+↓
+
+Persistent state
+
+State ownership frequently shifts between runtimes.
+
+
+---
+
+Stage 10 — UI Ownership
+
+Recover
+
+Android Views
+
+Compose
+
+Flutter Widgets
+
+React Components
+
+Unity UI
+
+WebView DOM
+
+Determine which runtime renders each screen.
+
+
+---
+
+Stage 11 — Navigation Reconstruction
+
+Map navigation across runtimes.
+
+Examples
+
+Android Activity
+
+↓
+
+Flutter Screen
+
+↓
+
+Native Screen
+
+↓
+
+React Screen
+
+↓
+
+Unity Scene
+
+Navigation may cross technology boundaries.
+
+
+---
+
+Stage 12 — Communication Mechanisms
+
+Identify
+
+JNI
+
+Binder
+
+Platform Channels
+
+Method Channels
+
+Native Modules
+
+JSI
+
+AIDL
+
+Intents
+
+Bundles
+
+Callbacks
+
+Events
+
+Broadcasts
+
+Messages
+
+Communication defines integration.
+
+
+---
+
+Stage 13 — Plugin Analysis
+
+Recover plugins for
+
+Flutter
+
+React Native
+
+Unity
+
+Unreal
+
+Android
+
+Native SDKs
+
+Cloud
+
+Analytics
+
+Payments
+
+Ads
+
+Authentication
+
+Different plugin systems may coexist.
+
+
+---
+
+Stage 14 — Native Integration
+
+Trace
+
+Flutter
+
+↓
+
+JNI
+
+↓
+
+Native
+
+↓
+
+Java
+
+↓
+
+Binder
+
+↓
+
+Framework
+
+↓
+
+System Service
+
+Map every language transition.
+
+
+---
+
+Stage 15 — Shared Resource Reconstruction
+
+Recover shared
+
+Assets
+
+Fonts
+
+Localization
+
+Images
+
+Configuration
+
+Media
+
+Databases
+
+Files
+
+Caches
+
+Determine which runtime owns each resource.
+
+
+---
+
+Stage 16 — Shared Persistence
+
+Track
+
+SQLite
+
+Preferences
+
+Files
+
+DataStore
+
+Hive
+
+Shared caches
+
+Cloud synchronization
+
+Multiple runtimes may access the same storage.
+
+
+---
+
+Stage 17 — Shared Networking
+
+Recover
+
+HTTP clients
+
+API services
+
+Authentication
+
+Caching
+
+Synchronization
+
+Retry logic
+
+Background work
+
+Determine which runtime performs networking.
+
+
+---
+
+Stage 18 — Thread Ownership
+
+Map
+
+Main thread
+
+Flutter isolate
+
+JavaScript thread
+
+Native workers
+
+Render thread
+
+Audio thread
+
+Background executors
+
+Execution may hop between runtimes.
+
+
+---
+
+Stage 19 — Memory Ownership
+
+Study
+
+Java heap
+
+Native heap
+
+Flutter heap
+
+JavaScript heap
+
+Managed heap (.NET)
+
+Graphics memory
+
+Shared memory
+
+Understand where objects actually live.
+
+
+---
+
+Stage 20 — Rendering Ownership
+
+Determine
+
+Android View rendering
+
+↓
+
+Compose rendering
+
+↓
+
+Flutter rendering
+
+↓
+
+Unity rendering
+
+↓
+
+WebView rendering
+
+↓
+
+GPU
+
+Multiple rendering systems may coexist.
+
+
+---
+
+Stage 21 — Lifecycle Correlation
+
+Map
+
+Android lifecycle
+
+↓
+
+Flutter lifecycle
+
+↓
+
+React lifecycle
+
+↓
+
+Unity lifecycle
+
+↓
+
+Native lifecycle
+
+↓
+
+Plugin lifecycle
+
+Understand how lifecycles interact.
+
+
+---
+
+Stage 22 — Runtime Synchronization
+
+Study
+
+Initialization order
+
+Shutdown order
+
+State synchronization
+
+Shared caches
+
+Cross-runtime events
+
+Configuration changes
+
+Background execution
+
+Synchronization becomes an architectural concern.
+
+
+---
+
+Stage 23 — Failure Analysis
+
+Recover
+
+Initialization failures
+
+Plugin failures
+
+JNI failures
+
+Network failures
+
+Rendering failures
+
+Recovery paths
+
+Fallback mechanisms
+
+Observe how one runtime affects another.
+
+
+---
+
+Stage 24 — Runtime Validation
+
+Validate
+
+Startup
+
+Navigation
+
+Communication
+
+State propagation
+
+Rendering
+
+Persistence
+
+Networking
+
+Lifecycle
+
+Cross-runtime transitions
+
+Confirm your architecture through observation.
+
+
+---
+
+Stage 25 — Unified Architecture Recovery
+
+Produce one architecture.
+
+Example
+
+Android
+
+↓
+
+Flutter
+
+↓
+
+Platform Channels
+
+↓
+
+Native
+
+↓
+
+Networking
+
+↓
+
+Persistence
+
+↓
+
+Cloud
+
+Avoid creating isolated diagrams for each technology.
+
+
+---
+
+Stage 26 — Runtime Dependency Graph
+
+Map
+
+Runtime dependencies
+
+Framework dependencies
+
+Plugin dependencies
+
+Native dependencies
+
+Library dependencies
+
+Execution dependencies
+
+Understand which runtime depends on another.
+
+
+---
+
+Stage 27 — Feature Reconstruction
+
+Recover complete features.
+
+Example
+
+Login
+
+↓
+
+Flutter UI
+
+↓
+
+Platform Channel
+
+↓
+
+Native SDK
+
+↓
+
+Android Framework
+
+↓
+
+Server
+
+↓
+
+Database
+
+↓
+
+Flutter UI
+
+A feature may traverse several technologies.
+
+
+---
+
+Stage 28 — Documentation
+
+Produce
+
+Technology inventory
+
+Runtime graph
+
+Boundary diagram
+
+Communication map
+
+Navigation graph
+
+State ownership diagram
+
+Memory ownership diagram
+
+Architecture diagrams
+
+Execution timeline
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 29 — Common Hybrid Investigation Mistakes
+
+Avoid
+
+Treating each runtime as an independent application.
+
+Ignoring ownership transitions between technologies.
+
+Following only one language's call graph.
+
+Confusing framework initialization with application logic.
+
+Overlooking shared state and persistence.
+
+Ignoring thread and memory boundaries across runtimes.
+
+Producing separate architectures instead of one integrated model.
+
+
+
+---
+
+Stage 30 — Hybrid APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify and classify hybrid Android applications containing multiple runtimes.
+
+✅ Reconstruct startup, execution, navigation, state, and communication across technology boundaries.
+
+✅ Build unified call graphs, data-flow graphs, and architectural models spanning Java/Kotlin, native code, Flutter, React Native, Unity, WebView, and other frameworks.
+
+✅ Track ownership of UI, state, memory, threads, persistence, networking, and plugins across runtimes.
+
+✅ Validate reconstructed architecture through runtime observation and cross-runtime correlation.
+
+✅ Produce a single, coherent architectural model that explains the entire application rather than isolated technology-specific views.
+
+
+
+---
+
+Next Part
+
+Part 10 — WebView & Progressive Web App (PWA) Android Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on Android applications built around embedded web technologies. It will cover WebView architecture, HTML/CSS/JavaScript execution, JavaScript bridges, service workers (for PWAs), web assets, browser storage, communication with native Android code, rendering, offline behavior, and reconstructing the complete architecture of WebView- and PWA-based Android applications.

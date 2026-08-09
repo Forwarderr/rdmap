@@ -1,0 +1,881 @@
+Android Application Reverse Engineering Methodologies
+
+Part 8 — Native Android (NDK-Heavy) Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android applications whose primary logic resides in native code written in C or C++. These applications rely heavily on the Android NDK and execute much of their behavior inside ELF shared libraries rather than DEX. By the end of this section, you should be able to reconstruct native architecture, JNI integration, memory layout, threading, library interactions, and the relationship between native code and the Android framework.
+
+
+
+> Core Principle:
+In native-heavy applications, the APK is only the entry point. The real application often lives inside one or more native libraries.
+
+
+
+
+---
+
+Stage 1 — Native Technology Fingerprinting
+
+Determine how much of the application is native.
+
+Study
+
+JNI usage
+
+Native methods
+
+System.loadLibrary()
+
+ELF shared libraries
+
+ABI support
+
+C runtime
+
+C++ runtime
+
+Game engines
+
+Custom native frameworks
+
+Native plugins
+
+
+Classify the application.
+
+Examples
+
+Java-first
+
+JNI-assisted
+
+Native-heavy
+
+Native-only entry
+
+Hybrid architecture
+
+
+---
+
+Stage 2 — Native Architecture
+
+Understand the complete execution model.
+
+Android Framework
+
+↓
+
+Java/Kotlin Bootstrap
+
+↓
+
+JNI
+
+↓
+
+Native Libraries
+
+↓
+
+Native Framework
+
+↓
+
+Application Logic
+
+↓
+
+Operating System
+
+↓
+
+Hardware
+
+Determine where business logic begins.
+
+
+---
+
+Stage 3 — Native Build Pipeline
+
+Study conceptually
+
+C / C++
+
+↓
+
+Compiler
+
+↓
+
+Object Files
+
+↓
+
+Linker
+
+↓
+
+ELF Shared Library
+
+↓
+
+APK
+
+↓
+
+Dynamic Loader
+
+↓
+
+Memory
+
+↓
+
+Execution
+
+Understand every transformation.
+
+
+---
+
+Stage 4 — APK Native Inventory
+
+Catalog
+
+Native libraries
+
+ABIs
+
+Assets
+
+Resources
+
+Java wrappers
+
+Configuration
+
+Native plugins
+
+Third-party SDKs
+
+Generated bindings
+
+Produce a complete inventory before analysis.
+
+
+---
+
+Stage 5 — ELF Fundamentals
+
+Study
+
+ELF header
+
+Program headers
+
+Section headers
+
+Segments
+
+Sections
+
+Entry points
+
+Symbol tables
+
+Dynamic symbols
+
+Relocations
+
+String tables
+
+Version information
+
+ELF becomes your primary executable format.
+
+
+---
+
+Stage 6 — Library Dependency Graph
+
+Recover
+
+Application library
+
+↓
+
+Shared libraries
+
+↓
+
+System libraries
+
+↓
+
+C runtime
+
+↓
+
+C++ runtime
+
+↓
+
+Android native libraries
+
+Map every dependency.
+
+
+---
+
+Stage 7 — Dynamic Loading
+
+Study
+
+Library loading
+
+Dependency resolution
+
+Initialization
+
+Constructors
+
+Destructors
+
+Loader responsibilities
+
+Runtime linking
+
+Understand how native code enters memory.
+
+
+---
+
+Stage 8 — JNI Reconstruction
+
+Recover
+
+Native registration
+
+Static registration
+
+Dynamic registration
+
+JNI wrappers
+
+Method mapping
+
+Field access
+
+Object creation
+
+Exception propagation
+
+JNI boundaries define language transitions.
+
+
+---
+
+Stage 9 — Java ↔ Native Flow
+
+Trace
+
+Java/Kotlin
+
+↓
+
+JNI
+
+↓
+
+Native logic
+
+↓
+
+JNI
+
+↓
+
+Java/Kotlin
+
+Recover complete cross-language execution.
+
+
+---
+
+Stage 10 — Native Startup
+
+Recover
+
+Library loading
+
+↓
+
+Constructors
+
+↓
+
+Global initialization
+
+↓
+
+Runtime setup
+
+↓
+
+Framework initialization
+
+↓
+
+Application initialization
+
+Native initialization frequently performs critical setup.
+
+
+---
+
+Stage 11 — Native Object Model
+
+Recover
+
+Structures
+
+Classes
+
+Inheritance
+
+Composition
+
+Virtual methods
+
+Templates
+
+Namespaces
+
+Ownership
+
+Memory layout
+
+Understand object organization.
+
+
+---
+
+Stage 12 — Memory Layout Reconstruction
+
+Study
+
+Code
+
+Read-only data
+
+Writable data
+
+BSS
+
+Heap
+
+Stack
+
+Thread-local storage
+
+Memory mappings
+
+Global objects
+
+Visualize the process memory.
+
+
+---
+
+Stage 13 — Native Object Lifetime
+
+Track
+
+Allocation
+
+Initialization
+
+Ownership
+
+Sharing
+
+Mutation
+
+Destruction
+
+Reuse
+
+Lifetime analysis is central to C++ understanding.
+
+
+---
+
+Stage 14 — Function Reconstruction
+
+Recover
+
+Constructors
+
+Destructors
+
+Virtual methods
+
+Inline functions
+
+Templates
+
+Namespaces
+
+Operator overloads
+
+Static functions
+
+Generated compiler helpers
+
+Focus on semantics.
+
+
+---
+
+Stage 15 — Class Reconstruction
+
+Recover
+
+Class hierarchy
+
+Inheritance
+
+Virtual tables (conceptually)
+
+Interfaces
+
+Composition
+
+Aggregations
+
+Factories
+
+Managers
+
+Subsystems
+
+Rebuild the original object-oriented architecture.
+
+
+---
+
+Stage 16 — Native Call Graphs
+
+Build
+
+Initialization graph
+
+Subsystem graph
+
+Gameplay graph (if applicable)
+
+Networking graph
+
+Persistence graph
+
+Rendering graph
+
+Thread graph
+
+Call graphs become significantly larger in native projects.
+
+
+---
+
+Stage 17 — Native Control Flow
+
+Recover
+
+Conditions
+
+Loops
+
+Switches
+
+Exception paths
+
+Recursion
+
+State machines
+
+Compiler optimizations
+
+Recover high-level algorithms.
+
+
+---
+
+Stage 18 — Native Data Flow
+
+Track
+
+Pointers
+
+References
+
+Objects
+
+Structures
+
+Buffers
+
+Arrays
+
+Containers
+
+Ownership
+
+Mutation
+
+Memory movement
+
+Pointers replace managed references.
+
+
+---
+
+Stage 19 — Memory Management
+
+Study
+
+Stack allocation
+
+Heap allocation
+
+Object ownership
+
+Lifetime
+
+Allocation strategies
+
+Smart pointers (conceptually)
+
+Memory pools
+
+Resource cleanup
+
+Understand how memory is managed.
+
+
+---
+
+Stage 20 — Thread Reconstruction
+
+Recover
+
+Main thread
+
+Worker threads
+
+Rendering thread
+
+Audio thread
+
+Networking thread
+
+Physics thread
+
+Synchronization
+
+Execution context
+
+Native applications are often highly concurrent.
+
+
+---
+
+Stage 21 — Synchronization
+
+Study
+
+Mutexes
+
+Condition variables
+
+Atomics
+
+Read/write locks
+
+Thread coordination
+
+Deadlock concepts
+
+Race-condition concepts
+
+Recover synchronization architecture.
+
+
+---
+
+Stage 22 — Exception & Error Handling
+
+Recover
+
+Native exceptions (where used)
+
+Error codes
+
+Assertions
+
+Logging
+
+Recovery
+
+Fallback paths
+
+Cleanup
+
+Document both normal and exceptional execution.
+
+
+---
+
+Stage 23 — Native Containers
+
+Recognize
+
+Vectors
+
+Lists
+
+Maps
+
+Sets
+
+Queues
+
+Strings
+
+Custom containers
+
+Allocator usage
+
+Understand ownership of container contents.
+
+
+---
+
+Stage 24 — File & Persistence Reconstruction
+
+Recover
+
+Configuration
+
+Assets
+
+Binary formats
+
+Databases
+
+Caches
+
+Logs
+
+Save files
+
+Persistent state
+
+Determine data ownership.
+
+
+---
+
+Stage 25 — Networking Reconstruction
+
+Recover
+
+Socket abstraction
+
+HTTP client
+
+Serialization
+
+Protocol handling
+
+Authentication
+
+Retries
+
+Synchronization
+
+Background communication
+
+Map networking architecture.
+
+
+---
+
+Stage 26 — Android Framework Integration
+
+Trace
+
+Native
+
+↓
+
+JNI
+
+↓
+
+Java
+
+↓
+
+Android Framework
+
+↓
+
+System Services
+
+↓
+
+Binder
+
+↓
+
+Kernel
+
+Understand every boundary crossing.
+
+
+---
+
+Stage 27 — Runtime Correlation
+
+Validate
+
+Library loading
+
+Initialization
+
+Object creation
+
+Memory growth
+
+Thread creation
+
+Framework interaction
+
+Persistence
+
+Networking
+
+Update architectural models based on runtime observations.
+
+
+---
+
+Stage 28 — Native Architecture Recovery
+
+Recover
+
+Core engine
+
+Subsystems
+
+Managers
+
+Services
+
+Memory ownership
+
+Thread ownership
+
+Rendering
+
+Persistence
+
+Networking
+
+Android integration
+
+Produce a complete native architecture model.
+
+
+---
+
+Stage 29 — Documentation
+
+Produce
+
+Library dependency graph
+
+Native architecture diagram
+
+Class hierarchy
+
+Memory map
+
+Thread model
+
+JNI interaction map
+
+Subsystem diagrams
+
+Execution timeline
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 30 — Common Native Investigation Mistakes
+
+Avoid
+
+Treating native code as an extension of Java instead of a separate application.
+
+Ignoring library initialization order.
+
+Confusing compiler-generated code with handwritten logic.
+
+Following individual functions without reconstructing subsystems.
+
+Ignoring ownership and memory lifetime.
+
+Focusing only on JNI while neglecting native architecture.
+
+Assuming one native library contains all business logic.
+
+
+
+---
+
+Stage 31 — Native APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify and profile native-heavy Android applications.
+
+✅ Reconstruct ELF library organization, dependencies, and initialization.
+
+✅ Recover JNI boundaries, native object models, and subsystem architecture.
+
+✅ Analyze memory layout, ownership, threading, synchronization, and persistence at an architectural level.
+
+✅ Trace interactions between native code, Java/Kotlin, and the Android framework.
+
+✅ Distinguish compiler/runtime infrastructure from handwritten native logic.
+
+✅ Validate reconstructed architecture through runtime observation.
+
+✅ Produce comprehensive documentation describing the native application's architecture, execution model, and Android integration.
+
+
+
+---
+
+Next Part
+
+Part 9 — Hybrid Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will cover applications that combine multiple technologies—such as Java + Kotlin + Native, Flutter + Native, React Native + Native, Unity + Android, or WebView hybrids—and will focus on identifying technology boundaries, cross-runtime communication, ownership, execution transitions, and reconstructing a unified architecture across heterogeneous runtimes.

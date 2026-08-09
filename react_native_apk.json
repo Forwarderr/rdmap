@@ -1,0 +1,782 @@
+Android Application Reverse Engineering Methodologies
+
+Part 4 — React Native Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand React Native applications. Unlike traditional Android applications, React Native executes most application logic in JavaScript (or TypeScript compiled to JavaScript) while delegating platform-specific operations to native Android components. By the end of this section, you should be able to reconstruct the JavaScript architecture, native integration, rendering pipeline, communication mechanisms, and runtime behavior of a React Native application.
+
+
+
+> Core Principle:
+React Native applications consist of two cooperating systems: the JavaScript application and the native Android host. Reverse engineer both, then reconstruct how they communicate.
+
+
+
+
+---
+
+Stage 1 — React Native Technology Fingerprinting
+
+Determine whether the APK uses React Native.
+
+Study
+
+React Native initialization
+
+JavaScript bundle indicators
+
+Hermes runtime
+
+JavaScriptCore (JSC)
+
+Metro bundle artifacts
+
+Native Modules
+
+TurboModules
+
+Fabric
+
+ReactHost
+
+ReactActivity
+
+ReactApplication
+
+
+Build a technology profile.
+
+
+---
+
+Stage 2 — React Native Architecture
+
+Understand the overall architecture.
+
+Android Host
+
+↓
+
+React Native Runtime
+
+↓
+
+JavaScript Engine
+
+↓
+
+React Framework
+
+↓
+
+Component Tree
+
+↓
+
+Native UI
+
+↓
+
+Android Framework
+
+Understand the responsibility of every layer.
+
+
+---
+
+Stage 3 — Build & Compilation Pipeline
+
+Study conceptually
+
+JavaScript / TypeScript
+
+↓
+
+Metro Bundler
+
+↓
+
+JavaScript Bundle
+
+↓
+
+Hermes Bytecode (optional)
+
+↓
+
+JavaScript Engine
+
+↓
+
+React Runtime
+
+↓
+
+Native Modules
+
+↓
+
+Android Framework
+
+Different projects may use different JavaScript engines.
+
+
+---
+
+Stage 4 — APK Structure
+
+Study
+
+Android Manifest
+
+Native libraries
+
+JavaScript bundle
+
+Assets
+
+Fonts
+
+Images
+
+Configuration
+
+Generated files
+
+Plugin registration
+
+Understand how React Native assets are packaged.
+
+
+---
+
+Stage 5 — Android Bootstrap
+
+Recover
+
+Application
+
+ReactApplication
+
+ReactActivity
+
+ReactNativeHost
+
+ReactHost
+
+Engine initialization
+
+Bundle loading
+
+Package registration
+
+Native startup primarily prepares the JavaScript environment.
+
+
+---
+
+Stage 6 — JavaScript Runtime
+
+Study
+
+Hermes
+
+JavaScriptCore (historically)
+
+Execution context
+
+Memory management
+
+Garbage collection
+
+Runtime lifecycle
+
+Module loading
+
+Global environment
+
+
+---
+
+Stage 7 — Component Tree Reconstruction
+
+Recover
+
+Root component
+
+Screen hierarchy
+
+Functional components
+
+Class components
+
+Nested components
+
+Navigation containers
+
+UI composition
+
+Understand the application's UI architecture.
+
+
+---
+
+Stage 8 — Rendering Architecture
+
+Study
+
+React Components
+
+↓
+
+Virtual Tree
+
+↓
+
+Diffing
+
+↓
+
+Native UI
+
+↓
+
+Android Views
+
+Unlike Flutter, React Native ultimately renders native Android views.
+
+
+---
+
+Stage 9 — Component Lifecycle
+
+Study
+
+Initialization
+
+Mounting
+
+Updating
+
+Unmounting
+
+Cleanup
+
+Effects
+
+Lifecycle differs between functional and class components.
+
+
+---
+
+Stage 10 — Hooks Reconstruction
+
+Identify
+
+useState
+
+useEffect
+
+useMemo
+
+useCallback
+
+useRef
+
+useContext
+
+Custom hooks
+
+Recover state ownership and side effects.
+
+
+---
+
+Stage 11 — State Management
+
+Determine the approach.
+
+Examples
+
+Context API
+
+Redux
+
+MobX
+
+Recoil
+
+Zustand
+
+Jotai
+
+Custom stores
+
+Recover
+
+State ownership
+
+Mutation
+
+Propagation
+
+Persistence
+
+
+---
+
+Stage 12 — Navigation Reconstruction
+
+Study
+
+React Navigation
+
+Stack navigation
+
+Tabs
+
+Drawer
+
+Nested navigation
+
+Deep links
+
+Navigation state
+
+Arguments
+
+Recover complete navigation architecture.
+
+
+---
+
+Stage 13 — Event Flow
+
+Trace
+
+User interaction
+
+↓
+
+React callback
+
+↓
+
+State update
+
+↓
+
+Reconciliation
+
+↓
+
+Native UI update
+
+↓
+
+Rendering
+
+React applications are event-driven.
+
+
+---
+
+Stage 14 — React Reconciliation
+
+Study conceptually
+
+Virtual tree updates
+
+Diffing
+
+Component reuse
+
+Re-render triggers
+
+Update scheduling
+
+Optimization
+
+Understand why components update.
+
+
+---
+
+Stage 15 — JavaScript Module Graph
+
+Recover
+
+Imports
+
+Exports
+
+Shared modules
+
+Utilities
+
+Configuration
+
+Services
+
+Models
+
+Recover the logical application structure.
+
+
+---
+
+Stage 16 — Native Modules
+
+Study
+
+Registration
+
+Discovery
+
+Invocation
+
+Callbacks
+
+Promises
+
+Event emitters
+
+Native Modules bridge JavaScript and Android.
+
+
+---
+
+Stage 17 — Bridge Architecture
+
+Understand communication.
+
+Traditional Bridge
+
+↓
+
+Serialization
+
+↓
+
+Native execution
+
+↓
+
+Response
+
+Modern React Native may instead use JSI/TurboModules for more direct interaction.
+
+
+---
+
+Stage 18 — JavaScript Interface (JSI)
+
+Study conceptually
+
+Direct runtime interaction
+
+Host objects
+
+Host functions
+
+Reduced bridge overhead
+
+Native interoperability
+
+Understand why JSI differs from the traditional bridge.
+
+
+---
+
+Stage 19 — TurboModules
+
+Recover
+
+Module registration
+
+Lazy loading
+
+Native interfaces
+
+Execution model
+
+Dependency graph
+
+TurboModules modernize native integration.
+
+
+---
+
+Stage 20 — Fabric Renderer
+
+Study conceptually
+
+Component tree
+
+Shadow tree
+
+Layout
+
+Mounting
+
+Rendering
+
+Native synchronization
+
+Understand how modern React Native rendering differs from legacy implementations.
+
+
+---
+
+Stage 21 — Asynchronous Execution
+
+Study
+
+Promises
+
+Async/await
+
+Event loop
+
+Microtasks
+
+Timers
+
+Native callbacks
+
+Execution scheduling
+
+JavaScript execution is highly asynchronous.
+
+
+---
+
+Stage 22 — Networking Reconstruction
+
+Recover
+
+HTTP clients
+
+API services
+
+Authentication
+
+Caching
+
+Serialization
+
+Retry policies
+
+Response handling
+
+Background synchronization
+
+Map networking to application features.
+
+
+---
+
+Stage 23 — Persistence Reconstruction
+
+Identify
+
+AsyncStorage
+
+SQLite
+
+MMKV
+
+Files
+
+Secure storage
+
+Caching
+
+Offline synchronization
+
+Recover ownership of persistent state.
+
+
+---
+
+Stage 24 — Asset Reconstruction
+
+Study
+
+Images
+
+Fonts
+
+Localization
+
+Media
+
+Configuration
+
+Animations
+
+JSON
+
+SVG
+
+Offline assets
+
+Assets often expose hidden functionality.
+
+
+---
+
+Stage 25 — Native Android Integration
+
+Trace
+
+JavaScript
+
+↓
+
+Native Module / JSI
+
+↓
+
+Java/Kotlin
+
+↓
+
+Android Framework
+
+↓
+
+System Services
+
+↓
+
+Response
+
+Recover complete cross-language execution paths.
+
+
+---
+
+Stage 26 — Runtime Correlation
+
+Validate
+
+Startup
+
+Bundle loading
+
+Navigation
+
+State updates
+
+Component rendering
+
+Native calls
+
+Lifecycle
+
+Rendering
+
+Update architecture using runtime observations.
+
+
+---
+
+Stage 27 — Architecture Recovery
+
+Recover
+
+Presentation
+
+Business logic
+
+Services
+
+State layer
+
+Native integration
+
+Storage
+
+Networking
+
+Bridge boundaries
+
+Separate JavaScript architecture from Android infrastructure.
+
+
+---
+
+Stage 28 — Documentation
+
+Produce
+
+Component tree
+
+Navigation diagrams
+
+State diagrams
+
+Module dependency graphs
+
+Native module inventory
+
+Bridge communication maps
+
+Architecture diagrams
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 29 — Common React Native Investigation Mistakes
+
+Avoid
+
+Treating React Native as a traditional Android application.
+
+Assuming the Android Java/Kotlin code contains most business logic.
+
+Ignoring the JavaScript module graph.
+
+Confusing reconciliation with business behavior.
+
+Overlooking state management architecture.
+
+Ignoring Native Modules, JSI, and bridge communication.
+
+Assuming every component re-render indicates meaningful logic changes.
+
+
+
+---
+
+Stage 30 — React Native APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify and profile React Native applications and their JavaScript engine.
+
+✅ Reconstruct component hierarchies, navigation, state management, and rendering behavior.
+
+✅ Understand the JavaScript runtime, module graph, reconciliation process, and asynchronous execution model.
+
+✅ Trace communication between JavaScript and Android through Native Modules, JSI, TurboModules, and related interfaces.
+
+✅ Distinguish handwritten application logic from framework infrastructure and generated code.
+
+✅ Correlate static reconstruction with runtime behavior to validate execution and state changes.
+
+✅ Produce comprehensive architectural documentation explaining both the JavaScript application and its interaction with the Android platform.
+
+
+
+---
+
+Next Part
+
+Part 5 — Xamarin / .NET Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on the .NET runtime on Android, C# assemblies, Common Intermediate Language (CIL/IL), metadata, Mono runtime concepts, .NET object model, Android bindings, managed-to-native interaction, AOT/JIT deployment models, resource mapping, and reconstructing Xamarin application architecture from managed code and its Android host.

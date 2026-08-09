@@ -1,0 +1,748 @@
+Android Application Reverse Engineering Methodologies
+
+Part 5 — Xamarin / .NET Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android applications built with Xamarin.Android, Xamarin.Forms, and .NET MAUI. Unlike Java/Kotlin applications, most application logic is written in C#, compiled into Common Intermediate Language (CIL/IL), and executed by the Mono/.NET runtime. By the end of this section, you should be able to reconstruct managed code architecture, runtime behavior, native integration, and the interaction between the .NET runtime and Android.
+
+
+
+> Core Principle:
+Xamarin applications are Android hosts for a managed .NET application. Reverse engineer the managed world first, then understand how it integrates with Android.
+
+
+
+
+---
+
+Stage 1 — Xamarin Technology Fingerprinting
+
+Determine whether the APK uses Xamarin or .NET MAUI.
+
+Study
+
+Mono runtime
+
+.NET runtime indicators
+
+Managed assemblies
+
+CIL metadata
+
+Xamarin.Android
+
+Xamarin.Forms
+
+.NET MAUI
+
+Android bindings
+
+Managed runtime initialization
+
+Native bootstrap
+
+
+Create a technology profile.
+
+
+---
+
+Stage 2 — Xamarin Architecture
+
+Understand the architecture.
+
+Android Application
+
+↓
+
+Mono / .NET Runtime
+
+↓
+
+Managed Assemblies
+
+↓
+
+Application Logic
+
+↓
+
+Android Bindings
+
+↓
+
+Android Framework
+
+↓
+
+Linux Kernel
+
+Every layer serves a distinct purpose.
+
+
+---
+
+Stage 3 — Build Pipeline
+
+Study
+
+C#
+
+↓
+
+Roslyn Compiler
+
+↓
+
+CIL (IL)
+
+↓
+
+Assemblies
+
+↓
+
+Packaging
+
+↓
+
+Mono Runtime
+
+↓
+
+Android
+
+↓
+
+CPU
+
+Some deployments may include AOT compilation depending on configuration.
+
+
+---
+
+Stage 4 — APK Structure
+
+Study
+
+Android Manifest
+
+Managed assemblies
+
+Native libraries
+
+Resources
+
+Assets
+
+Configuration
+
+Runtime files
+
+Localization
+
+Application data
+
+Understand the role of each artifact.
+
+
+---
+
+Stage 5 — Runtime Bootstrap
+
+Recover
+
+Application
+
+Runtime initialization
+
+Assembly loading
+
+Managed environment
+
+Binding initialization
+
+Dependency registration
+
+Main Activity
+
+Managed execution begins after runtime initialization.
+
+
+---
+
+Stage 6 — Managed Assembly Analysis
+
+Study
+
+Assemblies
+
+Namespaces
+
+Types
+
+Methods
+
+Properties
+
+Fields
+
+Metadata
+
+References
+
+Dependencies
+
+Assemblies become the primary investigation target.
+
+
+---
+
+Stage 7 — Namespace Reconstruction
+
+Recover
+
+Application namespaces
+
+Framework namespaces
+
+Third-party namespaces
+
+Generated namespaces
+
+Binding namespaces
+
+Build a logical package map.
+
+
+---
+
+Stage 8 — C# Object Reconstruction
+
+Recover
+
+Classes
+
+Interfaces
+
+Structs
+
+Enums
+
+Records (modern C#)
+
+Inheritance
+
+Composition
+
+Delegates
+
+Events
+
+Object ownership
+
+
+---
+
+Stage 9 — Property Reconstruction
+
+Study
+
+Properties
+
+Auto-properties
+
+Backing fields
+
+Getters
+
+Setters
+
+Init-only properties
+
+Static properties
+
+Recover object state.
+
+
+---
+
+Stage 10 — Method Reconstruction
+
+Recognize
+
+Constructors
+
+Static constructors
+
+Extension methods
+
+Generic methods
+
+Async methods
+
+Iterator methods
+
+Property accessors
+
+Operator overloads
+
+Generated helpers
+
+
+---
+
+Stage 11 — Event System
+
+Study
+
+Events
+
+Delegates
+
+Subscribers
+
+Publishers
+
+Callbacks
+
+Event handlers
+
+The .NET event model differs from Java listeners.
+
+
+---
+
+Stage 12 — Async Reconstruction
+
+Recover
+
+Task
+
+async
+
+await
+
+Continuation
+
+Synchronization context
+
+Task scheduler
+
+Async state machines
+
+The compiler transforms async methods into state machines.
+
+
+---
+
+Stage 13 — Iterator Reconstruction
+
+Recognize
+
+yield return
+
+Enumerators
+
+Generated iterator classes
+
+Lazy evaluation
+
+Collection traversal
+
+
+---
+
+Stage 14 — Reflection
+
+Study
+
+Assembly loading
+
+Type discovery
+
+Method discovery
+
+Attribute inspection
+
+Invocation
+
+Metadata usage
+
+Reflection affects static analysis.
+
+
+---
+
+Stage 15 — Attributes
+
+Recover
+
+Framework attributes
+
+Serialization attributes
+
+Dependency injection attributes
+
+Routing attributes
+
+Custom attributes
+
+Attributes frequently influence runtime behavior.
+
+
+---
+
+Stage 16 — Dependency Injection
+
+Recover
+
+Services
+
+Registration
+
+Lifetime
+
+Singleton
+
+Scoped
+
+Transient
+
+Dependency graph
+
+Understand application composition.
+
+
+---
+
+Stage 17 — UI Reconstruction
+
+Depending on framework
+
+Study
+
+Native Android UI
+
+Xamarin.Forms pages
+
+.NET MAUI pages
+
+Layouts
+
+Navigation
+
+View hierarchy
+
+Bindings
+
+Separate UI infrastructure from business logic.
+
+
+---
+
+Stage 18 — Data Binding
+
+Recover
+
+View models
+
+Bindings
+
+Converters
+
+Commands
+
+Observable properties
+
+State propagation
+
+MVVM is common.
+
+
+---
+
+Stage 19 — Navigation Reconstruction
+
+Recover
+
+Page hierarchy
+
+Navigation stack
+
+Shell navigation
+
+Routes
+
+Modal navigation
+
+Arguments
+
+Deep links
+
+Understand navigation architecture.
+
+
+---
+
+Stage 20 — State Management
+
+Track
+
+Application state
+
+Session state
+
+View state
+
+Persistent state
+
+Observable state
+
+Dependency lifetime
+
+Recover ownership.
+
+
+---
+
+Stage 21 — Android Binding Layer
+
+Trace
+
+Managed code
+
+↓
+
+Bindings
+
+↓
+
+Java
+
+↓
+
+Android Framework
+
+↓
+
+System Services
+
+Bindings connect managed code with Android.
+
+
+---
+
+Stage 22 — JNI Interaction
+
+Study
+
+Managed object
+
+↓
+
+JNI bridge
+
+↓
+
+Java object
+
+↓
+
+Framework
+
+↓
+
+Response
+
+Understand managed ↔ native communication.
+
+
+---
+
+Stage 23 — Native Library Integration
+
+Identify
+
+Custom native libraries
+
+Platform libraries
+
+JNI wrappers
+
+Managed wrappers
+
+Cross-language execution
+
+
+---
+
+Stage 24 — Persistence Reconstruction
+
+Identify
+
+SQLite
+
+Preferences
+
+Files
+
+Secure storage
+
+Caching
+
+Serialization
+
+Offline storage
+
+Recover data ownership.
+
+
+---
+
+Stage 25 — Networking Reconstruction
+
+Recover
+
+HTTP clients
+
+API services
+
+Serialization
+
+Authentication
+
+Retry logic
+
+Synchronization
+
+Response handling
+
+Map networking to business workflows.
+
+
+---
+
+Stage 26 — Runtime Correlation
+
+Validate
+
+Startup
+
+Navigation
+
+State changes
+
+Async execution
+
+Data binding
+
+JNI interaction
+
+Lifecycle
+
+Rendering
+
+Update architecture based on runtime observations.
+
+
+---
+
+Stage 27 — Architecture Recovery
+
+Recover
+
+Presentation
+
+Business logic
+
+Services
+
+Repositories
+
+ViewModels
+
+Bindings
+
+Dependency injection
+
+Native integration
+
+Framework boundaries
+
+
+---
+
+Stage 28 — Documentation
+
+Produce
+
+Assembly inventory
+
+Namespace diagrams
+
+Dependency graphs
+
+Navigation diagrams
+
+Binding maps
+
+Architecture diagrams
+
+Async execution diagrams
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 29 — Common Xamarin Investigation Mistakes
+
+Avoid
+
+Treating managed assemblies like Java classes.
+
+Ignoring CIL metadata.
+
+Confusing compiler-generated async state machines with handwritten logic.
+
+Overlooking bindings between managed code and Android.
+
+Assuming Xamarin.Forms or MAUI pages map directly to Android Activities.
+
+Ignoring the .NET event model and property binding system.
+
+
+
+---
+
+Stage 30 — Xamarin / .NET APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify Xamarin.Android, Xamarin.Forms, and .NET MAUI applications.
+
+✅ Reconstruct managed assemblies, namespaces, classes, and dependency graphs.
+
+✅ Recover async workflows, iterator state machines, events, delegates, and property bindings.
+
+✅ Understand managed-to-native interaction through Android bindings and JNI.
+
+✅ Reconstruct navigation, MVVM architecture, persistence, networking, and state management.
+
+✅ Distinguish framework infrastructure from handwritten application logic.
+
+✅ Correlate runtime behavior with static reconstruction.
+
+✅ Produce complete architectural documentation explaining both the managed .NET application and its Android integration.
+
+
+
+---
+
+Next Part
+
+Part 6 — Unity Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will cover Unity engine architecture, scenes, GameObjects, Components, scripting backends (Mono and IL2CPP), asset organization, rendering pipeline, physics, animation, resource loading, engine lifecycle, native integration, and reconstructing Unity application architecture and gameplay systems from Android packages.

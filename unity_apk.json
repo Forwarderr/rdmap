@@ -1,0 +1,833 @@
+Android Application Reverse Engineering Methodologies
+
+Part 6 — Unity Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android applications built with the Unity engine. Unity applications differ significantly from conventional Android apps because the Android layer mainly boots the Unity runtime, while the majority of application logic executes inside the Unity engine. By the end of this section, you should be able to reconstruct scene architecture, object hierarchies, gameplay systems, rendering, physics, asset organization, scripting, and the interaction between Unity and Android.
+
+
+
+> Core Principle:
+Reverse engineer the Unity engine's execution model first, then recover the game's systems, architecture, and content built on top of it.
+
+
+
+
+---
+
+Stage 1 — Unity Technology Fingerprinting
+
+Determine whether the APK is Unity-based.
+
+Study
+
+Unity runtime indicators
+
+UnityPlayer
+
+UnityPlayerActivity
+
+UnityPlayerGameActivity
+
+Unity native libraries
+
+Engine version
+
+Asset structure
+
+Scripting backend
+
+Rendering backend
+
+Plugin architecture
+
+
+Create a technology profile.
+
+
+---
+
+Stage 2 — Unity Architecture
+
+Understand the complete architecture.
+
+Android Host
+
+↓
+
+Unity Runtime
+
+↓
+
+Scene Manager
+
+↓
+
+GameObjects
+
+↓
+
+Components
+
+↓
+
+Systems
+
+↓
+
+Rendering
+
+↓
+
+GPU
+
+Separate engine infrastructure from game logic.
+
+
+---
+
+Stage 3 — Build Pipeline
+
+Study conceptually
+
+C#
+
+↓
+
+Unity Compiler
+
+↓
+
+Mono / IL2CPP
+
+↓
+
+Managed or Native Code
+
+↓
+
+Unity Runtime
+
+↓
+
+Android
+
+↓
+
+CPU
+
+Understand how the selected scripting backend affects analysis.
+
+
+---
+
+Stage 4 — APK Structure
+
+Study
+
+Android Manifest
+
+Unity runtime
+
+Managed assemblies (Mono)
+
+Native binaries (IL2CPP)
+
+StreamingAssets
+
+Resources
+
+AssetBundles
+
+Plugins
+
+Configuration
+
+Localization
+
+Build an inventory before analyzing logic.
+
+
+---
+
+Stage 5 — Runtime Bootstrap
+
+Recover
+
+Application
+
+UnityPlayer
+
+Engine initialization
+
+Graphics initialization
+
+Scene loading
+
+Asset loading
+
+Game loop startup
+
+The Android layer primarily initializes Unity.
+
+
+---
+
+Stage 6 — Scene Reconstruction
+
+Recover
+
+Scenes
+
+Scene hierarchy
+
+Scene transitions
+
+Persistent scenes
+
+Additive scenes
+
+Loading flow
+
+Scene ownership
+
+Scenes are major architectural boundaries.
+
+
+---
+
+Stage 7 — GameObject Reconstruction
+
+Study
+
+Creation
+
+Hierarchy
+
+Activation
+
+Deactivation
+
+Destruction
+
+Persistence
+
+Parent-child relationships
+
+GameObjects organize gameplay.
+
+
+---
+
+Stage 8 — Component Reconstruction
+
+Recover
+
+Transform
+
+Camera
+
+Light
+
+Animator
+
+Collider
+
+RigidBody
+
+AudioSource
+
+Canvas
+
+Custom components
+
+Components define behavior.
+
+
+---
+
+Stage 9 — Script Architecture
+
+Recover
+
+Managers
+
+Controllers
+
+Systems
+
+Utilities
+
+Singletons
+
+Gameplay scripts
+
+Service locators
+
+Object ownership
+
+Focus on responsibilities rather than filenames.
+
+
+---
+
+Stage 10 — Mono Behaviour Lifecycle
+
+Study
+
+Awake
+
+OnEnable
+
+Start
+
+Update
+
+LateUpdate
+
+FixedUpdate
+
+OnDisable
+
+OnDestroy
+
+Correlate execution order.
+
+
+---
+
+Stage 11 — Execution Order
+
+Recover
+
+Initialization
+
+Frame updates
+
+Physics updates
+
+Animation updates
+
+Rendering
+
+Shutdown
+
+Unity executes in predictable phases.
+
+
+---
+
+Stage 12 — Input Reconstruction
+
+Study
+
+Touch
+
+Keyboard
+
+Mouse
+
+Gamepad
+
+Gestures
+
+Input System
+
+Legacy Input
+
+Map input to gameplay systems.
+
+
+---
+
+Stage 13 — Physics Reconstruction
+
+Recover
+
+Rigid bodies
+
+Collisions
+
+Triggers
+
+Raycasts
+
+Physics materials
+
+Simulation
+
+Gameplay interactions
+
+Physics often drives game behavior.
+
+
+---
+
+Stage 14 — Animation Reconstruction
+
+Study
+
+Animation Clips
+
+Animator
+
+Animation Controller
+
+Blend Trees
+
+State Machines
+
+Events
+
+Timeline
+
+Recover animation flow.
+
+
+---
+
+Stage 15 — UI Reconstruction
+
+Recover
+
+Canvas
+
+Panels
+
+Buttons
+
+Text
+
+Images
+
+Navigation
+
+HUD
+
+Menus
+
+Popups
+
+Separate gameplay UI from engine UI.
+
+
+---
+
+Stage 16 — Rendering Pipeline
+
+Study
+
+Camera
+
+↓
+
+Culling
+
+↓
+
+Lighting
+
+↓
+
+Materials
+
+↓
+
+Meshes
+
+↓
+
+Shaders
+
+↓
+
+Rendering Pipeline
+
+↓
+
+GPU
+
+Understand frame generation conceptually.
+
+
+---
+
+Stage 17 — Audio System
+
+Recover
+
+Audio listeners
+
+Audio sources
+
+Mixer
+
+Background music
+
+Sound effects
+
+Voice
+
+Audio events
+
+Map audio to gameplay.
+
+
+---
+
+Stage 18 — Asset Reconstruction
+
+Study
+
+Textures
+
+Sprites
+
+Meshes
+
+Materials
+
+Animations
+
+Prefabs
+
+Fonts
+
+Audio
+
+Video
+
+Localization
+
+Configuration
+
+Assets reveal application capabilities.
+
+
+---
+
+Stage 19 — Prefab Reconstruction
+
+Recover
+
+Prefab hierarchy
+
+Nested prefabs
+
+Instantiation
+
+Variants
+
+Reuse
+
+Composition
+
+Prefabs frequently define reusable gameplay objects.
+
+
+---
+
+Stage 20 — Resource Loading
+
+Study
+
+Resources
+
+StreamingAssets
+
+AssetBundles
+
+Addressables (conceptually)
+
+Lazy loading
+
+Caching
+
+Memory lifecycle
+
+Understand how content enters memory.
+
+
+---
+
+Stage 21 — Gameplay System Recovery
+
+Recover systems such as
+
+Player
+
+Inventory
+
+Combat
+
+Dialogue
+
+Quest
+
+Economy
+
+AI
+
+Save system
+
+Multiplayer
+
+Progression
+
+Treat each system independently.
+
+
+---
+
+Stage 22 — Save System Reconstruction
+
+Recover
+
+Save format
+
+Serialization
+
+Persistence
+
+Loading
+
+Migration
+
+Profiles
+
+Configuration
+
+Track ownership of persistent state.
+
+
+---
+
+Stage 23 — Networking Reconstruction
+
+Recover
+
+Matchmaking
+
+Authentication
+
+Synchronization
+
+State replication
+
+Lobby
+
+Cloud services
+
+Reconnect logic
+
+Relate networking to gameplay systems.
+
+
+---
+
+Stage 24 — Plugin Reconstruction
+
+Identify
+
+Analytics
+
+Ads
+
+Cloud
+
+Payments
+
+Social
+
+Authentication
+
+Platform SDKs
+
+Native plugins
+
+Understand external integrations.
+
+
+---
+
+Stage 25 — Android Integration
+
+Trace
+
+Unity
+
+↓
+
+JNI
+
+↓
+
+Java/Kotlin
+
+↓
+
+Android Framework
+
+↓
+
+System Services
+
+↓
+
+Response
+
+Recover Unity ↔ Android communication.
+
+
+---
+
+Stage 26 — Native Library Analysis
+
+Study
+
+Engine libraries
+
+Plugin libraries
+
+Rendering libraries
+
+Physics libraries
+
+Audio libraries
+
+Platform libraries
+
+Separate Unity infrastructure from application-specific native code.
+
+
+---
+
+Stage 27 — Runtime Correlation
+
+Validate
+
+Scene loading
+
+Gameplay initialization
+
+Frame execution
+
+Physics
+
+Animation
+
+Rendering
+
+Networking
+
+Persistence
+
+Compare runtime behavior with reconstructed architecture.
+
+
+---
+
+Stage 28 — Architecture Recovery
+
+Recover
+
+Engine layer
+
+Gameplay layer
+
+UI layer
+
+Persistence
+
+Networking
+
+Audio
+
+Rendering
+
+Plugin layer
+
+Android integration
+
+Produce a complete architectural model.
+
+
+---
+
+Stage 29 — Documentation
+
+Produce
+
+Scene graph
+
+GameObject hierarchy
+
+Component inventory
+
+Gameplay subsystem diagrams
+
+Asset inventory
+
+Plugin inventory
+
+Architecture diagrams
+
+Execution timeline
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 30 — Common Unity Investigation Mistakes
+
+Avoid
+
+Treating Unity like a standard Android application.
+
+Spending excessive time in the Android bootstrap instead of the Unity runtime.
+
+Confusing engine components with gameplay systems.
+
+Ignoring scene boundaries.
+
+Following individual GameObjects before understanding subsystems.
+
+Mixing engine lifecycle with gameplay lifecycle.
+
+Assuming every native library contains game logic.
+
+
+
+---
+
+Stage 31 — Unity APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify Unity applications and determine the scripting backend.
+
+✅ Reconstruct scene hierarchies, GameObjects, Components, and gameplay systems.
+
+✅ Understand Unity's execution order, rendering, animation, physics, and resource loading.
+
+✅ Recover persistence, networking, UI architecture, and plugin integration.
+
+✅ Trace communication between Unity, native Android code, and platform services.
+
+✅ Distinguish Unity engine infrastructure from handwritten game logic.
+
+✅ Validate reconstructed architecture using runtime behavior.
+
+✅ Produce comprehensive documentation describing the Unity application's architecture, execution model, and gameplay systems.
+
+
+
+---
+
+Next Part
+
+Part 7 — Unreal Engine Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will cover Unreal Engine architecture, UObject and Actor systems, Blueprints, reflection, gameplay framework, asset packages, rendering pipeline, physics, networking, module organization, engine lifecycle, Android integration, and reconstruction of Unreal-based Android applications from packaged builds.

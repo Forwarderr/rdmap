@@ -1,0 +1,779 @@
+Android Application Reverse Engineering Methodologies
+
+Part 15 — XML View-Based Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand traditional Android applications built using the View System and XML layouts. Before Jetpack Compose, nearly every Android app used this architecture, and many enterprise and legacy applications still do. By the end of this section, you should be able to reconstruct UI architecture, layout inflation, view hierarchies, event propagation, rendering, resource resolution, and the interaction between XML and Java/Kotlin code.
+
+
+
+> Core Principle:
+In XML-based applications, the UI exists in two worlds: XML describes the structure, while Java/Kotlin defines the behavior. Reverse engineer both together.
+
+
+
+
+---
+
+Stage 1 — XML Technology Fingerprinting
+
+Determine whether the application primarily uses XML Views.
+
+Study
+
+XML layouts
+
+Android Views
+
+Fragments
+
+Activities
+
+ViewBinding
+
+DataBinding
+
+RecyclerView
+
+ConstraintLayout
+
+Legacy layouts
+
+Material Components
+
+AndroidX
+
+
+Create a UI technology profile.
+
+
+---
+
+Stage 2 — XML Architecture
+
+Understand the UI architecture.
+
+Android Activity
+
+↓
+
+Layout Inflation
+
+↓
+
+XML Layout
+
+↓
+
+View Hierarchy
+
+↓
+
+User Interaction
+
+↓
+
+Java/Kotlin Logic
+
+↓
+
+Rendering
+
+Understand every stage.
+
+
+---
+
+Stage 3 — Resource Inventory
+
+Inventory
+
+Layouts
+
+Menus
+
+Navigation
+
+Strings
+
+Colors
+
+Dimensions
+
+Styles
+
+Themes
+
+Animations
+
+Interpolators
+
+Fonts
+
+Drawables
+
+Selectors
+
+Shapes
+
+Mipmaps
+
+Raw resources
+
+XML resources define much of the UI.
+
+
+---
+
+Stage 4 — Layout Reconstruction
+
+Recover
+
+Root layouts
+
+Nested layouts
+
+Containers
+
+Custom views
+
+Fragments
+
+Included layouts
+
+Merged layouts
+
+Reusable layouts
+
+Screen structure
+
+Every layout becomes part of the UI map.
+
+
+---
+
+Stage 5 — Layout Inflation
+
+Study
+
+setContentView()
+
+LayoutInflater
+
+inflate()
+
+View creation
+
+Attribute parsing
+
+Hierarchy construction
+
+Lifecycle
+
+Understand how XML becomes objects.
+
+
+---
+
+Stage 6 — View Hierarchy Recovery
+
+Recover
+
+Parent views
+
+Child views
+
+Containers
+
+Nested hierarchies
+
+Fragments
+
+Dialog hierarchies
+
+Popup hierarchies
+
+RecyclerView hierarchies
+
+Produce complete view trees.
+
+
+---
+
+Stage 7 — Activity Architecture
+
+Recover
+
+Launcher Activity
+
+Feature Activities
+
+Authentication
+
+Settings
+
+Splash
+
+Navigation
+
+Base Activities
+
+Lifecycle
+
+Activities own screens.
+
+
+---
+
+Stage 8 — Fragment Architecture
+
+Recover
+
+Fragment hierarchy
+
+Nested fragments
+
+Dialog fragments
+
+Navigation fragments
+
+Lifecycle
+
+Communication
+
+Back stack
+
+Many applications are Fragment-driven.
+
+
+---
+
+Stage 9 — Custom View Analysis
+
+Recover
+
+Custom controls
+
+Drawing logic
+
+Measurement
+
+Layout
+
+Touch handling
+
+Animation
+
+State
+
+Rendering
+
+Custom Views often contain unique UI behavior.
+
+
+---
+
+Stage 10 — RecyclerView Reconstruction
+
+Study
+
+RecyclerView
+
+Adapters
+
+ViewHolders
+
+Item models
+
+DiffUtil
+
+Decorations
+
+Scrolling
+
+Binding
+
+Recover list architecture.
+
+
+---
+
+Stage 11 — Adapter Architecture
+
+Recover
+
+RecyclerView adapters
+
+Pager adapters
+
+Spinner adapters
+
+List adapters
+
+Custom adapters
+
+Data binding
+
+View recycling
+
+Adapters connect data and UI.
+
+
+---
+
+Stage 12 — Event Flow
+
+Trace
+
+Touch
+
+↓
+
+Click listener
+
+↓
+
+Activity/Fragment
+
+↓
+
+ViewModel/Controller
+
+↓
+
+Repository
+
+↓
+
+Persistence
+
+↓
+
+UI Update
+
+Recover complete interaction chains.
+
+
+---
+
+Stage 13 — View Lifecycle
+
+Study
+
+Creation
+
+Attachment
+
+Measurement
+
+Layout
+
+Drawing
+
+Invalidation
+
+Detachment
+
+Destruction
+
+Understand view lifetime.
+
+
+---
+
+Stage 14 — Rendering Pipeline
+
+Study conceptually
+
+View
+
+↓
+
+Measure
+
+↓
+
+Layout
+
+↓
+
+Draw
+
+↓
+
+Canvas
+
+↓
+
+RenderThread
+
+↓
+
+GPU
+
+↓
+
+Display
+
+Every frame follows this sequence.
+
+
+---
+
+Stage 15 — Resource Resolution
+
+Recover
+
+Themes
+
+Styles
+
+Attributes
+
+Dimensions
+
+Colors
+
+Localization
+
+Night mode
+
+Configuration qualifiers
+
+Understand resource selection.
+
+
+---
+
+Stage 16 — Theme Architecture
+
+Study
+
+App theme
+
+Activity theme
+
+Widget theme
+
+Style inheritance
+
+Theme overlays
+
+Material themes
+
+Theme resolution
+
+Themes influence every View.
+
+
+---
+
+Stage 17 — Navigation Reconstruction
+
+Recover
+
+Activities
+
+Fragments
+
+Dialogs
+
+Navigation Component
+
+Back stack
+
+Deep links
+
+Arguments
+
+Navigation graph
+
+Map screen transitions.
+
+
+---
+
+Stage 18 — ViewBinding
+
+Recover
+
+Generated bindings
+
+Lifecycle
+
+Initialization
+
+View ownership
+
+Binding cleanup
+
+Generated infrastructure
+
+Separate generated code from application logic.
+
+
+---
+
+Stage 19 — DataBinding
+
+Study
+
+Binding expressions
+
+Observable fields
+
+Two-way binding
+
+Binding adapters
+
+Generated classes
+
+Lifecycle
+
+Recover declarative UI behavior.
+
+
+---
+
+Stage 20 — Animation Architecture
+
+Recover
+
+View animations
+
+Property animations
+
+Animator sets
+
+Transitions
+
+MotionLayout
+
+Interpolator usage
+
+Animation events
+
+UI animation frequently explains user experience.
+
+
+---
+
+Stage 21 — Input System
+
+Recover
+
+Touch events
+
+Focus
+
+Keyboard
+
+Text input
+
+Gestures
+
+Accessibility
+
+Drag & drop
+
+Input routing
+
+Map user interaction paths.
+
+
+---
+
+Stage 22 — Menu System
+
+Recover
+
+Toolbar
+
+ActionBar
+
+Popup menus
+
+Context menus
+
+Navigation drawer
+
+Bottom navigation
+
+Options menu
+
+Menu resources
+
+Menus are separate UI subsystems.
+
+
+---
+
+Stage 23 — Dialog Architecture
+
+Recover
+
+AlertDialog
+
+BottomSheet
+
+Custom dialogs
+
+Progress dialogs
+
+PopupWindow
+
+Lifecycle
+
+Dialog communication
+
+Dialogs often interrupt workflows.
+
+
+---
+
+Stage 24 — UI State
+
+Track
+
+Loading
+
+Success
+
+Error
+
+Empty
+
+Refreshing
+
+Selection
+
+Editing
+
+Persistence
+
+Recover state transitions.
+
+
+---
+
+Stage 25 — Runtime Correlation
+
+Validate
+
+Screen creation
+
+Navigation
+
+Rendering
+
+Animations
+
+Input
+
+Configuration changes
+
+State restoration
+
+Lifecycle
+
+Compare runtime with reconstructed UI.
+
+
+---
+
+Stage 26 — UI Architecture Recovery
+
+Recover
+
+Presentation layer
+
+Navigation
+
+Screen hierarchy
+
+Reusable components
+
+View ownership
+
+State ownership
+
+Rendering pipeline
+
+Produce a complete UI model.
+
+
+---
+
+Stage 27 — Documentation
+
+Produce
+
+Screen map
+
+View hierarchy
+
+Navigation graph
+
+RecyclerView architecture
+
+Theme map
+
+State diagrams
+
+Animation diagrams
+
+UI architecture
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 28 — Common XML Investigation Mistakes
+
+Avoid
+
+Reading XML without correlating it to Java/Kotlin.
+
+Ignoring View lifecycle.
+
+Treating RecyclerView as ordinary layouts.
+
+Confusing generated ViewBinding/DataBinding code with handwritten logic.
+
+Ignoring theme and style inheritance.
+
+Following UI implementation before understanding navigation architecture.
+
+
+
+---
+
+Stage 29 — XML View Application Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify XML View-based Android applications and reconstruct their UI architecture.
+
+✅ Recover Activities, Fragments, View hierarchies, navigation, and rendering pipelines.
+
+✅ Understand layout inflation, resource resolution, themes, ViewBinding, and DataBinding.
+
+✅ Trace user interactions from touch events through business logic and back to UI updates.
+
+✅ Distinguish generated UI infrastructure from handwritten presentation logic.
+
+✅ Validate reconstructed UI behavior through runtime observation.
+
+✅ Produce comprehensive documentation describing the complete presentation architecture and its interaction with the rest of the application.
+
+
+
+---
+
+Next Part
+
+Part 16 — Jetpack Compose Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on declarative UI, composable functions, recomposition, the slot table (conceptually), snapshots, state management, navigation, compiler-generated code, rendering, side effects, and reconstructing Compose application architecture and execution flow.

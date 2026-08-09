@@ -1,0 +1,828 @@
+Android Application Reverse Engineering Methodologies
+
+Part 7 — Unreal Engine Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android applications built with Unreal Engine. Unlike traditional Android applications, Unreal applications are engine-driven and organized around reflection, gameplay frameworks, assets, and modules. By the end of this section, you should be able to reconstruct gameplay architecture, object hierarchies, rendering systems, asset organization, and Android integration.
+
+
+
+> Core Principle:
+Unreal applications are engine-centric. Recover the engine framework first, then reconstruct the game built upon it.
+
+
+
+
+---
+
+Stage 1 — Unreal Technology Fingerprinting
+
+Determine whether the APK uses Unreal Engine.
+
+Study
+
+Unreal Engine indicators
+
+Engine version
+
+Native libraries
+
+Pak files
+
+IoStore (modern versions)
+
+Asset registry
+
+Plugins
+
+Android bootstrap
+
+Rendering backend
+
+Gameplay framework
+
+
+Create a technology profile.
+
+
+---
+
+Stage 2 — Unreal Architecture
+
+Understand the complete architecture.
+
+Android Host
+
+↓
+
+Unreal Engine
+
+↓
+
+Gameplay Framework
+
+↓
+
+Actors
+
+↓
+
+Components
+
+↓
+
+Rendering
+
+↓
+
+GPU
+
+Understand where engine responsibilities end and game-specific logic begins.
+
+
+---
+
+Stage 3 — Build Pipeline
+
+Study conceptually
+
+C++
+
+↓
+
+Unreal Build Tool
+
+↓
+
+Reflection Generation
+
+↓
+
+Compilation
+
+↓
+
+Native Libraries
+
+↓
+
+Packaging
+
+↓
+
+Android
+
+↓
+
+CPU
+
+Understand the role of generated reflection code.
+
+
+---
+
+Stage 4 — APK Structure
+
+Study
+
+Android Manifest
+
+Engine libraries
+
+Game libraries
+
+Pak files
+
+IoStore containers
+
+Asset registry
+
+Plugins
+
+Configuration
+
+Localization
+
+Movies
+
+Fonts
+
+Inventory every major resource before analysis.
+
+
+---
+
+Stage 5 — Runtime Bootstrap
+
+Recover
+
+Application
+
+Native activity
+
+Engine startup
+
+Module loading
+
+Asset initialization
+
+World creation
+
+Game instance initialization
+
+Gameplay startup
+
+
+---
+
+Stage 6 — Unreal Reflection System
+
+Study
+
+Reflection metadata
+
+Generated code
+
+Class registration
+
+Property registration
+
+Function registration
+
+Runtime discovery
+
+Reflection is fundamental to Unreal.
+
+
+---
+
+Stage 7 — UObject Hierarchy
+
+Recover
+
+UObject
+
+↓
+
+Actor
+
+↓
+
+Pawn
+
+↓
+
+Character
+
+↓
+
+Controller
+
+↓
+
+PlayerController
+
+↓
+
+GameMode
+
+↓
+
+GameState
+
+↓
+
+HUD
+
+↓
+
+Custom classes
+
+Understand inheritance and ownership.
+
+
+---
+
+Stage 8 — Gameplay Framework
+
+Recover
+
+GameInstance
+
+GameMode
+
+GameState
+
+PlayerState
+
+PlayerController
+
+Pawn
+
+Character
+
+HUD
+
+GameSession
+
+Subsystems
+
+These define gameplay architecture.
+
+
+---
+
+Stage 9 — Actor Reconstruction
+
+Study
+
+Creation
+
+Spawn
+
+Attachment
+
+Ownership
+
+Replication
+
+Lifecycle
+
+Destruction
+
+Actors represent world entities.
+
+
+---
+
+Stage 10 — Component Reconstruction
+
+Recover
+
+SceneComponent
+
+StaticMeshComponent
+
+SkeletalMeshComponent
+
+CameraComponent
+
+AudioComponent
+
+WidgetComponent
+
+CollisionComponent
+
+Custom components
+
+Components define capabilities.
+
+
+---
+
+Stage 11 — Blueprint Reconstruction
+
+Understand conceptually
+
+Blueprint classes
+
+Blueprint inheritance
+
+Blueprint events
+
+Blueprint interfaces
+
+Generated classes
+
+Native interaction
+
+Recover gameplay logic across Blueprint and C++ boundaries.
+
+
+---
+
+Stage 12 — World Reconstruction
+
+Recover
+
+Levels
+
+Persistent levels
+
+Streaming levels
+
+World partition (modern versions)
+
+Sublevels
+
+Level transitions
+
+World ownership
+
+
+---
+
+Stage 13 — Asset Reconstruction
+
+Study
+
+Meshes
+
+Materials
+
+Textures
+
+Animations
+
+Skeletons
+
+Particles
+
+Audio
+
+Fonts
+
+Localization
+
+Movies
+
+Data assets
+
+Assets reveal gameplay systems.
+
+
+---
+
+Stage 14 — Animation System
+
+Recover
+
+Animation Blueprints
+
+Animation State Machines
+
+Blend Spaces
+
+Montages
+
+Animation Events
+
+Skeleton hierarchy
+
+Character animation architecture.
+
+
+---
+
+Stage 15 — Physics Reconstruction
+
+Study
+
+Collision
+
+Rigid bodies
+
+Chaos Physics
+
+Constraints
+
+Tracing
+
+Overlap events
+
+Physics materials
+
+Recover gameplay interactions driven by physics.
+
+
+---
+
+Stage 16 — Rendering Pipeline
+
+Study conceptually
+
+Camera
+
+↓
+
+Visibility
+
+↓
+
+Materials
+
+↓
+
+Lighting
+
+↓
+
+Post-processing
+
+↓
+
+Rendering
+
+↓
+
+GPU
+
+Understand the frame generation process.
+
+
+---
+
+Stage 17 — UI Reconstruction
+
+Recover
+
+UMG
+
+Widgets
+
+Menus
+
+HUD
+
+Inventory UI
+
+Pause menus
+
+Dialogs
+
+Navigation
+
+Separate gameplay UI from engine infrastructure.
+
+
+---
+
+Stage 18 — Input Reconstruction
+
+Study
+
+Touch
+
+Gamepad
+
+Keyboard
+
+Input mappings
+
+Enhanced Input
+
+Gesture handling
+
+Input routing
+
+Recover player interaction flow.
+
+
+---
+
+Stage 19 — AI Reconstruction
+
+Recover
+
+Behavior Trees
+
+Blackboards
+
+Navigation
+
+Perception
+
+State Machines
+
+Tasks
+
+Services
+
+Decorators
+
+Map AI architecture.
+
+
+---
+
+Stage 20 — Networking Reconstruction
+
+Study
+
+Client/server architecture
+
+Replication
+
+RPC concepts
+
+Authority
+
+Prediction
+
+Synchronization
+
+Session management
+
+Gameplay networking
+
+Understand multiplayer architecture conceptually.
+
+
+---
+
+Stage 21 — Save System Reconstruction
+
+Recover
+
+SaveGame objects
+
+Serialization
+
+Profiles
+
+Configuration
+
+Persistence
+
+Progress
+
+Checkpoint systems
+
+Recover ownership of persistent state.
+
+
+---
+
+Stage 22 — Module Reconstruction
+
+Identify
+
+Gameplay modules
+
+Engine modules
+
+Plugins
+
+Third-party SDKs
+
+Editor-generated modules
+
+Dependency relationships
+
+Modules define architectural boundaries.
+
+
+---
+
+Stage 23 — Plugin Analysis
+
+Inventory
+
+Analytics
+
+Ads
+
+Cloud
+
+Authentication
+
+Payments
+
+Voice
+
+Online services
+
+Native plugins
+
+Distinguish engine plugins from application-specific extensions.
+
+
+---
+
+Stage 24 — Android Integration
+
+Trace
+
+Gameplay
+
+↓
+
+Engine
+
+↓
+
+JNI
+
+↓
+
+Java/Kotlin
+
+↓
+
+Android Framework
+
+↓
+
+System Services
+
+↓
+
+Response
+
+Recover Unreal ↔ Android communication paths.
+
+
+---
+
+Stage 25 — Native Library Analysis
+
+Study
+
+Engine libraries
+
+Game libraries
+
+Third-party libraries
+
+Platform libraries
+
+Rendering libraries
+
+Audio libraries
+
+Separate engine code from application-specific native code.
+
+
+---
+
+Stage 26 — Runtime Correlation
+
+Validate
+
+Startup
+
+Level loading
+
+Gameplay initialization
+
+Actor spawning
+
+Animation
+
+Physics
+
+Rendering
+
+Networking
+
+Persistence
+
+Use runtime observations to refine architecture.
+
+
+---
+
+Stage 27 — Architecture Recovery
+
+Recover
+
+Engine layer
+
+Gameplay layer
+
+Rendering
+
+Audio
+
+Physics
+
+Networking
+
+Persistence
+
+UI
+
+Android integration
+
+Produce a complete system model.
+
+
+---
+
+Stage 28 — Documentation
+
+Produce
+
+Gameplay framework diagram
+
+Actor hierarchy
+
+Component inventory
+
+Level map
+
+Module dependency graph
+
+Asset inventory
+
+Plugin inventory
+
+Architecture diagrams
+
+Execution timeline
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 29 — Common Unreal Investigation Mistakes
+
+Avoid
+
+Treating Unreal like a conventional Android application.
+
+Ignoring the reflection system.
+
+Confusing generated reflection code with handwritten gameplay logic.
+
+Focusing on individual Actors before understanding the gameplay framework.
+
+Mixing engine responsibilities with game-specific systems.
+
+Ignoring module boundaries and asset organization.
+
+
+
+---
+
+Stage 30 — Unreal APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify Unreal Engine applications and profile their engine architecture.
+
+✅ Reconstruct gameplay frameworks, UObject hierarchies, Actors, Components, and Blueprint relationships.
+
+✅ Understand world management, rendering, animation, physics, AI, and networking at an architectural level.
+
+✅ Recover asset organization, persistence, module structure, and plugin integration.
+
+✅ Trace interactions between Unreal, Android, and platform services.
+
+✅ Distinguish engine infrastructure from handwritten gameplay logic.
+
+✅ Validate reconstructed architecture using runtime observations.
+
+✅ Produce comprehensive documentation describing the Unreal application's architecture, execution model, and gameplay systems.
+
+
+
+---
+
+Next Part
+
+Part 8 — Native Android (NDK-Heavy) Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on applications where the majority of logic resides in native code. It will cover ELF binaries, JNI architecture, C/C++ execution models, dynamic linking, Android's native runtime, ABI-specific behavior, object lifecycles, memory layout, threading, native libraries, and reconstruction of complete native application architecture from Android packages.

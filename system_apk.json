@@ -1,0 +1,775 @@
+Android Application Reverse Engineering Methodologies
+
+Part 16 — Android System APK Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android system applications that ship with the operating system. Unlike ordinary user applications, system apps operate within the Android platform itself, often possessing privileged permissions, direct interaction with framework services, and deep integration with the operating system. By the end of this section, you should be able to reconstruct the architecture, framework integration, system service interactions, and lifecycle of Android system applications.
+
+
+
+> Core Principle:
+System applications are part of the Android platform rather than isolated applications. Recover their relationship with the framework before analyzing their internal implementation.
+
+
+
+
+---
+
+Stage 1 — System APK Identification
+
+Determine whether the APK is
+
+Study
+
+System application
+
+Privileged application
+
+Vendor application
+
+OEM application
+
+Product application
+
+APEX module (conceptually)
+
+Core platform application
+
+
+Recover
+
+Installation location
+
+Package identity
+
+Signing relationship
+
+Shared user ID (legacy)
+
+System partition association
+
+Platform dependencies
+
+
+---
+
+Stage 2 — Platform Architecture
+
+Understand the architecture.
+
+Linux Kernel
+
+↓
+
+HAL
+
+↓
+
+Native Daemons
+
+↓
+
+System Services
+
+↓
+
+Android Framework
+
+↓
+
+System APK
+
+↓
+
+User Interface
+
+The framework owns most system behavior.
+
+
+---
+
+Stage 3 — Boot Integration
+
+Recover
+
+Boot sequence
+
+Package initialization
+
+Application startup
+
+Framework callbacks
+
+Boot receivers
+
+Service startup
+
+Background initialization
+
+Understand when the application becomes active.
+
+
+---
+
+Stage 4 — Package Structure
+
+Recover
+
+Framework integration
+
+UI packages
+
+Service packages
+
+Managers
+
+Utilities
+
+Persistence
+
+Native wrappers
+
+Configuration
+
+Vendor extensions
+
+Separate platform code from application-specific logic.
+
+
+---
+
+Stage 5 — Manifest Analysis
+
+Study
+
+Permissions
+
+Privileged permissions
+
+Protected permissions
+
+Intent filters
+
+Services
+
+Providers
+
+Receivers
+
+Processes
+
+Metadata
+
+Configuration
+
+The manifest often reveals platform responsibilities.
+
+
+---
+
+Stage 6 — Framework Dependencies
+
+Recover interactions with
+
+ActivityManager
+
+PackageManager
+
+WindowManager
+
+PowerManager
+
+NotificationManager
+
+ConnectivityManager
+
+LocationManager
+
+Media services
+
+Telephony
+
+USB
+
+Bluetooth
+
+Wi-Fi
+
+Sensor services
+
+System apps frequently interact with many framework managers.
+
+
+---
+
+Stage 7 — Binder Architecture
+
+Study
+
+Binder clients
+
+Binder services
+
+System managers
+
+Framework interfaces
+
+Callbacks
+
+Lifecycle
+
+Service discovery
+
+Binder is the primary IPC mechanism.
+
+
+---
+
+Stage 8 — System Service Mapping
+
+Recover
+
+Application
+
+↓
+
+Framework Manager
+
+↓
+
+Binder
+
+↓
+
+System Service
+
+↓
+
+HAL (if applicable)
+
+↓
+
+Kernel
+
+↓
+
+Hardware
+
+Map complete execution chains.
+
+
+---
+
+Stage 9 — Process Architecture
+
+Recover
+
+Main process
+
+Secondary processes
+
+Persistent processes
+
+Service processes
+
+Background workers
+
+Thread ownership
+
+Lifecycle
+
+System apps often use multiple processes.
+
+
+---
+
+Stage 10 — Lifecycle Reconstruction
+
+Recover
+
+Boot
+
+Initialization
+
+Foreground
+
+Background
+
+Configuration changes
+
+Shutdown
+
+User switching
+
+System events
+
+Understand platform-driven execution.
+
+
+---
+
+Stage 11 — Event Sources
+
+Recover
+
+Boot completed
+
+Package events
+
+Screen state
+
+Power events
+
+Connectivity
+
+Battery
+
+Storage
+
+Time changes
+
+Locale changes
+
+Configuration changes
+
+Most execution originates from framework events.
+
+
+---
+
+Stage 12 — Settings & Configuration
+
+Recover
+
+System settings
+
+Secure settings
+
+Global settings
+
+Application settings
+
+Configuration providers
+
+Policy management
+
+State restoration
+
+Determine configuration ownership.
+
+
+---
+
+Stage 13 — User & Profile Awareness
+
+Study
+
+Primary user
+
+Secondary users
+
+Guest
+
+Managed profiles
+
+Work profiles
+
+Restricted profiles
+
+User switching
+
+System applications frequently support multiple users.
+
+
+---
+
+Stage 14 — Permission Architecture
+
+Recover
+
+Permission requests
+
+Permission enforcement
+
+Role management
+
+Access checks
+
+Feature gating
+
+Framework authorization
+
+Focus on architectural relationships.
+
+
+---
+
+Stage 15 — Hardware Interaction
+
+Identify interaction with
+
+Camera
+
+Audio
+
+Bluetooth
+
+Wi-Fi
+
+NFC
+
+USB
+
+Sensors
+
+Display
+
+Storage
+
+Biometrics
+
+Location
+
+Understand which framework layers abstract the hardware.
+
+
+---
+
+Stage 16 — Native Integration
+
+Recover
+
+JNI
+
+Native libraries
+
+Vendor libraries
+
+Framework wrappers
+
+HAL interaction
+
+Cross-language boundaries
+
+Document native dependencies.
+
+
+---
+
+Stage 17 — Persistence Architecture
+
+Recover
+
+Preferences
+
+SQLite
+
+Files
+
+System providers
+
+Configuration storage
+
+Caches
+
+Migration
+
+Ownership
+
+Determine what state is preserved.
+
+
+---
+
+Stage 18 — Background Work
+
+Study
+
+Foreground services
+
+WorkManager
+
+JobScheduler
+
+AlarmManager
+
+System callbacks
+
+Synchronization
+
+Periodic maintenance
+
+Map scheduled work.
+
+
+---
+
+Stage 19 — Notification Architecture
+
+Recover
+
+Notification channels
+
+Foreground notifications
+
+System notifications
+
+Status bar interaction
+
+Quick Settings integration
+
+Notification listeners
+
+System apps often participate in the notification ecosystem.
+
+
+---
+
+Stage 20 — Broadcast Architecture
+
+Recover
+
+System broadcasts
+
+Custom broadcasts
+
+Protected broadcasts
+
+Receivers
+
+Ordered broadcasts
+
+Sticky broadcasts
+
+Map event propagation.
+
+
+---
+
+Stage 21 — Content Provider Integration
+
+Recover
+
+System providers
+
+Media provider
+
+Settings provider
+
+Contacts provider
+
+Calendar provider
+
+Downloads provider
+
+Custom providers
+
+Document data ownership.
+
+
+---
+
+Stage 22 — UI Architecture
+
+Recover
+
+Activities
+
+Fragments
+
+Dialogs
+
+Preferences
+
+Settings screens
+
+Quick Settings tiles
+
+Widgets
+
+System overlays
+
+Separate UI from framework responsibilities.
+
+
+---
+
+Stage 23 — Cross-System Communication
+
+Map
+
+Application
+
+↓
+
+Framework Managers
+
+↓
+
+Binder
+
+↓
+
+System Services
+
+↓
+
+Other System Applications
+
+↓
+
+Native Services
+
+↓
+
+Kernel
+
+Understand complete platform communication.
+
+
+---
+
+Stage 24 — Runtime Correlation
+
+Validate
+
+Boot
+
+Startup
+
+Framework callbacks
+
+Binder calls
+
+Lifecycle
+
+Persistence
+
+Notifications
+
+Background execution
+
+Update architecture based on observations.
+
+
+---
+
+Stage 25 — Platform Dependency Graph
+
+Recover
+
+Framework dependencies
+
+Service dependencies
+
+Provider dependencies
+
+Broadcast dependencies
+
+Native dependencies
+
+Vendor dependencies
+
+This graph often explains the application's responsibilities.
+
+
+---
+
+Stage 26 — Architecture Recovery
+
+Recover
+
+Presentation
+
+Framework integration
+
+System services
+
+Persistence
+
+Configuration
+
+Background execution
+
+Native integration
+
+Platform interaction
+
+Produce a complete platform architecture.
+
+
+---
+
+Stage 27 — Documentation
+
+Produce
+
+Platform interaction diagram
+
+Binder map
+
+Service dependency graph
+
+Framework dependency graph
+
+Lifecycle diagrams
+
+Boot sequence
+
+Persistence architecture
+
+Architecture diagrams
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 28 — Common System APK Investigation Mistakes
+
+Avoid
+
+Treating system apps like ordinary Play Store applications.
+
+Ignoring Binder relationships.
+
+Confusing framework code with application logic.
+
+Following UI before understanding system responsibilities.
+
+Ignoring boot-time initialization and system events.
+
+Overlooking interactions with other system services and platform components.
+
+
+
+---
+
+Stage 29 — System APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify Android system, privileged, vendor, and OEM applications.
+
+✅ Reconstruct their architecture, boot sequence, and lifecycle within the Android platform.
+
+✅ Understand interactions with framework managers, Binder IPC, system services, native libraries, and hardware abstraction layers.
+
+✅ Recover persistence, configuration, notifications, broadcasts, content providers, and multi-user behavior.
+
+✅ Distinguish framework infrastructure from application-specific responsibilities.
+
+✅ Validate reconstructed behavior using runtime observations.
+
+✅ Produce comprehensive documentation explaining how the system application fits into the broader Android operating system.
+
+
+
+---
+
+Next Part
+
+Part 17 — Android Wear OS, Android TV, Android Auto & Embedded Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section focuses on Android variants beyond phones, covering wearable devices, televisions, automotive systems, kiosks, and embedded Android platforms, with emphasis on their specialized frameworks, lifecycle differences, input models, hardware integrations, and platform-specific architectural patterns.

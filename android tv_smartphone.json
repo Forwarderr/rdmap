@@ -1,0 +1,831 @@
+Android Application Reverse Engineering Methodologies
+
+Part 18 — Android Wear OS, Android TV, Android Auto & Embedded Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android applications designed for specialized Android platforms such as Wear OS, Android TV, Android Auto, Android Automotive OS (AAOS), Android Things (legacy), kiosks, point-of-sale terminals, smart displays, industrial devices, and other embedded Android systems. These applications differ significantly from phone apps in terms of lifecycle, input methods, hardware integration, UI paradigms, and platform APIs.
+
+
+
+> Core Principle:
+These are not "phone apps on different screens." They are platform-specific applications built around different interaction models, hardware capabilities, and operating system services. Recover the platform model before analyzing the application.
+
+
+
+
+---
+
+Stage 1 — Platform Fingerprinting
+
+Identify the target platform.
+
+Examples
+
+Wear OS
+
+Android TV
+
+Google TV
+
+Android Auto
+
+Android Automotive OS (AAOS)
+
+Kiosk Mode
+
+POS Devices
+
+Smart Display
+
+Embedded Android
+
+Industrial Android
+
+Digital Signage
+
+Custom OEM Android
+
+Determine
+
+Platform APIs
+
+Input model
+
+Display model
+
+Hardware profile
+
+System privileges
+
+Application category
+
+
+---
+
+Stage 2 — Platform Architecture
+
+Understand the execution model.
+
+Linux Kernel
+
+↓
+
+Hardware Drivers
+
+↓
+
+HAL
+
+↓
+
+Android Framework
+
+↓
+
+Platform Services
+
+↓
+
+Platform APIs
+
+↓
+
+Application
+
+↓
+
+User
+
+Platform services differ substantially from standard Android.
+
+
+---
+
+Stage 3 — Hardware Profiling
+
+Recover available hardware.
+
+Study
+
+Touchscreen
+
+Rotary controllers
+
+Steering wheel buttons
+
+Remote controls
+
+Physical buttons
+
+Microphone
+
+Speaker
+
+Camera
+
+GPS
+
+Accelerometer
+
+Gyroscope
+
+Heart-rate sensor
+
+NFC
+
+Bluetooth
+
+Wi-Fi
+
+Cellular
+
+USB
+
+CAN Bus (AAOS)
+
+Vehicle sensors
+
+Custom hardware
+
+Hardware determines application capabilities.
+
+
+---
+
+Stage 4 — System Capability Mapping
+
+Recover
+
+Supported APIs
+
+Platform restrictions
+
+System permissions
+
+OEM extensions
+
+Background execution model
+
+Power policies
+
+Connectivity model
+
+Device administration
+
+
+---
+
+Stage 5 — Startup Reconstruction
+
+Recover
+
+Boot
+
+↓
+
+Platform initialization
+
+↓
+
+Application startup
+
+↓
+
+Service initialization
+
+↓
+
+Hardware discovery
+
+↓
+
+Configuration
+
+↓
+
+Home screen
+
+↓
+
+Feature initialization
+
+Understand startup for each platform.
+
+
+---
+
+Stage 6 — UI Architecture
+
+Recover
+
+Activities
+
+Fragments
+
+Compose
+
+Wear Tiles
+
+TV Leanback screens
+
+Vehicle templates
+
+Embedded dashboards
+
+Custom launchers
+
+Screen hierarchy
+
+UI differs dramatically between platforms.
+
+
+---
+
+Stage 7 — Navigation Architecture
+
+Recover
+
+Touch navigation
+
+Rotary navigation
+
+Remote navigation
+
+Focus navigation
+
+Voice navigation
+
+Gesture navigation
+
+Vehicle navigation
+
+Hardware button navigation
+
+Navigation is platform-dependent.
+
+
+---
+
+Stage 8 — Input System
+
+Study
+
+Touch
+
+Rotary encoder
+
+Remote control
+
+Keyboard
+
+Gamepad
+
+Voice commands
+
+Gesture sensors
+
+Vehicle controls
+
+Physical keys
+
+Accessibility input
+
+Recover complete input architecture.
+
+
+---
+
+Stage 9 — Platform Lifecycle
+
+Recover
+
+Startup
+
+Foreground
+
+Background
+
+Ambient mode
+
+Doze
+
+Vehicle state
+
+Dock state
+
+Charging state
+
+Power events
+
+Lifecycle differs significantly across platforms.
+
+
+---
+
+Stage 10 — Wear OS Methodology
+
+Recover
+
+Wear Activities
+
+Tiles
+
+Complications
+
+Watch Faces
+
+Health Services
+
+Ambient mode
+
+Notifications
+
+Companion communication
+
+Sensor integration
+
+Power optimization
+
+Wear OS emphasizes battery efficiency.
+
+
+---
+
+Stage 11 — Android TV Methodology
+
+Recover
+
+Leanback
+
+BrowseFragment
+
+Rows
+
+Cards
+
+Media sessions
+
+Playback
+
+Recommendations
+
+Search
+
+Remote interaction
+
+Focus management
+
+TV applications prioritize media navigation.
+
+
+---
+
+Stage 12 — Android Auto Methodology
+
+Recover
+
+CarAppService
+
+Templates
+
+Navigation
+
+Messaging
+
+Media
+
+Voice interaction
+
+Driving restrictions
+
+Lifecycle
+
+Host communication
+
+Android Auto applications execute under strict safety constraints.
+
+
+---
+
+Stage 13 — Android Automotive OS (AAOS)
+
+Recover
+
+Vehicle services
+
+Car APIs
+
+Vehicle properties
+
+HVAC
+
+Media
+
+Navigation
+
+Cluster integration
+
+System UI
+
+OEM extensions
+
+AAOS integrates deeply with vehicle hardware.
+
+
+---
+
+Stage 14 — Embedded Android
+
+Recover
+
+Custom launchers
+
+Dedicated UI
+
+Background services
+
+Device administration
+
+Hardware abstraction
+
+Peripheral management
+
+Industrial workflows
+
+OEM APIs
+
+Embedded devices often expose custom interfaces.
+
+
+---
+
+Stage 15 — Communication Architecture
+
+Recover
+
+Bluetooth
+
+Wi-Fi
+
+Companion apps
+
+Vehicle bus interfaces
+
+Cloud
+
+USB
+
+NFC
+
+Proprietary protocols
+
+Cross-device synchronization
+
+Platform communication varies widely.
+
+
+---
+
+Stage 16 — Sensor Architecture
+
+Recover
+
+Motion sensors
+
+Health sensors
+
+Environmental sensors
+
+Vehicle sensors
+
+Industrial sensors
+
+Custom OEM sensors
+
+Sensor fusion
+
+State propagation
+
+Understand sensor ownership.
+
+
+---
+
+Stage 17 — Media Architecture
+
+Recover
+
+Playback
+
+Media sessions
+
+Background playback
+
+Streaming
+
+Downloads
+
+Audio focus
+
+Video
+
+Live content
+
+Media is central on TV and automotive platforms.
+
+
+---
+
+Stage 18 — Notification Architecture
+
+Recover
+
+Wear notifications
+
+TV recommendations
+
+Vehicle alerts
+
+Foreground notifications
+
+Companion notifications
+
+Notification actions
+
+Platform-specific notification behavior.
+
+
+---
+
+Stage 19 — Background Execution
+
+Study
+
+Foreground services
+
+WorkManager
+
+Platform schedulers
+
+Companion synchronization
+
+Vehicle events
+
+Sensor polling
+
+Background restrictions
+
+Power-aware execution.
+
+
+---
+
+Stage 20 — Companion Device Integration
+
+Recover
+
+Phone ↔ Watch
+
+Phone ↔ Car
+
+Watch ↔ Cloud
+
+Vehicle ↔ Cloud
+
+Embedded ↔ Server
+
+Synchronization
+
+Shared state
+
+Communication protocols
+
+Many specialized devices depend on companion applications.
+
+
+---
+
+Stage 21 — Persistence Architecture
+
+Recover
+
+Preferences
+
+SQLite
+
+DataStore
+
+Files
+
+Offline caches
+
+Vehicle state
+
+Health records
+
+Configuration
+
+Recover ownership of persistent information.
+
+
+---
+
+Stage 22 — Runtime Correlation
+
+Validate
+
+Boot
+
+Hardware initialization
+
+Navigation
+
+Sensor events
+
+Communication
+
+Media
+
+Persistence
+
+Platform lifecycle
+
+Refine architectural models.
+
+
+---
+
+Stage 23 — Platform Service Mapping
+
+Recover interactions with
+
+Wear Health Services
+
+Car Service
+
+Media Service
+
+Bluetooth
+
+Connectivity
+
+Notification Manager
+
+Power Manager
+
+Location
+
+Window Manager
+
+OEM services
+
+Framework services define platform behavior.
+
+
+---
+
+Stage 24 — Cross-Platform Comparison
+
+Compare
+
+Phone
+
+↓
+
+Wear
+
+↓
+
+TV
+
+↓
+
+Auto
+
+↓
+
+Embedded
+
+Study differences in
+
+Lifecycle
+
+Navigation
+
+Input
+
+Rendering
+
+Permissions
+
+Power
+
+Hardware
+
+Framework APIs
+
+Understand architectural adaptations.
+
+
+---
+
+Stage 25 — Architecture Recovery
+
+Recover
+
+Platform layer
+
+Presentation
+
+Business logic
+
+Hardware integration
+
+Persistence
+
+Communication
+
+Background work
+
+Cloud
+
+Companion integration
+
+Produce a platform-specific architecture.
+
+
+---
+
+Stage 26 — Documentation
+
+Produce
+
+Platform profile
+
+Hardware inventory
+
+Sensor map
+
+Navigation graph
+
+Lifecycle diagram
+
+Communication map
+
+Architecture diagrams
+
+Execution timeline
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 27 — Common Investigation Mistakes
+
+Avoid
+
+Treating specialized Android platforms as standard phone applications.
+
+Ignoring platform-specific lifecycle behavior.
+
+Assuming identical input models across devices.
+
+Overlooking OEM-specific APIs and services.
+
+Ignoring companion applications and cross-device communication.
+
+Mixing framework infrastructure with application logic.
+
+
+
+---
+
+Stage 28 — Specialized Android Platform Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify and classify applications targeting Wear OS, Android TV, Android Auto, Android Automotive OS, and embedded Android platforms.
+
+✅ Reconstruct platform-specific UI, lifecycle, input, navigation, and hardware integration.
+
+✅ Analyze communication with companion devices, cloud services, vehicle systems, and embedded hardware.
+
+✅ Understand platform services, background execution models, sensor integration, and persistence.
+
+✅ Distinguish platform infrastructure from application-specific business logic.
+
+✅ Validate architectural understanding through runtime observation.
+
+✅ Produce comprehensive documentation describing the complete architecture, execution model, hardware interaction, and platform integration of specialized Android applications.
+
+
+
+---
+
+Next Part
+
+Part 19 — SDK, Third-Party Library & Vendor Framework Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on identifying, classifying, and reconstructing third-party SDKs (analytics, ads, authentication, payments, cloud services, mapping, media, machine learning, OEM frameworks, vendor SDKs, etc.), understanding how they integrate with the application's architecture, and separating external infrastructure from handwritten business logic.

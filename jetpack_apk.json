@@ -1,0 +1,760 @@
+Android Application Reverse Engineering Methodologies
+
+Part 17 — Jetpack-Based Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to systematically understand Android applications built primarily with Android Jetpack. Modern Android apps rarely use isolated Jetpack libraries—they combine Architecture Components, Navigation, Room, WorkManager, Hilt, Paging, CameraX, DataStore, and many others into one cohesive architecture. By the end of this section, you should be able to reconstruct the application's architecture, state management, dependency graph, asynchronous execution, and lifecycle-aware behavior.
+
+
+
+> Core Principle:
+Jetpack is an architectural ecosystem, not a collection of independent libraries. Reverse engineer how the libraries cooperate to implement the application's design.
+
+
+
+
+---
+
+Stage 1 — Jetpack Fingerprinting
+
+Determine which Jetpack libraries are present.
+
+Identify
+
+Activity
+
+Fragment
+
+Lifecycle
+
+ViewModel
+
+LiveData
+
+SavedState
+
+Navigation
+
+Room
+
+DataStore
+
+WorkManager
+
+Paging
+
+Hilt
+
+Startup
+
+CameraX
+
+Benchmark
+
+App Startup
+
+Security Crypto
+
+Preference
+
+Compose integration
+
+Media3
+
+Glance
+
+Wear libraries
+
+WindowManager
+
+Health Connect integration
+
+
+Create a Jetpack inventory.
+
+
+---
+
+Stage 2 — Jetpack Architecture
+
+Understand the architecture.
+
+Android Framework
+
+↓
+
+Jetpack Libraries
+
+↓
+
+Application Architecture
+
+↓
+
+Business Logic
+
+↓
+
+Persistence
+
+↓
+
+Network
+
+↓
+
+Cloud
+
+Jetpack provides infrastructure rather than business logic.
+
+
+---
+
+Stage 3 — Architecture Pattern Identification
+
+Determine the application's architecture.
+
+Examples
+
+MVVM
+
+MVI
+
+MVP
+
+MVC
+
+Clean Architecture
+
+Repository Pattern
+
+Use Cases
+
+Feature Modules
+
+Hybrid Architecture
+
+Understand the overall design before analyzing implementation.
+
+
+---
+
+Stage 4 — Activity & Fragment Layer
+
+Recover
+
+Activities
+
+Fragments
+
+Navigation Hosts
+
+Lifecycle owners
+
+Fragment transactions
+
+Back stack
+
+State restoration
+
+Activities become entry points into the architecture.
+
+
+---
+
+Stage 5 — Lifecycle Architecture
+
+Recover
+
+LifecycleOwner
+
+LifecycleObserver
+
+LifecycleEventObserver
+
+LifecycleRegistry
+
+Lifecycle-aware components
+
+Lifecycle propagation
+
+Many Jetpack components depend on lifecycle state.
+
+
+---
+
+Stage 6 — ViewModel Reconstruction
+
+Recover
+
+ViewModels
+
+Shared ViewModels
+
+SavedStateHandle
+
+Dependencies
+
+Initialization
+
+Lifecycle
+
+Ownership
+
+State
+
+ViewModels become central architectural nodes.
+
+
+---
+
+Stage 7 — UI State Reconstruction
+
+Recover
+
+Loading
+
+Success
+
+Error
+
+Empty
+
+Refreshing
+
+Selection
+
+Editing
+
+Persistence
+
+Determine state ownership.
+
+
+---
+
+Stage 8 — LiveData Analysis
+
+Study
+
+Sources
+
+Observers
+
+Lifecycle awareness
+
+Transformations
+
+MediatorLiveData
+
+Emission
+
+Observation
+
+Recover reactive data flow.
+
+
+---
+
+Stage 9 — Flow & StateFlow Integration
+
+Recover
+
+Flow
+
+StateFlow
+
+SharedFlow
+
+Collection
+
+Transformation
+
+Lifecycle
+
+Threading
+
+Cancellation
+
+Modern Jetpack apps often prefer Flow.
+
+
+---
+
+Stage 10 — Repository Architecture
+
+Recover
+
+Repositories
+
+Local sources
+
+Remote sources
+
+Cache
+
+Synchronization
+
+Conflict resolution
+
+Ownership
+
+Repositories bridge business logic and data.
+
+
+---
+
+Stage 11 — Room Reconstruction
+
+Recover
+
+Entities
+
+DAO
+
+Database
+
+Relations
+
+Queries
+
+Transactions
+
+Migration
+
+Type converters
+
+Room defines persistence architecture.
+
+
+---
+
+Stage 12 — DataStore Analysis
+
+Recover
+
+Preferences
+
+Proto DataStore
+
+Serialization
+
+Migration
+
+Configuration
+
+State persistence
+
+Understand configuration storage.
+
+
+---
+
+Stage 13 — Navigation Component
+
+Recover
+
+Navigation graph
+
+Destinations
+
+Arguments
+
+Actions
+
+Deep links
+
+Nested graphs
+
+Safe Args
+
+Navigation architecture often mirrors business workflows.
+
+
+---
+
+Stage 14 — WorkManager Reconstruction
+
+Study
+
+Workers
+
+Chains
+
+Constraints
+
+Retries
+
+Periodic work
+
+Expedited work
+
+Scheduling
+
+Background execution
+
+Recover deferred workflows.
+
+
+---
+
+Stage 15 — Paging Architecture
+
+Recover
+
+PagingSource
+
+RemoteMediator
+
+Pager
+
+PagingData
+
+Load states
+
+Caching
+
+Synchronization
+
+Large datasets are handled differently.
+
+
+---
+
+Stage 16 — Hilt Dependency Graph
+
+Recover
+
+ApplicationComponent
+
+ActivityComponent
+
+FragmentComponent
+
+ViewModelComponent
+
+WorkerComponent
+
+Singletons
+
+Scopes
+
+Dependency graph
+
+Understand object ownership.
+
+
+---
+
+Stage 17 — Startup Architecture
+
+Study
+
+App Startup
+
+Initializers
+
+Dependency ordering
+
+Configuration
+
+Lazy initialization
+
+Startup optimization
+
+Recover initialization sequence.
+
+
+---
+
+Stage 18 — CameraX Integration
+
+Recover
+
+CameraProvider
+
+Preview
+
+ImageCapture
+
+ImageAnalysis
+
+VideoCapture
+
+Lifecycle binding
+
+Processing pipeline
+
+CameraX abstracts camera interactions.
+
+
+---
+
+Stage 19 — Media3 Architecture
+
+Recover
+
+Player
+
+Session
+
+Media library
+
+Playback
+
+Caching
+
+Streaming
+
+Background playback
+
+Media lifecycle
+
+Media3 replaces legacy media APIs.
+
+
+---
+
+Stage 20 — Security Components
+
+Study
+
+EncryptedSharedPreferences
+
+EncryptedFile
+
+MasterKey
+
+Key generation
+
+Data protection
+
+Security configuration
+
+Understand secure storage architecture.
+
+
+---
+
+Stage 21 — WindowManager & Device Adaptation
+
+Recover
+
+Multi-window
+
+Foldables
+
+Large screens
+
+Window metrics
+
+Adaptive layouts
+
+Configuration changes
+
+Responsive architecture
+
+
+---
+
+Stage 22 — Asynchronous Execution
+
+Recover
+
+Coroutines
+
+Flow
+
+WorkManager
+
+Executors
+
+Lifecycle scopes
+
+Cancellation
+
+Structured concurrency
+
+Map asynchronous execution.
+
+
+---
+
+Stage 23 — Runtime Correlation
+
+Validate
+
+Startup
+
+Navigation
+
+Lifecycle
+
+State updates
+
+Persistence
+
+Synchronization
+
+Background work
+
+Dependency injection
+
+Update architecture using runtime observations.
+
+
+---
+
+Stage 24 — Cross-Library Interaction
+
+Recover interactions.
+
+Example
+
+Activity
+
+↓
+
+ViewModel
+
+↓
+
+Repository
+
+↓
+
+Room
+
+↓
+
+Flow
+
+↓
+
+LiveData
+
+↓
+
+Fragment
+
+↓
+
+UI
+
+Jetpack libraries rarely operate independently.
+
+
+---
+
+Stage 25 — Feature Reconstruction
+
+Recover complete workflows.
+
+Example
+
+Login
+
+↓
+
+Navigation
+
+↓
+
+ViewModel
+
+↓
+
+Repository
+
+↓
+
+Network
+
+↓
+
+Room
+
+↓
+
+Flow
+
+↓
+
+UI
+
+Repeat for each major feature.
+
+
+---
+
+Stage 26 — Documentation
+
+Produce
+
+Jetpack inventory
+
+Dependency graph
+
+Navigation graph
+
+ViewModel map
+
+Repository diagram
+
+Persistence model
+
+Background work map
+
+Architecture diagrams
+
+Evidence log
+
+Confidence assessment
+
+
+---
+
+Stage 27 — Common Jetpack Investigation Mistakes
+
+Avoid
+
+Treating Jetpack libraries as business logic.
+
+Ignoring dependency injection scopes.
+
+Following generated Hilt code instead of dependency graphs.
+
+Confusing Flow, LiveData, and UI state ownership.
+
+Ignoring lifecycle-aware behavior.
+
+Analyzing individual libraries without reconstructing the overall architecture.
+
+
+
+---
+
+Stage 28 — Jetpack Application Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify the Jetpack libraries used by an Android application and understand their architectural roles.
+
+✅ Reconstruct Activities, Fragments, ViewModels, repositories, persistence, navigation, dependency injection, and background work.
+
+✅ Analyze lifecycle-aware state management, asynchronous execution, and cross-library interactions.
+
+✅ Distinguish handwritten business logic from Jetpack infrastructure and generated code.
+
+✅ Validate architectural understanding through runtime observation.
+
+✅ Produce comprehensive documentation describing the application's Jetpack-based architecture, execution model, dependency graph, and feature workflows.
+
+
+
+---
+
+Next Part
+
+Part 18 — Android SDK & Third-Party Library Integration Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on identifying, classifying, and understanding integrated SDKs and libraries—analytics, advertising, authentication, cloud services, payments, mapping, messaging, media, machine learning, social SDKs, and custom vendor SDKs—and reconstructing how they interact with the application's architecture without confusing them with the application's own business logic.

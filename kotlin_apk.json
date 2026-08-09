@@ -1,0 +1,817 @@
+Android Application Reverse Engineering Methodologies
+
+Part 2 — Kotlin-Based Android Application Reverse Engineering Methodology (Beginner → Expert)
+
+> Goal: Learn how to reverse engineer Android applications written in Kotlin. Kotlin is not simply "Java with better syntax"—its compiler introduces metadata, synthetic methods, coroutine state machines, delegated properties, default argument dispatchers, inline functions, and other transformations that fundamentally change the compiled output. By the end of this section, you should be be able to distinguish handwritten Kotlin logic from compiler-generated infrastructure and reconstruct the developer's original intent.
+
+
+
+> Core Principle:
+Reverse engineering Kotlin means reverse engineering the Kotlin compiler before reverse engineering the application.
+
+
+
+
+---
+
+Stage 1 — Kotlin Technology Fingerprinting
+
+Determine whether the APK is Kotlin-based.
+
+Study
+
+Kotlin metadata
+
+Kotlin standard library usage
+
+Kotlin compiler artifacts
+
+DEX characteristics
+
+Kotlin package patterns
+
+Mixed Java/Kotlin projects
+
+Kotlin version indicators
+
+Compose indicators
+
+Coroutines
+
+Flow usage
+
+
+Build a Kotlin technology profile.
+
+
+---
+
+Stage 2 — Kotlin Compilation Pipeline
+
+Understand how Kotlin becomes Android code.
+
+Kotlin Source
+
+↓
+
+Frontend
+
+↓
+
+IR (Intermediate Representation)
+
+↓
+
+Compiler Lowering
+
+↓
+
+Optimization
+
+↓
+
+JVM Bytecode
+
+↓
+
+D8/R8
+
+↓
+
+DEX
+
+↓
+
+ART
+
+↓
+
+Machine Code
+
+Every lowering stage leaves recognizable artifacts.
+
+
+---
+
+Stage 3 — Kotlin Metadata
+
+One of the most important topics.
+
+Study
+
+Metadata annotation
+
+Version information
+
+Class information
+
+Function metadata
+
+Property metadata
+
+Type metadata
+
+Generic metadata
+
+Reflection support
+
+Metadata limitations
+
+
+Metadata often preserves information that Java compilation loses.
+
+
+---
+
+Stage 4 — Package Reconstruction
+
+Separate
+
+Application packages
+
+↓
+
+Feature packages
+
+↓
+
+Generated packages
+
+↓
+
+Kotlin runtime
+
+↓
+
+AndroidX
+
+↓
+
+Third-party
+
+↓
+
+Compiler infrastructure
+
+Prioritize handwritten code.
+
+
+---
+
+Stage 5 — Kotlin Class Recognition
+
+Recognize
+
+Regular classes
+
+Object declarations
+
+Companion objects
+
+Data classes
+
+Sealed classes
+
+Sealed interfaces
+
+Enum classes
+
+Inline/value classes
+
+Anonymous objects
+
+Local classes
+
+Each compiles differently.
+
+
+---
+
+Stage 6 — Property Reconstruction
+
+Study
+
+Properties
+
+Backing fields
+
+Getters
+
+Setters
+
+Delegated properties
+
+Lazy properties
+
+Lateinit
+
+Const
+
+Top-level properties
+
+Recover original property semantics.
+
+
+---
+
+Stage 7 — Function Reconstruction
+
+Recognize
+
+Top-level functions
+
+Extension functions
+
+Member functions
+
+Inline functions
+
+Suspend functions
+
+Operator overloads
+
+Infix functions
+
+Generic functions
+
+Compiler-generated helpers
+
+
+---
+
+Stage 8 — Default Argument Reconstruction
+
+Kotlin generates additional infrastructure.
+
+Recover
+
+Original parameters
+
+Default values
+
+Generated dispatcher methods
+
+Call-site behavior
+
+Avoid confusing generated helpers with business logic.
+
+
+---
+
+Stage 9 — Companion Object Recovery
+
+Understand
+
+Companion object
+
+↓
+
+Generated singleton
+
+↓
+
+Static access wrappers
+
+↓
+
+Initialization
+
+Recover original object-oriented design.
+
+
+---
+
+Stage 10 — Object Declaration Recovery
+
+Study
+
+Singleton objects
+
+Anonymous objects
+
+Nested objects
+
+Initialization order
+
+Thread safety guarantees
+
+Lifecycle
+
+
+---
+
+Stage 11 — Data Class Recovery
+
+Recognize generated methods.
+
+Study
+
+copy()
+
+componentN()
+
+equals()
+
+hashCode()
+
+toString()
+
+Destructuring
+
+Value semantics
+
+These methods are compiler-generated.
+
+
+---
+
+Stage 12 — Sealed Hierarchy Recovery
+
+Recover
+
+Sealed classes
+
+Subclass relationships
+
+State models
+
+Result wrappers
+
+Error hierarchies
+
+UI state
+
+Kotlin frequently models application state using sealed hierarchies.
+
+
+---
+
+Stage 13 — Inline / Value Class Recovery
+
+Study
+
+Wrapper elimination
+
+Generated helpers
+
+Runtime representation
+
+Compiler optimization
+
+Understand the difference between source and runtime.
+
+
+---
+
+Stage 14 — Nullability Reconstruction
+
+Recover
+
+Nullable types
+
+Non-null types
+
+Safe calls
+
+Elvis operator
+
+Null checks
+
+Platform types
+
+Compiler-generated validation
+
+Nullability affects control flow.
+
+
+---
+
+Stage 15 — Extension Function Recovery
+
+Understand
+
+Receiver
+
+↓
+
+Generated static method
+
+↓
+
+Call-site transformation
+
+Recover the original extension semantics.
+
+
+---
+
+Stage 16 — Delegated Property Recovery
+
+Recognize
+
+Lazy
+
+Observable
+
+Vetoable
+
+Map delegates
+
+Custom delegates
+
+Compiler-generated delegation logic
+
+Separate delegation infrastructure from business behavior.
+
+
+---
+
+Stage 17 — Coroutine Identification
+
+One of the most important topics.
+
+Identify
+
+Coroutine builders
+
+Suspend functions
+
+Continuation objects
+
+Coroutine scopes
+
+Dispatchers
+
+Structured concurrency
+
+Cancellation
+
+Every coroutine becomes generated state-machine code.
+
+
+---
+
+Stage 18 — Suspend Function Reconstruction
+
+Recover
+
+Original linear source
+
+↓
+
+Generated continuation
+
+↓
+
+State labels
+
+↓
+
+Resume logic
+
+↓
+
+Completion
+
+Think like the Kotlin compiler.
+
+
+---
+
+Stage 19 — Coroutine State Machine Recovery
+
+Study
+
+State variables
+
+Labels
+
+Resume points
+
+Suspend points
+
+Generated branches
+
+Exception paths
+
+Generated continuation objects
+
+Do not mistake compiler-generated states for business logic.
+
+
+---
+
+Stage 20 — Dispatcher Reconstruction
+
+Track
+
+Main dispatcher
+
+IO dispatcher
+
+Default dispatcher
+
+Unconfined
+
+Custom dispatchers
+
+Thread transitions
+
+Execution context changes.
+
+
+---
+
+Stage 21 — Flow Reconstruction
+
+Recover
+
+Flow
+
+StateFlow
+
+SharedFlow
+
+Cold streams
+
+Hot streams
+
+Collection
+
+Emission
+
+Transformation
+
+Operators
+
+Flow represents asynchronous data movement.
+
+
+---
+
+Stage 22 — LiveData & Flow Correlation
+
+Many applications combine both.
+
+Study
+
+Conversion
+
+Observation
+
+Lifecycle awareness
+
+State propagation
+
+Thread interaction
+
+UI updates
+
+Recover complete state pipelines.
+
+
+---
+
+Stage 23 — Kotlin Collection APIs
+
+Recognize transformations.
+
+Examples
+
+map
+
+filter
+
+associate
+
+groupBy
+
+flatMap
+
+reduce
+
+fold
+
+zip
+
+Sequences
+
+Recover original collection operations from generated bytecode.
+
+
+---
+
+Stage 24 — Functional Programming Patterns
+
+Identify
+
+Higher-order functions
+
+Lambda expressions
+
+Closures
+
+Function references
+
+SAM conversions
+
+Inline lambdas
+
+Captured variables
+
+Compiler-generated classes
+
+
+---
+
+Stage 25 — Reflection Recovery
+
+Study
+
+KClass
+
+Reflection APIs
+
+Metadata usage
+
+Property references
+
+Function references
+
+Annotation processing
+
+Reflection changes static analysis assumptions.
+
+
+---
+
+Stage 26 — Serialization Reconstruction
+
+Recognize
+
+kotlinx.serialization
+
+Generated serializers
+
+JSON mapping
+
+Type adapters
+
+Encoding
+
+Decoding
+
+Generated infrastructure
+
+
+---
+
+Stage 27 — Mixed Java/Kotlin Applications
+
+Recover interactions.
+
+Java
+
+↓
+
+Kotlin
+
+↓
+
+Java
+
+↓
+
+Framework
+
+↓
+
+Runtime
+
+Understand interoperability boundaries.
+
+
+---
+
+Stage 28 — Runtime Correlation
+
+Validate
+
+Coroutine behavior
+
+Flow propagation
+
+Thread switching
+
+State transitions
+
+Lifecycle
+
+Generated state machines
+
+Runtime often simplifies static ambiguity.
+
+
+---
+
+Stage 29 — Architecture Recovery
+
+Reconstruct
+
+MVVM
+
+Repositories
+
+Use Cases
+
+State models
+
+Dependency Injection
+
+Coroutine architecture
+
+Reactive pipelines
+
+Compose integration (if present)
+
+Kotlin encourages specific architectural styles.
+
+
+---
+
+Stage 30 — Documentation
+
+Produce
+
+Coroutine graphs
+
+State-machine diagrams
+
+Flow diagrams
+
+Property maps
+
+Object diagrams
+
+Metadata inventory
+
+Architecture diagrams
+
+Compiler artifact inventory
+
+Confidence report
+
+
+---
+
+Stage 31 — Common Kotlin Investigation Mistakes
+
+Avoid
+
+Treating generated continuation classes as handwritten logic.
+
+Misinterpreting default-argument dispatcher methods.
+
+Ignoring Kotlin metadata.
+
+Confusing extension functions with instance methods.
+
+Assuming decompiled Java accurately represents Kotlin source.
+
+Overlooking delegated properties and compiler-generated accessors.
+
+Following coroutine state labels instead of reconstructing the original linear flow.
+
+
+
+---
+
+Stage 32 — Kotlin APK Methodology Master Checklist
+
+By the end of this stage, you should be able to:
+
+✅ Identify Kotlin-specific compiler artifacts and metadata.
+
+✅ Recover original Kotlin language constructs from DEX, Smali, or decompiled output.
+
+✅ Distinguish handwritten application logic from compiler-generated infrastructure.
+
+✅ Reconstruct coroutine execution, Flow pipelines, and asynchronous state machines.
+
+✅ Recover properties, delegated properties, extension functions, data classes, sealed hierarchies, and object declarations.
+
+✅ Analyze mixed Java/Kotlin applications while preserving architectural intent.
+
+✅ Correlate static analysis with runtime behavior to validate reconstructed semantics.
+
+✅ Produce accurate documentation explaining both the application's architecture and the Kotlin compiler transformations that shaped its implementation.
+
+
+
+---
+
+Next Part
+
+Part 3 — Flutter Application Reverse Engineering Methodology (Beginner → Expert)
+
+This section will focus on Flutter's unique architecture: the Flutter engine, Dart AOT compilation pipeline, libflutter.so, libapp.so, snapshots (conceptually), isolates, widget tree reconstruction, rendering pipeline, Platform Channels, Method Channels, plugin architecture, Skia integration, and the interaction between Dart code and the Android framework.
