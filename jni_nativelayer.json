@@ -1,0 +1,726 @@
+{
+  "meta": {
+    "id": "jni_native_layer_roadmap",
+    "title": "JNI, Android Native Layer, Bionic, libc++, ELF & Native Libraries",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROID NATIVE LAYER MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive JNI, Android Native Layer, Bionic, libc++, ELF & Native Libraries roadmap, mastering JNI interop, Bionic libc internals, dynamic linker mechanics, ELF binary structures, and low-level native reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Native Layer Overview",
+      "subtitle": "Full Native Stack, Execution Layers & Call Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Stack Components",
+          "items": [
+            "Native Layer architecture",
+            "Java Native Interface (JNI)",
+            "Bionic C Standard Library",
+            "libc++ C++ Standard Library",
+            "Dynamic Linker (linker/linker64)",
+            "ELF Executable & Linkable Format",
+            "Shared Libraries (.so files)",
+            "Native Services & Daemons",
+            "Android Runtime (ART) integration",
+            "Hardware Abstraction Layer (HAL)"
+          ]
+        },
+        {
+          "title": "Native Call Pipeline",
+          "items": [
+            "Java / Kotlin → Framework API → JNI → libandroid_runtime.so → Bionic → ELF → Linux Kernel → Hardware"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Native Userspace Architecture",
+      "subtitle": "User-Space Libraries, Daemons & Desktop Linux Differences",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Userspace Subsystems",
+          "items": [
+            "Application binaries & NDK libraries",
+            "Native shared libraries",
+            "Runtime framework libraries",
+            "Dynamic linker execution",
+            "Native daemons (vold, netd, lmkd, servicemanager)",
+            "HAL libraries & Vendor shared objects",
+            "Architectural differences between Android userspace and GNU/Linux desktop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Android NDK",
+      "subtitle": "Build Toolchains, CMake, Prefab & ABIs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NDK Development Tooling",
+          "items": [
+            "Android NDK (Native Development Kit)",
+            "CMake & ndk-build integration",
+            "Clang / LLVM toolchains",
+            "Cross compilation targets",
+            "Android ABIs (arm64-v8a, armeabi-v7a, x86, x86_64)",
+            "Debug symbols management (unstripped .so)",
+            "Release builds & Symbol stripping",
+            "NativeActivity architecture",
+            "Prefab package management for native C++ dependencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Java Native Interface (JNI)",
+      "subtitle": "JNI Specification, Architecture & Registration Models",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Fundamentals & Architecture",
+          "items": [
+            "History and purpose of JNI in Java/Android",
+            "JNI architecture and specification boundaries",
+            "JNIEnv thread-local pointer structure",
+            "JavaVM global invocation interface",
+            "Native method declarations (`native` keyword)",
+            "Static vs Dynamic native registration",
+            "Java-to-native object and primitive conversion",
+            "JNI Type mapping rules",
+            "Performance and memory overhead of JNI transitions",
+            "Security implications of crossing native boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — JNIEnv",
+      "subtitle": "Thread-Local Environment, Function Tables & Lookups",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNIEnv Functionality",
+          "items": [
+            "JNIEnv structure and function pointer table",
+            "Class resolution (`FindClass`)",
+            "Method ID lookup (`GetMethodID`, `GetStaticMethodID`)",
+            "Field ID lookup (`GetFieldID`, `GetStaticFieldID`)",
+            "Object instantiation (`NewObject`, `AllocObject`)",
+            "Local & Global reference management",
+            "Primitive & Object array access APIs",
+            "String manipulation APIs",
+            "Exception handling APIs (`ExceptionCheck`, `ExceptionClear`)",
+            "Thread attachment constraints (Why JNIEnv is strictly thread-local)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — JavaVM",
+      "subtitle": "Global Runtime Handle, Thread Attachment & Lifecycle",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JavaVM Management",
+          "items": [
+            "JavaVM interface handle (Global per process)",
+            "Attaching native threads (`AttachCurrentThread` / `AttachCurrentThreadAsDaemon`)",
+            "Detaching native threads (`DetachCurrentThread`)",
+            "Retrieving JNIEnv pointers via `GetEnv`",
+            "Managing multi-threaded native callbacks",
+            "JavaVM lifecycle during process initialization and exit",
+            "JavaVM interaction with ART runtime engine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Native Method Registration",
+      "subtitle": "Static dlsym Lookups vs Dynamic RegisterNatives",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Registration Strategies",
+          "items": [
+            "Static registration (`Java_packagename_Class_method` symbol naming)",
+            "Dynamic registration via `RegisterNatives` API",
+            "`JNI_OnLoad` initialization callback",
+            "`JNI_OnUnload` cleanup callback",
+            "`JNINativeMethod` struct definitions (Name, Signature, Function Pointer)",
+            "Unregistering native methods (`UnregisterNatives`)",
+            "Library load-time initialization workflows",
+            "Reverse Engineering Perspective: How dynamic registration obfuscates native-Java method relationships"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — JNI Data Types",
+      "subtitle": "Primitive & Reference Type Mappings",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Reference & Primitive Types",
+          "items": [
+            "Reference types: `jobject`, `jclass`, `jstring`, `jarray`, `jthrowable`",
+            "Primitive array types: `jbyteArray`, `jintArray`, `jbooleanArray`, etc.",
+            "Primitive types: `jboolean`, `jbyte`, `jshort`, `jchar`, `jint`, `jlong`, `jfloat`, `jdouble`",
+            "Opaque ID types: `jfieldID`, `jmethodID`",
+            "Direct mapping rules between C/C++ primitives and Java primitives"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — References",
+      "subtitle": "Reference Types, Lifetime Tables & Memory Leaks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Reference Lifecycle",
+          "items": [
+            "Local references (`NewLocalRef`, automatic frame scope cleanup)",
+            "Global references (`NewGlobalRef`, `DeleteGlobalRef` across threads)",
+            "Weak global references (`NewWeakGlobalRef`, `IsSameObject` validation)",
+            "Reference lifetime boundaries and Indirect Reference Tables (IRT)",
+            "Reference table capacity limits (Local ref leaks causing crashes)",
+            "Explicit reference deletion strategies",
+            "GC interaction with pinned/referenced Java objects"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Strings",
+      "subtitle": "String Encodings, Allocation & Memory Ownership",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI String Operations",
+          "items": [
+            "`NewString` (UTF-16) & `NewStringUTF` (Modified UTF-8)",
+            "`GetStringUTFChars` & `ReleaseStringUTFChars`",
+            "`GetStringChars` & `ReleaseStringChars`",
+            "`GetStringCritical` & `ReleaseStringCritical`",
+            "UTF-8 vs UTF-16 vs Modified UTF-8 differences",
+            "String access performance trade-offs (Copying vs Pinning)",
+            "Memory ownership rules for allocated string buffers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Arrays",
+      "subtitle": "Primitive/Object Arrays, Pinning & Critical Elements",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Array Operations",
+          "items": [
+            "Primitive array creation (`NewIntArray`, `NewByteArray`)",
+            "Object array creation (`NewObjectArray`)",
+            "`GetPrimitiveArrayCritical` & `ReleasePrimitiveArrayCritical`",
+            "Array element copying (`GetIntArrayRegion` / `SetIntArrayRegion`)",
+            "Array element pinning (`GetIntArrayElements` / `ReleaseIntArrayElements`)",
+            "Release mode semantics (`0` commit/free, `JNI_COMMIT`, `JNI_ABORT`)",
+            "Performance implications of array copies vs heap pinning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Objects",
+      "subtitle": "Instance Creation, Constructors & Lifetime Management",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Object Operations in JNI",
+          "items": [
+            "Instantiating objects via `NewObject` (Constructor invocation)",
+            "Allocating raw objects via `AllocObject` (Uninitialized memory)",
+            "Explicit reference cleanup (`DeleteLocalRef`, `DeleteGlobalRef`)",
+            "Instance method calls on instantiated objects",
+            "Instance field reads and writes",
+            "Object lifetime management and JVM object garbage collection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Method Invocation",
+      "subtitle": "Call*Method Opcodes, Variadic Arguments & Non-Virtual Calls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Call Method Variations",
+          "items": [
+            "Instance call APIs (`CallVoidMethod`, `CallObjectMethod`, `CallIntMethod`, etc.)",
+            "Static call APIs (`CallStaticVoidMethod`, `CallStaticObjectMethod`, etc.)",
+            "Non-virtual call APIs (`CallNonvirtualObjectMethod` for superclass calls)",
+            "Argument passing forms: Variadic (`...`), Array (`jvalue*`), `va_list`",
+            "Dynamic dispatch rules and vtable resolution in JNI invocations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Field Access",
+      "subtitle": "Field IDs, Caching & Field Access Opcodes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Field Read/Write APIs",
+          "items": [
+            "Resolving field IDs via `GetFieldID` and `GetStaticFieldID`",
+            "Field read APIs (`GetField`, `GetObjectField`, `GetStaticIntField`)",
+            "Field write APIs (`SetField`, `SetObjectField`, `SetStaticIntField`)",
+            "Instance fields vs Static fields access mechanics",
+            "Primitive fields vs Object reference fields",
+            "Field ID caching strategies (Global vs Static local caching)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Exceptions",
+      "subtitle": "Exception Checking, Throwing & Cross-Boundary Propagation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Exception Handling",
+          "items": [
+            "Throwing exceptions from native code (`Throw`, `ThrowNew`)",
+            "Checking pending exceptions (`ExceptionOccurred`, `ExceptionCheck`)",
+            "Clearing pending exceptions (`ExceptionClear`)",
+            "Fatal exception behavior when JNI calls occur with pending exceptions",
+            "Propagating native error states back into Java runtime exceptions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Threads",
+      "subtitle": "Native Threads, Attachment & Lifecycle Management",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Threading & JNI Contexts",
+          "items": [
+            "Attaching arbitrary pthreads to the JavaVM (`AttachCurrentThread`)",
+            "Detaching pthreads before thread termination (`DetachCurrentThread`)",
+            "Daemon thread attachment semantics",
+            "Native thread lifecycle integration with ART",
+            "Enforcing thread-local JNIEnv ownership rules",
+            "Thread synchronization and thread safety in JNI wrappers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Synchronization",
+      "subtitle": "Monitor Enter/Exit & Native Concurrency Primitives",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Concurrency Control",
+          "items": [
+            "Java object monitor locking in native code (`MonitorEnter`, `MonitorExit`)",
+            "Replicating `synchronized(obj)` blocks in JNI",
+            "Native POSIX concurrency (`pthread_mutex_t`, `pthread_cond_t`)",
+            "C++11 `<atomic>` operations and memory ordering",
+            "Memory barrier semantics across JNI boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Bionic libc",
+      "subtitle": "Android C Standard Library Architecture & glibc Differences",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Bionic Design & System Subsystems",
+          "items": [
+            "History and architecture of Bionic libc",
+            "Design goals: Small memory footprint, fast execution, custom thread handling",
+            "Key differences between Bionic and GNU glibc (`NSS`, `iconv`, `locale` variations)",
+            "POSIX API support and non-standard omissions",
+            "Bionic memory allocation engine integration",
+            "Bionic pthread implementation & TLS handling",
+            "Signal handling & System call wrapper generation",
+            "File and Networking I/O performance and compatibility layers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — libc++",
+      "subtitle": "C++ Standard Library, STL, Containers & ABIs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "libc++ Architecture",
+          "items": [
+            "LLVM libc++ integration in Android NDK",
+            "STL container performance and memory layouts (`std::vector`, `std::unordered_map`)",
+            "C++ Algorithms & Memory management allocators",
+            "C++ ABI stability and linking (Static `libc++_static.a` vs Shared `libc++_shared.so`)",
+            "Exception handling support (`-fexceptions` vs `-fno-exceptions`)",
+            "Template instantiation & RTTI support (`typeid`, `dynamic_cast`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Dynamic Linker",
+      "subtitle": "linker/linker64, Symbol Resolution & Namespaces",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dynamic Linker Architecture",
+          "items": [
+            "Linker binary handles (`/system/bin/linker` & `/system/bin/linker64`)",
+            "Shared library loading pipeline (`dlopen`, `dlsym`, `dlclose`)",
+            "Dependency graph resolution & DT_NEEDED handling",
+            "Relocation processing (PLT/GOT updates)",
+            "Constructor (`.init` / `.init_array`) and Destructor (`.fini` / `.fini_array`) execution",
+            "Lazy binding vs Immediate binding (`LD_BIND_NOW`)",
+            "Symbol visibility controls (`__attribute__((visibility("default")))`)",
+            "Linker Namespaces (APEX, Vendor, App isolation barriers)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — ELF Internals",
+      "subtitle": "Headers, Sections, Segments & Internal Tables",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ELF Structural Layout",
+          "items": [
+            "ELF Header (`Elf64_Ehdr` — Magic, ISA, Entry Point)",
+            "Program Headers (`Elf64_Phdr` — `PT_LOAD`, `PT_DYNAMIC`, `PT_GNU_RELRO`)",
+            "Section Headers (`Elf64_Shdr`)",
+            "Code & Data Sections: `.text`, `.data`, `.rodata`, `.bss`",
+            "Dynamic Linking Sections: `.dynamic`, `.dynsym`, `.dynstr`, `.rela.dyn`, `.rela.plt`",
+            "Procedure Tables: `.plt`, `.got`, `.got.plt`",
+            "Initialization Arrays: `.init_array`, `.fini_array`",
+            "Metadata Sections: `.note.android.ident`, `.gnu.hash`, `.comment`, `.debug`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Symbol Resolution",
+      "subtitle": "Exported/Imported Symbols, Mangling & Dynamic Lookups",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Symbol Table Mechanics",
+          "items": [
+            "Exported symbols (`STB_GLOBAL`) vs Internal symbols (`STB_LOCAL`)",
+            "Imported undefined symbols (`SHN_UNDEF`)",
+            "Weak symbols (`STB_WEAK`) & Hidden symbol visibility (`STV_HIDDEN`)",
+            "Symbol versioning structures (`.gnu.version`, `.gnu.version_r`)",
+            "C++ Itanium name mangling & demangling (`abi::__cxa_demangle`)",
+            "Dynamic symbol lookup algorithms using GNU Hash Tables (`.gnu.hash`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Relocations",
+      "subtitle": "PLT/GOT Relocations, REL/RELA & Position-Independent Code",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Relocation Mechanics",
+          "items": [
+            "Absolute relocations (`R_AARCH64_ABS64`)",
+            "Relative relocations (`R_AARCH64_RELATIVE`)",
+            "PLT relocations (`R_AARCH64_JUMP_SLOT`)",
+            "GOT relocations (`R_AARCH64_GLOB_DAT`)",
+            "REL vs RELA relocation table format differences",
+            "Position-Independent Code (PIC) & Position-Independent Executables (PIE)",
+            "Runtime relocation patching by the dynamic linker"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Library Loading",
+      "subtitle": "System.loadLibrary to Execution Readiness Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Library Initialization Pipeline",
+          "items": [
+            "Application Call (`System.loadLibrary`) → Native Linker (`dlopen`) → Dependency Resolution → Memory Mapping (`mmap`) → Relocation Processing → Execution of `.init_array` Constructors → Invocation of `JNI_OnLoad` → Library Ready for Execution",
+            "Failure modes (UnsatisfiedLinkError, missing dependencies, relocation errors)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Android Native Libraries",
+      "subtitle": "Core System Shared Objects (.so) Catalog",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Essential System Shared Libraries",
+          "items": [
+            "`libart.so` (ART Runtime Engine)",
+            "`libandroid_runtime.so` (Java Framework Native Backends)",
+            "`libbinder.so` (Native Binder IPC)",
+            "`libnativehelper.so` (JNI Helper Abstractions)",
+            "`libutils.so` & `libbase.so` (Android Core C++ Utilities)",
+            "`libc.so`, `libdl.so`, `libm.so` (Bionic System Libraries)",
+            "`liblog.so` (Logcat Native Interface)",
+            "`libsqlite.so` & `libicu.so` (Database & Unicode Engines)",
+            "`libgui.so` & `libui.so` (SurfaceFlinger & Graphic Buffers)",
+            "`libmedia.so` & `libcamera2.so` (Media & Camera Subsystems)",
+            "`libEGL.so` & `libGLESv2.so` (OpenGL Graphics Drivers)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Native Services",
+      "subtitle": "System Daemons, Native IPC & Service Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Daemon Catalog",
+          "items": [
+            "`servicemanager` (Binder Context Manager)",
+            "`hwservicemanager` (HIDL Manager) / `servicemanager` (AIDL)",
+            "`vold` (Volume Manager) & `netd` (Network Daemon)",
+            "`adbd` (ADB Server) & `lmkd` (Low Memory Killer Daemon)",
+            "`statsd` (Telemetry) & `keystore2` (Security Credentials)",
+            "`gatekeeperd` (Authentication) & `apexd` (APEX Package Manager)",
+            "`SurfaceFlinger` (Compositor Daemon)",
+            "`MediaServer` components (Stagefright / Codec2)",
+            "Architecture of C++ native daemons communicating over Binder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Memory Allocation",
+      "subtitle": "Scudo Allocator, Heap Layouts & Thread Caches",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Memory Allocation Subsystem",
+          "items": [
+            "Standard APIs: `malloc`, `calloc`, `realloc`, `free`",
+            "jemalloc allocator (Historical Android allocator)",
+            "Scudo Hardened Allocator (Modern default Android allocator)",
+            "Primary and Secondary Allocators in Scudo",
+            "Thread Local Caches & Chunk Quarantine (Mitigating Use-After-Free)",
+            "Heap Layout, Chunk Headers, and Guard Pages",
+            "Heap fragmentation and native memory allocation tracking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Memory Mapping",
+      "subtitle": "mmap, Shared Memory & Page Permissions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Virtual Memory Mapping Primitives",
+          "items": [
+            "Memory mapping system calls (`mmap`, `munmap`, `mprotect`)",
+            "Anonymous memory mappings (`MAP_ANONYMOUS`)",
+            "File-backed memory mappings (`MAP_SHARED` / `MAP_PRIVATE`)",
+            "Android Shared Memory (`ashmem` / `memfd_create`)",
+            "Page protection flags (`PROT_READ`, `MAP_WRITE`, `PROT_EXEC`)",
+            "Executable memory restrictions (W^X enforcement)",
+            "Inspecting process memory mappings via `/proc/PID/maps`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Native Security",
+      "subtitle": "Hardening Mitigations: ASLR, Canaries, PAC, BTI & MTE",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Hardening Mechanisms",
+          "items": [
+            "Address Space Layout Randomization (ASLR) & Position Independent Executables (PIE)",
+            "Read-Only Relocations (RELRO: Partial vs Full)",
+            "NX / XN (No-Execute / eXecute-Never page protection)",
+            "Stack Canaries (`__stack_chk_fail` protection)",
+            "Fortify Source (`_FORTIFY_SOURCE` safe buffer wrappers)",
+            "Pointer Authentication (PAC) & Branch Target Identification (BTI)",
+            "Memory Tagging Extension (MTE: Hardware-backed memory safety)",
+            "`seccomp-bpf` system call filtering",
+            "SELinux native domain policies and transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Native Performance",
+      "subtitle": "SIMD/NEON, Optimization & Cache Locality",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Performance Tuning",
+          "items": [
+            "Compiler inlining passes (`inline`, `__attribute__((always_inline))`)",
+            "Compiler optimization flags (`-O2`, `-O3`, `-Os`, `-Oz`, `-Flto`)",
+            "L1/L2/L3 Cache locality & Data structure padding optimization",
+            "SIMD / ARM NEON vectorization intrinsics",
+            "Memory bandwidth optimization & Zero-copy buffers",
+            "Minimizing `malloc`/`free` allocation frequency",
+            "Branch prediction Optimization (`__builtin_expect`)",
+            "Lock contention reduction in multi-threaded native libraries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — JNI Performance",
+      "subtitle": "ID Caching, Direct ByteBuffers & Transition Minimization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Performance Optimization",
+          "items": [
+            "Caching Method IDs and Field IDs in `JNI_OnLoad`",
+            "Local reference frame management (`PushLocalFrame` / `PopLocalFrame`)",
+            "Using `GetPrimitiveArrayCritical` for zero-copy array processing",
+            "Direct ByteBuffers (`NewDirectByteBuffer` / `GetDirectBufferAddress`)",
+            "Minimizing JNI transition frequency (Batching data transfers)",
+            "Avoiding excessive reflection calls from native code into Java"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Native Debugging",
+      "subtitle": "Crash Analysis, Tombstones & Signal Handlers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Diagnostic Analysis",
+          "items": [
+            "Native stack traces parsing & Symbolication (`addr2line`, `ndk-stack`)",
+            "Crash dumps inspection (`/data/tombstones/tombstone_XX`)",
+            "Backtrace generation (`libunwindstack`)",
+            "Native register and memory inspection during crashes",
+            "Signal handling in native processes (`SIGSEGV`, `SIGABRT`, `SIGBUS`)",
+            "Analyzing ANR traces containing native thread stacks (`/data/anr/traces.txt`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Reverse Engineering JNI",
+      "subtitle": "Identifying Registrations, Symbols & Interop Invocations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Static & Dynamic Analysis Checklist",
+          "items": [
+            "Locating `System.loadLibrary()` invocations in DEX bytecode",
+            "Analyzing `JNI_OnLoad` implementations in disassembly",
+            "Distinguishing static exports from dynamic `RegisterNatives` calls",
+            "Extracting `JNINativeMethod` tables from `.rodata` / `.data` sections",
+            "Mapping Java native declarations to native function offsets",
+            "Tracking `GetMethodID` / `GetFieldID` string parameters in disassembly",
+            "Tracing `GetStringUTFChars` & array conversions",
+            "Analyzing native exception checks and cross-boundary error handling",
+            "Identifying C++ wrapper objects holding native `jlong` handles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Reverse Engineering Native Libraries",
+      "subtitle": "ELF Binary Introspection & Structural Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Library Disassembly Methodology",
+          "items": [
+            "Analyzing Exported Symbols (`.dynsym`) and Imported Symbols (`.plt` / `.got`)",
+            "Reconstructing `.init_array` static constructors and `.fini_array` destructors",
+            "Locating static global object instances",
+            "Parsing string tables (`.rodata`, `.dynstr`) for diagnostic messages",
+            "Reconstructing C++ RTTI (`typeinfo`) and Virtual Method Tables (VTables)",
+            "Analyzing JNI wrapper functions and parameter marshaling",
+            "Mapping library dependencies via `DT_NEEDED` entries",
+            "Identifying custom memory allocators and heap structures",
+            "Tracking synchronization primitives (pthread mutexes, atomics)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reading AOSP Native Source",
+      "subtitle": "AOSP Native Codebase Target Repositories",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Study Targets",
+          "items": [
+            "`bionic/` — C standard library, pthread, and system call wrappers",
+            "`system/core/linker/` — Android dynamic linker source code",
+            "`frameworks/native/` — SurfaceFlinger, InputFlinger, libbinder",
+            "`libnativehelper/` — JNI helper functions and reference wrappers",
+            "`art/runtime/jni/` — ART runtime JNI implementation (`jni_internal.cc`)",
+            "`libcxx/` — LLVM libc++ standard library source",
+            "`frameworks/native/libs/binder/` — Native C++ Binder IPC implementation",
+            "Focus on: JNI runtime internals, dynamic linking, memory allocation, and native service initialization"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,894 @@
+{
+  "meta": {
+    "id": "linux_internals_roadmap",
+    "title": "Linux Internals (Beginner → Expert)",
+    "subtitle": "Systems Architecture, Kernel Subsystems & Android Foundations Roadmap",
+    "completionTitle": "LINUX INTERNALS MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive Linux Internals roadmap, mastering kernel subsystems, virtual memory, process isolation, security models, and Android-specific kernel extensions!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Linux Ecosystem",
+      "subtitle": "Origins, Distributions & High-Level Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "History & Distros",
+          "items": [
+            "History of UNIX",
+            "History of Linux",
+            "Linus Torvalds",
+            "GNU Project",
+            "Linux distributions",
+            "Linux kernel",
+            "User space vs Kernel space",
+            "POSIX",
+            "GNU/Linux architecture",
+            "Android's Linux kernel"
+          ]
+        },
+        {
+          "title": "System Architecture Pipeline",
+          "items": [
+            "Hardware → Bootloader → Linux Kernel → init → System Services → Applications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Linux Architecture",
+      "subtitle": "Kernel Models & User-Space Components",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Components",
+          "items": [
+            "Kernel",
+            "Shell",
+            "Libraries",
+            "Daemons",
+            "Services",
+            "Drivers",
+            "Applications"
+          ]
+        },
+        {
+          "title": "Kernel Architecture Models",
+          "items": [
+            "Monolithic kernel",
+            "Loadable kernel modules",
+            "Microkernel comparison",
+            "Hybrid kernels"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Boot Process",
+      "subtitle": "Hardware Initialization to System Init",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Boot Execution Sequence",
+          "items": [
+            "Power On → Firmware → Bootloader → Kernel Image → Kernel Initialization → initramfs → init → System Services → Login / Android Init"
+          ]
+        },
+        {
+          "title": "Initialization Mechanics",
+          "items": [
+            "Kernel decompression",
+            "Hardware initialization",
+            "Root filesystem mounting",
+            "Kernel command line"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Kernel Internals",
+      "subtitle": "Subsystems & Core Services",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Kernel Architecture & Subsystems",
+          "items": [
+            "Kernel architecture",
+            "Kernel subsystems",
+            "Scheduler",
+            "Memory manager",
+            "Virtual File System (VFS)",
+            "Networking subsystem",
+            "IPC subsystem",
+            "Security subsystem",
+            "Driver subsystem",
+            "Interrupt subsystem",
+            "Timer subsystem",
+            "Power management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Processes",
+      "subtitle": "Lifecycle, Management & Scoping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Process Metadata & Lifecycle",
+          "items": [
+            "PID & PPID",
+            "Process states (Running, Sleeping, Stopped, Zombie, Orphan)",
+            "Fork, Exec, Exit, Wait"
+          ]
+        },
+        {
+          "title": "Process Grouping & Priorities",
+          "items": [
+            "Sessions & Process groups",
+            "Foreground vs Background",
+            "Daemon processes",
+            "Priority & Nice values",
+            "Affinity",
+            "Reverse Engineering Perspective: Every Android app as a Linux process"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Threads",
+      "subtitle": "Creation, Synchronization & TLS",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Thread Types & Management",
+          "items": [
+            "Kernel threads vs User threads",
+            "POSIX threads (pthreads)",
+            "Thread creation & scheduling"
+          ]
+        },
+        {
+          "title": "Synchronization Primitives",
+          "items": [
+            "Mutex",
+            "Semaphore",
+            "Condition variables",
+            "Spinlocks",
+            "Read-write locks",
+            "Barriers",
+            "Thread Local Storage (TLS)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Process Scheduling",
+      "subtitle": "Schedulers, Latency & Energy Awareness",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Scheduler Mechanics",
+          "items": [
+            "Scheduler classes",
+            "Completely Fair Scheduler (CFS)",
+            "Real-time scheduler",
+            "Deadline scheduler",
+            "Task switching & Context switching",
+            "CPU affinity & Load balancing",
+            "Preemption & Scheduling latency"
+          ]
+        },
+        {
+          "title": "Android Extensions",
+          "items": [
+            "Energy Aware Scheduling (EAS)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Virtual Memory",
+      "subtitle": "Paging, MMU & Address Translation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Translation & Page Tables",
+          "items": [
+            "Virtual address vs Physical address",
+            "Address translation",
+            "MMU & Page tables",
+            "TLB (Translation Lookaside Buffer)",
+            "Page faults & Demand paging",
+            "Huge pages"
+          ]
+        },
+        {
+          "title": "Mapping & Protection",
+          "items": [
+            "Memory mapping",
+            "Copy-On-Write (COW)",
+            "Shared pages vs Anonymous pages",
+            "Memory protection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Process Memory Layout",
+      "subtitle": "Segments, Stack, Heap & Shared Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Segments",
+          "items": [
+            "Text segment",
+            "Read-only data",
+            "Initialized data",
+            "BSS",
+            "Heap",
+            "Memory-mapped regions",
+            "Stack",
+            "Shared libraries",
+            "vdso",
+            "vsyscall (historical)"
+          ]
+        },
+        {
+          "title": "Inspection",
+          "items": [
+            "Inspecting process memory maps (/proc/PID/maps)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Memory Allocation",
+      "subtitle": "Heap Allocators, System Calls & Kernel Allocators",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "User-Space Allocation",
+          "items": [
+            "brk() & sbrk()",
+            "mmap() & munmap()",
+            "malloc() & free()",
+            "Heap allocators",
+            "Fragmentation & Alignment",
+            "Memory pools"
+          ]
+        },
+        {
+          "title": "Kernel-Space Allocation",
+          "items": [
+            "Slab allocation (kernel)",
+            "Buddy allocator"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — File System Internals",
+      "subtitle": "VFS, Inodes & File Descriptors",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "VFS & File Metadata",
+          "items": [
+            "Virtual File System (VFS)",
+            "Inodes",
+            "Dentries",
+            "Superblocks",
+            "Mount points",
+            "Hard links vs Symbolic links",
+            "Permissions, Ownership & Metadata"
+          ]
+        },
+        {
+          "title": "File Descriptors",
+          "items": [
+            "File descriptors",
+            "Open file tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Linux File Systems",
+      "subtitle": "Disk Formats, Pseudo File Systems & Android Usage",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Disk & Flash File Systems",
+          "items": [
+            "EXT2 / EXT3 / EXT4",
+            "F2FS",
+            "XFS",
+            "Btrfs overview"
+          ]
+        },
+        {
+          "title": "Pseudo & Special File Systems",
+          "items": [
+            "tmpfs",
+            "procfs",
+            "sysfs",
+            "devtmpfs",
+            "OverlayFS",
+            "Android's preferred filesystems"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Linux Directories",
+      "subtitle": "Filesystem Hierarchy Standard vs Android Layout",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard FHS Directory Layout",
+          "items": [
+            "/ (root)",
+            "/bin & /sbin",
+            "/boot",
+            "/dev",
+            "/etc",
+            "/home",
+            "/lib & /lib64",
+            "/media & /mnt",
+            "/opt",
+            "/proc",
+            "/root",
+            "/run",
+            "/srv",
+            "/sys",
+            "/tmp",
+            "/usr",
+            "/var"
+          ]
+        },
+        {
+          "title": "Android Layout Differences",
+          "items": [
+            "Android-specific layout differences (/system, /data, /vendor, /apex, /storage)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — procfs",
+      "subtitle": "Process & Kernel Introspection via /proc",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "/proc Inspection Entries",
+          "items": [
+            "Process information (/proc/[pid])",
+            "Memory maps (/proc/[pid]/maps)",
+            "Command line (/proc/[pid]/cmdline)",
+            "Environment (/proc/[pid]/environ)",
+            "CPU information (/proc/cpuinfo)",
+            "Kernel parameters (/proc/sys)",
+            "Threads, File descriptors & Status"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — sysfs",
+      "subtitle": "Kernel Object Representation via /sys",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "/sys Hierarchy",
+          "items": [
+            "Devices",
+            "Drivers",
+            "Power management",
+            "CPU & Memory configurations",
+            "Kernel objects",
+            "Device hierarchy",
+            "Runtime configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Device Files",
+      "subtitle": "Character/Block Devices & Device Nodes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Device Abstractions",
+          "items": [
+            "Character devices",
+            "Block devices",
+            "Major numbers & Minor numbers",
+            "udev concepts",
+            "Device nodes",
+            "Android device access (/dev entries)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Permissions",
+      "subtitle": "DAC, Special Bits & POSIX Capabilities",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Discretionary Access Control (DAC)",
+          "items": [
+            "Read, Write, Execute permissions",
+            "Owner, Group, Others",
+            "chmod, chown, umask",
+            "ACL (Access Control Lists) overview"
+          ]
+        },
+        {
+          "title": "Special Permissions & Capabilities",
+          "items": [
+            "SUID & SGID",
+            "Sticky bit",
+            "POSIX Capabilities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — System Calls",
+      "subtitle": "User-to-Kernel Interface & Transition",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core System Calls",
+          "items": [
+            "I/O: read, write, open, close, stat, lseek, ioctl",
+            "Memory: mmap, munmap",
+            "Process: fork, clone, execve, wait, kill, prctl, getpid, gettid",
+            "Sockets & Multiplexing: socket, connect, bind, listen, accept, poll, epoll",
+            "Synchronization: futex"
+          ]
+        },
+        {
+          "title": "Transition Pipeline",
+          "items": [
+            "User space → System Call → Kernel → Return"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Signals",
+      "subtitle": "Asynchronous Notifications & Signal Handlers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Signal Types & Handlers",
+          "items": [
+            "Signal delivery mechanics",
+            "Signal handlers",
+            "SIGINT, SIGTERM, SIGKILL",
+            "SIGSEGV, SIGABRT, SIGBUS",
+            "SIGPIPE, SIGCHLD"
+          ]
+        },
+        {
+          "title": "Masks & Safety",
+          "items": [
+            "Signal masks",
+            "Signal safety (async-signal-safe functions)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — IPC",
+      "subtitle": "Inter-Process Communication Mechanisms",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Linux IPC",
+          "items": [
+            "Pipes & Named pipes (FIFOs)",
+            "Sockets & Unix domain sockets",
+            "Message queues",
+            "Shared memory & Semaphores",
+            "Signals & RPC"
+          ]
+        },
+        {
+          "title": "Android Context",
+          "items": [
+            "Comparing Linux IPC to Android Binder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — ELF Loading",
+      "subtitle": "Program Loader, Interpreters & Relocations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Loading Mechanics",
+          "items": [
+            "Program loader",
+            "Dynamic linker",
+            "Shared libraries",
+            "Symbol resolution",
+            "Relocations",
+            "Interpreter selection",
+            "Memory mapping",
+            "Lazy binding",
+            "Position Independent Executables (PIE)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Dynamic Linking",
+      "subtitle": "Linker, GOT, PLT & Symbol Resolution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dynamic Linking Infrastructure",
+          "items": [
+            "ld-linux / linker",
+            "Shared objects (.so)",
+            "Global Offset Table (GOT)",
+            "Procedure Linkage Table (PLT)",
+            "Relocations",
+            "PIC vs PIE",
+            "Library search path & Environment variables",
+            "Runtime symbol lookup"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Kernel Modules",
+      "subtitle": "LKM Architecture & Driver Subsystem",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Loadable Kernel Modules (LKM)",
+          "items": [
+            "Loadable modules",
+            "Module loading (insmod/modprobe) & Unloading (rmmod)",
+            "Dependencies",
+            "Kernel symbols (ksyms)",
+            "Device drivers",
+            "Android kernel modules (.ko)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Interrupts",
+      "subtitle": "IRQs, Exceptions & Deferred Execution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interrupt Processing",
+          "items": [
+            "Hardware interrupts vs Software interrupts",
+            "Exception handling",
+            "Interrupt controller",
+            "Interrupt handlers"
+          ]
+        },
+        {
+          "title": "Bottom Halves",
+          "items": [
+            "Bottom halves",
+            "SoftIRQs",
+            "Tasklets (historical)",
+            "Workqueues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Timers",
+      "subtitle": "Clock Sources, High-Resolution Timers & Delays",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Timer Subsystems",
+          "items": [
+            "Kernel timers",
+            "High-resolution timers (hrtimers)",
+            "Clock sources",
+            "Scheduling timers",
+            "Sleep & Delay functions",
+            "Timekeeping",
+            "Monotonic clocks vs Realtime clocks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Networking Internals",
+      "subtitle": "Socket Layers, TCP/IP & Packet Processing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Subsystem",
+          "items": [
+            "Socket layer",
+            "TCP/IP stack",
+            "Routing",
+            "ARP & Neighbor tables",
+            "Packet buffers (sk_buff)",
+            "Network interfaces & Loopback"
+          ]
+        },
+        {
+          "title": "Firewalling & Traffic Control",
+          "items": [
+            "Firewalling & Packet filtering (iptables/nftables)",
+            "QoS & Traffic control"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Namespaces",
+      "subtitle": "Container Isolation Primitives",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Namespace Categories",
+          "items": [
+            "Mount namespace",
+            "PID namespace",
+            "Network namespace",
+            "IPC namespace",
+            "UTS namespace",
+            "User namespace",
+            "Cgroup namespace"
+          ]
+        },
+        {
+          "title": "Isolation Applications",
+          "items": [
+            "Container isolation",
+            "Android usage overview (app sandboxing)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — cgroups",
+      "subtitle": "Control Groups & Resource Limits",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Controllers",
+          "items": [
+            "CPU limits",
+            "Memory limits",
+            "I/O limits",
+            "Process accounting",
+            "Controllers & Hierarchy",
+            "Android resource management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — SELinux",
+      "subtitle": "Mandatory Access Control & Policies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SELinux Core Concepts",
+          "items": [
+            "Mandatory Access Control (MAC)",
+            "Policies",
+            "Contexts",
+            "Domains",
+            "Types & Labels",
+            "Enforcement vs Permissive mode",
+            "Policy compilation"
+          ]
+        },
+        {
+          "title": "Android Implementation",
+          "items": [
+            "Android SELinux model (SEAndroid)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Security",
+      "subtitle": "Kernel Hardening, ASLR & Mitigations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Mitigations & Isolation",
+          "items": [
+            "Capabilities",
+            "seccomp",
+            "ASLR",
+            "NX/XN (No-Execute / eXecute-Never)",
+            "RELRO (Read-Only Relocations)",
+            "PIE",
+            "Stack canaries"
+          ]
+        },
+        {
+          "title": "System Hardening",
+          "items": [
+            "Kernel hardening",
+            "Secure Boot concepts",
+            "Verified Boot relationship"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Power Management",
+      "subtitle": "Scaling, Governors & Wakeup Sources",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Power Subsystem",
+          "items": [
+            "CPU idle states",
+            "CPU frequency scaling",
+            "Suspend & Resume",
+            "Wakeup sources",
+            "Thermal management",
+            "Power governors",
+            "Battery optimization",
+            "Android power integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Linux Debugging",
+      "subtitle": "Tracing, Core Dumps & Log Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Debugging Tools & Concepts",
+          "items": [
+            "Process inspection",
+            "Memory inspection",
+            "Core dumps & Backtraces",
+            "Kernel logs (dmesg) & System logs",
+            "Performance counters",
+            "Tracing concepts (ftrace, perf, strace)",
+            "Crash analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Performance Analysis",
+      "subtitle": "Profiling, Latency & Metrics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Performance Metrics",
+          "items": [
+            "CPU profiling & Memory profiling",
+            "Cache behavior",
+            "Page faults & Context switches",
+            "Scheduler latency",
+            "Disk I/O & Network throughput",
+            "Benchmarking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Linux Source Code Reading",
+      "subtitle": "Reviewing Core Kernel Subsystems",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Target Subsystems",
+          "items": [
+            "Linux kernel scheduler",
+            "Memory management subsystem",
+            "Virtual File System",
+            "Networking stack",
+            "ELF loader",
+            "Process management",
+            "Signal handling",
+            "Synchronization primitives",
+            "Focus on architecture rather than memorizing implementation details"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Android-Specific Linux Concepts",
+      "subtitle": "Kernel Patches, Allocators & Android Init",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Android Extensions to Linux",
+          "items": [
+            "Android Init",
+            "Bionic libc",
+            "Binder driver",
+            "Ashmem (historical) & memfd usage",
+            "Low Memory Killer evolution & LMKD",
+            "ION (historical) & DMA-BUF",
+            "Energy Aware Scheduling (EAS)",
+            "Android kernel patches & Vendor modules"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Reverse Engineering Perspective",
+      "subtitle": "Recognizing System Behaviors in Native Binaries & Artifacts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System Behavior Identification",
+          "items": [
+            "System call sequences",
+            "Process creation patterns",
+            "Memory mapping behavior",
+            "Shared library loading",
+            "Dynamic linker activity",
+            "Thread creation & Synchronization primitives",
+            "File access patterns & Network communication",
+            "IPC mechanisms & Security policy interactions",
+            "SELinux denials & Kernel/user-space boundaries"
+          ]
+        },
+        {
+          "title": "Artifact Artifact Contexts",
+          "items": [
+            "Understanding how patterns appear in: Native binaries, Android system services, JNI code, Log output, Memory maps, and Decompiled native code"
+          ]
+        }
+      ]
+    }
+  ]
+}

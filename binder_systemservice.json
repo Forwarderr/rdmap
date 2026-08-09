@@ -1,0 +1,906 @@
+{
+  "meta": {
+    "id": "binder_ipc_system_services_roadmap",
+    "title": "Binder IPC, System Server & Android System Services",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "BINDER IPC & SYSTEM SERVICES MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for Binder IPC, System Server, and Android System Services—covering everything from kernel driver mechanics and AIDL compiler outputs to SystemServer boot phases, permission enforcement, and reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Binder Overview",
+      "subtitle": "IPC Foundations, Driver Layers & End-to-End Execution Flow",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Entities & Concepts",
+          "items": [
+            "Why Binder exists in Android",
+            "Android IPC architecture",
+            "Binder kernel driver",
+            "Client process",
+            "Server process",
+            "System Service",
+            "ServiceManager",
+            "Binder object",
+            "Binder handle",
+            "Binder node",
+            "Binder reference"
+          ]
+        },
+        {
+          "title": "Execution Pipeline",
+          "items": [
+            "Application → Framework API → Binder Proxy → Kernel Binder Driver → Binder Stub → System Service → Native Code → HAL → Hardware"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Why Binder Was Created",
+      "subtitle": "Traditional UNIX IPC Trade-offs vs Object-Oriented IPC",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Traditional IPC Mechanisms & Limitations",
+          "items": [
+            "UNIX pipes (single-direction byte streams)",
+            "UNIX domain sockets (overhead & lack of identity propagation)",
+            "Shared memory (lack of built-in synchronization & access control)",
+            "POSIX Message queues & RPC concepts"
+          ]
+        },
+        {
+          "title": "Binder Architectural Advantages",
+          "items": [
+            "Single-copy transaction memory architecture",
+            "Built-in caller identity propagation (PID/UID injection by kernel)",
+            "Object-oriented remote reference handling",
+            "Death notifications (linkToDeath) and automatic cleanup",
+            "Thread pool management per process"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Binder Architecture",
+      "subtitle": "Userspace-Kernel Boundaries, Memory Management & Lifetime",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Userspace vs Kernel Space Structures",
+          "items": [
+            "Userspace proxies and stubs",
+            "Kernel driver data structures (binder_proc, binder_thread, binder_node, binder_ref)",
+            "Binder Nodes (kernel representation of real objects)",
+            "Binder References (kernel tracking of remote proxies)",
+            "Binder Handles (userspace integers mapping to references)"
+          ]
+        },
+        {
+          "title": "Transaction & Object Mechanics",
+          "items": [
+            "Transaction queues (binder_transaction & binder_work)",
+            "Death notifications (BC_REQUEST_DEATH_NOTIFICATION / BR_DEAD_BINDER)",
+            "Reference counting (BC_ACQUIRE / BC_RELEASE / BC_INCREFS / BC_DECREFS)",
+            "Object lifetime management across process boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Binder Driver",
+      "subtitle": "Kernel Driver Mechanics, Devices & Memory Buffers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Driver Endpoints & Interfaces",
+          "items": [
+            "/dev/binder (Standard framework IPC)",
+            "/dev/vndbinder (Vendor-to-vendor IPC)",
+            "/dev/hwbinder (HIDL HAL-to-framework IPC)"
+          ]
+        },
+        {
+          "title": "Kernel Implementation Details",
+          "items": [
+            "Driver initialization & mmap() allocation (1MB - 2*PAGE_SIZE limit for apps)",
+            "IOCTL interface commands (BINDER_WRITE_READ, BINDER_SET_MAX_THREADS)",
+            "Thread management & waiting queues",
+            "Shared memory buffer allocation (binder_buffer struct)",
+            "Transaction routing & security check validation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Binder Components",
+      "subtitle": "Full Architectural Taxonomy from Client to Kernel",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Component Roles",
+          "items": [
+            "Client (Initiator of remote calls)",
+            "Server (Implementation of remote interfaces)",
+            "Proxy (Client-side stub marshalling arguments)",
+            "Stub (Server-side unmarshaller & dispatcher)",
+            "Interface (Shared contract definition)",
+            "Parcel (Data container for IPC payload)",
+            "Binder Driver (Routing & identity verification engine)",
+            "ServiceManager (Directory/Registry daemon)",
+            "System Server (Host of framework system services)",
+            "HAL Binder & Native Binder (C++ IPC infrastructure)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — IBinder",
+      "subtitle": "Core Interface Specifications & Death Recipients",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "IBinder Primitive Types",
+          "items": [
+            "IBinder (Base interface for remotable objects)",
+            "Binder (Base class for local server implementations)",
+            "BinderProxy (Java wrapper for remote C++ BpBinder)",
+            "BinderInternal (Runtime internal management helpers)"
+          ]
+        },
+        {
+          "title": "Lifecycle & Exception Primitives",
+          "items": [
+            "RemoteException (Base class for Binder IPC failures)",
+            "DeathRecipient (Callback interface for process death)",
+            "LinkToDeath & UnlinkToDeath (Registering death notifications)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — IInterface",
+      "subtitle": "Base Interface Contracts & Proxy/Stub Generators",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interface Conventions",
+          "items": [
+            "IInterface contract definition",
+            "asBinder() method (Converting interface to IBinder reference)",
+            "Interface token verification (queryLocalInterface)",
+            "Proxy class generation mechanics",
+            "Stub class generation mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — AIDL",
+      "subtitle": "Interface Definition Language, Proxy/Stub CodeGen & Types",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AIDL Compilation & Output",
+          "items": [
+            "Android Interface Definition Language (AIDL) syntax",
+            "aidl compiler execution & generated Java/C++/NDK code",
+            "Generated Client Proxy (marshalling & transact())",
+            "Generated Server Stub (onTransact() & unmarshalling)",
+            "Transaction code assignment"
+          ]
+        },
+        {
+          "title": "Supported Data Types & Annotations",
+          "items": [
+            "Primitives, Strings, CharSequences, Lists, Maps, Arrays",
+            "Parcelable objects & Custom Parcelables",
+            "Nested AIDL Interfaces & Remote Callbacks",
+            "oneway methods (Asynchronous non-blocking calls)",
+            "Interface versioning (@sensitive, @VintfStability, VINTF compatibility)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Parcel",
+      "subtitle": "Data Container Serialization Format & FD Transfer",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Parcel Layout & Primitives",
+          "items": [
+            "In-memory C++ / Java Parcel structure",
+            "Primitive types serialization (writeInt, writeLong, writeString)",
+            "Array and Collection marshalling",
+            "Parcelable object serialization",
+            "IBinder reference marshalling (writeStrongBinder / readStrongBinder)"
+          ]
+        },
+        {
+          "title": "Advanced File & Object Passing",
+          "items": [
+            "File Descriptor passing via Kernel (writeFileDescriptor / dup)",
+            "Ashmem / SharedMemory / Blob handling for large payloads",
+            "Binder object ownership & reference counter increments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Parcelable",
+      "subtitle": "High-Performance Java Serialization Interface",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Parcelable Structure",
+          "items": [
+            "Parcelable interface contracts",
+            "Parcelable.Creator static field definition",
+            "writeToParcel() implementation",
+            "readFromParcel() / Constructor instantiation",
+            "Parcelable versioning & backward compatibility",
+            "Performance advantages over standard java.io.Serializable",
+            "Reverse Engineering Perspective: Extracting IPC state from Parcelables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Binder Transactions",
+      "subtitle": "End-to-End Cross-Process Execution Steps",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Transaction Pipeline Steps",
+          "items": [
+            "1. Client calls proxy method",
+            "2. Proxy obtains Parcel from pool and writes interface token & arguments",
+            "3. Proxy invokes mRemote.transact(code, data, reply, flags)",
+            "4. Kernel driver intercepts, copies data to server's mmap buffer, & wakes target thread",
+            "5. Server thread reads transaction and calls Stub.onTransact(code, data, reply, flags)",
+            "6. Stub unmarshalls arguments and dispatches to actual service implementation",
+            "7. Service executes and writes return values/exceptions into reply Parcel",
+            "8. Kernel transfers reply back to client and wakes waiting client thread"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Transaction Codes",
+      "subtitle": "Transaction IDs, Method Dispatching & Constants",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Transaction Code Mappings",
+          "items": [
+            "FIRST_CALL_TRANSACTION (0x00000001) & LAST_CALL_TRANSACTION (0x00ffffff)",
+            "INTERFACE_TRANSACTION, DUMP_TRANSACTION, SHELL_COMMAND_TRANSACTION",
+            "AIDL-generated transaction constants (e.g., TRANSACTION_startActivity = 1)",
+            "Switch-case dispatching inside Stub.onTransact()",
+            "Reverse Engineering Perspective: Mapping integer transaction IDs back to AIDL methods"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — ServiceManager",
+      "subtitle": "Global Service Directory, Context Manager & Registration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ServiceManager Architecture",
+          "items": [
+            "ServiceManager daemon (servicemanager native binary)",
+            "Binder Context Manager (Handle 0)",
+            "Service registration (addService) & Lookup (getService / checkService)",
+            "Global service registry mapping string names to IBinder handles",
+            "Access control & SELinux service permissions (service_contexts)",
+            "Boot-time registration sequence",
+            "C++ vs Java ServiceManager APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — SystemServer Startup",
+      "subtitle": "Main Loop, Service Initialization & Lifecycle",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SystemServer Lifecycle",
+          "items": [
+            "Zygote forks SystemServer process",
+            "SystemServer.main() entry point & nativeInit()",
+            "SystemServer.run() execution initialization",
+            "Creating the SystemServer Context & SystemServiceManager",
+            "Dependency-ordered service creation",
+            "SystemServer crash behavior (Triggers Zygote & Android runtime restart)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — SystemService Lifecycle",
+      "subtitle": "Construction, Boot Phase Callbacks & User Events",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SystemService Class Methods",
+          "items": [
+            "SystemService constructor & context binding",
+            "onStart() — Publishing Binder interface via publishBinderService()",
+            "onBootPhase(int phase) — Reacting to system readiness milestones",
+            "onUserStarting(), onUserUnlocking(), onUserStopping() — Multi-user events",
+            "Shutdown and restart hooks",
+            "Lazy services (starting on-demand upon first Binder call)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — SystemServiceManager",
+      "subtitle": "Service Manager Orchestration & Boot Sequence",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SystemServiceManager Responsibilities",
+          "items": [
+            "startService(Class<T>) reflection-based instantiation",
+            "Tracking active SystemService instances",
+            "Propagating boot phase transitions to all services",
+            "Lifecycle event coordination and thread enforcement",
+            "Dynamic service registration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Boot Phases",
+      "subtitle": "System Readiness Milestones & Service Dependencies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Boot Phase Constants",
+          "items": [
+            "PHASE_WAIT_FOR_DEFAULT_DISPLAY (100 — Display subsystem ready)",
+            "PHASE_LOCK_SETTINGS_READY (480 — Lock settings initialized)",
+            "PHASE_SYSTEM_SERVICES_READY (500 — Core services ready for query)",
+            "PHASE_ACTIVITY_MANAGER_READY (550 — AMS ready to handle intent resolution)",
+            "PHASE_THIRD_PARTY_APPS_CAN_START (600 — Storage mounted & app launch enabled)",
+            "PHASE_BOOT_COMPLETED (1000 — Everything loaded, boot_completed broadcast dispatched)",
+            "Ordering constraints and service initialization interdependencies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — ActivityManagerService (AMS)",
+      "subtitle": "Process Management, Broadcasts & App Lifecycles",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AMS Core Responsibilities",
+          "items": [
+            "Application process creation (requesting Zygote fork)",
+            "Process importance ranking & OOM adjustment (oom_adj / oom_score_adj)",
+            "BroadcastReceiver registration and dispatch queues",
+            "Service lifecycle management (start, bind, stop)",
+            "Application lifecycle tracking & Process trim levels",
+            "Crash handling, Application Not Responding (ANR) detection & dialogs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — ActivityTaskManagerService (ATMS)",
+      "subtitle": "Task Stacks, Recents & Multi-Window Management",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ATMS Core Responsibilities",
+          "items": [
+            "Activity launch pipelines & intent resolution",
+            "Task stack management (RootWindowContainer, TaskDisplayArea)",
+            "Back stack & Recents history management",
+            "Window coordination & activity visibility",
+            "Launch modes enforcement (standard, singleTop, singleTask, singleInstance)",
+            "Multi-window, Freeform, & Picture-in-Picture (PiP) mode transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — PackageManagerService (PMS)",
+      "subtitle": "Package Scanning, Verification & Intent Resolution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "PMS Core Responsibilities",
+          "items": [
+            "APK scanning & Manifest parsing (ParsingPackageUtils)",
+            "Package installation pipeline & dexopt invocation",
+            "Permission granting & state persistence (/data/system/packages.xml)",
+            "APK Signature verification (v1, v2, v3, v4 schemas)",
+            "Intent resolution & component matching (IntentResolver)",
+            "Shared UID management & Static shared libraries linking",
+            "Package settings cache & APEX/Mainline module tracking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — WindowManagerService (WMS)",
+      "subtitle": "Display Layers, Focus, Input Routing & SurfaceFlinger",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "WMS Core Responsibilities",
+          "items": [
+            "Window z-ordering & Display management",
+            "Surface creation and communication with SurfaceFlinger",
+            "Window tokens (AppWindowToken) & Focus management",
+            "Input event routing and dispatching via InputManagerService",
+            "Window transitions and animations",
+            "Screen rotation, Display Cutout, & Configuration updates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — PowerManagerService",
+      "subtitle": "WakeLocks, Power States & Thermal Subsystem",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Power Subsystem Management",
+          "items": [
+            "WakeLock acquisition & management (PARTIAL_WAKE_LOCK, SCREEN_BRIGHT, etc.)",
+            "Device sleep, suspend, and wakeup state transitions",
+            "Display brightness coordination & Auto-brightness scaling",
+            "Thermal mitigation & CPU power hints",
+            "Battery Saver mode & Doze mode state transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — NotificationManagerService",
+      "subtitle": "Channels, Ranking Engine & Foreground Services",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Notification Subsystem Management",
+          "items": [
+            "NotificationChannel & ChannelGroup administration",
+            "Notification ranking, importance levels, & noise filtering",
+            "Notification posting, updates, and cancellations",
+            "Foreground service notification enforcement",
+            "NotificationListenerService dispatching",
+            "Do Not Disturb (DND) policy enforcement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — AlarmManagerService",
+      "subtitle": "Alarm Dispatch, Clocks & Doze Idle Controls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Alarm Scheduling Mechanics",
+          "items": [
+            "Alarm batching & alignment for power optimization",
+            "Clock types (RTC, RTC_WAKEUP, ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP)",
+            "Wakeup alarms & kernel timerfd integration",
+            "Exact alarms vs Inexact alarms (SCHEDULE_EXACT_ALARM permission)",
+            "Interaction with Doze mode and App Standby buckets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — JobSchedulerService",
+      "subtitle": "Deferred Job Execution, Constraints & Quotas",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Job Execution Mechanics",
+          "items": [
+            "Constraint evaluation (Network type, Charging status, Idle, Storage)",
+            "Job batching and deferral logic",
+            "Exponential backoff & retry strategies",
+            "App Standby Bucket execution quotas",
+            "Background execution limits enforcement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — ConnectivityService",
+      "subtitle": "Network Selection, Scoring, Routes & VPNs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Subsystem Management",
+          "items": [
+            "Network Agent tracking (Cellular, Wi-Fi, Ethernet)",
+            "Network Capabilities & Link Properties evaluation",
+            "Network evaluation and scoring algorithm",
+            "NetworkCallback dispatching",
+            "VPN routing & Captive Portal detection",
+            "Iptables/Netd kernel rule orchestration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — LocationManagerService",
+      "subtitle": "Location Providers, Geofencing & Permissions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Location Subsystem Management",
+          "items": [
+            "Provider management (GPS, Network, Passive, Fused)",
+            "Location request multiplexing and rate limiting",
+            "Permissions checking (ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION)",
+            "Background location access restrictions (ACCESS_BACKGROUND_LOCATION)",
+            "Geofencing & Hardware Mock Location injection handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — SensorService",
+      "subtitle": "Native Sensor Registration, HAL & Event Queues",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Sensor Subsystem Management",
+          "items": [
+            "Sensor HAL communication & event polling",
+            "Client sensor registration and sampling rate management",
+            "Hardware batching & wake-up sensor routing",
+            "Direct Report Memory Channel (shared memory queues)",
+            "Power optimization and sensor access permission checks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — AudioService",
+      "subtitle": "Audio Focus, Volume Streams & Device Routing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Audio Subsystem Management",
+          "items": [
+            "Audio Focus arbitration and policy management",
+            "Volume stream control (Music, Ring, Alarm, Voice Call)",
+            "Device routing (Speaker, Earpiece, Wired Headset, Bluetooth A2DP)",
+            "MediaSession integration & AudioPolicyService native communication"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — CameraService",
+      "subtitle": "Camera Device Allocation & HAL3 Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Camera Subsystem Management",
+          "items": [
+            "Camera device allocation & process priority checking",
+            "Camera HAL3 provider interaction",
+            "CaptureSession & Request streaming pipeline setup",
+            "Torch mode control & availability callbacks",
+            "Multi-camera arbitration & privacy indicator flags"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — DisplayManagerService",
+      "subtitle": "Logical Displays, Modes, HDR & Virtual Displays",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Display Subsystem Management",
+          "items": [
+            "Logical vs Physical display mapping",
+            "Display mode selection (Resolution, Refresh Rate, Color Gamut)",
+            "HDR and SDR brightness curve adjustments",
+            "Virtual display creation (Miracast, Screen Recording, Auto)",
+            "Display mirroring and power state synchronization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — InputManagerService",
+      "subtitle": "Input Devices, InputReader & InputDispatcher",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Input Subsystem Architecture",
+          "items": [
+            "Event reading from /dev/input via native InputReader",
+            "Policy checking & Event transformation",
+            "Native InputDispatcher thread execution",
+            "InputChannel (Unix Domain Sockets) dispatching to WindowManager",
+            "Focus window matching & Touch event target resolution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — StorageManagerService",
+      "subtitle": "Volume Mounting, Encryption Keys & Vold",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Storage Subsystem Management",
+          "items": [
+            "Disk detection and Volume mounting orchestration",
+            "Communication with vold (Volume Daemon)",
+            "File-Based Encryption (FBE) key unlocking & Credential storage",
+            "Adoptable storage formatting & mounting",
+            "App-private directory setup & Scoped Storage quota enforcement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — UserManagerService",
+      "subtitle": "Multi-User Isolation, Managed Profiles & Restrictions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "User Subsystem Management",
+          "items": [
+            "User creation (Primary, Secondary, Guest, Work Profile)",
+            "User ID ranges (User 0 = 0-99999, User 10 = 1000000-1099999)",
+            "User restrictions enforcement (DISALLOW_INSTALL_UNKNOWN_SOURCES, etc.)",
+            "User state machine (BOOTING, RUNNING_LOCKED, RUNNING_UNLOCKED, STOPPING)",
+            "Storage directory isolation per user (/data/user/USER_ID)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Permission Enforcement",
+      "subtitle": "UID Checks, AppOps, Identity Clearing & Restoration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Permission Enforcement Pipeline",
+          "items": [
+            "Framework API → Binder Proxy → Kernel (UID/PID Injection) → Binder Stub → Permission Check → AppOps Check → System Service Execution Decision"
+          ]
+        },
+        {
+          "title": "Identity Management Primitives",
+          "items": [
+            "Binder.getCallingUid() & Binder.getCallingPid()",
+            "clearCallingIdentity() — Dropping caller identity to run with System Server privileges",
+            "restoreCallingIdentity() — Restoring previous caller identity token",
+            "AppOpsManager checkOp / noteOp / startOp tracking",
+            "Permission check APIs (checkCallingPermission, enforceCallingPermission)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Binder Thread Pool",
+      "subtitle": "Concurrency, Maximum Threads & Priority Inheritance",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Thread Pool Mechanics",
+          "items": [
+            "Process thread pool allocation (ProcessState::self()->startThreadPool())",
+            "Default maximum thread count (15 threads in framework)",
+            "Synchronous blocking transactions vs Asynchronous oneway calls",
+            "Priority Inheritance (Propagating caller's thread priority to server thread)",
+            "Nested Binder calls & Deadlock conditions",
+            "Transaction buffer overflow handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Binder Object Lifetime",
+      "subtitle": "Strong/Weak References & Garbage Collection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Refcounting & Garbage Collection Integrations",
+          "items": [
+            "Strong references (sp<IBinder> / StrongBinder)",
+            "Weak references (wp<IBinder> / WeakBinder)",
+            "Kernel-driven reference counting across processes",
+            "DeathRecipient registration (linkToDeath / binderDied)",
+            "Java Garbage Collection interaction with native BinderProxy objects",
+            "Handle cleanup & reuse cycles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-38",
+      "title": "Stage 38 — Native Binder",
+      "subtitle": "libbinder, libbinder_ndk & C++ Services",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native C++ Binder Infrastructure",
+          "items": [
+            "libbinder.so (Core C++ IPC implementation)",
+            "libbinder_ndk.so (Stable NDK Binder C API for APEX & Treble)",
+            "BBinder (Native Server Stub) & BpBinder (Native Client Proxy)",
+            "IPCThreadState & ProcessState native engines",
+            "Native Binderized system services (SurfaceFlinger, AudioFlinger, MediaServer)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-39",
+      "title": "Stage 39 — HIDL & Stable AIDL",
+      "subtitle": "Hardware Interface IPC & Treble Migration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware Interface Standards",
+          "items": [
+            "Legacy HIDL (HAL Interface Definition Language via /dev/hwbinder)",
+            "Passthrough vs Binderized HIDL HALs",
+            "Stable AIDL (Modern System-to-Vendor interface language via /dev/binder)",
+            "Interface versioning & backward compatibility rules",
+            "Migration strategy from HIDL to Stable AIDL in AOSP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-40",
+      "title": "Stage 40 — Binder Security",
+      "subtitle": "SELinux Policies, Sandbox Isolation & Spoof Prevention",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Verification Layers",
+          "items": [
+            "Kernel-enforced UID/PID propagation (cannot be spoofed by userspace)",
+            "SELinux binder IPC permissions (binder_call, binder_transfer)",
+            "SELinux service access restrictions (binder_service, service_manager find/add)",
+            "Application Sandbox boundaries enforcement",
+            "Transaction parcel validation & Bounds checking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-41",
+      "title": "Stage 41 — Binder Performance",
+      "subtitle": "Zero-Copy Concepts, Memory Mapping & Latency",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Performance Optimization Primitives",
+          "items": [
+            "Single-copy architecture (Data copied once from client userspace to server mmap buffer)",
+            "Shared Memory buffers (ashmem / HardwareBuffer) for zero-copy bulk transfers",
+            "Transaction payload size limits (1MB buffer shared across all process transactions)",
+            "Serialization & Deserialization CPU cost",
+            "Transaction batching & Latency optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-42",
+      "title": "Stage 42 — Binder Debugging",
+      "subtitle": "dumpsys, Transaction Logs & Deadlock Diagnostics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Debugging Tools & Diagnostics",
+          "items": [
+            "dumpsys CLI tool (querying service status via DUMP_TRANSACTION)",
+            "service list CLI tool (enumerating registered Binder services)",
+            "Kernel Binder stats (/sys/kernel/debug/binder/stats, transactions, proc)",
+            "ANR trace analysis & Binder thread starvation detection",
+            "Stack trace analysis for blocked Binder transact calls",
+            "Deadlock diagnosis using thread call graphs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-43",
+      "title": "Stage 43 — Reverse Engineering Binder",
+      "subtitle": "Identifying Proxies, Stubs, Codes & Reconstructing IPC",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Static & Dynamic Analysis Inquiry",
+          "items": [
+            "Identifying Manager classes obtaining service handles via Context.getSystemService()",
+            "Locating calls into generated Stub and Proxy classes ($Stub / $Proxy)",
+            "Mapping raw integer transaction codes (FIRST_CALL_TRANSACTION + N) to AIDL method names",
+            "Analyzing Parcel writeToParcel / readFromParcel payload structure",
+            "Identifying permission checks prior to privileged operations (enforceCallingPermission)",
+            "Tracking Binder callbacks ($Stub.asInterface) and death recipients",
+            "Distinguishing synchronous blocking calls from asynchronous oneway calls"
+          ]
+        },
+        {
+          "title": "Mental Execution Tracing",
+          "items": [
+            "Framework API → Manager → Binder Proxy → Parcel → Binder Driver → Stub → System Service → Native Code / HAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-44",
+      "title": "Stage 44 — Reading AOSP Binder Source",
+      "subtitle": "AOSP Study Guide for In-Depth System Internals",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codebase Targets & Review Focus",
+          "items": [
+            "frameworks/base/core/java/android/os/Binder.java — Java Binder implementation",
+            "frameworks/base/core/java/android/os/Parcel.java — Java Parcel implementation",
+            "frameworks/base/services/core/java/com/android/server/ — System Server services",
+            "frameworks/native/libs/binder/ — Native C++ libbinder (Binder.cpp, BpBinder.cpp, IPCThreadState.cpp, ProcessState.cpp)",
+            "drivers/android/binder.c — Linux kernel Binder driver source code",
+            "frameworks/native/cmds/servicemanager/ — Native ServiceManager daemon"
+          ]
+        }
+      ]
+    }
+  ]
+}

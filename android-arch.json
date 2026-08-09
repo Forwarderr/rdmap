@@ -1,0 +1,823 @@
+{
+  "meta": {
+    "id": "android_architecture_roadmap",
+    "title": "Android Architecture & Operating System",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROID OS ARCHITECTURE MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive Android Architecture & OS roadmap, mastering the full stack from AOSP build internals and bootloader sequences to Binder IPC, System Server, HALs, and ART!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android History & Evolution",
+      "subtitle": "Platform Origins, Runtime Eras & Architecture Shifts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Origins & Ecosystem Ownership",
+          "items": [
+            "Android history",
+            "Android Inc.",
+            "Google acquisition",
+            "Open Handset Alliance (OHA)",
+            "Android Open Source Project (AOSP)"
+          ]
+        },
+        {
+          "title": "Runtime Eras & System Architecture Evolution",
+          "items": [
+            "Android version history & API level evolution",
+            "Dalvik era vs ART era",
+            "Project Treble (System/Vendor separation)",
+            "Mainline (Modular System Components)",
+            "Generic Kernel Image (GKI)",
+            "Generic System Image (GSI)"
+          ]
+        },
+        {
+          "title": "Platform Differentiation",
+          "items": [
+            "How Android evolved from Linux",
+            "Why Android is not simply \"Linux with Java\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android Architecture Overview",
+      "subtitle": "Layered Subsystem Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Full Stack Execution Layers",
+          "items": [
+            "Applications Layer",
+            "Jetpack & Libraries",
+            "Android Framework",
+            "ART + Native Libraries",
+            "Hardware Abstraction Layer (HAL)",
+            "Linux Kernel",
+            "Hardware Layer"
+          ]
+        },
+        {
+          "title": "Layer Responsibilities",
+          "items": [
+            "Understanding boundary contracts and IPC between each layer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Android Source Tree (AOSP)",
+      "subtitle": "Directory Structure & Subsystem Codebases",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Core Repositories",
+          "items": [
+            "frameworks/ (Java Framework & System Services)",
+            "art/ (Android Runtime implementation)",
+            "bionic/ (Android C standard library)",
+            "system/ (Core daemons, init, Binder, vold)",
+            "packages/ (Pre-built apps, SystemUI, Providers)",
+            "hardware/ (HAL interface definitions & implementations)",
+            "device/ & vendor/ (Board & OEM specifics)",
+            "kernel/ (Android Common Kernel sources)",
+            "external/ (Third-party C/C++/Java libraries)",
+            "build/ (Soong/Ninja build system files)",
+            "bootable/ (Bootloader & Recovery source)",
+            "cts/ (Compatibility Test Suite)",
+            "dalvik/ (Historical legacy runtime)",
+            "libcore/ (Core Java library classes)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Android Build System",
+      "subtitle": "Soong, Blueprint, Ninja & Build Targets",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Build System Architecture",
+          "items": [
+            "Soong build system",
+            "Blueprint",
+            "Ninja",
+            "Make / GNU Make (legacy)",
+            "Android.bp definitions",
+            "Android.mk definitions (legacy)"
+          ]
+        },
+        {
+          "title": "Product Configuration & Build Variants",
+          "items": [
+            "Product configuration & Device configuration",
+            "user variant (Production, non-rooted, stripped)",
+            "userdebug variant (Production with root & debug tools)",
+            "eng variant (Engineering build with full debug capabilities)"
+          ]
+        },
+        {
+          "title": "Build Pipeline",
+          "items": [
+            "Source → Compilation → System Image → Flashing → Running Device"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Android Partition Layout",
+      "subtitle": "Physical, Logical & Dynamic Partition Topologies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard & Treble Partitions",
+          "items": [
+            "boot & init_boot",
+            "vendor_boot",
+            "system",
+            "vendor",
+            "product",
+            "system_ext",
+            "odm",
+            "recovery",
+            "cache (historical)",
+            "userdata & metadata",
+            "persist & misc",
+            "super (Dynamic Partition Container)",
+            "vbmeta & dtbo",
+            "radio / modem (device-specific)"
+          ]
+        },
+        {
+          "title": "Partition Mechanics",
+          "items": [
+            "Partition purposes & Mount points",
+            "Update strategies (A/B & Virtual A/B)",
+            "Dynamic partitions & Logical partitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Android Boot Process",
+      "subtitle": "Power-On Sequence to Desktop Launcher",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Full System Boot Chain",
+          "items": [
+            "Power Button → Boot ROM → Bootloader → Verified Boot → Kernel → init → Mount partitions → SELinux → Native daemons → Zygote → System Server → Launcher → Applications"
+          ]
+        },
+        {
+          "title": "Boot Execution Analysis",
+          "items": [
+            "Understanding transitions, security handoffs, and initialization order"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Boot ROM",
+      "subtitle": "Hardware Root of Trust & Primary Boot Routine",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware Verification & Hand-off",
+          "items": [
+            "ROM code execution",
+            "Trusted Execution Environment (TEE) initialization",
+            "Hardware initialization & SRAM setup",
+            "Bootloader signature verification",
+            "Secure boot hardware concepts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Bootloader",
+      "subtitle": "PBL, SBL, ABL, Fastboot & Kernel Handoff",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Bootloader Stages & Modes",
+          "items": [
+            "Primary Bootloader (PBL)",
+            "Secondary / Android Bootloader (SBL / ABL)",
+            "Fastboot mode & Protocol",
+            "Bootloader unlocking mechanics"
+          ]
+        },
+        {
+          "title": "Kernel Load Pipeline",
+          "items": [
+            "Android Verified Boot (AVB) integration",
+            "Boot image structures (boot.img)",
+            "Kernel loading & Ramdisk loading",
+            "Device Tree Blob (DTB) & Flattened Device Tree (FDT)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Android Verified Boot (AVB)",
+      "subtitle": "Integrity Chains, dm-verity & Rollback Protection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AVB Primitives & Metadata",
+          "items": [
+            "Android Verified Boot (AVB 2.0)",
+            "vbmeta struct & signatures",
+            "Hash trees & Root hashes",
+            "dm-verity (Kernel block integrity driver)",
+            "Rollback protection & Index counters"
+          ]
+        },
+        {
+          "title": "Integrity States & Enforcement",
+          "items": [
+            "Chain of trust validation",
+            "Boot states (Green, Yellow, Orange, Red)",
+            "Locked vs Unlocked bootloader security behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Linux Kernel in Android",
+      "subtitle": "Android Common Kernel (ACK) & System Drivers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Android Specific Drivers & Extensions",
+          "items": [
+            "Binder IPC driver (/dev/binder)",
+            "ashmem (historical) vs memfd",
+            "Low Memory Killer Daemon (LMKD) interface",
+            "Android power management & Wake locks",
+            "Android CPU scheduling & Energy Aware Scheduling (EAS)",
+            "SELinux security hooks",
+            "Vendor driver trees"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — init Process",
+      "subtitle": "PID 1, init.rc Parser & System Service Launcher",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Init Mechanics & Scripts",
+          "items": [
+            "First stage init vs Second stage init",
+            "init.rc language parsing",
+            "Service declarations & Options",
+            "Property system initialization",
+            "Triggers, Actions & Commands",
+            "Boot stages (early-init, init, late-init, boot)",
+            "Environment setup & Mount points",
+            "Service management & Restart behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Android Property System",
+      "subtitle": "System-Wide Shared State & Storage",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Property System Architecture",
+          "items": [
+            "System properties",
+            "CLI tools: setprop & getprop",
+            "Property Service (init process implementation)",
+            "Persistent properties (persist.*)",
+            "Read-only properties (ro.*)",
+            "Vendor properties (vendor.*, ro.vendor.*)",
+            "Boot properties (ro.boot.*)",
+            "Property SELinux security restrictions (property_contexts)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Native Daemons",
+      "subtitle": "User-Space Core Services",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System Daemons",
+          "items": [
+            "init (PID 1)",
+            "servicemanager (Binder Context Manager)",
+            "hwservicemanager (HIDL Manager) & servicemanager (AIDL)",
+            "vold (Volume Daemon)",
+            "installd (Package Installation Daemon)",
+            "lmkd (Low Memory Killer Daemon)",
+            "netd (Network Management Daemon)",
+            "adbd (Android Debug Bridge Daemon)",
+            "statsd (Metrics Daemon)",
+            "storaged (Storage Health Daemon)",
+            "keystore2 (Hardware Key Storage Daemon)",
+            "gatekeeperd (Authentication Daemon)",
+            "incidentd & traced (Telemetry & Tracing)",
+            "update_engine (OTA Manager)",
+            "apexd (APEX Package Manager)"
+          ]
+        },
+        {
+          "title": "Daemon Mechanics",
+          "items": [
+            "Responsibilities & Capabilities",
+            "Startup order & Dependencies",
+            "Inter-daemon IPC & Socket communication"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Zygote",
+      "subtitle": "Application Process Incubator & Preloading",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Zygote Architecture & Startup",
+          "items": [
+            "Purpose of Zygote",
+            "Zygote 32-bit & 64-bit startup",
+            "Class preloading (preloaded-classes)",
+            "Resource preloading",
+            "Process forking via fork()",
+            "Copy-On-Write (COW) memory optimization",
+            "Unspecialized App Process (USAP) Pool",
+            "Process specialization (UID/GID dropping, SELinux domain switching)",
+            "App spawning pipeline",
+            "Performance benefits over traditional JVM instantiation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Application Process Creation",
+      "subtitle": "End-to-End App Lifecycle Instantiation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Process Spawning Sequence",
+          "items": [
+            "Launcher request → System Server → Zygote Socket → fork() → Process Specialization → Application Thread Creation → Activity Launch"
+          ]
+        },
+        {
+          "title": "Object Creation & Context Setup",
+          "items": [
+            "LoadedApk, ActivityThread, ApplicationContext, Application instance creation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Android Runtime (Overview)",
+      "subtitle": "ART Compilation Paradigms & Heap",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ART Execution Components",
+          "items": [
+            "Android Runtime (ART) vs Dalvik",
+            "Interpreter engine",
+            "JIT (Just-In-Time) compiler",
+            "AOT (Ahead-Of-Time) dex2oat compiler",
+            "OAT file format & VDEX files",
+            "Boot Image (boot.art / boot.oat)",
+            "ART Garbage Collector (Generational Concurrent Copying)",
+            "ART Heap layout",
+            "Runtime class loading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Native Libraries",
+      "subtitle": "Core Native Libraries & Framework Bridges",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Essential Native Binaries",
+          "items": [
+            "libart.so (Runtime Implementation)",
+            "libbinder.so (Binder IPC Engine)",
+            "libandroid_runtime.so (Framework JNI Bridge)",
+            "libnativehelper.so (JNI Helpers)",
+            "liblog.so (Logging Subsystem)",
+            "libutils.so & libcutils.so (Core C++ Utilities)",
+            "bionic / libc.so, libm.so, libdl.so (C Standard Library)",
+            "libc++.so (C++ Standard Library)",
+            "Skia (2D Graphics Engine)",
+            "SQLite (Embedded Database Engine)",
+            "Media libraries (Stagefright, Codec2)",
+            "Graphics libraries (EGL, Vulkan, OpenGL ES)"
+          ]
+        },
+        {
+          "title": "System Integration",
+          "items": [
+            "Why framework Java APIs rely on native C/C++ backends"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Hardware Abstraction Layer (HAL)",
+      "subtitle": "Hardware Interfaces & Treble Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "HAL Models & Interface Standards",
+          "items": [
+            "Legacy HAL (.so module loading)",
+            "HIDL (HAL Interface Definition Language)",
+            "Stable AIDL (Modern HAL interface standard)",
+            "Vendor interface vs System interface",
+            "HAL versioning & Backward compatibility",
+            "HAL loading mechanics (Passthrough vs Binderized)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Major HALs",
+      "subtitle": "Subsystem Hardware Interfaces",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware Subsystem Interfaces",
+          "items": [
+            "Camera HAL",
+            "Audio HAL",
+            "Bluetooth HAL",
+            "Wi-Fi HAL",
+            "GNSS HAL (GPS)",
+            "Sensors HAL",
+            "Biometrics HAL (Fingerprint & Face)",
+            "Power HAL",
+            "Thermal HAL",
+            "USB HAL",
+            "NFC HAL",
+            "Radio HAL (RIL)",
+            "Display HAL (Gralloc, HWC / Hardware Composer)",
+            "Graphics HAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Binder Architecture (Overview)",
+      "subtitle": "Cross-Process Call Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binder Call Flow",
+          "items": [
+            "Application → Framework API → Binder Client Proxy → /dev/binder → System Service → HAL → Kernel Driver → Hardware"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — System Server",
+      "subtitle": "Core System Services Orchestrator",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System Server Lifecycle",
+          "items": [
+            "System Server initialization & Startup",
+            "Boot phases (PHASE_WAIT_FOR_DEFAULT_DISPLAY, PHASE_SYSTEM_SERVICES_READY, etc.)",
+            "Service registration with ServiceManager",
+            "Service dependency ordering",
+            "Boot sequence completion",
+            "Memory model & Threading",
+            "Crash handling & System restart behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Core System Services",
+      "subtitle": "Framework System Services",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System Services Catalog",
+          "items": [
+            "ActivityManagerService (AMS) & ActivityTaskManagerService (ATMS)",
+            "PackageManagerService (PMS)",
+            "WindowManagerService (WMS)",
+            "PowerManagerService",
+            "InputManagerService",
+            "DisplayManagerService",
+            "NotificationManagerService",
+            "AlarmManagerService",
+            "LocationManagerService",
+            "ConnectivityService",
+            "WifiService & BluetoothService",
+            "CameraService & AudioService",
+            "MediaRouterService & SensorService",
+            "RoleManagerService & DevicePolicyManagerService",
+            "AccessibilityManagerService",
+            "DownloadManagerService & JobSchedulerService",
+            "StorageManagerService",
+            "ClipboardService",
+            "Telephony services (TelephonyManager / Registry)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Package Installation Overview",
+      "subtitle": "Installation & Package Parsing Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Package Installation Pipeline",
+          "items": [
+            "APK File → Package Manager Service → Signature verification (V1, V2, V3, V4 schemas) → Manifest Parsing → AOT/profile compilation & optimization → State Registration → Application Launch Ready"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Android User Model",
+      "subtitle": "UIDs, Isolation & Multi-User Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "User Identifiers & Profiles",
+          "items": [
+            "Linux User IDs (UIDs)",
+            "App UIDs (e.g., u0_a123)",
+            "Shared UIDs (historical)",
+            "User profiles (Primary user, Secondary users)",
+            "Guest users",
+            "Work profiles (Managed Profiles)",
+            "Multi-user architecture",
+            "Application process sandboxing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Android Permission Model",
+      "subtitle": "Permissions, Enforcement & Protection Levels",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Permission Classification",
+          "items": [
+            "Install-time permissions (Normal & Signature)",
+            "Runtime permissions (Dangerous)",
+            "Signature permissions",
+            "Privileged permissions (priv-app)",
+            "Special permissions (SYSTEM_ALERT_WINDOW, MANAGE_EXTERNAL_STORAGE)",
+            "Permission groups",
+            "Permission enforcement at API, Binder, and Native levels"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Android Security Architecture",
+      "subtitle": "Defense-in-Depth, Encryption & Hardware Security",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Subsystems",
+          "items": [
+            "Application Sandboxing",
+            "SELinux (SEAndroid) policy enforcement",
+            "Android Verified Boot (AVB)",
+            "Android Keystore System",
+            "KeyMint / Keymaster HAL (Hardware Security Module / TEE)",
+            "File-Based Encryption (FBE) & Metadata Encryption",
+            "App signing schemas (v1, v2, v3, v4)",
+            "Package verification",
+            "Secure boot chain",
+            "Hardware-backed security primitives"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Android Storage Architecture",
+      "subtitle": "Scoped Storage, MediaStore & File Systems",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Storage Subsystem",
+          "items": [
+            "Internal storage (/data/data/pkg)",
+            "External storage (/sdcard, /storage/emulated/0)",
+            "Scoped Storage architecture",
+            "MediaStore provider",
+            "Storage Access Framework (SAF)",
+            "App sandbox isolation",
+            "Unix file permissions & ACLs",
+            "File-Based Encryption (FBE) keys",
+            "Storage volumes & Adoptable storage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Android Resource System",
+      "subtitle": "Asset Packaging, Qualifiers & Parsing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Compilation & Runtime Resolution",
+          "items": [
+            "AAPT2 (Android Asset Packaging Tool 2)",
+            "R.java class generation",
+            "Resource IDs (0x7f... format)",
+            "Resource qualifiers (lang, density, orientation)",
+            "Themes & Styles resolution",
+            "AssetManager C++ backend",
+            "resources.arsc structure",
+            "Binary XML format"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Android Logging",
+      "subtitle": "Logcat Ring Buffers & Logging Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Log Subsystem Architecture",
+          "items": [
+            "logcat CLI tool & Daemon (logd)",
+            "Ring buffers:",
+            "  • Main buffer",
+            "  • System buffer",
+            "  • Radio buffer",
+            "  • Events buffer",
+            "  • Crash buffer",
+            "  • Security buffer",
+            "Kernel logs (dmesg, /dev/kmsg)",
+            "Logging architecture (liblog -> logd)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Android Debug Infrastructure",
+      "subtitle": "ADB, Diagnostics & Tracing Tools",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Debug Tools & Protocols",
+          "items": [
+            "Android Debug Bridge (ADB) & adbd daemon",
+            "Fastboot protocol & tool",
+            "Recovery mode",
+            "Bugreport generation",
+            "dumpsys tool (inspecting system services)",
+            "dumpstate tool",
+            "Android Shell environment",
+            "Perfetto & Systrace tracing",
+            "System diagnostics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Android Update System",
+      "subtitle": "OTA, A/B Updates, Virtual A/B & APEX Modules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System Update Frameworks",
+          "items": [
+            "Over-The-Air (OTA) update packages",
+            "A/B (Seamless) updates",
+            "Virtual A/B with Snapshots",
+            "Dynamic partition updates",
+            "update_engine daemon",
+            "Rollback mechanisms",
+            "APEX (Android Pony EXpress) package updates",
+            "Project Mainline modular updates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Android Performance Architecture",
+      "subtitle": "Cold Starts, Profiles & Resource Tuning",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Performance Optimization Paradigms",
+          "items": [
+            "Cold start, Warm start, Hot start mechanics",
+            "Preloading optimizations",
+            "Boot image generation",
+            "Profile-Guided Optimization (PGO)",
+            "Baseline Profiles & Cloud Profiles",
+            "Memory optimization (trimming, low memory killer)",
+            "Power optimization (Doze mode, App Standby)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Reverse Engineering Perspective",
+      "subtitle": "Tracing Architectural Boundaries & Call Chains",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System-Level Analysis Inquiry",
+          "items": [
+            "Which process owns this feature?",
+            "Which system service is responsible?",
+            "Does execution cross Binder?",
+            "Does it invoke a HAL interface?",
+            "Does it transition into C/C++ native code via JNI?",
+            "Which native daemon handles the background work?",
+            "Which filesystem partition contains the binary?",
+            "Is implementation in Java, C++, or kernel driver space?"
+          ]
+        },
+        {
+          "title": "Full Stack Trace Mindset",
+          "items": [
+            "Tracing execution through: Application → Framework → Binder → System Server → Native Library → HAL → Linux Kernel → Hardware"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Android Source Reading",
+      "subtitle": "Key AOSP Repositories for In-Depth Code Review",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Study Codebases",
+          "items": [
+            "frameworks/base (System services, Java framework)",
+            "frameworks/native (C++ framework services, SurfaceFlinger, Input)",
+            "system/core (init, adb, logd, fastboot)",
+            "system/binder (Binder library implementation)",
+            "system/vold (Volume manager)",
+            "system/netd (Network manager)",
+            "art (Android Runtime codebase)",
+            "bionic (C standard library)",
+            "packages/SystemUI (Status bar, Quick Settings, Recents)",
+            "packages/services (Telephony, Car, Media services)",
+            "hardware/interfaces (HIDL & AIDL HAL interfaces)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,736 @@
+{
+  "meta": {
+    "id": "android_graphics_multimedia_roadmap",
+    "title": "Android Graphics, UI Rendering, SurfaceFlinger, Hardware Composer & Multimedia",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROID GRAPHICS & MULTIMEDIA MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive masterclass roadmap for Android Graphics, UI Rendering, SurfaceFlinger, Hardware Composer, and Multimedia Systems!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Graphics Architecture",
+      "subtitle": "Graphics Pipeline, Stack Layers & Display Subsystems",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Graphics Stack Components",
+          "items": [
+            "Graphics pipeline & Rendering pipeline architecture",
+            "Display subsystem & VSYNC synchronization",
+            "UI framework layer boundaries",
+            "GPU hardware integration & Drivers",
+            "Display driver and kernel framebuffer/DRM subsystem"
+          ]
+        },
+        {
+          "title": "Full Execution Call Pipeline",
+          "items": [
+            "Application → View System / Compose → HWUI → RenderThread → Skia → OpenGL ES / Vulkan → EGL → SurfaceFlinger → Hardware Composer (HWC) → Display Driver → Display Hardware"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android UI Pipeline",
+      "subtitle": "Window Creation, View Hierarchies & RenderThread Dispatch",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "End-to-End Application UI Pipeline",
+          "items": [
+            "Application → Activity → PhoneWindow → DecorView → View Hierarchy Tree → Measure Pass → Layout Pass → Draw Pass → RenderThread Frame Offloading"
+          ]
+        },
+        {
+          "title": "Pipeline Execution Rules",
+          "items": [
+            "Understanding thread handoffs between Main/UI Thread and hardware-accelerated RenderThread"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — View Rendering",
+      "subtitle": "Measure, Layout, Draw Pass Lifecycle & Dirty Regions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "View Traversal Lifecycle",
+          "items": [
+            "View & ViewGroup architecture",
+            "MeasureSpec encoding (EXACTLY, AT_MOST, UNSPECIFIED)",
+            "Measure pass (`onMeasure` execution)",
+            "Layout pass (`onLayout` execution)",
+            "Draw pass (`onDraw` execution)",
+            "Invalidation triggers (`invalidate()` vs `requestLayout()`)",
+            "Redraw mechanics & Dirty region clipping",
+            "Rendering order & View z-index handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Layout System",
+      "subtitle": "ViewGroup Implementations, Nested Layouts & Optimization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Layout Containers & Performance",
+          "items": [
+            "LinearLayout, FrameLayout, RelativeLayout",
+            "ConstraintLayout (Cassowary solver integration)",
+            "CoordinatorLayout, GridLayout",
+            "Custom ViewGroup implementations (`onMeasure`/`onLayout` overrides)",
+            "Nested layout depth penalties & Double measurement avoidance",
+            "Layout hierarchy optimization techniques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Drawing System",
+      "subtitle": "Canvas, Paint, Bitmaps, VectorDrawables & Shaders",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "2D Drawing Primitives",
+          "items": [
+            "Canvas API & Direct drawing operations",
+            "Paint styling (Anti-aliasing, Stroke, Fill, BlendModes)",
+            "Path construction & Region clipping",
+            "Matrix transformations (Scale, Rotate, Translate, Skew)",
+            "Rect & RectF bounding geometry",
+            "Bitmap allocation & Hardware Bitmaps (`Bitmap.Config.HARDWARE`)",
+            "Drawable abstractions & VectorDrawable parsing",
+            "Shader, LinearGradient, RadialGradient, & SweepGradient API",
+            "Color spaces (`ColorSpace.Named`) & Clipping paths"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — HWUI",
+      "subtitle": "Hardware Accelerated Rendering Engine & Display Lists",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "HWUI Rendering Engine",
+          "items": [
+            "Hardware accelerated UI pipeline (HWUI)",
+            "DisplayList recording (`RecordingCanvas`)",
+            "RenderNode tree structure",
+            "Deferred GPU rendering command compilation",
+            "DisplayList Caching & Partial invalidation",
+            "GPU memory allocation for textures and layers",
+            "Rendering pipeline optimization passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — RenderThread",
+      "subtitle": "Asynchronous Frame Offloading & GPU Command Dispatch",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "RenderThread Subsystem",
+          "items": [
+            "Purpose of RenderThread (Decoupling UI thread from GPU stalls)",
+            "Separation of Main UI thread work from DrawThread commands",
+            "Frame preparation & Sync state (`syncFrameState`)",
+            "Synchronization barriers between UI Thread and RenderThread",
+            "Rendering commands processing to Skia / EGL",
+            "Frame scheduling & VSYNC alignment",
+            "Performance advantages during animations and transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Choreographer",
+      "subtitle": "VSYNC Callbacks, Frame Pacing & Animation Scheduling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Frame Pacing Subsystem",
+          "items": [
+            "Choreographer subsystem architecture",
+            "VSYNC pulse subscription & `postFrameCallback`",
+            "Callback types: CALLBACK_INPUT, CALLBACK_ANIMATION, CALLBACK_TRAVERSAL",
+            "Animation timing synchronization",
+            "Input event processing synchronization with rendering",
+            "Traversal scheduling",
+            "Frame pacing and dynamic refresh rate handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — VSYNC",
+      "subtitle": "Vertical Synchronization, Frame Timing & High Refresh Rates",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "VSYNC Mechanics",
+          "items": [
+            "Vertical Synchronization (VSYNC-app & VSYNC-sf pulses)",
+            "Frame timing constraints (16.6ms for 60Hz, 8.3ms for 120Hz)",
+            "Display refresh rates & Variable Refresh Rate (VRR)",
+            "Dropped frames detection & Jank analysis",
+            "Triple buffering pipeline during rendering stalls",
+            "High refresh rate displays orchestration (90Hz / 120Hz / 144Hz)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Skia",
+      "subtitle": "2D Graphics Engine, GPU/CPU Backends & Path Rendering",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Skia Core Engine",
+          "items": [
+            "Skia 2D Graphics Library architecture (`external/skia/`)",
+            "SkCanvas & SkPaint native APIs",
+            "Vector rasterization pipelines",
+            "Skia GPU backend (Ganesh / SkiaVulkan)",
+            "Skia CPU software rendering fallback",
+            "Text rendering engine & Font glyph caching",
+            "Path rendering & Tessellation algorithms",
+            "Image decoding, Color Management, & Skia Memory pools"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — OpenGL ES",
+      "subtitle": "3D Graphics API, Shaders, Buffers & Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OpenGL ES Subsystem",
+          "items": [
+            "OpenGL ES 2.0 / 3.0 / 3.2 rendering pipeline",
+            "EGL Context binding and state management",
+            "Vertex Buffer Objects (VBO) & Vertex Array Objects (VAO)",
+            "GLSL Shaders compilation (Vertex & Fragment Shaders)",
+            "Textures allocation and filtering (`glGenTextures`)",
+            "Framebuffers (FBO) and offscreen rendering",
+            "Drawing calls (`glDrawArrays`, `glDrawElements`)",
+            "Fence synchronization (`glFinish`, `glFlush`, EGLSync)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Vulkan",
+      "subtitle": "Explicit Graphics API, Command Buffers & Memory",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Vulkan Low-Overhead API Architecture",
+          "items": [
+            "Vulkan Architecture & Drivers integration",
+            "VkInstance, VkPhysicalDevice, & VkDevice setup",
+            "Queue families (Graphics, Transfer, Compute queues)",
+            "VkSwapchainKHR & Native window surface integration",
+            "Command Buffers recording (`VkCommandBuffer`)",
+            "Graphics Pipelines (`VkPipeline`) & SPIR-V Shader bytecode",
+            "Descriptor sets & Pipeline layouts",
+            "Explicit GPU memory management (`vkAllocateMemory`)",
+            "Synchronization primitives (Fences, Semaphores, Barriers)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — EGL",
+      "subtitle": "Native Window Interface, Displays, Contexts & Buffers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "EGL Native Binding Interface",
+          "items": [
+            "EGLDisplay initialization (`eglGetDisplay`)",
+            "EGLSurface binding (`eglCreateWindowSurface`, `eglCreatePbufferSurface`)",
+            "EGLContext creation (`eglCreateContext`)",
+            "EGLConfig matching & Color format selection",
+            "Buffer swapping execution (`eglSwapBuffers`)",
+            "Context lifecycle & `eglMakeCurrent` state management",
+            "OpenGL ES / Vulkan interop with native Android surfaces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Surface",
+      "subtitle": "Surface, SurfaceView, TextureView & SurfaceTexture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Surface Abstractions",
+          "items": [
+            "Surface class (Raw buffer producer connection)",
+            "SurfaceHolder interface & Callbacks",
+            "SurfaceView architecture (Dedicated hardware composite window layer)",
+            "TextureView architecture (OpenGL texture integration in View tree)",
+            "SurfaceTexture & `GL_TEXTURE_EXTERNAL_OES` target",
+            "BufferQueue Producer/Consumer interface integration",
+            "Surface lifecycle & ANativeWindow native bridge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — BufferQueue",
+      "subtitle": "Producer/Consumer Architecture, Triple Buffering & Lifecycle",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "BufferQueue Subsystem",
+          "items": [
+            "IGraphicBufferProducer & IGraphicBufferConsumer interfaces",
+            "Buffer allocation (`GraphicBuffer` / `AHardwareBuffer`)",
+            "Triple Buffering pipeline (FREE, DEQUEUED, QUEUED, ACQUIRED states)",
+            "Buffer handoff synchronization (`dequeueBuffer`, `queueBuffer`, `acquireBuffer`, `releaseBuffer`)",
+            "Frame lifecycle and latency controls",
+            "Buffer ownership transfer across process boundaries via IPC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — SurfaceControl",
+      "subtitle": "Layer Hierarchies, Transactions & Composition Trees",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SurfaceControl Architecture",
+          "items": [
+            "SurfaceControl class (Handle to SurfaceFlinger composition node)",
+            "SurfaceControl.Transaction atomic batching",
+            "Layer hierarchy tree in SurfaceFlinger",
+            "Z-ordering, Visibility, & Alpha transforms",
+            "Layer transformations (Scaling, Rotation, Translation Matrix)",
+            "Crop rects & Corner radius clipping",
+            "Hardware-accelerated window animations",
+            "Direct SurfaceControl composition submit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — SurfaceFlinger",
+      "subtitle": "System Compositor, Layer Merging & Display Management",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SurfaceFlinger Daemon Subsystem",
+          "items": [
+            "SurfaceFlinger native service architecture (`/system/bin/surfaceflinger`)",
+            "Layer composition pipeline (Merging all application windows)",
+            "BufferQueue consumption from active application producers",
+            "Display management & Multi-display support",
+            "Latch buffer & Composition transactions processing",
+            "GLES fallback composition vs Hardware Composer (HWC) path",
+            "Sync fences management (`sync_fence` / `EGLSyncKHR`)",
+            "SurfaceFlinger performance and frame drop statistics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Hardware Composer (HWC)",
+      "subtitle": "HWC2/HWC3 HAL, Overlays & GPU Offloading",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware Composer HAL",
+          "items": [
+            "Hardware Composer HAL (HWC2 / Stable AIDL HWC3)",
+            "Composition types: HWC_OVERLAY, HWC_FRAMEBUFFER, HWC_CLIENT, HWC_CURSOR",
+            "Hardware overlays offloading (Bypassing GPU composition entirely)",
+            "GPU client composition fallback",
+            "Display planes allocation & Hardware video planes",
+            "Power optimization by reducing GPU clock utilization",
+            "Vendor HWC HAL implementations (Qualcomm, MediaTek, Exynos)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Display System",
+      "subtitle": "Physical/Virtual Displays, Modes, HDR & DisplayManager",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Display Subsystem",
+          "items": [
+            "Physical displays management (Built-in screen, HDMI/DisplayPort)",
+            "Virtual displays creation (`DisplayManager.createVirtualDisplay`)",
+            "DisplayManager system service",
+            "Display modes selection (Resolution, Color Gamut, Refresh Rate)",
+            "HDR modes (HDR10, HDR10+, Dolby Vision, HLG)",
+            "Seamless Refresh Rate switching APIs",
+            "External displays & Screen recording architectures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Window System",
+      "subtitle": "WindowManager, PhoneWindow, Insets & Window Tokens",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Window Management Subsystem",
+          "items": [
+            "WindowManagerService (WMS) architecture",
+            "PhoneWindow & DecorView window composition",
+            "Window tokens (`IBinder` tokens) and validation",
+            "Window layers z-ordering & Window Types (`TYPE_APPLICATION`, `TYPE_APPLICATION_OVERLAY`)",
+            "WindowInsets & WindowInsetsController (Status bar, Navigation bar, IME, Cutouts)",
+            "Display Cutouts & Rounded corners handling",
+            "Picture-in-Picture (PiP) and Freeform window modes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Input Pipeline",
+      "subtitle": "InputReader, InputDispatcher, MotionEvents & Latency",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Input Dispatch Subsystem",
+          "items": [
+            "InputReader reading raw events from `/dev/input/eventX`",
+            "InputDispatcher routing events across processes",
+            "Touch events & Key events processing",
+            "MotionEvent structure and pointer coordinates",
+            "GestureDetector & ScaleGestureDetector interpretation",
+            "Touch-to-display rendering latency reduction",
+            "Input event synchronization with Choreographer VSYNC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Animation System",
+      "subtitle": "Property Animations, Animators, Interpolators & Physics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Animation Framework Architecture",
+          "items": [
+            "Property Animation framework (`android.animation`)",
+            "Legacy View Animation framework (`android.view.animation`)",
+            "ValueAnimator & ObjectAnimator mechanics",
+            "AnimatorSet choreography",
+            "Physics-based animations (SpringAnimation, FlingAnimation)",
+            "Interpolators (Linear, AccelerateDecelerate, PathInterpolator)",
+            "RenderThread-driven native property animations",
+            "Compose Animation APIs integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Compose Rendering",
+      "subtitle": "LayoutNode Tree, Measure, Draw & Skia Integration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Jetpack Compose Rendering Engine",
+          "items": [
+            "Composition, Layout, and Draw phases in Compose",
+            "LayoutNode tree representation",
+            "Single-pass Measure & Layout execution",
+            "Draw phase execution (`Modifier.drawBehind`, `Canvas`)",
+            "Snapshot state observation and invalidation scopes",
+            "Recomposition execution loop",
+            "Semantics tree generation for accessibility and testing",
+            "Direct interaction between Compose UI and Skia backend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Text Rendering",
+      "subtitle": "Typeface, TextLayout, Shaping, HarfBuzz & Emoji",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Text Rendering Engine",
+          "items": [
+            "Typeface loading & Font file parsing (TTF/OTF)",
+            "TextLayout, StaticLayout, & DynamicLayout engines",
+            "Complex text shaping via HarfBuzz / Minikin native libraries",
+            "Unicode processing, BiDi (Bi-directional text), & Script detection",
+            "Emoji rendering & EmojiCompat font backports",
+            "Font fallback chains (`fonts.xml` configuration)",
+            "Glyph caching in Skia texture memory"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Image Pipeline",
+      "subtitle": "Bitmap Memory, Decoders, Hardware Bitmaps & Caching",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Image Subsystem Architecture",
+          "items": [
+            "Bitmap object native memory storage (Bionic heap / ashmem)",
+            "BitmapFactory decoding options (`inSampleSize`, `inJustDecodeBounds`)",
+            "ImageDecoder API (Modern replacement for BitmapFactory)",
+            "Hardware Bitmaps (`Bitmap.Config.HARDWARE` / `AHardwareBuffer`)",
+            "Image loading libraries pipeline (Coil, Glide)",
+            "Bitmap scaling, downsampling, and matrix transformations",
+            "Memory caching (LruCache) and Disk caching",
+            "Color spaces (sRGB, Display P3) & Compression formats (PNG, JPEG, WEBP, AVIF)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Camera Pipeline",
+      "subtitle": "Camera2 API, CaptureSessions, HAL3 & Surface Output",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Camera Hardware & Rendering Pipeline",
+          "items": [
+            "CameraService native daemon & Camera HAL3 implementation",
+            "Camera2 framework API (`CameraManager`, `CameraDevice`)",
+            "CaptureSession & CaptureRequest builder configuration",
+            "ImageReader buffer consumption",
+            "Preview pipeline routing to Surface / SurfaceView / TextureView",
+            "Real-time frame processing pipelines (YUV to RGB conversion)",
+            "Camera permissions enforcement",
+            "Surface integration with OpenGL ES / Vulkan textures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Audio Architecture",
+      "subtitle": "AudioFlinger, Audio HAL, Mixers, AudioTrack & Routing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Audio Subsystem Architecture",
+          "items": [
+            "AudioManager & AudioService system service",
+            "AudioFlinger native compositor daemon (`/system/bin/audioserver`)",
+            "Audio HAL module interfaces",
+            "Audio Mixer threads & Resampling engines",
+            "AudioTrack (Playback) & AudioRecord (Capture) low-level APIs",
+            "MediaPlayer & MediaCodec audio output routing",
+            "Audio Policy Manager & Device routing (Speaker, Headset, Bluetooth A2DP)",
+            "AAudio / OpenSL ES low-latency native audio APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Video Pipeline",
+      "subtitle": "MediaCodec, Hardware Decoding, Surfaces & Buffers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Video Processing Subsystem",
+          "items": [
+            "MediaCodec API for hardware-accelerated encoding/decoding",
+            "MediaExtractor (Demuxing) & MediaMuxer (Muxing)",
+            "Codec selection and component enumeration",
+            "Hardware decoding pipelines (H.264, H.265/HEVC, VP9, AV1)",
+            "Hardware encoding pipelines for video recording",
+            "Direct Surface input and output decoding (`MediaCodec.createInputSurface`)",
+            "BufferQueue synchronization during video playback",
+            "Audio-Video VSYNC synchronization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Codec Architecture",
+      "subtitle": "Codec2 Framework, Hardware/Software Decoders & Buffers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codec Infrastructure",
+          "items": [
+            "Codec2 framework architecture (Modern replacement for OpenMAX IL)",
+            "MediaCodec native bridge (`libstagefright`)",
+            "OpenMAX IL (OMX) historical component architecture",
+            "Hardware vendor codecs vs Software fallback codecs (`c2.android.*`)",
+            "Decoder lifecycle: Uninitialized, Configured, Executing, Flushed, Released",
+            "Encoder lifecycle & Bitrate control modes (CBR, VBR, CQ)",
+            "GraphicBuffer and C2Buffer memory management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — DRM",
+      "subtitle": "MediaDrm, Widevine L1/L3, License Servers & Protected Buffers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Digital Rights Management Architecture",
+          "items": [
+            "MediaDrm & MediaCrypto framework APIs",
+            "DRM plugin sessions management",
+            "License server acquisition & Challenge/Response protocol",
+            "Widevine Modular DRM architecture",
+            "Widevine Security Levels: Level 1 (Hardware TEE/Secure Video Path) vs Level 3 (Software)",
+            "Protected memory buffers (`ALLOC_SECURE`) & Encrypted video pipelines",
+            "Secure playback pipeline without cleartext frame access"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — GPU Architecture",
+      "subtitle": "Mobile Tile-Based Deferred Rendering (TBDR) & Memory",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Mobile GPU Microarchitecture",
+          "items": [
+            "Mobile GPU execution pipeline (Adreno, Mali, PowerVR, Xclipse)",
+            "Vertex processing & Fragment shader execution units",
+            "Tile-Based Deferred Rendering (TBDR) architecture",
+            "On-chip Tile Memory (SRAM) vs System DRAM bandwidth",
+            "Rasterization, Early-Z testing, & Hidden surface removal",
+            "Texture caches & Unified memory architecture (UMA)",
+            "GPU memory bandwidth constraints and thermal throttling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Performance Optimization",
+      "subtitle": "Overdraw Reduction, GPU Profiling & Frame Timing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Graphics Performance Tuning",
+          "items": [
+            "Overdraw detection and elimination (Debug GPU Overdraw)",
+            "Layout depth reduction and flat view hierarchies",
+            "Rendering cost evaluation & Reducing main thread stalls",
+            "GPU profiling & Frame rendering inspection",
+            "Frame timing analysis (16ms / 8ms budgets)",
+            "Memory usage optimization & Bitmap recycling",
+            "Texture compression (ETC2, ASTC formats)",
+            "Animation performance & RenderThread offloading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Graphics Debugging",
+      "subtitle": "Frame Metrics, Perfetto, Systrace & Jank Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Diagnostics & Tracing Tools",
+          "items": [
+            "FrameMetrics API & Window.OnFrameMetricsAvailableListener",
+            "Jank analysis & Identifying missed VSYNC pulses",
+            "Profile GPU Rendering (On-screen bars)",
+            "SurfaceFlinger diagnostics (`dumpsys SurfaceFlinger`)",
+            "Perfetto & Systrace display tracing tags (`gfx`, `view`, `video`)",
+            "Graphics logcat buffers inspection",
+            "Android Studio Frame Timeline & Profiler",
+            "Hardware performance counters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Reverse Engineering Graphics",
+      "subtitle": "Static & Dynamic Analysis Checklist for Graphics & Media",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Graphics Reverse Engineering Checklist",
+          "items": [
+            "Identifying Custom View implementations and `onDraw` Canvas operations",
+            "Tracing Jetpack Compose UI trees and `$composer` layout nodes",
+            "Locating `SurfaceView` and `TextureView` usage in disassembly",
+            "Identifying OpenGL ES context initialization and GLSL shader code",
+            "Locating Vulkan instance creation and SPIR-V shader payloads",
+            "Auditing `SurfaceControl.Transaction` operations for window overlays",
+            "Tracing Camera2 preview pipelines and `ImageReader` frame listeners",
+            "Identifying `MediaCodec` initialization, MIME types, and surface bindings",
+            "Tracing Audio playback chains (`AudioTrack`, `OpenSL ES`, `AAudio`)",
+            "Identifying custom Animation frameworks and physics interpolators",
+            "Auditing native graphics libraries (`.so`) compiled with Skia or custom C++ engines",
+            "Tracing interactions between UI framework APIs, native libraries, and system daemons"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reading AOSP Graphics Source",
+      "subtitle": "Core AOSP Repositories for In-Depth Review",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Study Targets",
+          "items": [
+            "`frameworks/base/graphics/` - Java graphics abstractions (Bitmap, Canvas, Paint)",
+            "`frameworks/base/core/java/android/view/` - View, ViewGroup, ViewRootImpl, Choreographer",
+            "`frameworks/native/libs/gui/` - Surface, SurfaceControl, BufferQueue, IGraphicBufferProducer",
+            "`frameworks/native/libs/ui/` - GraphicBuffer, Region, FramebufferNativeWindow",
+            "`frameworks/native/services/surfaceflinger/` - SurfaceFlinger native compositor source code",
+            "`frameworks/native/opengl/` - EGL and OpenGL ES wrapper libraries",
+            "`external/skia/` - Skia 2D rendering engine codebase",
+            "`frameworks/av/` - MediaCodec, Stagefright, AudioFlinger, and CameraService source code",
+            "Focus on: View draw calls traversal, BufferQueue state transitions, SurfaceFlinger composition passes, and hardware video decoding pipelines"
+          ]
+        }
+      ]
+    }
+  ]
+}

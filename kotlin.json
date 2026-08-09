@@ -1,0 +1,935 @@
+{
+  "meta": {
+    "id": "kotlin_roadmap",
+    "title": "Kotlin Language (Beginner → Expert)",
+    "subtitle": "Complete Masterclass & Bytecode Architecture Roadmap",
+    "completionTitle": "KOTLIN MASTERED",
+    "completionMessage": "Congratulations! You have covered the complete Kotlin roadmap from core syntax to Coroutines, K2 compiler internals, and reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Kotlin Ecosystem",
+      "subtitle": "Platform Philosophy & Compilation Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Origins & Platform Variants",
+          "items": [
+            "History of Kotlin",
+            "Why Kotlin was created",
+            "Kotlin Foundation",
+            "JetBrains",
+            "Kotlin versions",
+            "Kotlin/JVM",
+            "Kotlin/Native",
+            "Kotlin/JS",
+            "Kotlin Multiplatform",
+            "Android's adoption of Kotlin"
+          ]
+        },
+        {
+          "title": "Compiler & Architecture",
+          "items": [
+            "Kotlin Standard Library",
+            "Kotlin compiler architecture",
+            "K2 compiler overview"
+          ]
+        },
+        {
+          "title": "Execution Pipeline",
+          "items": [
+            "Kotlin Source → Kotlin Compiler → JVM Bytecode → D8 → DEX → ART"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Installation & Toolchain",
+      "subtitle": "Tooling, IDEs & Metadata",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compilers & Utilities",
+          "items": [
+            "Kotlin compiler",
+            "kotlinc",
+            "Kotlin REPL",
+            "Kotlin scripting"
+          ]
+        },
+        {
+          "title": "Build Tooling & IDE Support",
+          "items": [
+            "Gradle integration",
+            "IntelliJ support",
+            "Android Studio support",
+            "Kotlin plugins",
+            "Kotlin metadata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Basic Syntax",
+      "subtitle": "Declarations, Expressions & Imports",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Language Fundamentals",
+          "items": [
+            "val vs var",
+            "Type inference",
+            "Explicit types",
+            "Statements vs Expressions",
+            "Comments",
+            "Packages and imports",
+            "Semicolon handling",
+            "String templates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Data Types",
+      "subtitle": "Primitives, Nullability & Special Types",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Primitive Types & JVM Mapping",
+          "items": [
+            "Boolean",
+            "Byte",
+            "Short",
+            "Int",
+            "Long",
+            "Float",
+            "Double",
+            "Char",
+            "Understand JVM mapping for primitives"
+          ]
+        },
+        {
+          "title": "Reference & Nullable Types",
+          "items": [
+            "Nullable types",
+            "Non-nullable types",
+            "Any",
+            "Nothing",
+            "Unit",
+            "Arrays",
+            "Collections"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Operators",
+      "subtitle": "Operations, Null Handling & Type Checks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard & Bitwise Operators",
+          "items": [
+            "Arithmetic",
+            "Comparison",
+            "Logical",
+            "Assignment"
+          ]
+        },
+        {
+          "title": "Kotlin Specific Operators",
+          "items": [
+            "Range operator (..)",
+            "Elvis operator (?:)",
+            "Safe call (?.)",
+            "Not-null assertion (!!)",
+            "in / !in",
+            "is / !is",
+            "as / as?",
+            "Spread operator (*)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Control Flow",
+      "subtitle": "Expressions, Loops & Smart Casts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structures",
+          "items": [
+            "if expression",
+            "when expression",
+            "for loop",
+            "while loop",
+            "do-while loop",
+            "break",
+            "continue",
+            "return",
+            "Labels"
+          ]
+        },
+        {
+          "title": "Type Safety & Logic",
+          "items": [
+            "Smart casting",
+            "Pattern matching behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Functions",
+      "subtitle": "Function Types & Compiler Transformations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Function Declarations & Features",
+          "items": [
+            "Function declaration",
+            "Expression body",
+            "Block body",
+            "Named arguments",
+            "Default arguments",
+            "Varargs",
+            "Extension functions",
+            "Infix functions",
+            "Tail recursion",
+            "Generic functions",
+            "Inline functions",
+            "Operator functions",
+            "Suspend functions"
+          ]
+        },
+        {
+          "title": "Under the Hood",
+          "items": [
+            "Understand compiler transformations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Classes & Objects",
+      "subtitle": "Constructors, Access Modifiers & Nesting",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Class Anatomy & Objects",
+          "items": [
+            "Classes",
+            "Objects",
+            "Properties",
+            "Fields",
+            "Primary constructor",
+            "Secondary constructor",
+            "init blocks",
+            "Companion objects",
+            "Anonymous objects",
+            "Nested classes",
+            "Inner classes",
+            "Visibility modifiers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Object-Oriented Programming",
+      "subtitle": "Inheritance, Interfaces & Abstractions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OOP Constructs",
+          "items": [
+            "Inheritance",
+            "Open classes",
+            "Abstract classes",
+            "Interfaces",
+            "Multiple interface inheritance",
+            "Delegation",
+            "Composition",
+            "Polymorphism",
+            "Override",
+            "Super",
+            "Sealed hierarchies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Properties",
+      "subtitle": "Accessors, Lazy Evaluation & Delegates",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Property Storage & Access",
+          "items": [
+            "Backing fields",
+            "Backing properties",
+            "Getters",
+            "Setters",
+            "lateinit",
+            "lazy",
+            "Compiler-generated accessors"
+          ]
+        },
+        {
+          "title": "Property Delegation & References",
+          "items": [
+            "Delegated properties",
+            "Observable properties",
+            "Vetoable properties",
+            "Property references"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Null Safety",
+      "subtitle": "Type Mechanics & Generated Check Logic",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Null Safety Operators & Scope Tools",
+          "items": [
+            "Nullable types",
+            "Safe calls",
+            "Elvis operator",
+            "Not-null assertion",
+            "Safe casting",
+            "let",
+            "run",
+            "also",
+            "apply",
+            "takeIf",
+            "takeUnless",
+            "Smart casts"
+          ]
+        },
+        {
+          "title": "Interoperability & Reverse Engineering",
+          "items": [
+            "Platform types",
+            "Nullability annotations",
+            "Recognize generated null-check code in decompiled binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Collections",
+      "subtitle": "Mutable/Immutable Collections & Sequences",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Collection Interfaces & Implementations",
+          "items": [
+            "List / MutableList",
+            "Set / MutableSet",
+            "Map / MutableMap",
+            "Array",
+            "ArrayDeque"
+          ]
+        },
+        {
+          "title": "Processing & Performance",
+          "items": [
+            "Sequences",
+            "Collection transformations",
+            "Lazy evaluation",
+            "Performance characteristics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Lambdas",
+      "subtitle": "Closures, Higher-Order Functions & Inlining",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lambda Features & Types",
+          "items": [
+            "Lambda syntax",
+            "Function types",
+            "Higher-order functions",
+            "Closures",
+            "Captured variables",
+            "Anonymous functions",
+            "Function references"
+          ]
+        },
+        {
+          "title": "Inline Mechanics",
+          "items": [
+            "Inline lambdas",
+            "Crossinline",
+            "Noinline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Scope Functions",
+      "subtitle": "Idiomatic Context Scoping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Scope Functions & Bytecode",
+          "items": [
+            "let",
+            "run",
+            "apply",
+            "also",
+            "with",
+            "Analyze and understand compiler output for scope functions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Data Classes",
+      "subtitle": "Value Objects & Generated Methods",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Generated Capabilities",
+          "items": [
+            "copy()",
+            "componentN()",
+            "equals()",
+            "hashCode()",
+            "toString()",
+            "Destructuring",
+            "Compiler generation rules"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Sealed Classes",
+      "subtitle": "Exhaustive Hierarchies & State Machines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Sealed Constructs",
+          "items": [
+            "Sealed classes",
+            "Sealed interfaces",
+            "Exhaustive when",
+            "State modeling",
+            "Compiler restrictions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Enums",
+      "subtitle": "Enum Classes & Synthetic Properties",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Enum Components",
+          "items": [
+            "Enum classes",
+            "Constructors",
+            "Methods",
+            "Properties",
+            "Entries",
+            "Compiler generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Object Declarations",
+      "subtitle": "Singletons, Companions & Instantiation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Object Patterns",
+          "items": [
+            "Singleton objects",
+            "Companion objects",
+            "Anonymous objects",
+            "Initialization order",
+            "Lazy initialization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Delegation",
+      "subtitle": "Class & Property Delegation Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Delegation Types",
+          "items": [
+            "Interface delegation",
+            "Property delegation",
+            "Custom delegates",
+            "Lazy delegation",
+            "Observable delegation",
+            "Compiler-generated delegation code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Generics",
+      "subtitle": "Variance, Erasure & Reified Types",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Variance & Wildcards",
+          "items": [
+            "Generic classes",
+            "Generic functions",
+            "Declaration-site variance (out / in)",
+            "Star projections (*)",
+            "Type constraints"
+          ]
+        },
+        {
+          "title": "Type Erasure & Reification",
+          "items": [
+            "Reified generics",
+            "Type erasure",
+            "Inline reified functions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Extension System",
+      "subtitle": "Static Dispatch & Extensions Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Extension Features",
+          "items": [
+            "Extension functions",
+            "Extension properties",
+            "Static dispatch",
+            "Limitations",
+            "Compiler behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Coroutines",
+      "subtitle": "Async Execution, Suspend Mechanics & State Machines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Coroutine APIs & Structure",
+          "items": [
+            "Coroutine basics",
+            "launch",
+            "async",
+            "runBlocking",
+            "CoroutineScope",
+            "CoroutineContext",
+            "Dispatchers",
+            "Job",
+            "SupervisorJob",
+            "Structured concurrency",
+            "Cancellation",
+            "Timeouts",
+            "Exception handling",
+            "Coroutine hierarchy"
+          ]
+        },
+        {
+          "title": "Internal Mechanics & Reverse Engineering",
+          "items": [
+            "Continuation",
+            "Suspension",
+            "Coroutine state machine",
+            "Compiler transformation",
+            "Recognize coroutine state machines in decompiled code and Smali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Flow",
+      "subtitle": "Reactive Reactive Streams, StateFlow & SharedFlow",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Stream Variants",
+          "items": [
+            "Flow",
+            "StateFlow",
+            "SharedFlow",
+            "Cold streams vs Hot streams"
+          ]
+        },
+        {
+          "title": "Stream Mechanics",
+          "items": [
+            "Operators",
+            "Collection",
+            "Buffering",
+            "Backpressure",
+            "Cancellation",
+            "Lifecycle integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Channels",
+      "subtitle": "Hot Communication Channels & Select",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Channel Types & Patterns",
+          "items": [
+            "Channel",
+            "Buffered channels",
+            "Conflated channels",
+            "Rendezvous channels",
+            "Producer",
+            "Consumer",
+            "Select"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Serialization",
+      "subtitle": "kotlinx.serialization & Binary Formats",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Formats & Generation",
+          "items": [
+            "Kotlin Serialization",
+            "JSON",
+            "CBOR",
+            "ProtoBuf",
+            "Generated serializers",
+            "Reflection-based serialization",
+            "Performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Reflection",
+      "subtitle": "KClass, Metaprogramming & Introspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Reflection APIs",
+          "items": [
+            "KClass",
+            "KFunction",
+            "KProperty",
+            "Reflection APIs",
+            "Callable references",
+            "Type information",
+            "Metadata",
+            "Runtime inspection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Annotations",
+      "subtitle": "Processing, KAPT & KSP",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Annotation Definition",
+          "items": [
+            "Built-in annotations",
+            "Custom annotations",
+            "Retention",
+            "Targets",
+            "Repeatable annotations"
+          ]
+        },
+        {
+          "title": "Code Generation Tooling",
+          "items": [
+            "Annotation processing",
+            "KAPT",
+            "KSP overview"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — DSL Construction",
+      "subtitle": "Type-Safe Builders & Receivers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DSL Mechanics",
+          "items": [
+            "Function literals with receiver",
+            "Builders",
+            "DSL markers",
+            "HTML DSL",
+            "Gradle Kotlin DSL",
+            "Jetpack Compose foundations",
+            "Understand generated DSL code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — JVM Interoperability",
+      "subtitle": "Annotations & Java-Kotlin Bridges",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interop Annotations",
+          "items": [
+            "@JvmStatic",
+            "@JvmField",
+            "@JvmOverloads",
+            "@JvmName",
+            "@JvmSynthetic"
+          ]
+        },
+        {
+          "title": "Bridge Generation",
+          "items": [
+            "Platform types",
+            "Java interoperability",
+            "Generated bridges"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Kotlin Metadata",
+      "subtitle": "@Metadata Annotation & Decompilation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Metadata Infrastructure",
+          "items": [
+            "Metadata annotation",
+            "Compiler version",
+            "Serialized metadata",
+            "Reflection usage",
+            "Decompiler usage",
+            "Metadata stripping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Bytecode Generation",
+      "subtitle": "Low-Level Compiler Generated Structures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Generated Artifacts",
+          "items": [
+            "Properties",
+            "Companion objects",
+            "Objects",
+            "Data classes",
+            "Inline functions",
+            "Delegation",
+            "Coroutines",
+            "Default arguments",
+            "Extension functions",
+            "Lambdas",
+            "SAM conversions",
+            "Suspend functions",
+            "Tail recursion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Kotlin to DEX",
+      "subtitle": "D8, Smali & ART Translation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Translation Pipeline",
+          "items": [
+            "Kotlin → JVM Bytecode → D8 → DEX → Smali → ART"
+          ]
+        },
+        {
+          "title": "Analysis",
+          "items": [
+            "Recognize how Kotlin differs from Java in generated code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Kotlin Compiler Patterns",
+      "subtitle": "Recognizing Compiler Idioms in Binaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compiler Idioms",
+          "items": [
+            "DefaultImpls classes",
+            "Companion classes",
+            "Synthetic accessors",
+            "Default argument methods",
+            "Metadata annotations",
+            "Continuation classes",
+            "Coroutine state machines",
+            "Generated constructors",
+            "Bridge methods",
+            "Inline markers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Reverse Engineering Patterns",
+      "subtitle": "Identifying Kotlin Constructs in Decompiled Code",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Pattern Recovery",
+          "items": [
+            "Data classes",
+            "Companion objects",
+            "Singletons",
+            "Delegated properties",
+            "Coroutines",
+            "Flow operators",
+            "Inline functions",
+            "Extension functions",
+            "Lambda implementations",
+            "Sealed hierarchies",
+            "Object expressions",
+            "Reified generics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Android Kotlin Patterns",
+      "subtitle": "Architecture, Jetpack & DI Artifacts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Architecture Components",
+          "items": [
+            "ViewModel usage",
+            "Room entities",
+            "Navigation arguments",
+            "WorkManager workers",
+            "Compose state holders",
+            "Lifecycle observers",
+            "Repositories",
+            "Dependency injection"
+          ]
+        },
+        {
+          "title": "Architectural Patterns",
+          "items": [
+            "MVVM",
+            "MVI",
+            "Repository pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Decompiled Code Analysis",
+      "subtitle": "Source vs Smali vs Recovered Intent",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Analysis Pipeline",
+          "items": [
+            "Kotlin Source → Bytecode → DEX → Smali → Decompiler Output → Recovered Intent"
+          ]
+        },
+        {
+          "title": "Decompiler Behavior",
+          "items": [
+            "Understand where decompilers lose information and where Kotlin metadata helps reconstruction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Kotlin Source Code Reading",
+      "subtitle": "Production Codebases & Framework Core",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Libraries & Frameworks",
+          "items": [
+            "Kotlin Standard Library",
+            "Kotlin Coroutines",
+            "AndroidX Lifecycle",
+            "AndroidX Navigation",
+            "Room",
+            "WorkManager",
+            "Paging"
+          ]
+        },
+        {
+          "title": "Compose & Ecosystem Libraries",
+          "items": [
+            "Compose Runtime",
+            "Compose Foundation",
+            "Compose UI",
+            "Ktor",
+            "kotlinx.serialization",
+            "Focus on idiomatic Kotlin, compiler idioms, and generated artifacts"
+          ]
+        }
+      ]
+    }
+  ]
+}

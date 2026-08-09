@@ -1,0 +1,604 @@
+{
+  "meta": {
+    "id": "android_re_methodology_roadmap",
+    "title": "Android Reverse Engineering Methodology, Static Analysis, Dynamic Analysis & Professional Workflow",
+    "subtitle": "Beginner → Expert Investigation & Binary Analysis Roadmap",
+    "completionTitle": "ANDROID REVERSE ENGINEERING METHODOLOGY MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for Android Reverse Engineering Methodology, Static/Dynamic Analysis, Architectural Recovery, Call Graph Construction, Security Review, and Professional Documentation!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Reverse Engineering Mindset",
+      "subtitle": "Structured Investigation Philosophy & Inquiry Checklist",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Investigation Philosophy",
+          "items": [
+            "Treating reverse engineering as a structured systematic investigation",
+            "Avoiding premature randomly oriented Smali/Decompiler inspection",
+            "Building a holistic mental model before diving into low-level bytecode"
+          ]
+        },
+        {
+          "title": "Core Analytical Inquiry Checklist",
+          "items": [
+            "What domain problem does this application solve?",
+            "How is the high-level system architected?",
+            "Which frameworks, libraries, and native stacks are used?",
+            "Where is the handwritten business logic located vs compiler-generated infrastructure?",
+            "Which internal and external components communicate together?",
+            "What data enters the application (inputs, intents, network, IPC)?",
+            "What data leaves the application (sinks, APIs, telemetry, persistence)?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — APK Triage",
+      "subtitle": "Package Metadata, Signatures, Fingerprints & Surface Extraction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Metadata & Boundary Extraction",
+          "items": [
+            "Package name & Application label identification",
+            "Version code & Version name tracking",
+            "Target SDK, Minimum SDK, & Compile SDK evaluation",
+            "Signing certificate extraction & X.509 fingerprinting (v1, v2, v3, v4 schemes)",
+            "Supported ABIs inventory (`arm64-v8a`, `armeabi-v7a`, `x86_64`)",
+            "Declared Permissions & Hardware/Software Features",
+            "Declared Components: Activities, Services, BroadcastReceivers, ContentProviders",
+            "Intent Filters, Deep Links, & Android App Links configurations",
+            "Shared native libraries (`.so`) inventory & extraction rules",
+            "Asset size, DEX file count, & resource table (`resources.arsc`) metrics",
+            "Manifest metadata, Build fingerprints, & Android Gradle Plugin (AGP) indicators"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Package Structure Analysis",
+      "subtitle": "Namespace Layout, Module Isolation & Architectural Partitioning",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Package Topology Inspection",
+          "items": [
+            "Application module partitioning & feature package structures",
+            "Utility & common helper package boundaries",
+            "Third-party library namespaces identification",
+            "Compiler-generated and annotation-processor package separation",
+            "Dependency injection packages (`di/`, `hilt_aggregated_deps/`)",
+            "Networking, Persistence, Presentation, & Domain package hierarchies",
+            "Native shared library (`lib/`) and raw asset (`assets/`) partitioning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Framework Identification",
+      "subtitle": "Tech Stack Fingerprinting & Library Profiling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Library & Framework Profiling Catalog",
+          "items": [
+            "UI Frameworks: Jetpack Compose, XML Views, Material Design",
+            "Dependency Injection: Hilt, Dagger, Koin, Service Locator",
+            "Architecture & Async: ViewModels, LiveData, Kotlin Coroutines, Flow, RxJava",
+            "Persistence & Background: Room, DataStore, SharedPreferences, WorkManager, Paging 3",
+            "Navigation & Binding: Navigation Component, ViewBinding, DataBinding",
+            "Networking & Serialization: Retrofit, OkHttp, Moshi, Gson, kotlinx.serialization, Ktor",
+            "Media & Hardware: CameraX, ExoPlayer / Media3, WebViews, Biometric, Location",
+            "Building a comprehensive technology profile prior to business logic analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Build Fingerprinting",
+      "subtitle": "Compiler Versions, AGP Patterns & Release Characteristics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Build System Fingerprinting",
+          "items": [
+            "Programming language determination (Java vs Kotlin vs C/C++ Native)",
+            "Java / Kotlin compiler version indicators (`@Metadata` inspection)",
+            "Jetpack Compose compiler plugin artifacts and IR transformations",
+            "Android Gradle Plugin (AGP) signature patterns in DEX",
+            "Inferred dependency versions via pom properties/metadata",
+            "Debug vs Release build characteristics (Debuggable flags, stripping, R8/ProGuard rules)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Architecture Reconstruction",
+      "subtitle": "Pattern Recovery, Layer Boundaries & Data Flows",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Architectural Pattern Identification",
+          "items": [
+            "Pattern Classification: MVC, MVP, MVVM, MVI, Clean Architecture",
+            "Layer Isolation: Presentation, Domain, Data, Platform Infrastructure",
+            "Feature modularization topology",
+            "Repository Pattern & Use Case / Interactor boundaries",
+            "Dependency graph wiring and component scopes",
+            "Mapping UI layer to Data layer data flow pipelines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Manifest Analysis",
+      "subtitle": "Attack Surface Mapping, Component Exporting & Permissions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Attack Surface Audit",
+          "items": [
+            "Main / Launch Activity identification",
+            "Process assignment (`android:process`) & shared UIDs",
+            "Requested & custom permission declarations",
+            "Exported components (`android:exported=\"true\"`) security audit",
+            "Unprotected Services, BroadcastReceivers, and ContentProviders",
+            "Backup configuration (`android:allowBackup`, custom BackupAgent)",
+            "Network Security Configuration (`networkSecurityConfig`) evaluation",
+            "Custom Intent Filters, Scheme Handlers, & App Links validation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Resource Analysis",
+      "subtitle": "Layout Mapping, Asset Extraction & Identifier Resolution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Inspection & Mapping",
+          "items": [
+            "Compiled Binary XML layout inspection (`res/layout/`)",
+            "Resource table (`resources.arsc`) entry mapping",
+            "Theme, Style, & Color State List analysis",
+            "Navigation graph XML (`res/navigation/`) inspection",
+            "Raw assets (`assets/`) & embedded file payloads extraction",
+            "Mapping R.java / Hexadecimal Resource IDs (0x7f...) to source code usage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — DEX Analysis",
+      "subtitle": "MultiDEX Partitioning, String Pools & Class Inventories",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DEX Structure Inspection",
+          "items": [
+            "MultiDEX distribution (`classes.dex`, `classes2.dex`, `classesN.dex`)",
+            "Package and Class hierarchy indexing",
+            "Method and Field reference count evaluation (65k limit checks)",
+            "Interfaces and Inheritance hierarchies mapping",
+            "Kotlin `@Metadata` annotation payload parsing",
+            "Generated class infrastructure vs handwritten application DEX code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Call Graph Construction",
+      "subtitle": "Cross-References, Callback Chains & Execution Traversal",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Call Graph Methodologies",
+          "items": [
+            "Identifying system and lifecycle entry points",
+            "Constructing Forward Call Trees (Callees) & Reverse Call Trees (Callers)",
+            "Mapping Method Cross-References (XREFs)",
+            "Virtual dispatch and interface implementation edge resolution",
+            "Tracing asynchronous callback chains (Coroutines, Flow, RxJava, Listeners)",
+            "Tracing Binder IPC boundaries and JNI transitions",
+            "Building both high-level component diagrams and low-level method execution graphs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Control Flow Analysis",
+      "subtitle": "Basic Blocks, Conditional Branches & Switch Lowering",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structure Recovery",
+          "items": [
+            "Partitioning bytecode into Basic Blocks",
+            "Evaluating conditional branches (`if-eqz`, `if-ne`, `CMP`)",
+            "Loop recovery (for, while, do-while structures)",
+            "Switch lowering analysis (packed-switch vs sparse-switch tables)",
+            "Finite-State Machine (FSM) dispatch recovery",
+            "Exception handling flow mapping (`.catch` / `.catchall` blocks)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Data Flow Analysis",
+      "subtitle": "Taint Analysis, Variable Propagation & Source-to-Sink Tracing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Taint & Data Tracking",
+          "items": [
+            "Register & Variable value propagation tracing",
+            "Method parameters & Return value chain analysis",
+            "Bundle, Intent, & Parcelable payload tracking",
+            "JSON DTOs, Database Entities, & Network Response transformations",
+            "Source-to-Sink Taint Tracking for sensitive user/system data"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Object Graph Reconstruction",
+      "subtitle": "Domain Model Recovery & Object Ownership",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Object Structure Recovery",
+          "items": [
+            "Class relationships, ownership, composition, and aggregation mapping",
+            "Singleton instance detection",
+            "Repositories, ViewModels, & Managers state recovery",
+            "Dependency Injection graph reconstruction (Hilt/Dagger component trees)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Lifecycle Analysis",
+      "subtitle": "Component Callbacks, Context Binding & Lifecycle Scopes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lifecycle Call Chain Tracing",
+          "items": [
+            "Tracing execution through component lifecycles:",
+            "  • Application.onCreate() → Activity.onCreate() → Fragment.onViewCreated() → ViewModel → Repository → Data Source → UI Update",
+            "Mapping AndroidX LifecycleOwner events to business logic execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Event Flow Analysis",
+      "subtitle": "User Interactions, System Events & Callback Handling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Event Handler Mapping",
+          "items": [
+            "UI Touch and Click event listeners (`OnClickListener`, Compose gestures)",
+            "System Broadcasts & Custom Intent handling",
+            "Notification action callbacks & PendingIntent execution",
+            "Deep Link & App Link URL dispatch handlers",
+            "Background job triggers (WorkManager, JobScheduler)",
+            "WebView JavaScript bridge callbacks & Location/Sensor updates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Dependency Injection Analysis",
+      "subtitle": "Wiring Graph Extraction & Entry Point Identification",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DI Graph Auditing",
+          "items": [
+            "Identifying DI entry points (`@AndroidEntryPoint`, `@Inject`, `by inject()`)",
+            "Tracing injected object instances back to Provider modules",
+            "Differentiating DI infrastructure setup from application core domain code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Persistence Analysis",
+      "subtitle": "Database Schemas, Key-Value Stores & Encryption",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Local Storage Auditing",
+          "items": [
+            "Room Database schema parsing (`*Database_Impl` / DAO queries)",
+            "SharedPreferences & DataStore files analysis",
+            "EncryptedSharedPreferences & SQLCipher integration checks",
+            "File storage, Asset extraction, & Cache clearing policies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Networking Analysis",
+      "subtitle": "API Endpoints, Interceptors, Pinning & Traffic Inspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Subsystem Auditing",
+          "items": [
+            "Identifying HTTP clients (OkHttp, Retrofit, Cronet, Ktor)",
+            "Extracting hardcoded API Base URLs and endpoint contracts",
+            "Auditing Interceptor chains (Auth headers, logging, retries)",
+            "Analyzing Certificate Pinning & Custom TrustManager implementations",
+            "Inspecting Serialization models (Protobuf, Moshi, Gson)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Binder & IPC Analysis",
+      "subtitle": "Cross-Process Boundaries & Privileged Execution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "IPC Boundary Tracing",
+          "items": [
+            "Tracing Binder IPC calls: Framework API → Manager → Binder Proxy → System Service → HAL",
+            "Identifying privileged cross-process operation boundaries and permissions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Native Analysis",
+      "subtitle": "JNI Boundaries, Shared Objects & Native Interop",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI & Native Code Inspection",
+          "items": [
+            "Identifying JNI boundaries (`native` methods, `RegisterNatives`)",
+            "Parsing shared object (`.so`) exported and imported symbols",
+            "Auditing parameter marshaling and cross-language execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Runtime Behavior Analysis",
+      "subtitle": "Dynamic Observation & Static Correlation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dynamic Observation Targets",
+          "items": [
+            "Monitoring process startup, thread creation, & memory allocation",
+            "Tracing Logcat output, Binder IPC traffic, & Network requests",
+            "Correlating dynamic runtime behavior with static DEX/Smali disassembly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Logging & Diagnostics",
+      "subtitle": "Telemetry, Crash Reporting & Feature Flags",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Telemetry & Debugging Inspection",
+          "items": [
+            "Identifying logging frameworks (Timber, Logcat wrappers)",
+            "Inspecting Crash Reporting (Crashlytics) & Analytics event tracking",
+            "Detecting Feature Flags, Remote Config, & Debug-only behaviors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Generated Code Identification",
+      "subtitle": "Isolating Framework Artifacts from Application Logic",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "CodeGen Isolation Checklist",
+          "items": [
+            "Isolating Hilt/Dagger components (`*_Factory`, `*_MembersInjector`)",
+            "Isolating Room database implementations (`*Database_Impl`, `*Dao_Impl`)",
+            "Isolating Navigation Safe Args & ViewBinding/DataBinding classes",
+            "Isolating Compose compiler generated functions (`$composer`)",
+            "Focusing primary manual reverse engineering on handwritten business logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Security Review",
+      "subtitle": "Vulnerability Assessment & Cryptographic Auditing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Assessment Checklist",
+          "items": [
+            "Permissions usage & Exported component surface audit",
+            "Cryptographic API usage & Keystore hardware binding verification",
+            "Network Security Configuration & Cleartext traffic checks",
+            "Input validation, Secure storage, & Secret management audit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Obfuscation Recognition",
+      "subtitle": "R8, ProGuard, Reflection & Control Flow Flattening",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Obfuscation Artifacts Recognition",
+          "items": [
+            "Renamed identifiers (a/b/c package and method names)",
+            "Synthetic bridge methods, inlined calls, & merged classes",
+            "Control-flow flattening & String decryption routines",
+            "Reflection-heavy dynamic dispatch & dynamic DEX loading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Large Application Strategy",
+      "subtitle": "Scalable Triage Methodology for Complex APKs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Large APK Analysis Strategy",
+          "items": [
+            "1. Build technology and library profile",
+            "2. Reconstruct top-level architecture and package structure",
+            "3. Identify primary entry points (Activities, Services, Deep Links)",
+            "4. Isolate and strip generated infrastructure code from inventory",
+            "5. Build subsystem interaction diagrams",
+            "6. Trace one target feature end-to-end (UI -> Domain -> Data)",
+            "7. Expand scope incrementally (Avoid sequential reading of 10,000+ classes)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Documentation Workflow",
+      "subtitle": "Diagramming, Artifact Tracking & Investigation Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Documentation Deliverables",
+          "items": [
+            "Architecture diagrams & Package maps",
+            "Call graphs & Component interaction sequence diagrams",
+            "Data flow diagrams & Execution timeline notes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Automation Strategy",
+      "subtitle": "Scripting, Indexing & Report Generation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Automated Triage Targets",
+          "items": [
+            "Manifest parsing, permission extraction, & exported component listing",
+            "DEX class inventory & third-party library identification",
+            "String reference extraction & API call cross-referencing",
+            "Automating repetitive triage tasks to focus manual analysis on core findings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Source Correlation",
+      "subtitle": "Cross-Abstraction Level Execution Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Abstraction Level Correlation",
+          "items": [
+            "Mapping execution across abstraction boundaries:",
+            "  • Java / Kotlin Source → DEX Bytecode → Smali Assembly → ART Execution Engine → JNI Bridge → ARM64 Native Disassembly → Observed Runtime Behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Reporting",
+      "subtitle": "Executive Summaries, Evidence & Technical Deliverables",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Professional Report Structure",
+          "items": [
+            "Executive Summary & Key Findings",
+            "Architecture Overview & Technology Stack Profile",
+            "Application Surface & Component Analysis",
+            "Data Flow & Network/Persistence Security Observations",
+            "Native Components & Deep Dive Analysis",
+            "Evidence-supported conclusions & Appendices"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Reading Open Source",
+      "subtitle": "Pattern Intuition Building via Open-Source Codebases",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codebase Comparison Strategy",
+          "items": [
+            "Comparing open-source source code against compiled/decompiled APK output:",
+            "  • Source Code → Compiled Binary → DEX/Smali → Decompiler Output → Dynamic Behavior",
+            "Building intuition for recognizing common design patterns and compiler transformations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Professional Investigation Checklist",
+      "subtitle": "End-to-End Analysis Checklist",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Final Assessment Checklist",
+          "items": [
+            "What architectural pattern is utilized?",
+            "Which third-party libraries and frameworks are embedded?",
+            "Which components form the external attack surface?",
+            "How does the application start and initialize state?",
+            "Where is core business logic located?",
+            "How is state managed across configuration changes and process death?",
+            "How does networking, serialization, and certificate validation operate?",
+            "How is data stored at rest and protected?",
+            "Which native shared libraries exist and what JNI methods are registered?",
+            "Which framework APIs and Binder IPC interfaces are heavily called?",
+            "Which code is generated vs handwritten?",
+            "How does application behavior evolve across its lifecycle?"
+          ]
+        }
+      ]
+    }
+  ]
+}

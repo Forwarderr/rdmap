@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "id": "cs_systems_foundation_roadmap",
+    "title": "Computer Science & Systems Foundation",
+    "subtitle": "Core Systems, Architecture & Reverse Engineering Foundations",
+    "completionTitle": "FOUNDATION MASTERED",
+    "completionMessage": "Congratulations! You have mastered the core computer science, systems architecture, low-level OS internals, and reverse engineering fundamentals!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Computer Science Fundamentals",
+      "subtitle": "Number Systems, Boolean Logic & Bit Manipulation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Number Systems & Representations",
+          "items": [
+            "Decimal",
+            "Binary",
+            "Octal",
+            "Hexadecimal",
+            "Signed vs Unsigned numbers",
+            "Two's Complement",
+            "One's Complement",
+            "Sign Magnitude",
+            "BCD (Binary Coded Decimal)",
+            "Floating Point Numbers (IEEE-754)",
+            "Fixed Point Numbers",
+            "Endianness (Big Endian vs Little Endian)",
+            "Practice: Number conversions & manual arithmetic",
+            "Understand: Why computers use binary and hex representations"
+          ]
+        },
+        {
+          "title": "Boolean Logic & Gates",
+          "items": [
+            "Boolean algebra",
+            "Truth tables",
+            "Logic gates (AND, OR, XOR, NAND, NOR, XNOR, NOT)",
+            "Bit masking",
+            "Bit shifting",
+            "Flag manipulation",
+            "Practice: Creating bit masks, permission flags, and CPU flags"
+          ]
+        },
+        {
+          "title": "Bit Manipulation",
+          "items": [
+            "AND, OR, XOR, NOT",
+            "Left shift & Right shift",
+            "Arithmetic shift vs Logical shift",
+            "Rotate operations",
+            "Bit fields",
+            "Popcount (Population count)",
+            "Leading zeros & Trailing zeros",
+            "Reverse Engineering Perspective: Low-level bitwise CPU operations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Data Structures",
+      "subtitle": "Linear, Tree, Graph & Hash Structures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linear Structures",
+          "items": [
+            "Arrays & Dynamic Arrays",
+            "Linked Lists (Singly, Doubly, Circular)",
+            "Stacks",
+            "Queues & Deques"
+          ]
+        },
+        {
+          "title": "Trees & Hierarchical Structures",
+          "items": [
+            "Binary Trees & Binary Search Trees (BST)",
+            "Self-Balancing Trees (AVL, Red-Black Trees)",
+            "B Trees & B+ Trees",
+            "Tries",
+            "Segment Trees"
+          ]
+        },
+        {
+          "title": "Graph Structures",
+          "items": [
+            "Directed & Undirected Graphs",
+            "Weighted Graphs & DAGs",
+            "Graph traversals (DFS & BFS)",
+            "Shortest path algorithms",
+            "Reverse Engineering Perspective: Control Flow Graphs, Call Graphs, & Dependency Graphs"
+          ]
+        },
+        {
+          "title": "Hash Structures",
+          "items": [
+            "Hash Tables & Hash Maps",
+            "Hash Sets",
+            "Collision Handling (Open Addressing & Chaining)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Algorithms",
+      "subtitle": "Sorting, Searching, Graph Logic & Complexity",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Sorting & Searching Algorithms",
+          "items": [
+            "Bubble, Selection, & Insertion Sort",
+            "Merge, Heap, Quick, & Radix Sort",
+            "Linear & Binary Search",
+            "Hash Lookup"
+          ]
+        },
+        {
+          "title": "Graph & String Algorithms",
+          "items": [
+            "DFS & BFS traversals",
+            "Dijkstra & Floyd Warshall shortest path",
+            "Topological Sort",
+            "KMP & Rabin-Karp string matching",
+            "Trie Search & Suffix Arrays"
+          ]
+        },
+        {
+          "title": "Algorithmic Complexity Analysis",
+          "items": [
+            "Time Complexity analysis",
+            "Space Complexity analysis",
+            "Asymptotic Notation: Big O, Big Omega, Big Theta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Computer Architecture",
+      "subtitle": "CPU Design, Memory Hierarchy & Addressing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "CPU Design & Execution Engine",
+          "items": [
+            "ALU, Instruction Decoder, & Control Unit",
+            "Registers, Caches, & Pipelining",
+            "Execution Units (Superscalar, Out-of-order, Speculative execution)",
+            "Interrupt Controller, Clock, & Bus"
+          ]
+        },
+        {
+          "title": "Memory Hierarchy & CPU Registers",
+          "items": [
+            "Hierarchy: Registers → L1 Cache → L2 Cache → L3 Cache → RAM → Storage",
+            "Access latency at each hierarchy level",
+            "General Purpose Registers",
+            "Special Registers (Program Counter, Stack Pointer, Frame Pointer, Status/Flags Register)"
+          ]
+        },
+        {
+          "title": "Physical Memory & Virtual Memory",
+          "items": [
+            "RAM, ROM, Flash, EEPROM, SRAM, DRAM",
+            "Virtual Memory, Memory Pages, & Page Tables",
+            "TLB (Translation Lookaside Buffer) & MMU (Memory Management Unit)",
+            "Virtual Address vs Physical Address translation",
+            "Page Faults & Memory Protection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Operating Systems",
+      "subtitle": "Processes, Memory, File Systems & System Calls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Processes & Threads",
+          "items": [
+            "Process definition, PID, Process Table, & States",
+            "Process Creation & Termination (fork, exec, Zombie & Orphan processes)",
+            "User Threads vs Kernel Threads",
+            "Context Switching & Thread Scheduling",
+            "Synchronization (Mutex, Semaphore, Condition Variables, Spinlocks, TLS)"
+          ]
+        },
+        {
+          "title": "OS Scheduling & Memory Management",
+          "items": [
+            "Round Robin, Priority Scheduling, CFS (Completely Fair Scheduler)",
+            "CPU Affinity & Real-Time Scheduling",
+            "Memory Segments: Heap, Stack, Code, Data, BSS",
+            "Paging, Demand Paging, Segmentation, & Copy-On-Write"
+          ]
+        },
+        {
+          "title": "File Systems, IPC & System Calls",
+          "items": [
+            "File Systems (FAT, EXT4, F2FS, NTFS overview, Inodes, File Descriptors)",
+            "IPC (Pipes, Sockets, Shared Memory, Signals, Message Queues, RPC)",
+            "System Calls (read, write, open, close, mmap, fork, execve, socket, epoll)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Networking",
+      "subtitle": "Protocol Stacks, Security & Web APIs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Models & Core Protocols",
+          "items": [
+            "OSI Model vs TCP/IP Model",
+            "Network Protocols: ARP, IP, ICMP, TCP, UDP",
+            "Application Protocols: HTTP, HTTPS, HTTP/2, HTTP/3, DNS, DHCP, WebSocket"
+          ]
+        },
+        {
+          "title": "Network Security & APIs",
+          "items": [
+            "TLS Handshake, Certificates, PKI (RSA, ECC, Session Keys)",
+            "HSTS & Certificate Pinning",
+            "API Architecture: REST, SOAP, GraphQL, gRPC",
+            "Data Formats: JSON, XML, Protocol Buffers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Compilers",
+      "subtitle": "Compilation Pipeline & Optimization Passes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compilation Pipeline Stages",
+          "items": [
+            "Source Code → Lexer → Parser → AST → Intermediate Representation (IR) → Assembly → Machine Code",
+            "Lexical, Syntax, & Semantic Analysis"
+          ]
+        },
+        {
+          "title": "Compiler Optimizations & Reverse Engineering",
+          "items": [
+            "Constant Folding & Inlining",
+            "Loop Unrolling & Dead Code Elimination",
+            "Register Allocation & Instruction Scheduling",
+            "Reverse Engineering Perspective: Decompiler pipeline reversal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Linkers & Loaders",
+      "subtitle": "Symbol Resolution, Relocations & Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linking & Loading Mechanics",
+          "items": [
+            "Object Files & Libraries (Static vs Dynamic)",
+            "Linker & Loader roles",
+            "Symbol Resolution & Relocations",
+            "Import Tables & Export Tables",
+            "Dynamic Linking, Static Linking, & Lazy Binding",
+            "Position Independent Code (PIC)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Executable Formats",
+      "subtitle": "ELF, Binary Structures & Android Packages",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Executable & Container Formats",
+          "items": [
+            "Native Formats: ELF, PE, Mach-O",
+            "Android Formats: DEX, OAT, VDEX, APK, AAB",
+            "Binary XML & Resource Tables"
+          ]
+        },
+        {
+          "title": "Binary Headers & Internal Structure",
+          "items": [
+            "Headers, Sections, & Segments",
+            "Symbol Tables & Relocation Entries",
+            "Debug Information & Embedded Metadata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Debug Information",
+      "subtitle": "DWARF Standards & Stack Unwinding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Debug Infrastructure",
+          "items": [
+            "DWARF format specification",
+            "Line Numbers & Symbol maps",
+            "Source Mapping & Code correlation",
+            "Stack Unwinding & Exception Tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Cryptography",
+      "subtitle": "Encryption Algorithms, Hashes & Keys",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Symmetric & Asymmetric Primitive",
+          "items": [
+            "Symmetric Encryption: AES, ChaCha20",
+            "Asymmetric Encryption: RSA, ECC",
+            "Cryptographic Hashes: SHA-1, SHA-2, SHA-3, MD5"
+          ]
+        },
+        {
+          "title": "Key Derivation & Signatures",
+          "items": [
+            "MAC & HMAC",
+            "Key Derivation Functions: PBKDF2, HKDF, Argon2",
+            "Digital Signatures & Certificates",
+            "Random Number Generation & Entropy",
+            "Reverse Engineering Perspective: Usage in authentication, storage, & TLS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Secure Coding Concepts",
+      "subtitle": "Defensive Architecture & Memory Safety",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Defensive Paradigms",
+          "items": [
+            "Input Validation & Output Encoding",
+            "Principle of Least Privilege",
+            "Memory Safety & Secure Error Handling",
+            "Logging discipline & Secret Management",
+            "Defensive Programming & Undefined Behavior mitigation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Software Engineering Patterns",
+      "subtitle": "Architectural & Behavioral Design Patterns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Architectural Patterns",
+          "items": [
+            "MVC, MVP, MVVM, MVI",
+            "Repository Pattern & Dependency Injection"
+          ]
+        },
+        {
+          "title": "Design Patterns",
+          "items": [
+            "Creational Patterns: Singleton, Factory, Builder",
+            "Behavioral & Structural: Observer, Strategy, Adapter, Decorator, Facade, State Machine",
+            "Pattern Recognition in Reverse Engineering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Reverse Engineering Fundamentals",
+      "subtitle": "Static, Dynamic & Data Flow Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Analysis Methodologies",
+          "items": [
+            "Static analysis vs Dynamic analysis vs Hybrid analysis",
+            "Call graphs & Control Flow Graphs (CFG)",
+            "Data Flow Analysis (DFA) & Static Single Assignment (SSA)",
+            "Cross references (XREFs) & Dominator trees"
+          ]
+        },
+        {
+          "title": "Binary Understanding & Inquiry Mindset",
+          "items": [
+            "Function boundaries & Symbol resolution",
+            "Type recovery & Constant propagation",
+            "Dead-code identification & Compiler idioms",
+            "Runtime behavior vs static structure analysis",
+            "Answering core questions: Entry points, callers, data flow, state changes, & inter-process calls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Tooling Mindset",
+      "subtitle": "Tool Categorization & Analysis Workflows",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Analysis Tool Categories",
+          "items": [
+            "APK & DEX inspection tools",
+            "Smali editing & Bytecode assemblers",
+            "Java/Kotlin decompilers & Native disassemblers",
+            "Binary analysis & Debugging frameworks",
+            "Log analysis, Memory inspection & Performance tracing",
+            "Network inspection & Traffic proxies",
+            "Source-code navigation, Diffing & Automation scripting"
+          ]
+        }
+      ]
+    }
+  ]
+}

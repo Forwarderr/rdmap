@@ -1,0 +1,801 @@
+{
+  "meta": {
+    "id": "art_dex_oat_roadmap",
+    "title": "Android Runtime (ART), DEX, OAT & Execution Engine",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ART & DEX INTERNALS MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for ART, DEX, OAT, and the Android execution engine—covering everything from virtual machine internals and bytecode verification to JIT/AOT compilation, garbage collection, and reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Runtime Overview",
+      "subtitle": "History, Runtime Responsibilities & Stack Placement",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "History & Architectural Role",
+          "items": [
+            "History of Dalvik",
+            "Why Dalvik was replaced",
+            "ART architecture",
+            "Runtime responsibilities",
+            "Relationship with Linux kernel",
+            "Relationship with Zygote process",
+            "Relationship with Android Framework",
+            "Relationship with application processes"
+          ]
+        },
+        {
+          "title": "Execution Pipeline",
+          "items": [
+            "Java/Kotlin Source → Java/Kotlin Compiler → DEX Bytecode → ART Runtime → ARM64 Native Machine Code → CPU Execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Dalvik vs ART",
+      "subtitle": "Architectural Differences & Paradigm Shift",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dalvik VM Paradigm",
+          "items": [
+            "Register-based virtual machine",
+            "Just-In-Time (JIT) compilation",
+            ".dex execution",
+            "Performance characteristics & limitations"
+          ]
+        },
+        {
+          "title": "Android Runtime (ART) Paradigm",
+          "items": [
+            "Ahead-Of-Time (AOT) compilation",
+            "Modern Just-In-Time (JIT) compilation with PGO",
+            "Profile-guided compilation",
+            "Improved generational garbage collection",
+            "Better application startup performance",
+            "Optimized memory management & heap footprint",
+            "Key drivers behind Dalvik to ART migration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — ART Source Code",
+      "subtitle": "AOSP Source Tree Navigation (art/ Directory)",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core AOSP ART Directories",
+          "items": [
+            "art/runtime/ — Core runtime, GC, ClassLinker, interpreter, JNI",
+            "art/compiler/ — JIT and AOT optimizing compilers",
+            "art/dex2oat/ — AOT compiler binary & compilation pipeline",
+            "art/libdexfile/ — DEX file parsing and inspection libraries",
+            "art/libartbase/ — Base utilities, allocators, and logging",
+            "art/oat/ — OAT header definitions and format utilities",
+            "art/profile/ — Runtime profiling and ART profile parsing",
+            "art/tools/ — Development, debugging, and testing tools"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — ART Startup",
+      "subtitle": "System Boot, Boot Image Preloading & Zygote Prep",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ART Initialization Sequence",
+          "items": [
+            "System boot → Zygote process starts ART → Boot image loaded → Core libraries initialized → Class preloading (preloaded-classes) → GC initialization → Thread initialization → Ready for application forks"
+          ]
+        },
+        {
+          "title": "Initialization Mechanics",
+          "items": [
+            "Understanding why ART is initialized prior to app process spawning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Application Launch in ART",
+      "subtitle": "Forking, Specialization & Process Startup",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Application Launch Pipeline",
+          "items": [
+            "Launcher → ActivityManagerService → Zygote Socket → fork() → Pre-initialized ART runtime inherited → Application class instantiation → ClassLoader setup → ActivityThread → Application.onCreate() → First Activity launch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — DEX Fundamentals",
+      "subtitle": "Dalvik Executable Architecture & MultiDEX",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Format Fundamentals",
+          "items": [
+            "What is DEX (Dalvik Executable)",
+            "Why DEX exists (Optimized for low-RAM mobile devices)",
+            "Register-based VM vs Stack-based JVM bytecode",
+            "Differences between DEX and Java class bytecode",
+            "DEX version history (e.g., 035, 037, 038, 039)",
+            "MultiDEX (Handling 64k method index limit)",
+            "DEX bytecode optimization goals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — DEX File Structure",
+      "subtitle": "Binary Format Specification & Section Headers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Headers & Index Tables",
+          "items": [
+            "DEX Header (Magic, Checksum, Signature, Sizes, Offsets)",
+            "String IDs (string_ids_def)",
+            "Type IDs (type_ids_def)",
+            "Proto IDs (proto_ids_def — Method prototypes)",
+            "Field IDs (field_ids_def)",
+            "Method IDs (method_ids_def)",
+            "Class Definitions (class_def_item)"
+          ]
+        },
+        {
+          "title": "Data Sections & Offsets",
+          "items": [
+            "Class Data (class_data_item — Static/instance fields & methods)",
+            "Code Items (code_item — Instructions, registers, try/catch)",
+            "Debug Info (debug_info_item — Line numbers & variables)",
+            "Annotations (annotations_directory_item)",
+            "Encoded Arrays & Map List (map_list)",
+            "Checksum (Adler-32) & Signature (SHA-1)",
+            "Cross-table references & relational offset parsing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Type Descriptors",
+      "subtitle": "Primitive, Reference & Array Encodings",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Primitive Type Tokens",
+          "items": [
+            "V (void), Z (boolean), B (byte), S (short)",
+            "C (char), I (int), J (long), F (float), D (double)"
+          ]
+        },
+        {
+          "title": "Reference & Array Encodings",
+          "items": [
+            "Reference descriptors (e.g., Ljava/lang/String;)",
+            "Array descriptors (e.g., [I, [[I, [Ljava/lang/String;)",
+            "Type descriptor string parsing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Method Descriptors",
+      "subtitle": "Prototypes, Signatures & Type Erasure",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Method Signatures",
+          "items": [
+            "Parameter descriptors",
+            "Return descriptors",
+            "Prototype IDs (proto_id_item mapping)",
+            "Method signatures",
+            "Generic type information in DEX attributes",
+            "Type erasure implications in compiled DEX"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — DEX Instructions",
+      "subtitle": "Instruction Set Architecture (ISA)",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Instruction Categories",
+          "items": [
+            "Move instructions (move, move-result, move-exception)",
+            "Return instructions (return-void, return, return-object)",
+            "Constant loading (const, const-string, const-class)",
+            "Field access (iget, iput, sget, sput variants)",
+            "Method invocation (invoke-virtual, invoke-direct, invoke-static, invoke-super, invoke-interface, invoke-polymorphic, invoke-custom)",
+            "Object creation (new-instance, new-array, filled-new-array)",
+            "Array operations (aget, aput, array-length)",
+            "Arithmetic & Logic (add, sub, mul, div, rem, and, or, xor, shl, shr)",
+            "Comparison & Branching (cmpl, cmpg, if-eq, if-ne, goto, switch)",
+            "Type conversion (int-to-long, float-to-int, check-cast, instanceof)",
+            "Synchronization (monitor-enter, monitor-exit)",
+            "Exception handling (throw)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Registers",
+      "subtitle": "Virtual Registers, Allocation & Lifetime",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Register Mechanics",
+          "items": [
+            "Virtual registers (vN notation)",
+            "Parameter registers (pN notation / in-registers)",
+            "Local registers (locals)",
+            "Wide registers (64-bit long/double register pairs)",
+            "Object registers",
+            "Register allocation algorithms",
+            "Register lifetime & Register reuse",
+            "Register spilling concepts",
+            "Architectural reasons for register-based VM over stack-based VM"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Class Loading",
+      "subtitle": "ClassLoader Hierarchy & Initialization Lifecycle",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ClassLoader Hierarchy",
+          "items": [
+            "BootClassLoader",
+            "PathClassLoader",
+            "DexClassLoader",
+            "InMemoryDexClassLoader"
+          ]
+        },
+        {
+          "title": "Class Lifecycle Pipeline",
+          "items": [
+            "Class discovery → Class verification → Preparation → Resolution → Initialization → Static initialization (<clinit>)",
+            "Class unloading rules",
+            "Lazy loading mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Class Linking",
+      "subtitle": "Resolution, Member Mapping & Verification Errors",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Symbol Resolution & Checks",
+          "items": [
+            "Class resolution",
+            "Superclass resolution",
+            "Interface resolution",
+            "Method resolution (vtable & itable construction)",
+            "Field resolution",
+            "Access checking (public, private, protected, package-private)",
+            "Linking errors (NoClassDefFoundError, NoSuchMethodError, etc.)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Verification",
+      "subtitle": "Bytecode Verifier & Safety Checks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Verification Stages",
+          "items": [
+            "Bytecode verification",
+            "Type checking & Type inferencing",
+            "Register type verification",
+            "Control-flow graph verification",
+            "Exception handler verification",
+            "Access control verification",
+            "Method & Class verification",
+            "Verification failure handling & Rejecting malformed DEX binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Method Invocation",
+      "subtitle": "Virtual Tables, Interface Tables & Dispatch Caches",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Invocation Types & Dispatch",
+          "items": [
+            "Virtual methods (vtable dispatch)",
+            "Static methods (direct call)",
+            "Direct methods (constructors, private methods)",
+            "Interface methods (itable dispatch)",
+            "Super calls (super.method())",
+            "Constructor calls (<init>)",
+            "Method lookup algorithms",
+            "Inline caching & Polymorphic inline caches",
+            "Method resolution cache (ART Resolution Stub)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Interpreter",
+      "subtitle": "Fetch-Decode-Execute Loop & Execution Engines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interpreter Operations",
+          "items": [
+            "Instruction fetch → Instruction decode → Instruction execution → Register updates",
+            "Method dispatch & Frame creation",
+            "Exception propagation in interpreted mode",
+            "Branch execution & Jump table handling",
+            "Return handling & Stack popping",
+            "Main interpreter loop (ExecuteMterpImpl / C++ fallback interpreter)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — JIT Compilation",
+      "subtitle": "Runtime Profiling, Code Cache & Native Translation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JIT Execution Pipeline",
+          "items": [
+            "Interpreter → Profiler → JIT Compiler → Native ARM64 Machine Code"
+          ]
+        },
+        {
+          "title": "JIT Architecture & Lifecycle",
+          "items": [
+            "Hot methods detection & Invocation counters",
+            "Runtime profiling (JitCodeCache & ProfileSaver)",
+            "Compilation thresholds",
+            "Compilation queue & Background JIT thread pool",
+            "JIT Code cache management",
+            "Optimized native code generation",
+            "Fallback behavior & Deoptimization triggers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — AOT Compilation",
+      "subtitle": "dex2oat Binary, Filters & Optimization Levels",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOT Compilation Subsystem",
+          "items": [
+            "dex2oat compiler binary",
+            "Compilation pipeline (AST → ART IR → Optimizations → ARM64/x86_64 CodeGen)",
+            "Boot image compilation",
+            "System applications compilation",
+            "Profile-guided compilation",
+            "Compilation filters (verify, speed-profile, speed, everything)",
+            "Optimization levels & Trade-offs (Storage vs Runtime speed)",
+            "Generated OAT & VDEX output files"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Profile Guided Optimization",
+      "subtitle": "Baseline Profiles, Cloud Profiles & Hot Code Selection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Profile Mechanics",
+          "items": [
+            "Runtime profiling & Method tracking",
+            "Hot methods vs Cold methods identification",
+            "Startup profiles (optimizing cold startup paths)",
+            "Baseline Profiles (bundled with APKs)",
+            "Cloud profiles (aggregated user profiles via Google Play)",
+            "Compilation decisions based on profiles",
+            "Runtime performance improvements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — OAT Files",
+      "subtitle": "OAT File Format, Native Code Wrappers & Headers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OAT File Architecture",
+          "items": [
+            "OAT file format (ELF wrapper containing ART compiled data)",
+            "OAT Headers (OatHeader, OatClass, OatMethod)",
+            "Compiled native method code (ARM64 instructions)",
+            "Metadata & Method headers (OatMethodHeader)",
+            "Native code to DEX mapping tables (OatQuickMethodHeader)",
+            "Quick code execution stubs",
+            "Relationship between OAT and embedded/external DEX files",
+            "Relationship with VDEX files"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — VDEX Files",
+      "subtitle": "Verified DEX Containers & Quickening Metadata",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "VDEX Format & Features",
+          "items": [
+            "Purpose of VDEX (Verified DEX container)",
+            "Uncompressed, unverified/verified DEX extraction",
+            "DEX quickening metadata storage",
+            "Verification cache (bypassing re-verification on boot)",
+            "Optimization support for OTA updates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Boot Image",
+      "subtitle": "Preallocated Heap Images, Shared Memory & Relocations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Boot Image Components",
+          "items": [
+            "boot.art (Pre-allocated Java object heap snapshot)",
+            "boot.oat (Compiled native code for framework libraries)",
+            "Preloaded classes and core framework dependencies",
+            "Startup time optimization via memory-mapped images",
+            "Image relocation & ASLR handling",
+            "Memory sharing across process forks via Copy-On-Write"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Quickening",
+      "subtitle": "Bytecode Instruction Rewriting & Dequickening",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Quickening Mechanics",
+          "items": [
+            "Interpreter optimization technique",
+            "Instruction rewriting (e.g., replacing invoke-virtual with quickened variants)",
+            "Cached vtable and field offset lookups",
+            "Performance benefits during interpretation",
+            "Dequickening during static analysis and decompilation",
+            "Reverse Engineering Perspective: Recognizing quickened instructions in raw runtime artifacts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Garbage Collection",
+      "subtitle": "ART GC Collectors, Heap Spaces & Compaction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Object Tracking & GC Algorithms",
+          "items": [
+            "GC roots (Stack frames, JNI globals, static fields)",
+            "Object graph traversal & Reachability analysis",
+            "Reference types (Strong, Soft, Weak, Phantom)",
+            "Mark-Sweep, Mark-Compact, Copying algorithms",
+            "Generational Concurrent Copying (CC) Collector",
+            "Concurrent collection vs Stop-The-World (STW) pauses",
+            "Heap spaces: Large Object Space (LOS), Image Space, Zygote Space, Non-Moving Space, Main FreeList Space"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Memory Management",
+      "subtitle": "TLABs, Object Headers & Memory Barriers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Heap Management & Allocation",
+          "items": [
+            "Object allocation pipeline",
+            "Thread Local Allocation Buffers (TLAB / rosalloc)",
+            "Heap growth, target utilization, and soft/hard heap limits",
+            "Object headers (LockWord, Class pointer)",
+            "Memory alignment (8-byte boundary)",
+            "Reference tracking & Reference queues",
+            "Memory barriers (Write barriers, Read barriers for CC GC)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Object Layout",
+      "subtitle": "Binary Object Memory Structure in ART Heap",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "In-Memory Object Anatomy",
+          "items": [
+            "Object header (Lock Word: HashCode, Thin Lock, Fat Lock, Monitor ID)",
+            "Class pointer (mirror::Class)",
+            "Field layout (primitive fields, reference fields packing)",
+            "Alignment & Padding rules",
+            "Array object memory layout (Length + Elements)",
+            "String object memory layout (Count, HashCode, Value array / Compact strings)",
+            "Reference objects internal layout"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Threads in ART",
+      "subtitle": "Thread Attachment, Safepoints & Thread States",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Thread Lifecycle & Management",
+          "items": [
+            "Java Thread vs Native Thread (pthread mapping)",
+            "Thread attachment (AttachCurrentThread via JNI)",
+            "Daemon threads",
+            "Thread state transitions (kRunnable, kWaiting, kNative, kBlocked)",
+            "Thread suspension mechanisms",
+            "Safepoints & Safepoint polling",
+            "Thread synchronization & Priority mapping to Linux OS priorities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Synchronization",
+      "subtitle": "Monitors, Thin/Fat Locks & Contention",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Monitor Architecture",
+          "items": [
+            "Monitors & Bytecode directives (monitor-enter / monitor-exit)",
+            "Object locks",
+            "Biased locking (Historical Dalvik/Early ART concepts)",
+            "Thin locks (Lock Word atomic bit operations)",
+            "Fat locks (Monitor object inflation via MonitorPool)",
+            "Lock contention handling & Thread queuing",
+            "Memory visibility & Volatile field access semantics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Exceptions",
+      "subtitle": "Stack Unwinding, Catch Tables & Native Transitions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Exception Lifecycle",
+          "items": [
+            "Throwable & Exception object instantiation",
+            "Throwing exceptions (athrow / ART Runtime throw helper)",
+            "Catching exceptions & try_item / catch_handler_item matching",
+            "Stack unwinding & Stack trace generation",
+            "Exception tables in DEX and OAT headers",
+            "Exception propagation across interpreted and JIT/AOT compiled code",
+            "Exception handling across JNI boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — JNI Bridge",
+      "subtitle": "Java-Native Interop, References & Trampolines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Call Flow Pipeline",
+          "items": [
+            "Java Code → JNI Stub / Trampoline → Native C/C++ Function → JNI Environment → Java Execution"
+          ]
+        },
+        {
+          "title": "Bridge Mechanics & Reference Management",
+          "items": [
+            "Method lookup & Dynamic linking (RegisterNatives vs dlsym)",
+            "Reference management: Local references, Global references, Weak global references",
+            "Indirect reference tables (IRT / IndirectReferenceTable)",
+            "String conversion (GetStringUTFChars / ReleaseStringUTFChars)",
+            "Primitive & Object array pinning/copying",
+            "Exception checking & Propagation across JNI",
+            "Thread attachment (AttachCurrentThread / DetachCurrentThread)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Reflection",
+      "subtitle": "Runtime Metaprogramming & Invocation Caches",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Reflection APIs & Mechanics",
+          "items": [
+            "Class loading via Class.forName()",
+            "Method, Field, and Constructor reflection lookup",
+            "Reflective method invocation & JNI backing",
+            "Dynamic proxies (java.lang.reflect.Proxy)",
+            "Reflection performance overhead",
+            "Internal reflective caches (ArtMethod/ArtField resolution caches)",
+            "Non-SDK / Hidden API restrictions enforcement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Runtime Optimization",
+      "subtitle": "Compiler Passes, Devirtualization & Inlining",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ART Optimizing Compiler Passes",
+          "items": [
+            "Method inlining",
+            "Inline caches",
+            "Method devirtualization (converting virtual calls to direct calls)",
+            "Escape analysis & Scalar replacement",
+            "Dead-code elimination (DCE)",
+            "Constant folding & Propagation",
+            "Loop optimizations (Unrolling, Vectorization)",
+            "Branch prediction & Elimination"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Deoptimization",
+      "subtitle": "Native to Interpreter Fallback Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Deoptimization Pipeline",
+          "items": [
+            "Optimized Native Execution → Speculative Assumption Invalidated → Deoptimization Triggered → Stack Frame Reconstruction → Interpreter Resumes Execution"
+          ]
+        },
+        {
+          "title": "Triggers & Mechanics",
+          "items": [
+            "Understanding class loading changes, debugging hooks, and breakpoint triggers causing native code to fall back to interpreted execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Runtime Instrumentation",
+      "subtitle": "JVMTI, Tracing, Hooks & Debugging",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Instrumentation Capabilities",
+          "items": [
+            "Method entry and exit hooks",
+            "Class redefinition and retransformation",
+            "Runtime method tracing and profiling",
+            "JVMTI (JVM Tool Interface) in Android ART",
+            "Debugging stubs and breakpoint insertion",
+            "ART Instrumentation engine (art::instrumentation::Instrumentation)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Runtime Security",
+      "subtitle": "App Isolation, Memory Protection & Enforcement",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Mechanisms",
+          "items": [
+            "Bytecode verification enforcement",
+            "Hidden API enforcement (Dark/Grey/White lists)",
+            "ClassLoader isolation and namespace separation",
+            "APK code signing verification relationship",
+            "Memory protection (W^X / Write XOR Execute on JIT code cache)",
+            "Control-Flow Integrity (CFI) in compiled native code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — ART & Reverse Engineering",
+      "subtitle": "Runtime State Diagnostics & Analysis Inquiry",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Runtime Execution Inquiry",
+          "items": [
+            "Is this method running under interpreter, JIT native code, or AOT compiled code?",
+            "Which ClassLoader loaded this class (PathClassLoader vs Custom DexClassLoader)?",
+            "Has the target method been inlined by the Optimizing Compiler?",
+            "Is the call site using virtual dispatch (vtable) or direct dispatch?",
+            "Does execution cross into native space via JNI?",
+            "Is the object residing in Zygote space, Boot Image, or Application Heap?",
+            "Has Profile-Guided Optimization altered execution paths?",
+            "Why might static decompilation differ from runtime behavior due to compiler optimizations?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Reading ART Source Code",
+      "subtitle": "AOSP Study Guide for Deep Engine Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codebase Targets & Review Focus",
+          "items": [
+            "art/runtime/class_linker.cc — Class loading, resolution, and linking",
+            "art/runtime/interpreter/ — Interpreter loop and bytecode execution",
+            "art/runtime/entrypoints/ — Quick entrypoints for JNI, allocation, and field access",
+            "art/runtime/gc/ — Garbage collector implementations",
+            "art/runtime/jni/ — JNI Environment and reference tables",
+            "art/compiler/optimizing/ — Optimization passes and IR transformations",
+            "art/dex2oat/dex2oat.cc — AOT compiler binary orchestration",
+            "art/libdexfile/dex/ — DEX file parsing and data structures"
+          ]
+        }
+      ]
+    }
+  ]
+}

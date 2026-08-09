@@ -1,0 +1,775 @@
+{
+  "meta": {
+    "id": "apk_aab_dex_packaging_roadmap",
+    "title": "APK, Android App Bundle (AAB), DEX, Resources & Packaging Internals",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROID PACKAGING INTERNALS MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for Android Packaging, AABs, Binary XML, resources.arsc, APK signing schemes, and the Package Manager installation pipeline!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Packaging Overview",
+      "subtitle": "End-to-End Build, Compilation & Execution Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Build & Packaging Pipeline Sequence",
+          "items": [
+            "Java / Kotlin Source Code → Java Bytecode Compilation → D8 Bytecode Compiler → DEX Bytecode Generation → AAPT2 Resource Compilation → Resource Table & Binary XML Bundling → APK / AAB Packaging → APK Signing → Zip Alignment → Device Installation (PMS) → AOT/JIT Optimization (dexopt) → Application Execution"
+          ]
+        },
+        {
+          "title": "Pipeline Analysis",
+          "items": [
+            "Understanding the responsibility, inputs, and outputs of each build system tool"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android Package Formats",
+      "subtitle": "APK, AAB, Splits & Dynamic Delivery Formats",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Package Format Varieties",
+          "items": [
+            "APK (Android Package — Universal standalone zip archive)",
+            "Android App Bundle (AAB — Publishing format for Google Play / App stores)",
+            "Split APKs (Base APK + Configuration Splits + Dynamic Feature Splits)",
+            "Dynamic Feature Modules (On-demand downloadable modules)",
+            "Instant Apps (Ephemeral execute-on-click packages)",
+            "Archived Apps (Size-reduced stubs retaining user data)",
+            "Legacy APK formats (Pre-split monolithic APKs)"
+          ]
+        },
+        {
+          "title": "Format Trade-offs",
+          "items": [
+            "Understanding why Google Play migrated from universal APKs to modular AABs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — ZIP Format Fundamentals",
+      "subtitle": "Archive Headers, Central Directories & Compression",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ZIP Specification Primitives",
+          "items": [
+            "Local File Header (LFH)",
+            "Central Directory Header (CDH)",
+            "End of Central Directory Record (EOCD)",
+            "ZIP64 End of Central Directory locator/record",
+            "Compression methods: Deflate (0x08) vs Stored / Uncompressed (0x00)",
+            "CRC-32 checksum calculation",
+            "Byte offsets and Central Directory indexing",
+            "File alignment rules (4-byte and page alignment)"
+          ]
+        },
+        {
+          "title": "Inspection Capabilities",
+          "items": [
+            "Understanding why standard ZIP extraction utilities can open APK archives"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — APK Structure",
+      "subtitle": "Internal Filesystem Layout & Directories",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard APK Directory Contents",
+          "items": [
+            "AndroidManifest.xml (Compiled Binary XML Manifest)",
+            "classes.dex, classes2.dex, classesN.dex (Dalvik Executable bytecode files)",
+            "resources.arsc (Compiled Resource Table)",
+            "res/ (Compiled Binary XML layouts, drawables, values)",
+            "assets/ (Raw uncompiled application assets)",
+            "lib/ (Native C/C++ shared libraries separated by ABI)",
+            "META-INF/ (Manifest, signature block, digest files, APK signing blocks)",
+            "kotlin/ (Kotlin metadata and reflection information)",
+            "unknown/ (Non-standard resources or third-party files)",
+            "stamp-cert-sha256 (Optional Play Store stamp certificate)",
+            "Debug metadata / ProGuard mapping artifacts (Optional)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — AndroidManifest.xml",
+      "subtitle": "Package Declarations, Components & Security Flags",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Manifest Components & Attributes",
+          "items": [
+            "Package name (application package identifier)",
+            "Version code & Version name",
+            "SDK versions (minSdkVersion, targetSdkVersion, maxSdkVersion)",
+            "<application> tag configuration",
+            "Activity declarations & exported attributes",
+            "Service declarations",
+            "BroadcastReceiver declarations",
+            "ContentProvider declarations & authorities",
+            "Permissions (<uses-permission>, <permission>, <permission-tree>)",
+            "Intent filters (<intent-filter>, <action>, <category>, <data>)",
+            "Hardware/Software feature requirements (<uses-feature>)",
+            "Process isolation specifications (android:process)",
+            "Shared UID declaration (android:sharedUserId — historical)",
+            "Backup configuration & Auto-backup rules",
+            "Network Security Configuration (android:networkSecurityConfig)",
+            "Application metadata (<meta-data> tags)"
+          ]
+        },
+        {
+          "title": "Compilation State",
+          "items": [
+            "Binary XML representation vs Plaintext source"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Binary XML",
+      "subtitle": "AAPT2 Chunk Formats & Attribute Encoding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary XML Header & Chunks",
+          "items": [
+            "Binary XML Header (0x0008 / ResXMLTree_header)",
+            "String Pool Chunk (ResStringPool_header)",
+            "Resource Map Chunk (ResTable_mapStruct / ResXMLTree_attrExt)",
+            "Namespace Chunks (ResXMLTree_namespaceExt — Start/End Namespace)",
+            "Element Chunks (ResXMLTree_node / ResXMLTree_elemExt — Start/End Tag)",
+            "Attribute encoding (Name, Value string index, Type, Raw data)",
+            "Typed Values (Res_value struct — dimen, color, reference, integer, boolean)",
+            "Binary XML compression techniques",
+            "Binary XML parsing algorithms (AAPT2 vs Decompilers)"
+          ]
+        },
+        {
+          "title": "Decoding Pipeline",
+          "items": [
+            "Binary XML → Chunk Parsing → String Pool Resolution → Human-readable XML"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Resources Directory",
+      "subtitle": "AAPT2 Resource Folders & Asset Typing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Resource Folder Types",
+          "items": [
+            "drawable/ (Bitmaps, VectorDrawables, Nine-patches, StateLists)",
+            "mipmap/ (Launcher icon drawables across densities)",
+            "layout/ (UI layout Binary XML files)",
+            "menu/ (Option and context menu XML definitions)",
+            "values/ (Strings, colors, dimensions, styles, arrays, attributes)",
+            "xml/ (Runtime configuration XML files, provider paths)",
+            "raw/ (Uncompiled raw media, certificates, binary assets)",
+            "anim/ & animator/ (Frame animations & Property animators)",
+            "font/ (TTF/OTF font files & Font family XMLs)",
+            "color/ (Color State List XML definitions)",
+            "transition/ & interpolator/ (Transition animations)",
+            "navigation/ (Jetpack Navigation Graph XML files)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Resource Qualifiers",
+      "subtitle": "Configuration Modifiers & Resolution Logic",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Qualifiers Taxonomy",
+          "items": [
+            "Orientation: -land, -port",
+            "UI Mode & Theme: -night, -notnight, -car, -watch, -tv",
+            "Screen Dimensions: -sw600dp, -w720dp, -h1024dp, -xlarge",
+            "API Level: -v21, -v26, -v31, -v33, -v34",
+            "Language & Region: -en, -hi, -fr-rCA, -zh-rCN",
+            "Screen Density: -ldpi, -mdpi, -hdpi, -xhdpi, -xxhdpi, -xxxhdpi, -nodpi",
+            "Screen Shape: -round, -notround"
+          ]
+        },
+        {
+          "title": "Resource Matching Engine",
+          "items": [
+            "Android Configuration Matching Algorithm (Filtering non-matching qualifiers, scoring remaining, selecting best match)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — resources.arsc",
+      "subtitle": "Binary Resource Table Format & Resolvers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Table Internal Structure",
+          "items": [
+            "Resource Table Header (ResTable_header)",
+            "Package Chunks (ResTable_package)",
+            "Type Chunks (ResTable_type — Configurations & entries)",
+            "TypeSpec Chunks (ResTable_typeSpec — Flags per resource ID)",
+            "Resource Entries (ResTable_entry & ResTable_mapEntry)",
+            "Configuration structures (ResTable_config)",
+            "Global & Package String Pools (ResStringPool)",
+            "Resource ID lookup mechanisms",
+            "Resource reference resolution (@type/name to ID)",
+            "Overlay support (Runtime Resource Overlays / RRO structures)"
+          ]
+        },
+        {
+          "title": "Runtime Resolution Flow",
+          "items": [
+            "R.java Identifier → Resource ID (0x7f...) → resources.arsc Lookup → Config Match → Resolved Asset"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Resource IDs",
+      "subtitle": "32-bit Integer Format (Package, Type, Entry)",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource ID Bit Allocation (0xPPTTEEEE)",
+          "items": [
+            "Package ID (PP: 0x01 for System/Framework, 0x7f for Application, 0x80+ for Shared libraries/RROs)",
+            "Type ID (TT: 0x01 for attr, 0x02 for drawable, 0x03 for layout, etc.)",
+            "Entry ID (EEEE: 16-bit offset index inside the Type chunk)",
+            "Framework System Resources (0x01040001, android.R)",
+            "Application Resources (0x7f080001, com.app.R)",
+            "Dynamic Resources & Shared Library ID renumbering (AAPT2 dynamic IDs)",
+            "Runtime Resource Lookup engine in AssetManager C++ backend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Assets",
+      "subtitle": "AssetManager & Raw Uncompiled Bundles",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Asset Storage Capabilities",
+          "items": [
+            "assets/ directory structure & arbitrary subdirectories",
+            "Raw uncompiled files & binary blobs",
+            "Custom TTF/OTF fonts",
+            "Embedded SQLite databases (.db / .sqlite)",
+            "JSON / XML configuration payloads",
+            "Machine Learning Models (TensorFlow Lite .tflite)",
+            "Encrypted payloads and assets",
+            "Game assets (textures, audio streams, 3D meshes)",
+            "Key differences between assets/ (AssetManager) and res/raw/ (Resources)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Native Libraries",
+      "subtitle": "ABI Directories, JNI & Extraction Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ABI Directories & Architecture",
+          "items": [
+            "lib/arm64-v8a/ (64-bit ARM architecture — primary modern standard)",
+            "lib/armeabi-v7a/ (32-bit ARM architecture)",
+            "lib/x86/ (32-bit Intel architecture — emulators)",
+            "lib/x86_64/ (64-bit Intel architecture — emulators/Chromebooks)",
+            "Shared C/C++ libraries (.so files)",
+            "JNI (Java Native Interface) registration & linkage",
+            "Native library loader behavior (System.loadLibrary)",
+            "ABI selection algorithm during installation",
+            "Native library extraction (android:extractNativeLibs=true/false)",
+            "Uncompressed native library page-alignment (4KB / 64KB page boundaries for mmap)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Kotlin Directory",
+      "subtitle": "Compiler Metadata & Reflection Data",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Kotlin Package Artifacts",
+          "items": [
+            "kotlin/ directory artifacts",
+            "Kotlin @Metadata annotation payload files",
+            "Kotlin reflection metadata support",
+            "Generated class headers and module boundaries",
+            "Compiler metadata files (.kotlin_builtins, .kotlin_module)",
+            "Impact of Kotlin metadata on reverse engineering and decompilation accuracy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — META-INF",
+      "subtitle": "Signature Files, Manifests & Certification",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Signature Block Files",
+          "items": [
+            "MANIFEST.MF (SHA-256 digests of all uncompressed files in the APK)",
+            "CERT.SF (SHA-256 digests of the MANIFEST.MF sections)",
+            "CERT.RSA / CERT.DSA / CERT.EC (PKCS#7 digital signature block and X.509 certificate chain)",
+            "Signing metadata & Digest algorithms",
+            "APK Signature Scheme v2/v3/v4 signing blocks (stored in ZIP Central Directory comment/padding space)",
+            "X.509 Certificate parsing and public key extraction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — DEX Files",
+      "subtitle": "classes.dex & MultiDEX Organization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DEX Placement in Packages",
+          "items": [
+            "Primary DEX: classes.dex",
+            "Secondary DEX files: classes2.dex, classes3.dex, classesN.dex",
+            "MultiDEX packaging rules",
+            "Class distribution across multiple DEX files",
+            "Method reference table limitations (65,536 limit)",
+            "Field reference table limitations",
+            "DEX header offsets and file boundary checks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — MultiDEX",
+      "subtitle": "64K Index Limit, Primary DEX & Loading",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "MultiDEX Mechanics",
+          "items": [
+            "The 65,536 Method Index Limit (2^16 limit in DEX method_ids)",
+            "Primary DEX vs Secondary DEX selection",
+            "Main DEX list generation (keep rules for startup classes)",
+            "Legacy MultiDEX library (MultiDEX.install for API < 21)",
+            "Native MultiDEX support in ART (API >= 21)",
+            "Application startup performance implications",
+            "Class dependency ordering across DEX splits",
+            "Reverse Engineering Perspective: Tracking class definitions spread across N DEX files"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — APK Signing",
+      "subtitle": "Signature Schemes v1, v2, v3 & v4",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "APK Signature Schemes",
+          "items": [
+            "v1 Signature (JAR Signing — File-based verification via META-INF)",
+            "v2 Signature (APK Signing Block — Whole-file Merkle tree hashing, API 24+)",
+            "v3 Signature (Key Rotation support — Proof-of-rotation struct, API 28+)",
+            "v4 Signature (Streaming / IncFS — External .idsig file for cloud/fast streaming, API 30+)",
+            "Certificate chains and X.509 validation",
+            "Digest calculation & Cryptographic hashing (SHA-256)",
+            "Integrity verification & Tamper detection",
+            "Signing blocks placement before Central Directory"
+          ]
+        },
+        {
+          "title": "Pipeline Transition",
+          "items": [
+            "Unsigned APK → apksigner Tool → Signature Block Injection → Verified Signed APK"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — APK Signature Verification",
+      "subtitle": "PackageManager Verification & Certificate Checks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Verification Logic in PMS",
+          "items": [
+            "PackageManagerService signature validation pipeline",
+            "Certificate comparison during app updates (Key Equal check)",
+            "Shared UID validation (Requiring identical signing certificates)",
+            "Signature permissions enforcement (PROTECTION_SIGNATURE)",
+            "Update validation & Downgrade prevention checks",
+            "Tampering detection & Re-signing detection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Zipalign",
+      "subtitle": "Memory Mapping, 4-Byte & Page Alignment",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Alignment Mechanics",
+          "items": [
+            "Uncompressed asset alignment (zipalign tool)",
+            "Memory mapping performance benefits (mmap directly into RAM)",
+            "4-byte boundary alignment for standard assets",
+            "Page-alignment (4096-byte / 64KB boundaries for uncompressed .so native libraries)",
+            "RAM consumption optimization (avoiding copying unaligned data to heap)",
+            "Order of operations: Align BEFORE signing (v1) vs Align BEFORE signing (v2/v3)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Android App Bundle (AAB)",
+      "subtitle": "Proto Formats & Play Feature Delivery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AAB Internal Structure",
+          "items": [
+            "base/ (Main module content)",
+            "feature_name/ (Dynamic feature modules)",
+            "asset_packs/ & feature_packs/ (Asset Delivery modules)",
+            "manifest/ (Protobuf-encoded AndroidManifest.xml)",
+            "dex/ (DEX bytecode stored in protobuf container)",
+            "resources/ (Protobuf-encoded resources.pb Table)",
+            "BUNDLE-METADATA/ (ProGuard mappings, versioning, metadata)",
+            "Bundletool orchestration (compiling AAB into device-specific APK sets)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Split APKs",
+      "subtitle": "Base APK & Dynamic Configuration Splits",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Split Architecture",
+          "items": [
+            "Base APK (base.apk — Shared code, manifest, core logic)",
+            "Configuration APKs (Density splits, Language splits, ABI splits)",
+            "Language splits (split_config.en.apk, split_config.hi.apk)",
+            "Density splits (split_config.xxhdpi.apk)",
+            "ABI splits (split_config.arm64_v8a.apk)",
+            "Feature splits (split_feature_module.apk)",
+            "Split installation via PackageInstaller session",
+            "Runtime loading & SplitController API"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Dynamic Feature Modules",
+      "subtitle": "On-Demand Delivery & Play Feature Delivery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dynamic Module Lifecycle",
+          "items": [
+            "On-demand modules (downloaded via Play Feature Delivery)",
+            "Conditional modules (installed based on device features/country)",
+            "Module installation pipeline (SplitInstallManager API)",
+            "Play Feature Delivery architectures",
+            "Dynamic module dependencies and isolation",
+            "Resource merging across dynamic feature splits",
+            "DEX class loading for newly installed feature splits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Installation Pipeline",
+      "subtitle": "PackageInstaller to PMS Registration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Full System Installation Sequence",
+          "items": [
+            "APK Package → PackageInstaller Session → PackageManagerService → Signature Verification → Binary Manifest Parsing → Resource ID Validation → Native Library Extraction (/data/app/pkg/lib) → dexopt / AOT compilation → Application State Registration (/data/system/packages.xml) → Launch Ready State"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Package Parsing",
+      "subtitle": "PackageParser / ParsingPackage in AOSP",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Parsing Subsystems in PMS",
+          "items": [
+            "Manifest parsing (PackageParser / ParsingPackageUtils)",
+            "Permission parsing and requested permissions registration",
+            "Component parsing (ActivityInfo, ServiceInfo, ProviderInfo, ActivityInfo)",
+            "Intent filter compilation and registration in IntentResolver",
+            "Application metadata extraction",
+            "Resource reference verification",
+            "Package settings registration (PackageSetting struct in PMS)",
+            "Version code checks & Downgrade prevention"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — dexopt",
+      "subtitle": "Compilation Filters, Optimization & dex2oat",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dexopt Execution Options",
+          "items": [
+            "dexopt daemon orchestration",
+            "Compilation filters (verify, speed-profile, speed, everything)",
+            "Bytecode verification pass",
+            "Optimization passes in dex2oat",
+            "OAT file generation (.oat / .art in /data/dalvik-cache or /data/app)",
+            "VDEX file generation (.vdex verified bytecode containers)",
+            "Profile usage (ArtProfiles / Baseline profiles)",
+            "Incremental background optimization (BackgroundDexOptService)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — ART Compilation During Installation",
+      "subtitle": "Verification to Native OAT Translation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Install Time Compilation Sequence",
+          "items": [
+            "APK Installation → Bytecode Verification → dex2oat Execution → OAT Generation → VDEX Generation → Execution State",
+            "Determining compiled methods vs interpreted methods at install time"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Resource Resolution",
+      "subtitle": "Runtime Lookups, Themes & Overlays",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Runtime Resolution Mechanics",
+          "items": [
+            "Resource lookup via AssetManager C++ backend",
+            "Theme resolution and style inheritance parsing",
+            "Overlay resolution (Runtime Resource Overlays / RRO)",
+            "Configuration matching (Density, Orientation, Language)",
+            "Locale selection algorithms",
+            "Density selection and scaling filters",
+            "Runtime resource access & AssetManager caching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Resource Overlay",
+      "subtitle": "Runtime Resource Overlay (RRO) & OMS",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "RRO Subsystem Architecture",
+          "items": [
+            "Runtime Resource Overlay (RRO) packages",
+            "OverlayManagerService (OMS) daemon",
+            "Vendor overlays (/vendor/overlay)",
+            "Theme overlays & Dynamic System Themes (Material You / Monet)",
+            "Dynamic resource injection without modifying base APK",
+            "System overlays & Security restrictions (targetPackage matching)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — AndroidX Resource Generation",
+      "subtitle": "Namespaced Resources & Library Merging",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Namespacing",
+          "items": [
+            "R class generation per library module",
+            "Namespaced resources in modern Gradle builds",
+            "Library resource merging algorithms in AAPT2",
+            "AAPT2 link and compile processing passes",
+            "Generated resource identifier remapping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Manifest Merging",
+      "subtitle": "Gradle Manifest Merger & Conflict Resolution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Manifest Merger Rules",
+          "items": [
+            "Application manifest vs Library manifests priority hierarchy",
+            "Gradle Manifest Merger tool execution",
+            "Conflict resolution strategies (tools:replace, tools:ignore, tools:node)",
+            "Manifest placeholder replacement (${applicationId}, etc.)",
+            "Final merged manifest output verification (build/intermediates/merged_manifests)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Build Artifacts",
+      "subtitle": "Compilation Outputs & Symbol Files",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Build Output Files",
+          "items": [
+            "APK / AAB production binaries",
+            "Mapping files (mapping.txt for R8/ProGuard obfuscation)",
+            "Native symbols (unstripped .so files for crash symbolication)",
+            "ProGuard configuration rules (proguard-rules.pro / seeds.txt)",
+            "R8 outputs & Resource shrinking outputs (resources.txt)",
+            "Generated sources (BuildConfig.java, R.java)",
+            "Intermediate outputs (AAPT2 .flat files)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Package Metadata",
+      "subtitle": "System Reflection Info Classes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "PackageManager Data Structures",
+          "items": [
+            "PackageInfo (Complete package metadata)",
+            "ApplicationInfo (Application flags, paths, UID)",
+            "ActivityInfo (Activity component flags & configurations)",
+            "ServiceInfo (Service component configurations)",
+            "ProviderInfo (ContentProvider authorities and flags)",
+            "PermissionInfo (System permission metadata)",
+            "FeatureInfo (Hardware/software feature requirements)",
+            "VersionInfo (App version code and naming metadata)",
+            "SigningInfo (App certificates and signing history)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Reverse Engineering Perspective",
+      "subtitle": "Structural Diagnostics & Package Analysis Inquiry",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Package Inquiry Questions",
+          "items": [
+            "Which DEX file contains this target class?",
+            "Which resource ID maps to this specific XML layout/asset?",
+            "Which drawable is loaded dynamically at runtime?",
+            "Is the application split across multiple feature modules?",
+            "Is this resource coming from a Runtime Resource Overlay (RRO)?",
+            "Which native shared library (.so) is loaded on this specific ABI?",
+            "Which signing scheme (v1, v2, v3, v4) protects the APK?",
+            "Has the package been AOT-compiled or quickened during installation?",
+            "Which manifest entry creates this component?",
+            "Is the app using dynamic feature delivery or instant app stubs?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Manual APK Analysis",
+      "subtitle": "Raw Binary Inspection without Automated Tools",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Raw Inspection Targets",
+          "items": [
+            "Manually parsing AndroidManifest.xml binary XML chunks with hex editors",
+            "Inspecting Binary XML String Pools and Attribute tables",
+            "Parsing resources.arsc table headers and entries",
+            "Mapping raw Resource IDs to resources.arsc string references",
+            "Inspecting classes.dex headers, string_ids, and class_defs",
+            "Checking native libraries in lib/ for ABI alignment",
+            "Inspecting META-INF/MANIFEST.MF, CERT.SF, and signing blocks",
+            "Analyzing assets/ raw contents and encrypted files",
+            "Parsing multiple DEX files and MultiDEX split distributions",
+            "Extracting and inspecting split APK contents"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reading AOSP Packaging Source",
+      "subtitle": "AOSP Repositories for Packaging & Installation Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codebase Targets & Review Focus",
+          "items": [
+            "frameworks/base/core/java/android/content/pm/ — PackageManager & PackageParser",
+            "frameworks/base/services/core/java/com/android/server/pm/ — PackageManagerService implementation",
+            "frameworks/base/tools/aapt2/ — AAPT2 resource compiler codebase",
+            "build/make/tools/releasetools/ — Signapk and OTA packaging tools",
+            "system/vold/ & system/installd/ — Native installer daemons",
+            "art/dex2oat/ & art/runtime/dex/ — Dexopt and bytecode verification code"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,744 @@
+{
+  "meta": {
+    "id": "android_security_architecture_roadmap",
+    "title": "Android Security Architecture, Application Sandbox & Cryptography",
+    "subtitle": "Beginner → Expert Security & Reverse Engineering Masterclass",
+    "completionTitle": "ANDROID SECURITY ARCHITECTURE MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for Android Security Architecture, Application Sandboxing, SELinux, Hardware-backed Security, Cryptography, and Binary Hardening!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Security Overview",
+      "subtitle": "Defense-in-Depth Model & Platform Boundaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Security Philosophy",
+          "items": [
+            "Android security philosophy",
+            "Threat model & attack vectors",
+            "Defense-in-depth architectural design",
+            "Principle of least privilege",
+            "Secure by default paradigm",
+            "Secure boot chain overview",
+            "Platform security architecture",
+            "Trust boundaries across application, framework, and kernel layers"
+          ]
+        },
+        {
+          "title": "Defense Layer Pipeline",
+          "items": [
+            "Hardware → Boot ROM → Verified Boot → Linux Kernel → SELinux → Application Sandbox → Permissions → Application"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android Trust Chain",
+      "subtitle": "Hardware Root of Trust & Boot Validation Sequence",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Boot Execution Trust Chain",
+          "items": [
+            "Hardware Root of Trust → Boot ROM → Bootloader → Verified Boot (AVB) → Kernel → init → System → Applications"
+          ]
+        },
+        {
+          "title": "Trust Establishment",
+          "items": [
+            "Understanding cryptographic handoffs and state validation during boot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Application Sandbox",
+      "subtitle": "Process, Memory & Filesystem Isolation Boundaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Sandboxing Mechanisms",
+          "items": [
+            "Linux User ID (UID) per application assignment",
+            "Linux Group ID (GID) assignments",
+            "Per-app UID mapping",
+            "Sandbox boundaries & process isolation",
+            "Filesystem isolation (/data/data/pkg)",
+            "Memory space isolation",
+            "IPC communication restrictions",
+            "Privilege separation model",
+            "Application lifecycle constraints within the sandbox"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Linux Users & Permissions",
+      "subtitle": "UID/GID Mapping, Capabilities & System Groups",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linux Identity Subsystem",
+          "items": [
+            "User IDs (UIDs) & Group IDs (GIDs)",
+            "Supplementary groups",
+            "Application IDs range (u0_aXXX)",
+            "Shared UID architecture (android:sharedUserId - legacy)",
+            "Package UID assignment rules in PackageManager",
+            "Unix permission bits & Ownership",
+            "POSIX Capabilities",
+            "Relationship between Linux UIDs and Android permission enforcement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Process Isolation",
+      "subtitle": "Address Space Separation & Namespace Boundaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Isolation Primitives",
+          "items": [
+            "Address space isolation",
+            "Virtual memory protection",
+            "Thread-level isolation",
+            "Kernel-enforced Binder caller identity (PID/UID injection)",
+            "File descriptor isolation across process boundaries",
+            "Linux Namespace usage (Mount, PID, Network namespaces)",
+            "Cross-process communication (IPC) boundary checks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Permission System",
+      "subtitle": "Protection Levels, Runtime Model & Scoped Access",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Permission Classifications",
+          "items": [
+            "Normal permissions",
+            "Dangerous permissions (Runtime model)",
+            "Signature permissions",
+            "Privileged permissions (priv-app)",
+            "Development permissions",
+            "Special permissions (SYSTEM_ALERT_WINDOW, MANAGE_EXTERNAL_STORAGE)",
+            "Permission groups",
+            "Auto-reset & One-time permission models",
+            "Foreground vs Background location/permission restrictions",
+            "Permission revocation lifecycles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Permission Enforcement",
+      "subtitle": "Manifest Parsing, Binder Identity & Service Checks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Enforcement Pipeline",
+          "items": [
+            "Manifest permission declarations",
+            "Runtime permission request flow",
+            "PermissionManager & PackageManager internal tracking",
+            "Binder IPC permission checks (checkCallingPermission)",
+            "System service entry point validation",
+            "AppOps integration during permission calls",
+            "SELinux policy checks during system calls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — AppOps",
+      "subtitle": "Operation Tracking, Runtime Enforcement & Privacy Policies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AppOps Framework Architecture",
+          "items": [
+            "Purpose of AppOps (Operation tracking & fine-grained privacy)",
+            "Operation codes (OP_CAMERA, OP_FINE_LOCATION, etc.)",
+            "Permissions vs AppOps (Declarative vs Runtime operation state)",
+            "Runtime enforcement & mode checking (MODE_ALLOWED, MODE_IGNORED, MODE_ERRORED)",
+            "Audit logging and operation history",
+            "User restrictions enforcement",
+            "System privacy policies and indicator badges"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — SELinux",
+      "subtitle": "Mandatory Access Control, Contexts & Policy Syntax",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SELinux Fundamentals",
+          "items": [
+            "Mandatory Access Control (MAC) vs Discretionary Access Control (DAC)",
+            "SELinux policies compilation & structure",
+            "Domains, Types, Contexts, & Security Labels (u:r:domain:s0)",
+            "Allow rules syntax (`allow source_type target_type:class vector;`)",
+            "Neverallow rules & build-time enforcement",
+            "File contexts (`file_contexts`)",
+            "Process contexts (`mac_permissions.xml` / `seapp_contexts`)",
+            "Service contexts (`service_contexts` / `hwservice_contexts`)",
+            "Enforcing mode vs Permissive mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Android SELinux",
+      "subtitle": "SEAndroid Model, Domain Separation & Treble Policies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SEAndroid Architecture",
+          "items": [
+            "Application domains (`untrusted_app`, `isolated_app`, `platform_app`)",
+            "System domains (`system_server`, `init`, `shell`)",
+            "Vendor & HAL domains (`hal_camera_default`, etc.)",
+            "Service domains",
+            "Policy separation (System policy vs Vendor policy)",
+            "Project Treble impact on SELinux policy architecture",
+            "Vendor policy compilation and merging",
+            "Debugging SELinux denials using `audit2allow` and Logcat/dmesg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Verified Boot",
+      "subtitle": "AVB 2.0, vbmeta Header, dm-verity & Rollback Protection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Android Verified Boot (AVB) Architecture",
+          "items": [
+            "AVB 2.0 architecture and structs",
+            "vbmeta partition structure and signatures",
+            "dm-verity kernel driver integration",
+            "Merkle Tree Hash structures for read-only partitions",
+            "Rollback protection index counters",
+            "Cryptographic verification chain",
+            "Integrity guarantees across boot partitions",
+            "Boot states (GREEN, YELLOW, ORANGE, RED)",
+            "Locked vs unlocked bootloader security implications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — File-Based Encryption (FBE)",
+      "subtitle": "CE/DE Storage Schemes, Key Hierarchy & Direct Boot",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "FBE Architecture",
+          "items": [
+            "Credential Encrypted (CE) storage (/data/user/0)",
+            "Device Encrypted (DE) storage (/data/user_de/0)",
+            "Key hierarchy (Master keys, CE/DE keys, e4crypt/fscrypt)",
+            "Direct Boot storage lifecycle",
+            "Boot behavior prior to user credential entry",
+            "Multi-user isolation and key derivation per user"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Android Keystore",
+      "subtitle": "Keystore2 Architecture, Cryptographic Keys & Hardware Support",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Keystore System Architecture",
+          "items": [
+            "Android Keystore architecture & Keystore2 daemon",
+            "Key generation & importation pipelines",
+            "Key storage & alias management",
+            "Key usage restrictions (User authentication, Purpose flags, Expiry)",
+            "Hardware-backed keys (TEE/SE) vs Software-backed keys",
+            "Key lifecycle and revocation",
+            "Access control enforcement per application UID"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — KeyMint & StrongBox",
+      "subtitle": "Hardware Keymaster, Attestation & Isolation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware Security Modules",
+          "items": [
+            "KeyMint HAL (formerly Keymaster HAL)",
+            "StrongBox Keymaster (Dedicated Secure Element - eSE)",
+            "Trusted hardware isolation boundaries",
+            "Hardware-backed key generation & storage",
+            "Key Attestation & Certificate Chains",
+            "Hardware-backed rollback resistance",
+            "Secure key deletion & Keymaster binding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Trusted Execution Environment (TEE)",
+      "subtitle": "Secure World, TrustZone & Trusted Applications",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "TEE Subsystem",
+          "items": [
+            "ARM TrustZone / TEE concepts",
+            "Normal World (Android OS) vs Secure World (Trusted OS)",
+            "Secure Monitor Call (SMC) & World switching",
+            "Trusted Applications (TAs) / Trustlets",
+            "Communication model (SMC buffers & shared memory)",
+            "TEE Use cases (Biometrics, KeyMint, DRM, HDCP)",
+            "Relationship between TEE and KeyMint HAL"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Secure Elements",
+      "subtitle": "eSE, SIM-based SE, NFC & Host Card Emulation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Secure Element Architectures",
+          "items": [
+            "embedded Secure Element (eSE)",
+            "SIM / UICC-based Secure Element",
+            "Host Card Emulation (HCE) architecture",
+            "NFC payments security architecture",
+            "Secure credential storage in tamper-resistant hardware",
+            "Hardware isolation models"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — APK Signing",
+      "subtitle": "Signature Schemes v1, v2, v3 & v4, Signing Blocks & Rotation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "APK Signature Schemes",
+          "items": [
+            "v1 Signature Scheme (JAR signing - META-INF directory)",
+            "v2 Signature Scheme (APK Signing Block - Whole file Merkle tree)",
+            "v3 Signature Scheme (Key Rotation support - Proof-of-rotation struct)",
+            "v4 Signature Scheme (Streaming installation support - Incremental FS)",
+            "APK Signing Block layout and magic headers",
+            "X.509 Certificate chains & Public Key infrastructure",
+            "Integrity verification & Hashing algorithms",
+            "Authenticity validation",
+            "Update verification rules",
+            "Signature rotation mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Package Verification",
+      "subtitle": "Package Manager Checks, Shared Keys & Update Validation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Verification Pipeline in PMS",
+          "items": [
+            "Package installation signature verification pipeline",
+            "Certificate comparison algorithms (Key Equal check)",
+            "Signature matching across app updates",
+            "Shared signing keys (`android:sharedUserId`) validation",
+            "Package update verification and downgrade prevention",
+            "APK tampering detection mechanisms",
+            "Installer identity verification"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Cryptography Fundamentals",
+      "subtitle": "Primitives, Keys, Randomness & Threat Modeling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Cryptographic Foundations",
+          "items": [
+            "Confidentiality, Integrity, Authenticity, & Non-repudiation",
+            "Randomness requirements & Entropy sources",
+            "Cryptographic key management lifecycles",
+            "Threat modeling cryptographic implementations",
+            "Attack surfaces in mobile cryptographic applications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Symmetric Cryptography",
+      "subtitle": "AES, ChaCha20, Modes of Operation & Padding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Symmetric Ciphers & Modes",
+          "items": [
+            "Advanced Encryption Standard (AES) - 128, 192, 256 bits",
+            "ChaCha20 stream cipher",
+            "Modes of Operation: CBC, CTR, GCM, XTS",
+            "Padding schemes (PKCS7, NoPadding)",
+            "Initialization Vectors (IVs) and Nonce uniqueness",
+            "Authenticated Encryption with Associated Data (AEAD - AES-GCM, ChaCha20-Poly1305)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Asymmetric Cryptography",
+      "subtitle": "RSA, ECC, ECDSA & Public Key Infrastructure",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Public Key Cryptography",
+          "items": [
+            "RSA encryption and digital signatures (PKCS1, OAEP, PSS)",
+            "Elliptic Curve Cryptography (ECC) & Curves (secp256r1, Curve25519)",
+            "ECDSA (Elliptic Curve Digital Signature Algorithm)",
+            "Ed25519 signature scheme overview",
+            "Diffie-Hellman & ECDH key exchange",
+            "Public keys, Private keys, & X.509 Certificates",
+            "Performance trade-offs: RSA vs ECC"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Hash Functions",
+      "subtitle": "Cryptographic Hashes, Collision Resistance & Password Hashing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hash Algorithms & Properties",
+          "items": [
+            "Historical algorithms: SHA-1, MD5",
+            "SHA-2 family: SHA-256, SHA-384, SHA-512",
+            "SHA-3 family overview",
+            "Collision resistance, Preimage resistance, & Second preimage resistance",
+            "Password hashing algorithms (PBKDF2, bcrypt, scrypt, Argon2)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Message Authentication",
+      "subtitle": "HMAC, CMAC, Signatures & Integrity Verification",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "MAC & Integrity Primitives",
+          "items": [
+            "Hash-based Message Authentication Code (HMAC-SHA256)",
+            "Cipher-based Message Authentication Code (CMAC)",
+            "Authenticated Encryption mechanisms",
+            "Digital Signatures generation and verification",
+            "Data integrity protection pipelines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Random Number Generation",
+      "subtitle": "SecureRandom, Hardware/Kernel Entropy & IV Generation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Randomness Subsystems",
+          "items": [
+            "Cryptographically Secure Pseudo-Random Number Generators (CSPRNG)",
+            "Java `SecureRandom` implementation",
+            "Entropy sources in Android",
+            "Hardware Random Number Generator (HRNG)",
+            "Kernel RNG (`/dev/urandom`, `getrandom()` system call)",
+            "Determinism and DRBG algorithms",
+            "Cryptographic Nonce and IV generation rules",
+            "Key generation randomness requirements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — TLS & Certificates",
+      "subtitle": "TLS Handshake, PKI, Certificate Pinning & Validation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Transport Layer Security (TLS)",
+          "items": [
+            "TLS 1.2 / TLS 1.3 Handshake protocols",
+            "Certificate Chain validation & Root CAs",
+            "X.509 Certificate structures & extension parsing",
+            "Hostname verification rules",
+            "Certificate Pinning (PublicKeyPins, HPKP, Custom TrustManagers)",
+            "Mutual TLS (mTLS / Client Certificates)",
+            "TLS Session Resumption & Ticket caching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Network Security",
+      "subtitle": "Network Security Config, Cleartext Policies & Custom Trust",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Android Network Security Controls",
+          "items": [
+            "Network Security Configuration (`network_security_config.xml`)",
+            "Cleartext traffic policy enforcement (`android:usesCleartextTraffic`)",
+            "Declarative Certificate Pinning in XML",
+            "Custom TrustManager and SSLCSocketFactory implementation risks",
+            "HTTPS enforcement across application networking libraries (OkHttp, Cronet)",
+            "VPN interaction and traffic routing",
+            "Proxy handling and PAC script evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Secure Storage",
+      "subtitle": "Encrypted SharedPreferences, SQLCipher & Keystore Binding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data-at-Rest Protection",
+          "items": [
+            "SharedPreferences security risks and plain-text exposure",
+            "EncryptedSharedPreferences (Jetpack Security library)",
+            "Database encryption using SQLCipher / Room encryption",
+            "Internal storage sandbox guarantees and limitations",
+            "Binding storage encryption keys to Android Keystore",
+            "Secure OAuth token storage patterns",
+            "Handling credentials in memory (Clearing byte arrays vs Strings)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Authentication",
+      "subtitle": "Biometrics, BiometricPrompt, FIDO2 & OAuth Tokens",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Application & Device Authentication",
+          "items": [
+            "Device Lock authentication (PIN, Pattern, Password)",
+            "BiometricPrompt API integration (Fingerprint, Face)",
+            "Strong vs Weak Biometric classifiers",
+            "Biometric-bound Keystore keys (`setUserAuthenticationRequired`)",
+            "FIDO2 / WebAuthn passwordless authentication in Android",
+            "OAuth 2.0 / OpenID Connect token workflows",
+            "Session token management and refresh lifecycles",
+            "Multi-factor authentication (MFA) paradigms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Authorization",
+      "subtitle": "Access Control Models, Roles & Privilege Escalation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Authorization Frameworks",
+          "items": [
+            "Identity validation vs Authorization decisions",
+            "Role-Based Access Control (RBAC) & Attribute-Based Access Control (ABAC)",
+            "Application capability mapping",
+            "Access control enforcement at client vs server sides",
+            "Privilege escalation vulnerability paths (Confused Deputy problem)",
+            "Applying the Principle of Least Privilege"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Android Hardening Features",
+      "subtitle": "Binary Mitigations: ASLR, Canaries, MTE, PAC, BTI & Scudo",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Low-Level System Hardening",
+          "items": [
+            "Address Space Layout Randomization (ASLR) & Position Independent Executables (PIE)",
+            "Read-Only Relocations (RELRO: Partial vs Full)",
+            "NX / XN (No-Execute / eXecute-Never page protection)",
+            "Stack Canaries (`__stack_chk_fail` protection)",
+            "Pointer Authentication (PAC) & Branch Target Identification (BTI)",
+            "Memory Tagging Extension (MTE: Hardware-backed memory safety)",
+            "Fortify Source (`_FORTIFY_SOURCE` safe buffer wrappers)",
+            "Scudo Hardened Allocator",
+            "`seccomp-bpf` system call filtering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Anti-Tampering Concepts",
+      "subtitle": "Integrity Checks, Root/Emulator Detection & Obfuscation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Application Self-Protection Mechanisms",
+          "items": [
+            "APK Checksum and Hash validation routines",
+            "Signature verification and certificate validation at runtime",
+            "Runtime Application Self-Protection (RASP)",
+            "Debug detection logic (ptrace checks, `android:debuggable` check, `/proc/self/status`)",
+            "Emulator detection logic (Build properties, QEMU drivers, sensor checks)",
+            "Root detection routines (su binary checks, test-keys, Magisk detection, SELinux state)",
+            "Hooking framework detection (Frida, Xposed artifact checks)",
+            "Environment validation & Native code integrity checks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Secure Coding Practices",
+      "subtitle": "Input Validation, Cryptographic API Safety & Memory Safety",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Defensive Development Guidelines",
+          "items": [
+            "Rigorous input validation and sanitization",
+            "Output encoding to prevent injection attacks",
+            "Secure usage of CSPRNGs",
+            "Secure error handling and logging hygiene (Avoiding sensitive leaks in Logcat)",
+            "Secret management (Avoiding hardcoded API keys/tokens)",
+            "Applying least privilege in manifest declarations",
+            "Memory safety practices in C/C++ JNI code",
+            "Safe Cryptographic API usage patterns (Avoiding hardcoded IVs, static keys, insecure modes)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Android Security Logging",
+      "subtitle": "Audit Logs, SELinux Denials & Security Diagnostics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Telemetry & Diagnostics",
+          "items": [
+            "Linux audit logs (`/var/log/audit` / `dmesg`)",
+            "SELinux denial log entries (`avc: denied`)",
+            "Logcat security buffer events (`logcat -b security`)",
+            "AppOps usage logging",
+            "Keystore operation & audit logs",
+            "Verified Boot verification status logs",
+            "Security diagnostics and device health attestation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Security in AOSP",
+      "subtitle": "Reviewing Core AOSP Security Codebases",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Target Repositories",
+          "items": [
+            "`system/security/` - Keystore2 daemon, KeyMint implementation",
+            "`system/sepolicy/` - Android SELinux domain and type policy definitions",
+            "`frameworks/base/services/` - PermissionManagerService, AppOpsService",
+            "`hardware/interfaces/security/` - KeyMint and StrongBox HAL interfaces",
+            "`bionic/` - Scudo allocator, FORTIFY implementation, stack canaries",
+            "`system/core/` - init, AVB verification code, property service security",
+            "Focus on: Permission enforcement, Keystore architecture, SELinux policy evaluation, Verified Boot validation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reverse Engineering Security Features",
+      "subtitle": "Static/Dynamic Analysis Inquiry Checklist & Audit Steps",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Static & Dynamic Analysis Checklist",
+          "items": [
+            "Identifying Permission checks in application and framework code",
+            "Locating AppOps enforcement entry points",
+            "Tracing Binder caller identity validation (`Binder.getCallingUid()`)",
+            "Analyzing SELinux policy denials and domain constraints",
+            "Auditing Keystore key creation, storage, and usage restrictions",
+            "Inspecting Cryptographic API calls (AES/RSA cipher initialization, IV generation)",
+            "Auditing Certificate validation and Certificate Pinning implementation",
+            "Parsing Network Security Configuration XML files",
+            "Decompiling and locating application integrity verification routines",
+            "Identifying root/emulator/debug detection logic in DEX and Native (.so) binaries",
+            "Locating native security checks and memory hardening configurations",
+            "Auditing secure storage mechanisms (EncryptedSharedPreferences, SQLCipher)"
+          ]
+        },
+        {
+          "title": "Application Audit Inquiry",
+          "items": [
+            "Which permissions protect this target feature?",
+            "Is security enforcement executed in the app, framework, or system service?",
+            "Does data protection rely on Keystore or hardware-backed (TEE/StrongBox) keys?",
+            "Are there runtime integrity or environment checks guarding execution?",
+            "Where are cryptographic operations performed (Java, JNI native library, remote server)?",
+            "Is sensitive user data properly protected at rest (CE/DE storage, encrypted DB) and in transit (TLS 1.3, pinning)?"
+          ]
+        }
+      ]
+    }
+  ]
+}

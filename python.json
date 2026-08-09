@@ -1,0 +1,1049 @@
+{
+  "meta": {
+    "id": "python_re_roadmap",
+    "title": "Python for Reverse Engineering & Automation",
+    "subtitle": "Beginner → Expert Masterclass",
+    "completionTitle": "PYTHON FOR RE MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive Python roadmap for reverse engineering, binary analysis, and automation!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Python Ecosystem",
+      "subtitle": "Philosophy & Execution Model",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Ecosystem & History",
+          "items": [
+            "History of Python",
+            "Guido van Rossum",
+            "Python philosophy",
+            "CPython",
+            "PyPy",
+            "MicroPython",
+            "Python release cycle",
+            "Python package ecosystem",
+            "Why Python dominates security research",
+            "Why reverse engineers use Python"
+          ]
+        },
+        {
+          "title": "Execution Pipeline",
+          "items": [
+            "Python Source → Bytecode (.pyc) → Python Virtual Machine → Execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Installation & Toolchain",
+      "subtitle": "Environments & Dependency Management",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interpreters & Environments",
+          "items": [
+            "Python interpreter",
+            "pip",
+            "virtualenv",
+            "venv",
+            "Poetry overview"
+          ]
+        },
+        {
+          "title": "Project Management",
+          "items": [
+            "Project structure",
+            "Package installation",
+            "Wheels",
+            "Source distributions",
+            "Requirements files",
+            "Dependency management"
+          ]
+        },
+        {
+          "title": "Execution Fundamentals",
+          "items": [
+            "Running scripts",
+            "Interactive REPL",
+            "Modules",
+            "Packages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Python Syntax",
+      "subtitle": "Basics & Conventions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Syntax Fundamentals",
+          "items": [
+            "Variables",
+            "Identifiers",
+            "Keywords",
+            "Comments",
+            "Indentation",
+            "Expressions",
+            "Statements",
+            "Scope",
+            "Naming conventions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Data Types",
+      "subtitle": "Primitives, Collections & Memory",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Primitive Types",
+          "items": [
+            "int",
+            "float",
+            "bool",
+            "complex",
+            "None"
+          ]
+        },
+        {
+          "title": "Collections",
+          "items": [
+            "list",
+            "tuple",
+            "dict",
+            "set",
+            "frozenset"
+          ]
+        },
+        {
+          "title": "Binary & Strings",
+          "items": [
+            "bytes",
+            "bytearray",
+            "memoryview"
+          ]
+        },
+        {
+          "title": "Type Mechanics",
+          "items": [
+            "Mutability",
+            "Identity",
+            "Equality",
+            "Hashability",
+            "Conversions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Operators",
+      "subtitle": "Arithmetic, Logical & Bitwise",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Operators",
+          "items": [
+            "Arithmetic",
+            "Comparison",
+            "Logical",
+            "Assignment",
+            "Identity",
+            "Membership",
+            "Walrus operator (:=)"
+          ]
+        },
+        {
+          "title": "Low-Level Manipulation",
+          "items": [
+            "Bitwise operations",
+            "Bit manipulation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Control Flow",
+      "subtitle": "Branching & Iteration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structures",
+          "items": [
+            "if / elif / else",
+            "match (pattern matching)",
+            "for loops",
+            "while loops",
+            "break / continue / pass",
+            "return",
+            "Exception-driven control flow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Functions",
+      "subtitle": "Arguments, Scope & Functional Patterns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Function Basics",
+          "items": [
+            "Function declaration",
+            "Arguments",
+            "Default values",
+            "Keyword arguments",
+            "Positional-only parameters",
+            "Keyword-only parameters",
+            "Variable arguments (*args, **kwargs)"
+          ]
+        },
+        {
+          "title": "Advanced Functions",
+          "items": [
+            "Anonymous functions (lambda)",
+            "Closures",
+            "Decorators",
+            "Recursion",
+            "Generators"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Object-Oriented Programming",
+      "subtitle": "Classes, Inheritance & Metaprogramming",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OOP Fundamentals",
+          "items": [
+            "Classes",
+            "Objects",
+            "Constructors",
+            "Inheritance",
+            "Multiple inheritance",
+            "Composition",
+            "Polymorphism"
+          ]
+        },
+        {
+          "title": "Advanced OOP Mechanics",
+          "items": [
+            "Properties",
+            "Descriptors",
+            "Method Resolution Order (MRO)",
+            "Magic methods (Dunder methods)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Modules & Packages",
+      "subtitle": "Namespaces & Imports",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Import Mechanics",
+          "items": [
+            "Imports",
+            "Relative imports",
+            "Absolute imports",
+            "Package structure",
+            "Namespace packages",
+            "__init__.py"
+          ]
+        },
+        {
+          "title": "Advanced Loading",
+          "items": [
+            "Module caching",
+            "Dynamic importing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Exceptions",
+      "subtitle": "Error Handling & Tracebacks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Exception Handling",
+          "items": [
+            "try",
+            "except",
+            "finally",
+            "raise",
+            "Custom exceptions",
+            "Exception hierarchy"
+          ]
+        },
+        {
+          "title": "Context & Debugging",
+          "items": [
+            "Context managers",
+            "Tracebacks",
+            "Logging"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Collections",
+      "subtitle": "Advanced Data Structures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Collections",
+          "items": [
+            "list",
+            "tuple",
+            "dict",
+            "set",
+            "deque",
+            "Counter",
+            "defaultdict",
+            "OrderedDict",
+            "ChainMap",
+            "namedtuple",
+            "dataclass"
+          ]
+        },
+        {
+          "title": "Algorithms & Utilities",
+          "items": [
+            "heapq",
+            "bisect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Strings & Regular Expressions",
+      "subtitle": "Text Processing & Pattern Matching",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "String Operations",
+          "items": [
+            "String formatting",
+            "f-strings",
+            "Encoding",
+            "UTF-8",
+            "Unicode"
+          ]
+        },
+        {
+          "title": "Regex Mechanics",
+          "items": [
+            "Regex basics",
+            "Pattern matching",
+            "Searching",
+            "Replacement",
+            "Tokenization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — File Handling",
+      "subtitle": "I/O, Paths & Traversal",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "File I/O",
+          "items": [
+            "Text files",
+            "Binary files",
+            "Buffered I/O",
+            "File objects",
+            "Memory-mapped files"
+          ]
+        },
+        {
+          "title": "Filesystem Operations",
+          "items": [
+            "Pathlib",
+            "Temporary files",
+            "Directory traversal",
+            "Recursive traversal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Binary Data",
+      "subtitle": "Parsing & Serialization (Critical for RE)",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Types",
+          "items": [
+            "bytes",
+            "bytearray",
+            "memoryview",
+            "struct",
+            "array"
+          ]
+        },
+        {
+          "title": "Binary Manipulation",
+          "items": [
+            "Hex encoding",
+            "Endian conversion",
+            "Packing",
+            "Unpacking",
+            "Binary serialization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Standard Library",
+      "subtitle": "Core Modules & Capabilities",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OS & System",
+          "items": [
+            "os",
+            "sys",
+            "pathlib",
+            "shutil",
+            "subprocess",
+            "tempfile"
+          ]
+        },
+        {
+          "title": "Formats, Crypto & Data",
+          "items": [
+            "zipfile",
+            "tarfile",
+            "json",
+            "xml",
+            "csv",
+            "sqlite3",
+            "hashlib",
+            "hmac",
+            "secrets",
+            "base64",
+            "binascii"
+          ]
+        },
+        {
+          "title": "Utilities & Tools",
+          "items": [
+            "logging",
+            "argparse",
+            "configparser",
+            "dataclasses",
+            "collections",
+            "functools",
+            "itertools",
+            "typing",
+            "enum",
+            "inspect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Type Hints",
+      "subtitle": "Static Typing & Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Typing System",
+          "items": [
+            "typing module",
+            "Generic types",
+            "Protocols",
+            "Union",
+            "Optional",
+            "Literal",
+            "Callable",
+            "Type aliases",
+            "Static analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Iterators & Generators",
+      "subtitle": "Lazy Evaluation & Protocols",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Iteration Mechanics",
+          "items": [
+            "Iterator protocol",
+            "Iterable protocol",
+            "yield",
+            "yield from"
+          ]
+        },
+        {
+          "title": "Generators",
+          "items": [
+            "Generator expressions",
+            "Lazy evaluation",
+            "Performance benefits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Functional Programming",
+      "subtitle": "Map, Filter, Reduce & Comprehensions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Functional Tools",
+          "items": [
+            "map",
+            "filter",
+            "reduce",
+            "zip",
+            "enumerate",
+            "partial"
+          ]
+        },
+        {
+          "title": "Functional Expressions",
+          "items": [
+            "Lambda",
+            "Comprehensions (List, Dict, Set)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Concurrency",
+      "subtitle": "Threads, Processes & AsyncIO",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Parallelism Models",
+          "items": [
+            "threading",
+            "multiprocessing",
+            "asyncio"
+          ]
+        },
+        {
+          "title": "Synchronization & Pools",
+          "items": [
+            "Locks",
+            "Queues",
+            "Synchronization",
+            "Thread pools",
+            "Process pools"
+          ]
+        },
+        {
+          "title": "Asynchronous Concepts",
+          "items": [
+            "Coroutines",
+            "Async generators"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Networking",
+      "subtitle": "Sockets, HTTP & Packets",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network APIs",
+          "items": [
+            "socket",
+            "http.client",
+            "urllib",
+            "requests concepts",
+            "WebSocket concepts"
+          ]
+        },
+        {
+          "title": "Protocols & Processing",
+          "items": [
+            "TLS concepts",
+            "DNS",
+            "HTTP parsing",
+            "Packet processing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Database Programming",
+      "subtitle": "SQLite & Data Persistence",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SQLite Mechanics",
+          "items": [
+            "SQLite",
+            "Transactions",
+            "Queries",
+            "Prepared statements"
+          ]
+        },
+        {
+          "title": "Database Analysis",
+          "items": [
+            "Database inspection",
+            "WAL (Write-Ahead Logging)",
+            "Schema parsing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Packaging",
+      "subtitle": "Distribution & Environments",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Packaging Tools",
+          "items": [
+            "pip",
+            "PyPI",
+            "Package creation",
+            "Entry points",
+            "Executable packaging"
+          ]
+        },
+        {
+          "title": "Environment Control",
+          "items": [
+            "Virtual environments",
+            "Dependency locking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Python Internals",
+      "subtitle": "CPython, Bytecode & Memory",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Execution Engine",
+          "items": [
+            "Object model",
+            "Reference counting",
+            "Garbage collector",
+            "Memory model"
+          ]
+        },
+        {
+          "title": "Bytecode & Import Systems",
+          "items": [
+            "Python bytecode",
+            ".pyc files",
+            "Import machinery",
+            "Descriptors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Reverse Engineering Libraries",
+      "subtitle": "Disassembly, Emulation & Parsing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Analysis Libraries",
+          "items": [
+            "Capstone (disassembly)",
+            "Keystone (assembly)",
+            "Unicorn (CPU emulation)",
+            "LIEF (binary parsing)",
+            "pyelftools (ELF parsing)",
+            "NetworkX (graphs)",
+            "Construct (binary parsing)",
+            "Kaitai Struct (generated parsers)"
+          ]
+        },
+        {
+          "title": "Core Methodology",
+          "items": [
+            "Focus on how they work conceptually, not just their APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Binary Parsing",
+      "subtitle": "Manual Format Analysis & Struct Introspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Target Formats",
+          "items": [
+            "ELF",
+            "DEX",
+            "APK",
+            "ZIP",
+            "Binary XML",
+            "resources.arsc",
+            "OAT (basic understanding)",
+            "VDEX (basic understanding)"
+          ]
+        },
+        {
+          "title": "Methodology",
+          "items": [
+            "Read binary structures manually using struct and file I/O before relying on helper libraries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — APK Analysis Automation",
+      "subtitle": "Android Application Triage Workflows",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "APK Processing & Parsing",
+          "items": [
+            "Extract APK contents",
+            "Parse AndroidManifest.xml",
+            "Parse DEX metadata"
+          ]
+        },
+        {
+          "title": "Enumeration & Reporting",
+          "items": [
+            "List classes",
+            "List methods",
+            "List fields",
+            "Enumerate resources",
+            "Detect native libraries",
+            "Compute hashes",
+            "Identify package information",
+            "Generate analysis reports"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — DEX Analysis",
+      "subtitle": "Dalvik Executable Structural Parsing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DEX Mechanics",
+          "items": [
+            "Read DEX headers",
+            "Enumerate strings",
+            "Enumerate types",
+            "Enumerate methods",
+            "Enumerate fields"
+          ]
+        },
+        {
+          "title": "Advanced DEX Analysis",
+          "items": [
+            "Build class indexes",
+            "Cross-reference method calls",
+            "Generate call graphs",
+            "Detect duplicate methods",
+            "Analyze multidex projects"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Smali Processing",
+      "subtitle": "Assembly Parsing & Control-Flow Generation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Smali Utilities",
+          "items": [
+            "Parse Smali files",
+            "Rename symbols",
+            "Search instructions"
+          ]
+        },
+        {
+          "title": "Structural Analysis",
+          "items": [
+            "Build control-flow graphs",
+            "Analyze register usage",
+            "Detect common instruction patterns",
+            "Compare two Smali versions",
+            "Generate reports"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — ELF Analysis",
+      "subtitle": "Native Binary Introspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ELF Structures",
+          "items": [
+            "Read ELF headers",
+            "Parse program headers",
+            "Parse section headers",
+            "Read symbol tables",
+            "Read relocation tables"
+          ]
+        },
+        {
+          "title": "Dependency Analysis",
+          "items": [
+            "Detect imports",
+            "Detect exports",
+            "Analyze dependencies",
+            "Inspect shared libraries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Static Analysis Tooling",
+      "subtitle": "Graph Generation & Analytics Algorithms",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Graphing & Cross-Referencing",
+          "items": [
+            "Call graph generator",
+            "Control Flow Graph generator",
+            "Dependency graph generator",
+            "Cross-reference engine",
+            "String reference analyzer"
+          ]
+        },
+        {
+          "title": "Detection & Metrics",
+          "items": [
+            "Method complexity analyzer",
+            "Dead-code detector",
+            "Resource usage analyzer",
+            "Duplicate code detector"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Automation Frameworks",
+      "subtitle": "Batch Processing & Script Pipelines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Batch Scripts",
+          "items": [
+            "Batch APK processing",
+            "Directory scanning",
+            "Hash generation",
+            "Metadata extraction"
+          ]
+        },
+        {
+          "title": "Comparisons & Aggregation",
+          "items": [
+            "Manifest comparison",
+            "DEX comparison",
+            "Version comparison",
+            "Patch verification",
+            "File indexing",
+            "Result aggregation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Android Automation",
+      "subtitle": "Device, ADB & Log Orchestration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Device Interaction",
+          "items": [
+            "ADB commands",
+            "Application installation",
+            "Backup workflows"
+          ]
+        },
+        {
+          "title": "Data Collection",
+          "items": [
+            "Log collection",
+            "Package listing",
+            "File extraction",
+            "Logcat parsing",
+            "System information gathering",
+            "Device inventory"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Reverse Engineering Utilities",
+      "subtitle": "Custom Viewer & Inspector Development",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Custom Viewers",
+          "items": [
+            "APK inspector",
+            "DEX explorer",
+            "Manifest viewer",
+            "Resource browser",
+            "ELF explorer"
+          ]
+        },
+        {
+          "title": "Analysis Tools",
+          "items": [
+            "Binary diff utility",
+            "Signature inspector",
+            "Certificate parser",
+            "Smali search engine",
+            "Report generator",
+            "Dependency visualizer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Performance",
+      "subtitle": "Profiling, Caching & Optimization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Optimization Techniques",
+          "items": [
+            "Profiling",
+            "Memory usage",
+            "Optimization",
+            "Lazy loading",
+            "Streaming large files",
+            "Efficient parsing"
+          ]
+        },
+        {
+          "title": "Scaling & Execution",
+          "items": [
+            "Caching",
+            "Parallel processing",
+            "Benchmarking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Source Code Reading",
+      "subtitle": "Architecture, Parsing & API Design Review",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Target Codebases",
+          "items": [
+            "pyelftools",
+            "Androguard",
+            "LIEF",
+            "Capstone bindings",
+            "Unicorn bindings",
+            "Construct",
+            "Kaitai examples",
+            "angr architecture (high level)",
+            "Binary Ninja Python plugins (architecture concepts)"
+          ]
+        },
+        {
+          "title": "Focus Areas",
+          "items": [
+            "Architecture",
+            "Parsing techniques",
+            "Performance",
+            "API design",
+            "Testing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Advanced Reverse Engineering Automation",
+      "subtitle": "Complex Pipelines & Ecosystem Integration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Advanced Systems & Analytics",
+          "items": [
+            "Automated APK triage",
+            "Call graph generation",
+            "Control-flow analysis",
+            "Cross-reference generation",
+            "Binary signature identification",
+            "Native library inventory"
+          ]
+        },
+        {
+          "title": "Ecosystem Integration & Pipelines",
+          "items": [
+            "JNI mapping",
+            "Resource relationship analysis",
+            "Kotlin metadata extraction",
+            "Decompiled-code indexing",
+            "Multi-APK comparison",
+            "Static report generation",
+            "Reverse engineering pipelines"
+          ]
+        },
+        {
+          "title": "Design Philosophy",
+          "items": [
+            "Learn to design modular analyzers rather than monolithic scripts"
+          ]
+        }
+      ]
+    }
+  ]
+}

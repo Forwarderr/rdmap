@@ -1,0 +1,821 @@
+{
+  "meta": {
+    "id": "smali_dex_instruction_set_roadmap",
+    "title": "Smali Language, DEX Bytecode & Instruction Set",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "SMALI & DEX BYTECODE MASTERED",
+    "completionMessage": "Congratulations! You have mastered Smali assembly, Dalvik/ART virtual machine mechanics, instruction set patterns, and dynamic bytecode analysis."
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Smali Overview",
+      "subtitle": "Virtual Machine Architecture & Execution Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Architecture Concepts",
+          "items": [
+            "Dalvik Executable (DEX) format",
+            "Smali assembly & Baksmali disassembler",
+            "Register-based virtual machine model",
+            "DEX bytecode vs JVM stack-based bytecode",
+            "Human-readable bytecode representation",
+            "Relationship with ART runtime execution",
+            "Relationship with Java & Kotlin compilation targets"
+          ]
+        },
+        {
+          "title": "Compilation Pipeline",
+          "items": [
+            "Java / Kotlin Source → .class Bytecode → D8/R8 Compiler → classes.dex → Smali → ART → ARM64 Machine Code → CPU Execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — DEX Architecture Review",
+      "subtitle": "Binary File Headers & Internal Tables",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Headers & Index Tables",
+          "items": [
+            "DEX Header structures",
+            "String IDs table",
+            "Type IDs table",
+            "Proto IDs table (method prototypes)",
+            "Field IDs table",
+            "Method IDs table",
+            "Class Definitions table",
+            "Code Items (instructions & registers)",
+            "Debug Info & Line Number mapping",
+            "Annotation Directory & Encoded Arrays",
+            "Map List structural offsets"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Smali File Structure",
+      "subtitle": "Directives, Scope Enclosures & Assembly Declarations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Structural Directives",
+          "items": [
+            ".class & .super class declarations",
+            ".source file attributes",
+            ".implements interface declarations",
+            ".annotation blocks",
+            ".field declarations (static & instance)",
+            ".method & .end method enclosures",
+            ".registers & .locals frame specifications",
+            ".param & .local variable mappings",
+            ".prologue & .line markers",
+            ".catch & .catchall exception handlers",
+            ".end block markers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Class Definitions",
+      "subtitle": "Access Flags & Type Declarations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Class Metadata & Modifiers",
+          "items": [
+            ".class declaration syntax",
+            "Access flags: public, private, protected",
+            "Modifiers: abstract, interface, enum, final",
+            "Special flags: annotation, synthetic",
+            ".super class reference resolution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Type Descriptors",
+      "subtitle": "Primitives, Object References & Array Notation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Primitive Types",
+          "items": [
+            "V (void), Z (boolean), B (byte)",
+            "S (short), C (char), I (int)",
+            "J (long - 64-bit), F (float), D (double - 64-bit)"
+          ]
+        },
+        {
+          "title": "Complex Types",
+          "items": [
+            "Object reference syntax (e.g., Ljava/lang/Object;)",
+            "Array dimensions notation ([I, [[I, [Ljava/lang/String;)",
+            "Nested and inner class notation ($ separator)",
+            "Anonymous class naming conventions",
+            "Generic type erasure in compiled bytecode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Method Definitions",
+      "subtitle": "Method Types, Flags & Enclosures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Method Declarations & Special Methods",
+          "items": [
+            ".method and .end method enclosures",
+            "Instance constructors (<init>)",
+            "Static class initializers (<clinit>)",
+            "Static, Virtual, & Direct private methods",
+            "Abstract & Native method signatures",
+            "Compiler-generated Bridge & Synthetic methods",
+            "Access flags bitmasks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Registers (Critical)",
+      "subtitle": "Virtual Registers, Local/Parameter Frame Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Register Frame Architecture",
+          "items": [
+            ".registers vs .locals directives",
+            "v registers (local working registers)",
+            "p registers (parameter input registers)",
+            "Parameter mapping rules (p0 = this for instance methods)",
+            "Register lifetimes & register reuse optimization",
+            "Wide registers (64-bit long/double register pairs)",
+            "Object references storage in registers",
+            "Temporary calculation registers & register pressure"
+          ]
+        },
+        {
+          "title": "Parameter Mapping Schema",
+          "items": [
+            "p0 ↓ this (Instance) / First Arg (Static) | p1 ↓ Next Argument"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Move Instructions",
+      "subtitle": "Data Movement & Result Transfer Opcodes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Move Instructions Taxonomy",
+          "items": [
+            "move, move/from16, move/16 (32-bit scalar copy)",
+            "move-wide (64-bit pair copy)",
+            "move-object (Reference copy)",
+            "move-result & move-result-wide (Capturing return values)",
+            "move-result-object (Capturing object references)",
+            "move-exception (Capturing caught exception objects)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Constants",
+      "subtitle": "Literal Values, Strings & Class Loading",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Constant Loading Opcodes",
+          "items": [
+            "const, const/4, const/16, const/high16",
+            "const-wide (Loading 64-bit constants)",
+            "const-string & const-string/jumbo",
+            "const-class (Loading Class<T> references)",
+            "Literal immediate encoding sizes",
+            "Instruction word size optimizations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Object Creation",
+      "subtitle": "Instantiation & Constructor Sequences",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Allocation & Setup Sequence",
+          "items": [
+            "new-instance (Uninitialized memory allocation)",
+            "invoke-direct (Constructor <init> execution)",
+            "Object initialization chains",
+            "Allocation & initialization ordering rules"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Field Instructions",
+      "subtitle": "Instance & Static Access Opcodes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Instance Field Opcodes (iget / iput)",
+          "items": [
+            "iget, iget-wide, iget-object",
+            "iget-boolean, iget-byte, iget-char, iget-short",
+            "iput, iput-wide, iput-object"
+          ]
+        },
+        {
+          "title": "Static Field Opcodes (sget / sput)",
+          "items": [
+            "sget, sget-wide, sget-object",
+            "sput, sput-wide, sput-object",
+            "Volatile, Final, and Synthetic field semantics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Method Invocation",
+      "subtitle": "Dispatch Semantics & Call Variants",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Invocation Opcodes",
+          "items": [
+            "invoke-virtual (Dynamic dispatch via vtable)",
+            "invoke-super (Direct superclass dispatch)",
+            "invoke-direct (Private method & constructor dispatch)",
+            "invoke-static (Static function execution)",
+            "invoke-interface (itable interface dispatch)",
+            "invoke-polymorphic & invoke-custom",
+            "Range variants: invoke-*/range (handling > 5 arguments)"
+          ]
+        },
+        {
+          "title": "Invocation Mechanics",
+          "items": [
+            "Parameter passing conventions",
+            "Dispatch rules & method lookup algorithms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Return Instructions",
+      "subtitle": "Method Completion & Value Returning",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Return Opcodes",
+          "items": [
+            "return-void",
+            "return (32-bit primitive values)",
+            "return-wide (64-bit primitive values)",
+            "return-object (Object references)",
+            "Method execution cleanup & stack unwinding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Arithmetic Instructions",
+      "subtitle": "Mathematics & Bitwise Operations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Math & Bitwise Opcodes",
+          "items": [
+            "add, sub, mul, div, rem (modulo), neg",
+            "and, or, xor",
+            "shl (shift left), shr (arithmetic right), ushr (logical right)",
+            "3-address vs 2-address (/2addr) instruction forms",
+            "Literal immediate forms (/lit8, /lit16)",
+            "Type variants across int, long, float, double"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Type Conversion",
+      "subtitle": "Primitive Casting & Object Type Verification",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Conversion & Casting Opcodes",
+          "items": [
+            "int-to-long, int-to-float, long-to-double",
+            "double-to-int, float-to-int",
+            "Primitive cast instructions",
+            "check-cast (Runtime object casting enforcement)",
+            "instance-of (Type evaluation returning boolean)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Comparison Instructions",
+      "subtitle": "Floating-Point, Long Comparisons & Branch Logic",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Comparison & Branch Check Opcodes",
+          "items": [
+            "cmp-long (64-bit comparison)",
+            "cmpl-float / cmpg-float (Float comparison with NaN handling)",
+            "cmpl-double / cmpg-double",
+            "Conditional branching vs Zero: if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez",
+            "Conditional branching between Registers: if-eq, if-ne, if-lt, if-ge, if-gt, if-le"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Branching",
+      "subtitle": "Jump Targets, Labels & Basic Blocks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Jump Instructions & Flow Control",
+          "items": [
+            "goto, goto/16, goto/32",
+            "Local label definitions (:cond_0, :goto_0)",
+            "Branch target address resolution",
+            "Basic block partitioning",
+            "Control flow representation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Switch Instructions",
+      "subtitle": "Jump Table Payloads & Switch Lowering",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Switch Implementation Mechanics",
+          "items": [
+            "packed-switch (O(1) continuous key lookup table)",
+            "sparse-switch (O(log N) sparse key binary search table)",
+            ".packed-switch & .sparse-switch data payloads",
+            "Jump table offset maps",
+            "Compiler decision rules for switch lowering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Arrays",
+      "subtitle": "Array Allocation, Access & Array Data",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Array Operations",
+          "items": [
+            "new-array (Dimension allocation)",
+            "filled-new-array & fill-array-data",
+            "aget, aget-wide, aget-object (Element reads)",
+            "aput, aput-wide, aput-object (Element writes)",
+            "array-length (Size retrieval)",
+            "Multidimensional array handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Exception Handling",
+      "subtitle": "Try Enclosures, Catch Handlers & Throwing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Exception Directives & Operations",
+          "items": [
+            ".catch directive (Typed exception handler)",
+            ".catchall directive (Universal / finally handler)",
+            "Try block boundary labels (:try_start_0 .. :try_end_0)",
+            "Exception tables in code_item",
+            "move-exception opcode",
+            "throw opcode",
+            "Finally block replication patterns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Synchronization",
+      "subtitle": "Monitor Directives & Lock Execution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Monitor Opcodes",
+          "items": [
+            "monitor-enter (Acquiring monitor lock)",
+            "monitor-exit (Releasing monitor lock)",
+            "Synchronized block compilation patterns",
+            "Exception-safe monitor release patterns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Annotations",
+      "subtitle": "Annotation Enclosures & Encoded Attributes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Annotation Blocks",
+          "items": [
+            "Runtime annotations (.annotation runtime)",
+            "System annotations (.annotation system)",
+            "Build annotations (.annotation build)",
+            "Retention policies & visibility flags",
+            "InnerClass, Signature, & EnclosingMethod annotations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Debug Information",
+      "subtitle": "Line Numbers, Parameters & Source Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Debug Directives",
+          "items": [
+            ".line (Source line number mapping)",
+            ".local (Local variable metadata)",
+            ".param (Parameter naming metadata)",
+            ".prologue & .epilogue markers",
+            "Source code correlation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Class Initialization",
+      "subtitle": "Static Initializers & Inheritance Order",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Initialization Lifecycles",
+          "items": [
+            "Static initialization blocks (<clinit>)",
+            "Instance initialization blocks (<init>)",
+            "Class load vs class initialization triggers",
+            "Default static field values assignment",
+            "Inheritance initialization chains"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Java → Smali Mapping",
+      "subtitle": "High-Level Java to Smali Assembly Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Construct Mappings",
+          "items": [
+            "Variables → Registers",
+            "Methods → invoke-* opcodes",
+            "Objects → new-instance + invoke-direct <init>",
+            "Fields → iget / iput / sget / sput",
+            "Loops → goto + conditional if-* branches",
+            "Switch → packed-switch / sparse-switch",
+            "Exceptions → .catch / .catchall tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Kotlin → Smali Mapping",
+      "subtitle": "Kotlin Compiler Idioms & Artifacts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Kotlin Bytecode Artifacts",
+          "items": [
+            "Data classes generated methods (copy, componentN)",
+            "Companion objects & Companion inner classes",
+            "Object declarations (Singletons)",
+            "Inline functions expansion",
+            "Extension functions (static methods with receiver as p0)",
+            "Delegated properties ($delegate fields)",
+            "Coroutines Continuation state machines",
+            "Suspend functions transformation (CPS format)",
+            "Default arguments ($default synthetic methods)",
+            "Intrinsics null checks (checkNotNullParameter)",
+            "Kotlin @Metadata annotations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Compiler-Generated Code",
+      "subtitle": "Synthetic Accessors & Outer Class References",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Generated Artifacts",
+          "items": [
+            "Synthetic methods & access$NNN helpers",
+            "Bridge methods for generic overriding",
+            "Anonymous inner classes (OuterClass$1)",
+            "Lambda generated classes",
+            "Outer class references (this$0 fields)",
+            "Captured local variables",
+            "Enum helper values() / valueOf() methods"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — ART Execution Model",
+      "subtitle": "Bytecode Verification to Native ARM64 Execution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Execution Phases",
+          "items": [
+            "Smali → Verification → Interpreter → JIT Compilation → ARM64 Machine Code → Execution",
+            "Identifying ART runtime optimizations that alter execution paths"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Control Flow Reconstruction",
+      "subtitle": "Rebuilding Logical Flow & Basic Blocks",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Structure Recovery",
+          "items": [
+            "if / else branch reconstruction",
+            "Nested conditional logic recovery",
+            "Switch statement mapping",
+            "while, do-while, and for loops reconstruction",
+            "Recursion pattern recognition",
+            "State machine flow identification",
+            "Early return path analysis",
+            "Basic block graph partitioning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Data Flow Analysis",
+      "subtitle": "Register State Tracking & Variable Propagation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data Tracking Methods",
+          "items": [
+            "Register value tracing across blocks",
+            "Object reference propagation",
+            "Field read/write tracking",
+            "Parameter propagation",
+            "Return value chain analysis",
+            "Alias relationship detection",
+            "Constant propagation",
+            "Object lifetime boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Call Graph Analysis",
+      "subtitle": "Cross-References & Dispatch Path Building",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Graph Construction",
+          "items": [
+            "Call graph construction",
+            "Method references & Cross-references (XREFs)",
+            "System entry points identification",
+            "Callback chain tracking",
+            "Inheritance virtual dispatch resolution",
+            "Binder IPC path tracing",
+            "Lifecycle event paths (Activity / Fragment)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Object Reconstruction",
+      "subtitle": "Recovering Domain Models & Design Patterns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Architecture Recovery",
+          "items": [
+            "Class structure recovery",
+            "Inheritance hierarchies & Interface implementations",
+            "Object state fields identification",
+            "Constructor initialization logic",
+            "Design pattern recovery: Singletons, Factories, Builders, Repositories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Android Framework Patterns",
+      "subtitle": "Recognizing Jetpack & Framework Classes in Smali",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Framework Artifacts Identification",
+          "items": [
+            "Activity / Fragment / Service lifecycle callbacks",
+            "BroadcastReceivers & ContentProviders",
+            "RecyclerView adapters & ViewHolder patterns",
+            "ViewBinding & DataBinding generated classes",
+            "Navigation Component graphs",
+            "ViewModel & LiveData / StateFlow observers",
+            "WorkManager Worker classes",
+            "Room DAO_Impl generated classes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Obfuscation Recognition",
+      "subtitle": "R8, ProGuard & Advanced Obfuscator Patterns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Obfuscation Artifacts",
+          "items": [
+            "Renamed identifiers (a/b/c package/class/method names)",
+            "Control flow flattening (dispatcher loops)",
+            "Stripped debug info (.line, .local missing)",
+            "Synthetic bridge method insertion",
+            "Inlined methods & merged classes",
+            "Dead code elimination patterns",
+            "String encryption & decryption helpers",
+            "Reflection-heavy code",
+            "Dynamic DEX loading patterns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reflection & Dynamic Loading",
+      "subtitle": "Detecting Metaprogramming & Dynamic Invocations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Metaprogramming Patterns",
+          "items": [
+            "Class.forName() invocation tracing",
+            "Method.invoke() invocation tracing",
+            "Reflective field access (Field.get / Field.set)",
+            "Constructor reflection",
+            "DexClassLoader & PathClassLoader instantiation",
+            "InMemoryDexClassLoader usage",
+            "Dynamic proxy creation (Proxy.newProxyInstance)",
+            "ServiceLoader lookup"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — JNI Boundaries",
+      "subtitle": "Native Call Identification & Marshaling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Interop Patterns",
+          "items": [
+            "native method declarations",
+            "System.loadLibrary() / System.load() calls",
+            "JNI wrapper methods",
+            "Parameter marshaling into registers",
+            "Object to native handle conversions",
+            "Array pinning and copying calls",
+            "Exception propagation across JNI",
+            "Tracing Java ↔ Native transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Smali Optimization Patterns",
+      "subtitle": "Recognizing Compiler Pass Artifacts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Optimization Artifacts",
+          "items": [
+            "Constant folding output",
+            "Method inlining artifacts",
+            "Register reuse patterns",
+            "Dead store elimination",
+            "Dead code elimination",
+            "Tail call optimizations",
+            "Switch table optimizations",
+            "Loop unrolling output"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-38",
+      "title": "Stage 38 — Reverse Engineering Workflow",
+      "subtitle": "Static Analysis Inquiry Checklist",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Inquiry Checklist",
+          "items": [
+            "Which method is the entry point?",
+            "Which registers hold important domain state?",
+            "Which instance/static fields are read and written?",
+            "Where are target objects instantiated?",
+            "Which methods are invoked and on what dispatch?",
+            "Does execution cross Binder IPC?",
+            "Does execution transition into JNI native space?",
+            "Is the code compiler-generated (Kotlin/Room/ViewBinding)?",
+            "Is the code optimized or obfuscated by R8/ProGuard?",
+            "What high-level Java/Kotlin construct produced this bytecode?"
+          ]
+        },
+        {
+          "title": "Analysis Principle",
+          "items": [
+            "Never analyze instructions in isolation—analyze control flow, data flow, and object state together."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-39",
+      "title": "Stage 39 — Reading Real Smali",
+      "subtitle": "Practice Repositories & Comparison Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Target Analysis Targets",
+          "items": [
+            "AOSP framework classes in Smali format",
+            "AndroidX libraries output",
+            "Kotlin standard library decompiled Smali",
+            "Room-generated DAO_Impl Smali classes",
+            "WorkManager-generated Smali code",
+            "ViewBinding & DataBinding generated Smali",
+            "Small open-source APKs vs heavily obfuscated release APKs"
+          ]
+        },
+        {
+          "title": "Decompilation Comparison Pipeline",
+          "items": [
+            "Source → Bytecode → Smali → Decompiler Output → Recovered Logic"
+          ]
+        }
+      ]
+    }
+  ]
+}

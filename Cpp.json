@@ -1,0 +1,1080 @@
+{
+  "meta": {
+    "id": "cpp_roadmap",
+    "title": "C++ Language (Beginner → Expert)",
+    "subtitle": "Complete Masterclass & Systems Reverse Engineering Roadmap",
+    "completionTitle": "C++ MASTERED",
+    "completionMessage": "Congratulations! You have covered the complete C++ roadmap from core syntax, OOP, and Modern C++ features to template metaprogramming, internals, ABI, and advanced binary reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — C++ Ecosystem",
+      "subtitle": "Evolution, Philosophy & ISO Standards",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Origins & Core Philosophy",
+          "items": [
+            "History of C++",
+            "Bjarne Stroustrup",
+            "Evolution from C",
+            "Philosophy & Zero-overhead principle",
+            "Generic programming",
+            "Object-oriented programming",
+            "Modern C++ movement"
+          ]
+        },
+        {
+          "title": "ISO Standardization & Roadmap",
+          "items": [
+            "ISO standardization process",
+            "C++98 / C++03",
+            "C++11",
+            "C++14",
+            "C++17",
+            "C++20",
+            "C++23",
+            "Future roadmap overview"
+          ]
+        },
+        {
+          "title": "Compilation Pipeline",
+          "items": [
+            "C++ Source → Compiler → Object Files → Linker → ELF → Machine Code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Toolchain",
+      "subtitle": "Compilers, Build Systems & NDK Tools",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compilers & Standard Libraries",
+          "items": [
+            "GCC",
+            "Clang",
+            "LLVM",
+            "libc++",
+            "libstdc++",
+            "MSVC overview"
+          ]
+        },
+        {
+          "title": "Build Systems & Mobile Toolchains",
+          "items": [
+            "CMake",
+            "Ninja",
+            "Cross-compilation",
+            "Android NDK toolchain"
+          ]
+        },
+        {
+          "title": "Compiler & Debugging Flags",
+          "items": [
+            "Compiler flags",
+            "Optimization flags",
+            "Debug flags",
+            "Warnings",
+            "Sanitizers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Core Language",
+      "subtitle": "Variables, Scope & Type Deduction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Syntax & Scoping",
+          "items": [
+            "Variables",
+            "Constants",
+            "Identifiers",
+            "Namespaces",
+            "Comments",
+            "Statements",
+            "Expressions",
+            "Scope",
+            "Storage duration"
+          ]
+        },
+        {
+          "title": "Type Inference Mechanics",
+          "items": [
+            "auto",
+            "decltype",
+            "Type deduction rules"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Types",
+      "subtitle": "Type System & Const Correctness",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Type System Categories",
+          "items": [
+            "Primitive types",
+            "User-defined types",
+            "References",
+            "Pointers",
+            "Arrays",
+            "Enums",
+            "Classes",
+            "Structures",
+            "Unions",
+            "Aliases"
+          ]
+        },
+        {
+          "title": "Type Qualifiers & Modifiers",
+          "items": [
+            "Type inference",
+            "Const correctness",
+            "Volatile",
+            "Mutable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Operators",
+      "subtitle": "Expressions & Operator Overloading",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard & Memory Operators",
+          "items": [
+            "Arithmetic",
+            "Comparison",
+            "Logical",
+            "Assignment",
+            "Bitwise",
+            "Shift",
+            "Pointer operators (Address-of &, Dereference *)",
+            "Scope resolution (::)",
+            "Member access (.)",
+            "Pointer member access (->)",
+            "new / delete",
+            "sizeof",
+            "typeid",
+            "Comma operator",
+            "Conditional operator"
+          ]
+        },
+        {
+          "title": "Custom Operator Behavior",
+          "items": [
+            "Overloadable operators"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Control Flow",
+      "subtitle": "Branching, Loops & Compile-Time Conditions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structures",
+          "items": [
+            "if",
+            "switch",
+            "for",
+            "range-for",
+            "while",
+            "do-while",
+            "break",
+            "continue",
+            "goto",
+            "return"
+          ]
+        },
+        {
+          "title": "Modern Flow Features",
+          "items": [
+            "Structured bindings",
+            "if constexpr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Functions",
+      "subtitle": "Overloading, Specifiers & Variadic Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Function Declarations & Features",
+          "items": [
+            "Declarations",
+            "Definitions",
+            "Overloading",
+            "Default parameters",
+            "Inline functions",
+            "constexpr functions",
+            "consteval",
+            "constinit",
+            "Friend functions",
+            "Recursive functions",
+            "Variadic functions",
+            "Variadic templates",
+            "Function pointers",
+            "Function references"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — References",
+      "subtitle": "Lvalues, Rvalues & Perfect Forwarding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Reference Types & Binding Rules",
+          "items": [
+            "Lvalue references",
+            "Rvalue references",
+            "Reference collapsing",
+            "Reference lifetime",
+            "Binding rules",
+            "Temporary objects",
+            "Perfect forwarding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Classes",
+      "subtitle": "Class Anatomy & Rule of Five Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Class Basics & Lifecycle Methods",
+          "items": [
+            "Classes",
+            "Objects",
+            "Constructors",
+            "Destructors",
+            "Copy constructor",
+            "Move constructor",
+            "Copy assignment",
+            "Move assignment",
+            "Default constructor",
+            "Deleted functions (= delete)",
+            "Defaulted functions (= default)"
+          ]
+        },
+        {
+          "title": "Members & Scope Rules",
+          "items": [
+            "Member initialization",
+            "Initialization lists",
+            "Friend classes",
+            "Nested classes",
+            "Static members",
+            "Const members"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Object-Oriented Programming",
+      "subtitle": "Pillars, Hierarchies & Polymorphism",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OOP Pillars & Inheritance Patterns",
+          "items": [
+            "Encapsulation",
+            "Inheritance",
+            "Multiple inheritance",
+            "Virtual inheritance",
+            "Composition",
+            "Aggregation",
+            "Association"
+          ]
+        },
+        {
+          "title": "Polymorphism Mechanics",
+          "items": [
+            "Polymorphism",
+            "Dynamic dispatch",
+            "Object slicing",
+            "Abstract classes",
+            "Interfaces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Object Model (Critical)",
+      "subtitle": "Memory Layout, VTables & Padding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Layout & Padding",
+          "items": [
+            "Object layout",
+            "Memory layout",
+            "Member ordering",
+            "Padding",
+            "Alignment",
+            "Hidden members"
+          ]
+        },
+        {
+          "title": "Virtual Table Architecture",
+          "items": [
+            "Virtual pointer (vptr)",
+            "VTable (virtual table)",
+            "Virtual inheritance layout",
+            "Base class layout",
+            "Derived class layout",
+            "Compiler-generated members"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Constructors & Destructors",
+      "subtitle": "Lifecycle Order & Placement Allocations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Construction & Destruction Lifecycle",
+          "items": [
+            "Construction order",
+            "Destruction order",
+            "Base constructors",
+            "Derived constructors",
+            "Static initialization",
+            "Global constructors"
+          ]
+        },
+        {
+          "title": "Low-Level Allocation & Rules",
+          "items": [
+            "Placement new",
+            "Lifetime rules",
+            "Compiler generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — RAII",
+      "subtitle": "Resource Management & Exception Safety",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Ownership & Cleanup Paradigms",
+          "items": [
+            "Resource Acquisition Is Initialization (RAII)",
+            "Ownership concepts",
+            "Automatic cleanup",
+            "File handles",
+            "Mutex ownership",
+            "Socket ownership",
+            "Exception safety",
+            "Smart resource management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Smart Pointers",
+      "subtitle": "Memory Ownership & Reference Counting",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Smart Pointer Types",
+          "items": [
+            "unique_ptr",
+            "shared_ptr",
+            "weak_ptr"
+          ]
+        },
+        {
+          "title": "Mechanics & Performance",
+          "items": [
+            "Custom deleters",
+            "Reference counting",
+            "Ownership transfer",
+            "Aliasing constructors",
+            "Cycle detection",
+            "Performance trade-offs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Move Semantics",
+      "subtitle": "Move Mechanics & Copy Elision",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Move Semantics & Forwarding",
+          "items": [
+            "Move constructor",
+            "Move assignment",
+            "std::move",
+            "std::forward",
+            "Perfect forwarding",
+            "Move-only types"
+          ]
+        },
+        {
+          "title": "Compiler Optimizations",
+          "items": [
+            "Copy elision",
+            "RVO (Return Value Optimization)",
+            "NRVO (Named Return Value Optimization)",
+            "Compiler optimization behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Templates",
+      "subtitle": "Metaprogramming, Concepts & SFINAE",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Template Basics & Specialization",
+          "items": [
+            "Function templates",
+            "Class templates",
+            "Template specialization",
+            "Partial specialization",
+            "Template deduction",
+            "Non-type parameters",
+            "Variadic templates",
+            "Alias templates"
+          ]
+        },
+        {
+          "title": "Concepts & Metaprogramming",
+          "items": [
+            "Concepts",
+            "Constraints",
+            "Template metaprogramming",
+            "SFINAE (Substitution Failure Is Not An Error)",
+            "CRTP (Curiously Recurring Template Pattern)",
+            "Type traits",
+            "Compile-time computation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — STL Containers",
+      "subtitle": "Data Structures, Iterators & Memory Layout",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Sequence Containers",
+          "items": [
+            "vector",
+            "deque",
+            "list",
+            "forward_list",
+            "array"
+          ]
+        },
+        {
+          "title": "Associative & Unordered Containers",
+          "items": [
+            "map",
+            "multimap",
+            "set",
+            "multiset",
+            "unordered_map",
+            "unordered_set"
+          ]
+        },
+        {
+          "title": "Container Adapters & Modern Utilities",
+          "items": [
+            "stack",
+            "queue",
+            "priority_queue",
+            "pair",
+            "tuple",
+            "optional",
+            "variant",
+            "any",
+            "span"
+          ]
+        },
+        {
+          "title": "Analysis per Container",
+          "items": [
+            "Implementation details",
+            "Memory layout",
+            "Time complexity",
+            "Iterator invalidation",
+            "Performance characteristics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Iterators",
+      "subtitle": "Categories, Adapters & Invalidation Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Iterator Categories & Rules",
+          "items": [
+            "Input iterators",
+            "Output iterators",
+            "Forward iterators",
+            "Bidirectional iterators",
+            "Random access iterators",
+            "Contiguous iterators",
+            "Iterator adapters",
+            "Iterator invalidation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — STL Algorithms",
+      "subtitle": "Standard Operations & Ranges",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Algorithms",
+          "items": [
+            "sort",
+            "stable_sort",
+            "find",
+            "copy",
+            "move",
+            "remove",
+            "partition",
+            "transform",
+            "merge",
+            "binary_search",
+            "lower_bound",
+            "upper_bound",
+            "accumulate",
+            "reduce",
+            "for_each"
+          ]
+        },
+        {
+          "title": "Modern Range Operations",
+          "items": [
+            "Ranges algorithms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Lambdas",
+      "subtitle": "Captures, Closures & Compiler Generation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lambda Features",
+          "items": [
+            "Capture lists",
+            "Value capture",
+            "Reference capture",
+            "Generalized capture",
+            "Mutable lambdas",
+            "Generic lambdas"
+          ]
+        },
+        {
+          "title": "Under the Hood",
+          "items": [
+            "Closure objects",
+            "Compiler generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Modern C++ Features",
+      "subtitle": "Ranges, Modules, Coroutines & Comparisons",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Modern Idioms & Keywords",
+          "items": [
+            "constexpr",
+            "consteval",
+            "constinit",
+            "Structured bindings",
+            "Designated initializers",
+            "Concepts",
+            "Ranges",
+            "Modules overview",
+            "Three-way comparison (<=>)",
+            "Coroutines overview",
+            "Pattern evolution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Exception Handling",
+      "subtitle": "Stack Unwinding, ABIs & Exception Tables",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Language Constructs & Hierarchy",
+          "items": [
+            "try",
+            "catch",
+            "throw",
+            "noexcept",
+            "Exception hierarchy"
+          ]
+        },
+        {
+          "title": "Low-Level Mechanics & ABI",
+          "items": [
+            "Stack unwinding",
+            "Destructor interaction",
+            "RAII interaction",
+            "Exception ABI",
+            "Exception tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — RTTI",
+      "subtitle": "Casts, Type Descriptors & Runtime Inspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Casting & RTTI Primitives",
+          "items": [
+            "Run-Time Type Information (RTTI)",
+            "dynamic_cast",
+            "static_cast",
+            "reinterpret_cast",
+            "const_cast",
+            "typeid"
+          ]
+        },
+        {
+          "title": "Compiler Representation",
+          "items": [
+            "Type descriptors",
+            "Compiler implementation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Coroutines",
+      "subtitle": "Awaiters, Promises & Frames",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Coroutine Components",
+          "items": [
+            "Coroutine model",
+            "Promise objects",
+            "Suspend points",
+            "Awaiters",
+            "Generators"
+          ]
+        },
+        {
+          "title": "Internal Transformations",
+          "items": [
+            "Compiler transformation",
+            "Coroutine frame"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Concurrency",
+      "subtitle": "Threads, Atomics & Memory Ordering",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Threads & Synchronization",
+          "items": [
+            "std::thread",
+            "std::jthread",
+            "Mutex",
+            "Recursive mutex",
+            "Shared mutex",
+            "Condition variables"
+          ]
+        },
+        {
+          "title": "Atomics & Async Mechanics",
+          "items": [
+            "Atomics",
+            "Memory ordering",
+            "Futures",
+            "Promises",
+            "Async",
+            "Thread Local Storage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Memory Management",
+      "subtitle": "Allocators, Alignment & Cache Locality",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Areas & Allocations",
+          "items": [
+            "Stack",
+            "Heap",
+            "Object lifetime",
+            "Memory pools",
+            "Custom allocators",
+            "Placement new"
+          ]
+        },
+        {
+          "title": "Hardware & Performance Factors",
+          "items": [
+            "Alignment",
+            "Fragmentation",
+            "Cache locality",
+            "False sharing",
+            "Allocator design"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — ABI (Critical)",
+      "subtitle": "Name Mangling, VTable Layouts & Itanium ABI",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ABI Standards & Mangling",
+          "items": [
+            "Application Binary Interface (ABI)",
+            "Itanium C++ ABI",
+            "Name mangling",
+            "Demangling"
+          ]
+        },
+        {
+          "title": "Low-Level Layouts & Conventions",
+          "items": [
+            "Virtual tables",
+            "RTTI layout",
+            "Constructor variants",
+            "Destructor variants",
+            "Exception ABI",
+            "Parameter passing",
+            "Return conventions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Compiler Internals",
+      "subtitle": "AST, Template Instantiation & Passes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Parser & Middle-End",
+          "items": [
+            "Lexing",
+            "Parsing",
+            "AST",
+            "Template instantiation",
+            "Intermediate Representation (IR)"
+          ]
+        },
+        {
+          "title": "Optimizations & CodeGen",
+          "items": [
+            "Optimization passes",
+            "Inlining",
+            "Loop unrolling",
+            "Dead-code elimination",
+            "Constant folding",
+            "Register allocation",
+            "Instruction scheduling",
+            "Code generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Linking",
+      "subtitle": "Translation Units, LTO & Symbol Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linker Mechanics & Artifacts",
+          "items": [
+            "Translation units",
+            "Object files",
+            "Static libraries",
+            "Shared libraries",
+            "Symbol resolution",
+            "Relocations"
+          ]
+        },
+        {
+          "title": "Binary Linkage Directives",
+          "items": [
+            "Position Independent Code (PIC)",
+            "Position Independent Executable (PIE)",
+            "Symbol visibility",
+            "Link-Time Optimization (LTO)",
+            "One Definition Rule (ODR)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Assembly Mapping",
+      "subtitle": "Source to Register & Assembly Transformations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Mapping Stack",
+          "items": [
+            "Variables → Registers → Memory → Assembly"
+          ]
+        },
+        {
+          "title": "Assembly Pattern Identification",
+          "items": [
+            "Classes",
+            "Templates",
+            "Virtual functions",
+            "Constructors",
+            "Destructors",
+            "Exceptions",
+            "RTTI",
+            "STL containers",
+            "Coroutines",
+            "Lambdas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Android Native Development",
+      "subtitle": "NDK, JNI, Bionic & ART Bridge",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NDK Frameworks & Building",
+          "items": [
+            "Android NDK",
+            "JNI",
+            "CMake",
+            "Bionic",
+            "libc++",
+            "Native Activities",
+            "Shared libraries",
+            "Cross compilation"
+          ]
+        },
+        {
+          "title": "Runtime Integration",
+          "items": [
+            "ART interaction",
+            "Java ↔ Native bridge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Performance Engineering",
+      "subtitle": "Profiling, PGO & Hardware Aware Code",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Optimization Techniques",
+          "items": [
+            "Compiler optimization levels",
+            "Inlining",
+            "Cache optimization",
+            "SIMD awareness",
+            "Branch prediction",
+            "Memory alignment",
+            "Profile-guided optimization (PGO)",
+            "Benchmarking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Security",
+      "subtitle": "Memory Safety, Undefined Behavior & Sanitizers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Vulnerabilities & Memory Corruption",
+          "items": [
+            "Undefined behavior",
+            "Memory corruption",
+            "Buffer overflow",
+            "Use-after-free",
+            "Double free",
+            "Integer overflow"
+          ]
+        },
+        {
+          "title": "Defensive Practices",
+          "items": [
+            "Exception safety",
+            "Sanitizers",
+            "Secure coding practices"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Reverse Engineering Fundamentals",
+      "subtitle": "Identifying C++ Constructs in Binaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Construct Identification",
+          "items": [
+            "Constructors & Destructors",
+            "Virtual calls & VTables",
+            "RTTI structures",
+            "Templates",
+            "STL containers",
+            "Move semantics",
+            "Smart pointers",
+            "Lambda closures",
+            "Coroutine state machines",
+            "Static initialization & Global objects",
+            "Compiler-generated helper functions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Advanced Reverse Engineering",
+      "subtitle": "Deobfuscation, Class Recovery & Control Flow",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Class & Structural Recovery",
+          "items": [
+            "Class recovery",
+            "Inheritance recovery",
+            "VTable reconstruction",
+            "RTTI reconstruction",
+            "Type inference",
+            "Function signature inference",
+            "Symbol recovery"
+          ]
+        },
+        {
+          "title": "Binary Analysis & Deobfuscation",
+          "items": [
+            "Compiler fingerprinting",
+            "Optimization recognition",
+            "Template-heavy binaries",
+            "Inline expansion",
+            "Tail calls",
+            "Control-flow reconstruction",
+            "Data-flow analysis & SSA concepts",
+            "Call graphs & Control Flow Graphs",
+            "Object lifetime reconstruction",
+            "Heap layout analysis",
+            "Memory ownership inference",
+            "Exception table analysis",
+            "Binary patching fundamentals",
+            "Binary instrumentation concepts",
+            "Obfuscation recognition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Reading Real-World C++ Code",
+      "subtitle": "Large Open-Source Engine & Runtime Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Production Codebases",
+          "items": [
+            "LLVM / Clang / libc++",
+            "Chromium",
+            "Qt",
+            "OpenCV",
+            "Unreal Engine (selected modules)",
+            "Godot Engine",
+            "ART native components",
+            "Android Runtime libraries",
+            "Android media framework"
+          ]
+        },
+        {
+          "title": "Code Review Focus Areas",
+          "items": [
+            "Architecture",
+            "Templates",
+            "Performance",
+            "Ownership",
+            "Memory safety",
+            "Concurrency",
+            "Compiler idioms"
+          ]
+        }
+      ]
+    }
+  ]
+}

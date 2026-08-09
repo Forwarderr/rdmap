@@ -1,0 +1,677 @@
+{
+  "meta": {
+    "id": "aosp_internals_mastery_roadmap",
+    "title": "Android Internals Source Code Mastery (AOSP), Linux Integration & System Architecture",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "AOSP INTERNALS & LINUX INTEGRATION MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for AOSP Internals, Source Code Navigation, Framework Subsystems, System Services, ART, Bionic, SurfaceFlinger, Binder, HALs, and Linux Kernel Integration!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — AOSP Philosophy",
+      "subtitle": "Open-Source Models, Gerrit Workflows & Mainline Modules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Ecosystem & Governance",
+          "items": [
+            "Android Open Source Project (AOSP) philosophy",
+            "Open-source development model & license boundaries (Apache 2.0 / GPL)",
+            "Gerrit code review & contribution pipeline",
+            "Branches management (main vs release branches)",
+            "Releases, Milestones, & Version Tags",
+            "Platform evolution across Android releases",
+            "Project Mainline modular system updates",
+            "Vendor modifications & OEM BSP integration models"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — AOSP Source Tree",
+      "subtitle": "Top-Level Directories Taxonomy & Subsystem Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Core Repositories Catalog",
+          "items": [
+            "art/ — Android Runtime, dex2oat, compiler, and garbage collector",
+            "bionic/ — Bionic C standard library, pthread, dynamic linker",
+            "bootable/ — Recovery OS, fastboot, and primary bootloaders",
+            "build/ — Soong, Blueprint, Ninja, and build configurations",
+            "cts/ & platform_testing/ — Compatibility Test Suite & automated tests",
+            "development/ & sdk/ — Developer tooling, NDK build files, and SDK tools",
+            "device/ & vendor/ — OEM, Board, and SoC silicon configurations",
+            "external/ — Third-party libraries (Skia, BoringSSL, SQLite, zlib)",
+            "frameworks/ — Base Java/C++ Framework, System Services, and native daemons",
+            "hardware/ — HAL interface definitions (interfaces/, libhardware/)",
+            "kernel/ — Android Common Kernel (ACK) source trees",
+            "libcore/ — Java core runtime libraries (harmony/openjdk)",
+            "packages/ — System UI, prebuilt apps, providers, and modules",
+            "prebuilts/ — Precompiled host toolchains, LLVM, and SDK targets",
+            "system/ — Core daemons, init, vold, netd, libbinder, logd",
+            "tools/ — Platform build utilities, apksigner, and aapt2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Build System",
+      "subtitle": "Soong, Blueprint, Ninja, Android.bp & Build Variants",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Build System Mechanics",
+          "items": [
+            "Soong build system engine (Replacing legacy GNU Make)",
+            "Blueprint parser and build definition translation",
+            "Ninja build execution orchestrator",
+            "Android.bp module definition syntax (`cc_library`, `java_library`, etc.)",
+            "Android.mk legacy Makefile conversion and compatibility",
+            "Product configuration files (`Lunch` menu setup)",
+            "Device configuration board definition variables",
+            "Build variants: `user`, `userdebug`, `eng`",
+            "Build targets (`droid`, `systemimage`, `vendorimage`, `bootimage`)",
+            "Dependency resolution DAGs and artifact generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Source Navigation Strategy",
+      "subtitle": "Structured Code Navigation, Symbols & Cross-References",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Navigation Workflows",
+          "items": [
+            "Package hierarchy mapping",
+            "Class inheritance and interface implementation resolution",
+            "Cross-references (XREFs) tracing via AOSP Code Search / OpenGrok",
+            "Call hierarchy construction (Callers vs Callees)",
+            "Searching by public/system API definitions",
+            "Searching by AIDL / HIDL Binder interface names",
+            "Searching by exported native C/C++ symbols (`.dynsym`)",
+            "Avoiding unstructured random codebase browsing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Framework Source",
+      "subtitle": "frameworks/base Package Architecture & Core Modules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "frameworks/base Key Packages",
+          "items": [
+            "android.app — Activity, Service, Application, Notification, Dialog",
+            "android.content — Context, Intent, ContentProvider, BroadcastReceiver",
+            "android.os — Binder, Handler, Looper, Parcel, Process, SystemProperties",
+            "android.view — View, ViewGroup, WindowManager, Choreographer, Surface",
+            "android.widget — TextView, RecyclerView, Layouts, Buttons",
+            "android.graphics — Canvas, Paint, Bitmap, Matrix, RenderNode",
+            "android.media — MediaCodec, MediaPlayer, AudioManager, AudioTrack",
+            "android.net — ConnectivityManager, Network, LinkProperties",
+            "android.location — LocationManager, Location, GNSS status",
+            "android.hardware — Camera2, Sensors, Biometrics interfaces",
+            "android.permission — PermissionManager, AppOpsManager"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — System Services",
+      "subtitle": "SystemServer Subsystem Architecture & Lifecycle",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core System Services Catalog",
+          "items": [
+            "ActivityManagerService (AMS) — Process lifecycles, OOM adj, memory trimming",
+            "ActivityTaskManagerService (ATMS) — Activity stacks, tasks, multi-window",
+            "PackageManagerService (PMS) — APK parsing, scanning, permission persistence",
+            "WindowManagerService (WMS) — Display layers, SurfaceFlinger bridges, insets",
+            "PowerManagerService — WakeLocks, screen state, Doze, battery optimization",
+            "DisplayManagerService — Logical/Physical display mapping, refresh rates",
+            "NotificationManagerService — Channels, ranking, foreground service rules",
+            "AlarmManagerService — Batching, RTC/Elapsed clocks, kernel timers",
+            "ConnectivityService — Network selection, evaluation, VPNs, routing rules",
+            "LocationManagerService — Location provider multiplexing & permissions",
+            "StorageManagerService — Volume mounting, FBE key unlocking, Vold calls",
+            "UserManagerService — Multi-user isolation, profiles, restrictions",
+            "PermissionManagerService — Runtime and signature permission checks",
+            "Media & Camera Services — Native media compositors and camera sessions",
+            "Service Startup, Boot Phases, Lifecycles, and Binder Interfaces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — ActivityThread",
+      "subtitle": "Main Thread Loop, App Startup & Component Lifecycles",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ActivityThread Mechanics",
+          "items": [
+            "Application startup execution sequence",
+            "Instrumentation binding (`mInstrumentation`)",
+            "Main UI Thread Looper initialization (`Looper.prepareMainLooper()`)",
+            "Message handling loop (`H` Handler)",
+            "Activity launch pipeline (`handleLaunchActivity`)",
+            "Service lifecycle execution (`handleCreateService`, `handleBindService`)",
+            "BroadcastReceiver dispatching (`handleReceiver`)",
+            "Configuration changes propagation (`handleConfigurationChanged`)",
+            "IPC Interaction with AMS and ATMS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Context Implementation",
+      "subtitle": "ContextImpl, ContextWrapper & Resource Resolvers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Context Concrete Classes",
+          "items": [
+            "ContextImpl — Real concrete implementation of Context methods",
+            "ContextWrapper — Delegation wrapper for Context instances",
+            "ContextThemeWrapper — Context with associated theme resources",
+            "System services retrieval (`getSystemService`)",
+            "Resource loading and AssetManager binding",
+            "Package Context creation (`createPackageContext`)",
+            "Application Context vs Activity Context lifecycles and scope"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — PackageManager Internals",
+      "subtitle": "Package Parsing, Scanning, Installation & Signatures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "PMS Subsystem Architecture",
+          "items": [
+            "Package parsing (`ParsingPackageUtils` / `PackageParser`)",
+            "Package scanning & filesystem directory iteration (`/data/app`)",
+            "Installation pipeline & Session management (`PackageInstaller`)",
+            "Package updates & version downgrade prevention",
+            "Permission management & persistence (`packages.xml`)",
+            "Shared static libraries linking",
+            "Intent resolution engine (`IntentResolver`)",
+            "APK Signature Scheme verification (v1, v2, v3, v4)",
+            "Resource table registration in AssetManager"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Window System",
+      "subtitle": "PhoneWindow, DecorView, WindowManagerGlobal & SurfaceControl",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Window Pipeline Architecture",
+          "items": [
+            "PhoneWindow instantiation & DecorView hierarchy",
+            "DecorView view tree attachment",
+            "WindowManagerGlobal IPC proxy singleton",
+            "WindowManagerService window token and z-order evaluation",
+            "Input pipeline integration (`InputChannel` / `InputDispatcher`)",
+            "SurfaceControl handle creation and composition submit",
+            "Rendering coordination with RenderThread and SurfaceFlinger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Resource System",
+      "subtitle": "AssetManager, ResourcesImpl, Themes & Overlays",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Manager Subsystem",
+          "items": [
+            "AssetManager C++ native backend interface",
+            "ResourcesImpl resolution engine",
+            "Configuration matching (Density, Orientation, Language)",
+            "AAPT2-generated resources and `resources.arsc` parsing",
+            "Resource ID lookup (`0x7f...` allocation)",
+            "Theme resolution and style inheritance parsing",
+            "Runtime Resource Overlay (RRO) & OverlayManagerService",
+            "Resource Caching and DisplayMetrics scaling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Binder Source",
+      "subtitle": "frameworks/native/libs/binder/ & Kernel Driver",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Binder Codebase",
+          "items": [
+            "frameworks/native/libs/binder/ — `Binder.cpp`, `BpBinder.cpp`, `IPCThreadState.cpp`, `ProcessState.cpp`",
+            "system/libhwbinder/ — HIDL native binder library",
+            "Linux Kernel Binder Driver (`drivers/android/binder.c`)",
+            "Transaction dispatching and mmap buffer allocation",
+            "IBinder, BBinder, and BpBinder object hierarchies",
+            "Binder handles and node references management",
+            "Parcel marshalling and unmarshalling in C++",
+            "Thread pool execution (`ProcessState::startThreadPool`)",
+            "Death notifications (`linkToDeath` / `binderDied`)",
+            "Permission and UID/PID propagation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — ART Source",
+      "subtitle": "art/ Runtime, Compiler, dex2oat & Garbage Collection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ART Engine Source Repositories",
+          "items": [
+            "art/runtime/ — ClassLinker, interpreter, GC, JNI, thread management",
+            "art/compiler/ — Optimizing compiler, IR passes, ARM64 code generation",
+            "art/dex2oat/ — AOT compiler binary orchestration",
+            "art/libdexfile/ — DEX file parsing and data structures",
+            "Class loading, resolution, and verification pipelines",
+            "Interpreter execution loop (`ExecuteMterpImpl`)",
+            "JIT compiler runtime thread pool and code cache",
+            "AOT compilation filters and profile processing",
+            "Generational Concurrent Copying (CC) Garbage Collector",
+            "JNI environment (`JNIEnvExt`) and reference table mechanics",
+            "Runtime optimizations (Inlining, Devirtualization, Escape analysis)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Bionic Source",
+      "subtitle": "bionic/ C Standard Library, Linker & System Calls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Bionic C Library Repositories",
+          "items": [
+            "bionic/libc/ — C standard library implementations",
+            "bionic/libdl/ — Dynamic linker interface (`dlopen`, `dlsym`)",
+            "bionic/libm/ — Math library functions",
+            "bionic/linker/ — Android dynamic linker (`linker` / `linker64`)",
+            "Pthread implementation (`bionic/libc/bionic/pthread_*`)",
+            "Scudo / jemalloc native memory allocation wrappers",
+            "Automated system call wrapper generation (`GENSYSCALLS.py`)",
+            "Thread-Local Storage (TLS) allocation (`TPIDR_EL0`)",
+            "Signal handling and dispatching",
+            "Differences between Bionic and GNU glibc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Native Framework",
+      "subtitle": "frameworks/native/ C++ UI & Surface Abstractions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Framework Libraries",
+          "items": [
+            "frameworks/native/libs/gui/ — Surface, SurfaceControl, BufferQueue",
+            "frameworks/native/libs/ui/ — GraphicBuffer, Region, Framebuffer",
+            "frameworks/native/libs/input/ — InputReader, InputDispatcher, InputChannel",
+            "frameworks/native/libs/renderengine/ — Skia / GLES / Vulkan render engines",
+            "frameworks/native/libs/nativewindow/ — ANativeWindow platform abstraction",
+            "Surface management, Display composition, and Input handling pipelines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Graphics Source",
+      "subtitle": "SurfaceFlinger, HWUI, Skia & Composition Pipelines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Graphics Subsystem Source",
+          "items": [
+            "frameworks/native/services/surfaceflinger/ — System compositor daemon",
+            "frameworks/base/libs/hwui/ — Hardware-accelerated UI pipeline",
+            "external/skia/ — 2D vector and GPU rendering engine",
+            "RenderThread architecture & GPU command recording",
+            "BufferQueue Producer/Consumer state machine",
+            "SurfaceControl transactions submission",
+            "Hardware Composer (HWC) HAL display plane composition",
+            "Display composition pipeline execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Media Framework",
+      "subtitle": "frameworks/av/ AudioFlinger, MediaCodec & CameraService",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Media Subsystem Codebases",
+          "items": [
+            "frameworks/av/services/audioflinger/ — Native audio compositor",
+            "frameworks/av/services/camera/libcameraservice/ — Camera HAL3 manager",
+            "frameworks/av/media/libstagefright/ — MediaCodec framework engine",
+            "MediaExtractor & MediaMuxer native backends",
+            "MediaPlayer native wrapper implementations",
+            "Codec2 modern component framework (`frameworks/av/media/codec2/`)",
+            "End-to-end Audio and Video playback and capture pipelines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Connectivity",
+      "subtitle": "NetworkStack, Netd, DNS Resolver & Firewalling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Connectivity Subsystem Codebases",
+          "items": [
+            "packages/modules/Connectivity/ — NetworkStack & ConnectivityService",
+            "system/netd/ — Netd C++ daemon, iptables, and firewall rules",
+            "packages/modules/DnsResolver/ — Native DNS caching and DoT/DoH resolver",
+            "NetworkStack APEX updatable architecture",
+            "Traffic management, socket tagging, and netfilter integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Security Source",
+      "subtitle": "Keystore2, SELinux Policies, AVB & Gatekeeper",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Codebases & Policies",
+          "items": [
+            "system/security/keystore2/ — Rust/C++ Keystore2 daemon",
+            "system/sepolicy/ — SELinux domain and type policy definitions",
+            "hardware/interfaces/security/keymint/ — KeyMint HAL interfaces",
+            "system/core/fs_mgr/liblp/ — Android Verified Boot (AVB) parsing",
+            "Permission enforcement in Framework services",
+            "SELinux policy compilation and enforcement engine",
+            "Security services and hardware root of trust integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Hardware Abstraction Layer",
+      "subtitle": "hardware/interfaces/ Stable AIDL & Legacy HIDL HALs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "HAL Interface Implementations",
+          "items": [
+            "hardware/interfaces/ — AIDL and HIDL HAL definitions",
+            "Camera HAL, Audio HAL, Bluetooth HAL, Wi-Fi HAL",
+            "Sensors HAL, GNSS HAL, Power HAL, Thermal HAL",
+            "USB HAL, Biometrics HAL (Fingerprint/Face)",
+            "Stable AIDL modern interface standards",
+            "Legacy HIDL passthrough and binderized architectures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Linux Integration",
+      "subtitle": "Kernel-Userspace Boundaries, System Calls & Cgroups",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Android-Linux Boundary Interoperability",
+          "items": [
+            "System call interface transitions (`syscall`)",
+            "Process and Thread management in kernel",
+            "Memory management & anonymous page mappings",
+            "Completely Fair Scheduler (CFS) & Energy Aware Scheduling (EAS)",
+            "Binder IPC driver kernel module (`/dev/binder`)",
+            "epoll event multiplexing",
+            "POSIX Signals delivery and masks",
+            "Namespaces (Mount, PID, Network) container isolation",
+            "Cgroups resource controllers (`top-app`, `foreground`, `background`)",
+            "SELinux security hooks (`LSM` - Linux Security Modules)",
+            "Power management & WakeLocks kernel interfaces",
+            "Delineating where Android userspace ends and Linux kernel begins"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Kernel Interaction",
+      "subtitle": "Driver Models, Input, Display, Networking & Storage",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Kernel Driver Interactions",
+          "items": [
+            "Binder driver IPC communication",
+            "Input subsystem (`/dev/input/eventX`)",
+            "Display subsystem (Direct Rendering Manager - DRM / KMS drivers)",
+            "Memory management (Low Memory Killer / PSI metrics)",
+            "Networking subsystem (`netfilter` / `sk_buff`)",
+            "Power management & Wakeup sources",
+            "File systems (F2FS, EXT4, OverlayFS)",
+            "Security hooks & driver access controls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Mainline Modules",
+      "subtitle": "APEX Packages, Updatable Components & System Updates",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Project Mainline Architecture",
+          "items": [
+            "APEX (Android Pony EXpress) package container format",
+            "Mainline architecture & updatable system modules",
+            "Updatable components: ART, Media, Networking, Permission, DNS, Consrypt",
+            "Module boundaries and public API stability",
+            "Versioning & Play System Updates delivery mechanism",
+            "Impact of APEX updates on framework execution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Testing Infrastructure",
+      "subtitle": "CTS, VTS, Unit Tests, Benchmarks & Framework Tests",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Testing Frameworks",
+          "items": [
+            "Compatibility Test Suite (CTS) execution",
+            "Vendor Test Suite (VTS) execution",
+            "Google Test Suite (GTS) overview",
+            "AOSP Unit tests & Native C++ GoogleTest (gtest) suites",
+            "Instrumentation tests & TradeFederation test runner",
+            "Benchmark tests & microbenchmarks",
+            "Framework & Native daemon test suites"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Debug Infrastructure",
+      "subtitle": "Logcat, Dumpsys, Perfetto, Watchdog & Diagnostics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Platform Diagnostic Tooling",
+          "items": [
+            "logcat daemon & ring buffers",
+            "dumpsys system service inspection utility",
+            "dumpstate & bugreport generation tools",
+            "Perfetto system-wide tracing platform",
+            "System tracing tags and ATrace integration",
+            "Debug APIs (`android.os.Debug`)",
+            "SystemServer Watchdog thread monitoring",
+            "ANR diagnostics & Tombstone crash analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Reading Strategy",
+      "subtitle": "Systematic High-Level to Low-Level Source Traversal",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Subsystem Reading Order",
+          "items": [
+            "1. Read Public / System API contract",
+            "2. Read Manager class abstraction (`Context.getSystemService()`)",
+            "3. Read AIDL / HIDL Binder interface contract",
+            "4. Read System Service implementation in `SystemServer`",
+            "5. Read C++ Native Library implementation",
+            "6. Read HAL Interface and Vendor implementation",
+            "7. Read Linux Kernel driver interaction (`ioctl` / sysfs)",
+            "Systematic top-to-bottom architectural traversal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Cross-Layer Tracing",
+      "subtitle": "End-to-End Tracing Across 8 Architectural Layers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Full Stack Call Chain Pipeline",
+          "items": [
+            "Application → Framework API → Manager → Binder Proxy → Binder Driver → System Service → Native Library → HAL → Kernel → Hardware"
+          ]
+        },
+        {
+          "title": "Target Subsystem Traces to Master",
+          "items": [
+            "Camera capture, Audio playback, Bluetooth pairing, Wi-Fi scanning, Notifications posting, Storage writing, Package installation, Activity launch, UI rendering, Location updates, Biometric authentication"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Source Code Reading Habits",
+      "subtitle": "Professional Code Review Discipline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Source Analysis Habits",
+          "items": [
+            "Read interface contracts before reviewing concrete implementations",
+            "Understand high-level architecture before analyzing specific algorithms",
+            "Follow execution flow linearly instead of browsing randomly",
+            "Review Git commit history (`git log` / Gerrit) for design rationale",
+            "Compare API documentation with actual implementation behavior",
+            "Trace both success execution paths and error failure handling paths",
+            "Build architectural diagrams and call graphs while reading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — System Reconstruction Exercises",
+      "subtitle": "Subsystem Architecture Re-engineering Exercises",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Subsystem Reconstruction Framework",
+          "items": [
+            "For every major AOSP subsystem, reconstruct:",
+            "  • Architecture → Key Classes → Core Methods → Execution Flow → Binder Interfaces → Native Implementation → HAL → Kernel Interaction",
+            "Repeat exercise across: AMS, PMS, WMS, SurfaceFlinger, ART, Bionic, Netd, AudioFlinger, CameraService"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Long-Term Mastery",
+      "subtitle": "Continuous Platform Mastery & Evolution Tracking",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Continuous Mastery Goals",
+          "items": [
+            "Tracking new Android platform releases and AOSP commit changes",
+            "Monitoring ART compiler and GC improvements",
+            "Tracking Binder IPC enhancements and libbinder_ndk evolutions",
+            "Studying Project Mainline updatable APEX module expansions",
+            "Following Jetpack library evolution and framework integrations",
+            "Studying LLVM toolchain and compiler optimizations",
+            "Tracking Android Common Kernel (ACK) updates",
+            "Monitoring platform security architecture changes and mitigations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Expert-Level Mental Models",
+      "subtitle": "System Inquiry Checklist for Expert Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Platform Expert Inquiry Checklist",
+          "items": [
+            "Why is this framework API implemented in this specific way?",
+            "Which layer owns the ultimate responsibility for this operation?",
+            "Could this system behavior be implemented elsewhere in the stack?",
+            "Where does permission and capability enforcement occur?",
+            "Which Linux process executes this code (`system_server`, `app`, `daemon`)?",
+            "Which thread executes this callback (UI thread, Binder thread, RenderThread)?",
+            "Which memory region stores this object (Java Heap, Native Heap, Shared Memory)?",
+            "Which Binder transaction code and interface is involved?",
+            "Which native shared library (`.so`) is called via JNI or Binder?",
+            "Which HAL implementation is invoked (AIDL / HIDL)?",
+            "Which Linux kernel subsystem or driver finally performs the hardware operation?"
+          ]
+        }
+      ]
+    }
+  ]
+}

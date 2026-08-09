@@ -1,0 +1,775 @@
+{
+  "meta": {
+    "id": "android_performance_memory_optimization_roadmap",
+    "title": "Android Performance, Memory, Processes, Threads & System Optimization",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROID PERFORMANCE & SYSTEM OPTIMIZATION MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for Android Performance, Memory Management, Process Lifecycles, Threading, Garbage Collection, and System-Level Optimization!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Runtime Performance Architecture",
+      "subtitle": "Execution Stack, Threading Models & System Resource Controls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Runtime Performance Foundations",
+          "items": [
+            "Runtime architecture & execution pipeline",
+            "Process model & isolation boundaries",
+            "Thread model & scheduling priorities",
+            "Memory model & virtual address space allocation",
+            "Linux kernel CPU scheduling & affinity",
+            "Resource management & cgroups isolation",
+            "Power management & energy aware scheduling",
+            "Performance lifecycle from boot to app execution"
+          ]
+        },
+        {
+          "title": "Full Execution Call Pipeline",
+          "items": [
+            "Application → Zygote → Linux Process → ART Runtime → Threads → Memory → CPU Scheduler → Linux Kernel → Hardware"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android Process Model",
+      "subtitle": "Process Classifications, Sandboxing & Multi-Process Models",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Process Classification Types",
+          "items": [
+            "Application process (`u0_aXXX`)",
+            "System process (`system` UID / `system_server`)",
+            "Persistent process (`android:persistent=\"true\"`)",
+            "Foreground process (Active UI / bound service)",
+            "Background process (Cached / inactive lifecycle)",
+            "Cached process (RAM optimization placeholder)",
+            "Isolated process (`android:isolatedProcess=\"true\"`)",
+            "Multiple processes per application (`android:process`)",
+            "Shared processes (`android:sharedUserId` - legacy)",
+            "Specialized processes (Zygote, WebView renders, App Spawning)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Process Lifecycle",
+      "subtitle": "Process States, Transitions & Importance Calculations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lifecycle Stages & Transitions",
+          "items": [
+            "Process Creation & Zygote socket request",
+            "Forking via `fork()` & Copy-On-Write memory mapping",
+            "Process initialization & specialization",
+            "Foreground execution state",
+            "Background transition & memory trimming",
+            "Cached process lifecycle",
+            "Termination by LMKD / OOM killer",
+            "Automatic process restart & state restoration",
+            "State transitions & process priority calculation",
+            "Process importance ranking in ActivityManagerService"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Zygote Forking",
+      "subtitle": "Process Preloading, Copy-On-Write & USAP Pools",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Zygote Incubation Architecture",
+          "items": [
+            "Zygote process startup during system boot",
+            "Class preloading (`preloaded-classes` in boot image)",
+            "Forking app processes via `fork()` system call",
+            "Copy-On-Write (COW) shared memory pages between apps",
+            "Process specialization (Dropping UID/GID, applying SELinux domain)",
+            "Unspecialized App Process (USAP) Pool pre-forking",
+            "Process initialization & ActivityThread entry",
+            "Memory sharing optimization across all Android processes",
+            "Cold startup time optimization strategies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — ActivityManagerService",
+      "subtitle": "Process Records, OOM Adj Calculations & Crash Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AMS Process Management",
+          "items": [
+            "ProcessRecord tracking structures",
+            "ActivityRecord & TaskRecord stack tracking",
+            "ServiceRecord & ActiveServices management",
+            "BroadcastRecord & Receiver queue management",
+            "Out-Of-Memory (OOM) adjustment calculations",
+            "Importance level assignment",
+            "Lifecycle coordination with ActivityTaskManagerService",
+            "Crash recovery, restart loops, & ANR handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — OOM Adjustment",
+      "subtitle": "OOM Scores, Process Ranking & Priority Levels",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OOM Score & Adj Hierarchy",
+          "items": [
+            "OOM scores (`oom_score_adj` values from -1000 to 1000)",
+            "Process importance determination",
+            "Foreground priority (`FOREGROUND_APP_ADJ = 0`)",
+            "Visible priority (`VISIBLE_APP_ADJ = 100`)",
+            "Perceptible priority (`PERCEPTIBLE_APP_ADJ = 200`)",
+            "Service priority (`SERVICE_ADJ = 500`)",
+            "Cached priority (`CACHED_APP_MIN_ADJ = 900` to `999`)",
+            "Dynamic `adj` calculation algorithms",
+            "Process ranking & LRU (Least Recently Used) cache lists"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — LMKD",
+      "subtitle": "Low Memory Killer Daemon, PSI Metrics & Kill Strategies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "LMKD Daemon Architecture",
+          "items": [
+            "Low Memory Killer Daemon (LMKD native service)",
+            "Memory pressure evaluation strategies",
+            "Process kill selection based on `oom_score_adj` and RAM usage",
+            "Target process selection algorithm",
+            "Pressure Stall Information (PSI) kernel metrics integration",
+            "Memory thresholds & minfree parameters",
+            "Kernel event monitoring via epoll",
+            "LMKD logging and kill reason diagnostics (`dmesg` / Logcat)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Memory Architecture",
+      "subtitle": "Heaps, Stack, Page Caches & Anonymous Memory Regions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Regions & Allocation Types",
+          "items": [
+            "Java / ART Heap",
+            "Native Heap (Scudo / malloc allocations)",
+            "Thread Stacks",
+            "Shared Memory (ashmem / `memfd_create` / `AHardwareBuffer`)",
+            "Memory mapping (`mmap` file-backed regions)",
+            "Linux Page Cache & Clean vs Dirty pages",
+            "Anonymous pages (`/dev/zero` backed)",
+            "Process memory regions (`/proc/PID/maps`)",
+            "Virtual Address Space vs Physical Resident Set Size (RSS / PSS / USS)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — ART Heap",
+      "subtitle": "Heap Spaces, Image Space, Zygote Space & Compaction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ART Heap Segmentation",
+          "items": [
+            "Heap spaces organization",
+            "Image Space (`boot.art` preallocated framework objects)",
+            "Zygote Space (Inherited pre-fork shared memory)",
+            "App Space / Main FreeList Space (Dynamic allocations)",
+            "Large Object Space (LOS - Bitmaps and primitive arrays >= 12KB)",
+            "Heap allocation algorithms (rosalloc / Dynamic TLABs)",
+            "Heap expansion & Soft/Hard heap growth limits",
+            "Generational Compaction & Memory defragmentation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Object Allocation",
+      "subtitle": "TLABs, Object Headers, Alignment & Escape Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Allocation Pipeline Mechanics",
+          "items": [
+            "Thread Local Allocation Buffer (TLAB / rosalloc thread cache)",
+            "Object headers structure (LockWord, mirror::Class pointer)",
+            "Memory alignment rules (8-byte boundary packing)",
+            "Allocation path (Fast path TLAB vs Slow path Heap lock)",
+            "Large object allocation path directly into LOS",
+            "Escape analysis compiler optimization",
+            "Allocation path optimization & Reducing GC pressure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Garbage Collection",
+      "subtitle": "GC Roots, Generational Collectors, Compaction & References",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "GC Algorithms & Reference Processing",
+          "items": [
+            "GC roots identification (Stack frames, JNI Globals, Static fields)",
+            "Mark phase (Object graph reachability analysis)",
+            "Sweep phase (Reclaiming unreachable memory)",
+            "Compact phase (De-fragmenting active memory objects)",
+            "Concurrent GC (Non-blocking execution alongside UI thread)",
+            "Generational Concurrent Copying (CC) Collector",
+            "Pause times minimization & Stop-The-World (STW) phases",
+            "Heap compaction passes",
+            "Reference processing: Strong, Soft, Weak, Phantom references",
+            "ReferenceQueues notification handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Thread Architecture",
+      "subtitle": "Thread Types, Main Thread, Binder Threads & RenderThread",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Process Thread Topology",
+          "items": [
+            "Main / UI Thread (`ActivityThread` Looper)",
+            "Binder Threads (Default pool size up to 15 threads)",
+            "RenderThread (Offloaded HWUI GPU drawing pipeline)",
+            "Finalizer daemon thread (`FinalizerDaemon`)",
+            "GC threads (Concurrent collector worker threads)",
+            "JIT Compiler threads (Background bytecode optimization)",
+            "Background threads (Coroutines, Executors, WorkManager)",
+            "Native pthreads (C/C++ threads created in JNI)",
+            "Daemon threads vs Non-daemon threads lifecycle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Thread Scheduling",
+      "subtitle": "CFS Scheduler, Nice Values, Cgroups & Affinity",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linux Scheduling in Android",
+          "items": [
+            "Completely Fair Scheduler (CFS) integration",
+            "Thread priority & Android `Process.setThreadPriority()`",
+            "Nice values (-20 highest priority to 19 lowest priority)",
+            "CPU affinity & core pin bindings",
+            "Thread groups & Cgroup controllers (`top-app`, `foreground`, `background`)",
+            "Foreground thread scheduling boost",
+            "Background thread scheduling throttling",
+            "Real-time priorities (`SCHED_FIFO` / `SCHED_RR` for audio/display)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Synchronization",
+      "subtitle": "Monitors, Mutexes, Locks, Atomics & Contention",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Concurrency Primitives",
+          "items": [
+            "Monitors & Object locks (`synchronized` / `monitor-enter`)",
+            "POSIX Mutexes (`pthread_mutex_t` in native C++)",
+            "ReentrantLocks & StampedLocks",
+            "Atomic operations (`AtomicInteger`, C++ `<atomic>`)",
+            "Read-Write Locks (`ReentrantReadWriteLock`)",
+            "Condition Variables (`Condition` / `pthread_cond_t`)",
+            "Memory barriers & Acquire/Release semantics",
+            "Lock contention diagnosis",
+            "Priority inversion & Priority inheritance in Binder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — ANR",
+      "subtitle": "Application Not Responding, Timeouts, Traces & Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ANR Subsystem Mechanics",
+          "items": [
+            "Application Not Responding (ANR) root causes",
+            "Input dispatching timeout (5 seconds)",
+            "BroadcastReceiver timeout (10s foreground / 60s background)",
+            "Service lifecycle timeout (20s foreground / 200s background)",
+            "ContentProvider publish timeout (10 seconds)",
+            "ANR detection engine in ActivityManagerService",
+            "Stack traces generation (`/data/anr/traces.txt` / Bugreports)",
+            "ANR recovery and dialog presentation",
+            "Common causes: Main thread blocking, I/O on UI thread, Deadlocks",
+            "ANR diagnosis and trace analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Deadlocks",
+      "subtitle": "Livelocks, Circular Wait, Priority Inversion & Diagnostics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Concurrency Hazards",
+          "items": [
+            "Deadlock conditions (Coffman conditions: Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait)",
+            "Livelock (Active thread execution without progress)",
+            "Thread Starvation",
+            "Priority Inversion (Low priority thread holding high priority resource)",
+            "Circular Wait dependency graphs",
+            "Deadlock detection via thread stack dumps",
+            "Deadlock prevention architectures",
+            "Debugging deadlocks using dynamic trace analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — CPU Performance",
+      "subtitle": "Governors, Big.LITTLE, Core Scheduling & Thermal Limits",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "CPU Subsystem Tuning",
+          "items": [
+            "CPU governors (schedutil, performance, powersave)",
+            "Dynamic Voltage and Frequency Scaling (DVFS)",
+            "Core scheduling & task placement",
+            "Big.LITTLE / DynamIQ heterogeneous CPU architectures (Prime, Big, LITTLE cores)",
+            "Load balancing across CPU clusters",
+            "Context switching overhead reduction",
+            "CPU utilization metrics tracking",
+            "Thread CPU affinity configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Memory Performance",
+      "subtitle": "Allocation Costs, Cache Locality, Page Faults & TLB",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Low-Level Memory Performance Factors",
+          "items": [
+            "Allocation costs (Fast TLAB vs Slow Heap Lock allocation)",
+            "Memory fragmentation (Internal vs External fragmentation)",
+            "L1/L2/L3 Cache locality & Cache misses minimization",
+            "False sharing on multi-core CPUs",
+            "Page faults (Soft page faults vs Hard disk page faults)",
+            "Translation Lookaside Buffer (TLB) misses penalties",
+            "Memory bandwidth saturation",
+            "Kernel memory compression (zRAM / zswap integration)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Startup Performance",
+      "subtitle": "Cold/Warm/Hot Starts, Initialization & PGO Compilation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Application Startup Subsystem",
+          "items": [
+            "Cold start lifecycle (Process fork → ART Init → App.onCreate → Activity.onCreate)",
+            "Warm start lifecycle (Re-using cached process for activity creation)",
+            "Hot start lifecycle (Bringing existing task stack to foreground)",
+            "Startup phase timing metrics (Time To First Frame / TTID / TTRD)",
+            "Application.onCreate() optimization & Lazy initialization",
+            "App Startup library initialization",
+            "Baseline Profiles generation for cold start acceleration",
+            "Profile-Guided Optimization (PGO) in dex2oat",
+            "Startup tracing using Perfetto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Baseline Profiles",
+      "subtitle": "Profile Generation, ART Compilation & Startup Acceleration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Baseline Profile Architecture",
+          "items": [
+            "Profile generation using Macrobenchmark library",
+            "Bundling `baseline-prof.txt` inside APK `assets/`",
+            "Installation and parsing by `installd` / `dexopt`",
+            "AOT compilation of hot startup classes during install",
+            "ART runtime integration & Cloud Profiles aggregation",
+            "Runtime startup and frame drop benefits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Battery Optimization",
+      "subtitle": "Doze, App Standby Buckets, WakeLocks & Battery Historian",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Power Saver Frameworks",
+          "items": [
+            "Doze mode (Deep Doze vs Light Doze state machine)",
+            "App Standby (Active, Working Set, Frequent, Rare, Restricted buckets)",
+            "Standby bucket execution quotas & alarms throttling",
+            "Background execution restrictions",
+            "WakeLocks management (`PARTIAL_WAKE_LOCK` auditing)",
+            "Alarm batching & inexact alarms",
+            "JobScheduler / WorkManager power-efficient constraints",
+            "Foreground services power rules",
+            "Battery Historian tool for power consumption analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Thermal Management",
+      "subtitle": "Thermal HAL, CPU/GPU Throttling & Mitigation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Thermal Subsystem",
+          "items": [
+            "Thermal HAL & ThermalService daemon",
+            "Thermal throttling states (NONE, LIGHT, MODERATE, SEVERE, CRITICAL, EMERGENCY)",
+            "CPU frequency scaling under thermal pressure",
+            "GPU throttling & Frame rate drops",
+            "Cooling devices activation",
+            "Performance degradation mitigation strategies",
+            "Monitoring thermal state via `PowerManager.addThermalStatusListener()`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Power Management",
+      "subtitle": "PowerManager, Suspend/Resume, EAS & Battery Saver",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Power Management Subsystem",
+          "items": [
+            "PowerManager system service",
+            "WakeLocks acquisition and release lifecycles",
+            "Linux Kernel Suspend and Resume states",
+            "Display power states & Auto-brightness scaling",
+            "Idle modes & Deep Sleep transitions",
+            "Power hints submission to Power HAL (`POWER_HINT_INTERACTION`)",
+            "Energy Aware Scheduling (EAS) in Linux kernel",
+            "Battery Saver mode system-wide restrictions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Storage Performance",
+      "subtitle": "F2FS File System, I/O Caching & Latency Reduction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "I/O Subsystem Optimization",
+          "items": [
+            "File I/O performance on main thread penalties",
+            "Flash storage characteristics & Wear leveling",
+            "F2FS (Flash-Friendly File System) optimizations in Android",
+            "Linux Page Cache & Read-ahead buffering",
+            "User-space I/O buffering (BufferedInputStream / Okio)",
+            "Sequential access vs Random access performance differences",
+            "Storage latency metrics & SQLite WAL mode advantages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Graphics Performance",
+      "subtitle": "Jank, Overdraw, FrameTimeline & RenderThread Stalls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Rendering Performance Tuning",
+          "items": [
+            "Frame rendering budgets (16.6ms for 60fps, 8.3ms for 120fps)",
+            "Jank analysis & identifying missed VSYNC pulses",
+            "Dropped frames classification (App jank vs SurfaceFlinger jank)",
+            "Overdraw reduction (Debugging GPU Overdraw)",
+            "Layout performance & Flattening complex view hierarchies",
+            "GPU bottlenecks identification (Complex shaders, large textures)",
+            "RenderThread execution offloading",
+            "FrameTimeline tracing API in Perfetto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Network Performance",
+      "subtitle": "QUIC, HTTP/2 Multiplexing, Caching & Bandwidth Tuning",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Optimization Strategies",
+          "items": [
+            "Connection reuse & OkHttp ConnectionPool",
+            "DNS caching & Private DNS resolution latency reduction",
+            "HTTP/2 multiplexing over single TCP connection",
+            "HTTP/3 & QUIC transport protocol advantages",
+            "GZIP / Brotli payload compression",
+            "HTTP Response Caching (`Cache-Control`, `ETag`)",
+            "Retry policies with exponential backoff and jitter",
+            "Bandwidth optimization & Batching network requests"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Profiling",
+      "subtitle": "Android Studio Profiler Tools & Method Tracing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Profiler Suites",
+          "items": [
+            "CPU Profiler (System Trace, Method Trace, Sampled Java)",
+            "Memory Profiler (Heap Dumps, Native Allocations, Allocation Records)",
+            "Network Profiler (Inspecting active connections, payloads, rules)",
+            "GPU Inspector & Frame Profiler",
+            "Energy Profiler (Tracking CPU, Network, Location, Alarms battery impact)",
+            "Method tracing vs Sampling profilers overhead",
+            "Instrumentation profiling techniques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Tracing",
+      "subtitle": "Perfetto, Atrace, FrameTimeline & Binder Traces",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System Tracing Frameworks",
+          "items": [
+            "Perfetto system-wide tracing platform",
+            "atrace (Android System Tracing tag definitions)",
+            "Systrace (Historical tracing platform)",
+            "FrameTimeline tracing for UI jank analysis",
+            "Custom Trace Events (`Trace.beginSection()` / `Trace.endSection()`)",
+            "Analyzing trace slices and thread state transitions",
+            "CPU counters and frequency scaling traces",
+            "Scheduling traces & Context switch analysis",
+            "Binder IPC transaction call traces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Performance Monitoring",
+      "subtitle": "FrameMetrics, MemoryInfo & Crash/ANR Metrics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Production Performance Monitoring",
+          "items": [
+            "FrameMetrics API (`Window.OnFrameMetricsAvailableListener`)",
+            "Memory statistics tracking (`ActivityManager.getMemoryInfo()`)",
+            "CPU usage monitoring (`/proc/stat` & `/proc/self/stat`)",
+            "Thermal state monitoring (`PowerManager.getCurrentThermalStatus()`)",
+            "Battery state tracking (`BatteryManager`)",
+            "GC statistics collection (`Debug.getRuntimeStat()`)",
+            "ANR traces aggregation & Crash metrics analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Android Runtime Metrics",
+      "subtitle": "Debug APIs, Runtime Heap Stats & Class Loading Metrics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Runtime Telemetry APIs",
+          "items": [
+            "`Debug.MemoryInfo` struct inspection (PSS, RSS, Private Dirty)",
+            "`Debug` class diagnostic APIs (`Debug.dumpHprofData()`)",
+            "Runtime heap statistics (`Runtime.getRuntime().totalMemory()`)",
+            "Heap usage tracking and allocation tracking",
+            "Native heap statistics (`Debug.getNativeHeapAllocatedSize()`)",
+            "Thread counts and thread state monitoring",
+            "Class loading statistics & ART compilation metrics",
+            "GC statistics monitoring (`art.gc.gc-count`, `art.gc.gc-time`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Native Performance",
+      "subtitle": "JNI Overhead, Scudo Allocator & SIMD/NEON",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native C/C++ Optimization",
+          "items": [
+            "JNI transition cost minimization (Batching calls)",
+            "Native memory allocations management",
+            "Scudo / jemalloc allocator behavior & thread caches",
+            "L1/L2 Cache locality optimization for native structures",
+            "ARM NEON SIMD vectorization intrinsics",
+            "Compiler optimization flags (`-O3`, `-Flto`, `-fomit-frame-pointer`)",
+            "Inline functions (`__attribute__((always_inline))`)",
+            "Lock contention reduction in multi-threaded native libraries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — System Optimization",
+      "subtitle": "Resource Scheduling, Background Limits & Lazy Work",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "System-Level Tuning Patterns",
+          "items": [
+            "Resource scheduling alignment",
+            "Background execution limits enforcement",
+            "Foreground prioritization and memory protection",
+            "Memory trimming (`ComponentCallbacks2.onTrimMemory()`)",
+            "Component lifecycle optimization",
+            "Lazy loading and initialization on demand",
+            "Work deferral using WorkManager constraints"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Performance in AOSP",
+      "subtitle": "Reviewing Platform Performance Codebases",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Performance Target Codebases",
+          "items": [
+            "`frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java` - OOM adj, process priorities",
+            "`frameworks/base/services/core/java/com/android/server/wm/ActivityTaskManagerService.java` - Task stack scheduling",
+            "`system/memory/lmkd/` - Low Memory Killer Daemon C++ implementation",
+            "`art/runtime/gc/` - Generational Concurrent Copying Garbage Collector",
+            "`art/runtime/zygote.cc` - App process preloading and forking",
+            "`frameworks/base/libs/hwui/` - RenderThread and Canvas pipeline",
+            "`frameworks/base/core/java/android/view/Choreographer.java` - VSYNC frame pacing",
+            "`frameworks/base/services/core/java/com/android/server/power/PowerManagerService.java` - Power states and WakeLocks",
+            "`frameworks/base/services/core/java/com/android/server/power/ThermalManagerService.java` - Thermal throttling",
+            "Focus on: Understanding platform-level trade-offs between responsiveness, memory, and battery life"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Reverse Engineering Performance",
+      "subtitle": "Identifying Performance Bottlenecks & Hazards in Binaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Performance Analysis Checklist",
+          "items": [
+            "Identifying cold startup bottlenecks and blocking synchronous calls",
+            "Locating long-running initialization logic executed on the main UI thread",
+            "Auditing excessive memory allocations and primitive wrapper boxing",
+            "Identifying frequent garbage collection triggers (High allocation rates in inner loops)",
+            "Tracing Binder IPC contention & blocking synchronous `transact` calls",
+            "Auditing thread pools, executor starvation, and thread priority misconfigurations",
+            "Locating potential deadlock conditions and circular synchronization wait graphs",
+            "Auditing Application Not Responding (ANR) risk paths in receivers and services",
+            "Identifying WakeLock misuse (`PARTIAL_WAKE_LOCK` leaks)",
+            "Tracing network request bottlenecks (Uncached requests, lack of compression)",
+            "Identifying UI rendering bottlenecks (Deep view trees, overdraw, main thread layout passes)",
+            "Locating native memory leaks (`malloc` without `free`)",
+            "Understanding how compiler optimizations (Inlining, DCE, Loop unrolling) alter runtime assembly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Runtime Investigation Workflow",
+      "subtitle": "Systematic Inquiry Checklist for Runtime Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Runtime State Inquiry Checklist",
+          "items": [
+            "Which Linux process is currently executing this target code?",
+            "Which specific thread is executing this function (UI Thread vs Worker Thread)?",
+            "What is the current process importance (`oom_score_adj`) and cgroup placement?",
+            "Where is memory being allocated (Java Heap, Native Heap, or Direct Mappings)?",
+            "Which Garbage Collection events may be triggered by this allocation path?",
+            "Which Binder IPC calls are executing synchronously and blocking the calling thread?",
+            "Is application startup optimized with Baseline Profiles and lazy initialization?",
+            "Is UI rendering executing hardware-accelerated on the RenderThread or blocking the UI thread?",
+            "Which background work execution model is scheduled (WorkManager, JobScheduler, Service)?",
+            "Is device power management (Doze, App Standby, Thermal Throttling) altering execution behavior?"
+          ]
+        },
+        {
+          "title": "Core Investigation Principle",
+          "items": [
+            "Build a mental execution model that combines static DEX/Native disassembly analysis with dynamic runtime trace monitoring."
+          ]
+        }
+      ]
+    }
+  ]
+}

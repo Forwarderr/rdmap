@@ -1,0 +1,996 @@
+{
+  "meta": {
+    "id": "android_framework_apis_roadmap",
+    "title": "Android Framework APIs & Application Model",
+    "subtitle": "Beginner → Expert Framework Architecture & Application Model Roadmap",
+    "completionTitle": "ANDROID FRAMEWORK & APPLICATION MODEL MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive Android Framework APIs & Application Model roadmap, mastering Context, Core Components, View & Window Systems, Framework Managers, and AOSP internals!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Framework Overview",
+      "subtitle": "Framework Role, SDK, Libraries & Stack Placement",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Framework Boundaries & APIs",
+          "items": [
+            "Android SDK",
+            "Android Framework",
+            "AndroidX",
+            "Framework APIs",
+            "Public APIs",
+            "System APIs",
+            "Hidden APIs",
+            "Internal APIs"
+          ]
+        },
+        {
+          "title": "Framework Call Pipeline",
+          "items": [
+            "Application → Android Framework → Binder → System Server → Native Libraries → HAL → Linux Kernel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Framework Architecture",
+      "subtitle": "framework.jar, Bootclasspath & Manager Classes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Framework Libraries & Pathing",
+          "items": [
+            "Framework packages",
+            "framework.jar",
+            "bootclasspath",
+            "Framework Resources"
+          ]
+        },
+        {
+          "title": "Framework Management",
+          "items": [
+            "Framework Services",
+            "Managers & Service Managers",
+            "System APIs vs Application APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Context",
+      "subtitle": "Context Hierarchy, Wrappers & Core System APIs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Context Classes & Wrappers",
+          "items": [
+            "Application Context",
+            "Activity Context",
+            "ContextWrapper",
+            "ContextThemeWrapper",
+            "ContextImpl",
+            "Base Context"
+          ]
+        },
+        {
+          "title": "Lifecycle, Memory & Responsibilities",
+          "items": [
+            "Context lifecycle",
+            "Context leaks & memory management",
+            "Context responsibilities & usage scenarios"
+          ]
+        },
+        {
+          "title": "Essential Context APIs",
+          "items": [
+            "getSystemService()",
+            "startActivity() & startService() & bindService()",
+            "sendBroadcast() & registerReceiver()",
+            "getResources() & getPackageManager() & getContentResolver()",
+            "getAssets(), getFilesDir(), getCacheDir()",
+            "createPackageContext()"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Application",
+      "subtitle": "Process Lifecycle, Global State & Initialization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Application Object & Startup",
+          "items": [
+            "Application lifecycle",
+            "Application object instantiation",
+            "Process lifetime",
+            "Application startup",
+            "Application.onCreate()",
+            "Global state & initialization",
+            "MultiDexApplication",
+            "Custom Application implementation",
+            "Interaction with ActivityThread"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Activity",
+      "subtitle": "Lifecycle Callbacks, Windowing & Launch Mechanisms",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Activity Features & Tasks",
+          "items": [
+            "Activity lifecycle",
+            "Launch modes",
+            "Task affinity",
+            "Configuration changes",
+            "Saved instance state",
+            "Window creation & View hierarchy",
+            "Fragments & Permissions",
+            "Transitions, Picture-in-Picture & Multi-window",
+            "Activity aliases"
+          ]
+        },
+        {
+          "title": "Lifecycle Callbacks",
+          "items": [
+            "onCreate()",
+            "onStart()",
+            "onResume()",
+            "onPause()",
+            "onStop()",
+            "onDestroy()",
+            "onRestart()",
+            "onNewIntent()",
+            "onSaveInstanceState() & onRestoreInstanceState()",
+            "onActivityResult() (legacy) & Activity Result APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — ActivityTaskManager",
+      "subtitle": "Task Stacks, Launch Modes & Window Management",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Task Stacks & Management",
+          "items": [
+            "Task & Back Stack",
+            "TaskFragment",
+            "Recent tasks & Recents switching",
+            "ActivityTaskManagerService (ATMS)"
+          ]
+        },
+        {
+          "title": "Launch Mode Semantics",
+          "items": [
+            "standard (default)",
+            "singleTop",
+            "singleTask",
+            "singleInstance",
+            "singleInstancePerTask"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Intent",
+      "subtitle": "IPC Messaging, Filters & Deep Linking",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Intent Types & Resolution",
+          "items": [
+            "Explicit Intent vs Implicit Intent",
+            "Intent resolution engine",
+            "Intent flags & Intent extras",
+            "Parcelable vs Serializable",
+            "PendingIntent",
+            "Deep links & App Links"
+          ]
+        },
+        {
+          "title": "Intent Definitions",
+          "items": [
+            "Intent filters",
+            "Intent categories",
+            "Intent actions",
+            "Intent URI & Chooser dialogs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — BroadcastReceiver",
+      "subtitle": "Static/Dynamic Receivers, Ordering & Security",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Receiver Types & System Broadcasts",
+          "items": [
+            "Static receivers (Manifest registered)",
+            "Dynamic receivers (Context registered)",
+            "Ordered broadcasts",
+            "Sticky broadcasts (historical)",
+            "Protected broadcasts",
+            "Broadcast lifecycle & Receiver permissions",
+            "Broadcast queues & System broadcasts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Service",
+      "subtitle": "Background Execution, Binding, AIDL & Foreground Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Service Architecture",
+          "items": [
+            "Started Service vs Bound Service",
+            "Foreground Service & Notifications",
+            "Background Service execution restrictions",
+            "Service Binding & Messenger",
+            "AIDL (Android Interface Definition Language)",
+            "JobIntentService (historical)"
+          ]
+        },
+        {
+          "title": "Service Lifecycle Callbacks",
+          "items": [
+            "onCreate()",
+            "onStartCommand()",
+            "onBind()",
+            "onUnbind() & onRebind()",
+            "onDestroy()"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — ContentProvider",
+      "subtitle": "Data Sharing, Authorities, URIs & System Providers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Provider Architecture & Mechanics",
+          "items": [
+            "Provider lifecycle",
+            "Authorities & URI matching",
+            "CRUD operations (insert, query, update, delete)",
+            "MIME types & Permissions",
+            "Transactions & Database integration"
+          ]
+        },
+        {
+          "title": "System & Special ContentProviders",
+          "items": [
+            "FileProvider",
+            "DocumentsProvider",
+            "MediaStore",
+            "ContactsProvider",
+            "SettingsProvider"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — ContentResolver",
+      "subtitle": "Query Engine, Observers & Cross-Process Data Access",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ContentResolver APIs & Operations",
+          "items": [
+            "Query, Insert, Update, Delete",
+            "OpenFile & File Descriptor streaming",
+            "ContentObservers & Notifications",
+            "Sync adapters (historical overview)",
+            "Cross-process communication mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — PackageManager",
+      "subtitle": "Package Introspection, Metadata & Component Resolution",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Package Metadata & Inspection",
+          "items": [
+            "Installed packages enumeration",
+            "ApplicationInfo & PackageInfo",
+            "ResolveInfo & PermissionInfo",
+            "SignatureInfo & App Signing",
+            "Activities, Services, Providers, Receivers query APIs"
+          ]
+        },
+        {
+          "title": "Resolution & Visibility",
+          "items": [
+            "Intent resolution engine",
+            "Hardware/Software feature detection",
+            "Version information",
+            "Package visibility restrictions (<queries>)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Resources",
+      "subtitle": "Resource Resolution, Caching & Asset Loading",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Resource Manager & Types",
+          "items": [
+            "Resources class & AssetManager",
+            "Configuration & DisplayMetrics",
+            "Strings, Layouts, Styles, Themes",
+            "Colors, Fonts, Animations",
+            "Drawable loading & Caching mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Configuration",
+      "subtitle": "Device State, Configuration Changes & Qualifiers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Device Configuration Modifiers",
+          "items": [
+            "Orientation & Locale",
+            "Night mode & Screen density",
+            "Smallest width & Screen layout",
+            "Keyboard, Navigation, Touchscreen"
+          ]
+        },
+        {
+          "title": "Runtime Behavior",
+          "items": [
+            "Configuration changes handling",
+            "Resource updates"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — View System",
+      "subtitle": "Measure, Layout, Draw Pipeline & Event Dispatch",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "View Hierarchy Mechanics",
+          "items": [
+            "View & ViewGroup",
+            "Measure pass (onMeasure)",
+            "Layout pass (onLayout)",
+            "Draw pass (onDraw)",
+            "Invalidation & RequestLayout"
+          ]
+        },
+        {
+          "title": "View Pipeline & Interaction",
+          "items": [
+            "Event dispatch pipeline",
+            "Focus handling",
+            "Accessibility integration",
+            "Touch handling & Gesture detection",
+            "Hardware-accelerated Rendering pipeline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Layouts",
+      "subtitle": "Layout Managers, Inflater & Custom Views",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Layout Group",
+          "items": [
+            "LinearLayout",
+            "FrameLayout",
+            "RelativeLayout",
+            "ConstraintLayout",
+            "CoordinatorLayout",
+            "GridLayout & TableLayout"
+          ]
+        },
+        {
+          "title": "Inflation & Dynamic Views",
+          "items": [
+            "Custom layouts",
+            "LayoutInflater",
+            "ViewStub",
+            "<merge> & <include> tags"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Widgets",
+      "subtitle": "UI Components, RecyclerView & Navigation Views",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Basic & Selection Controls",
+          "items": [
+            "TextView, EditText, Button",
+            "ImageView, ImageButton",
+            "CheckBox, RadioButton, Switch",
+            "ProgressBar, SeekBar",
+            "Spinner, Toolbar"
+          ]
+        },
+        {
+          "title": "List & Container Widgets",
+          "items": [
+            "RecyclerView & LayoutManagers",
+            "ListView & GridView (legacy)",
+            "WebView",
+            "ScrollView & NestedScrollView",
+            "ViewPager2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Event System",
+      "subtitle": "Touch Input, MotionEvents & Gestures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Input Event Processing",
+          "items": [
+            "Touch events & Key events",
+            "MotionEvent lifecycle",
+            "GestureDetector & ScaleGestureDetector",
+            "InputDevice inspection",
+            "Drag & Drop framework"
+          ]
+        },
+        {
+          "title": "Listeners & Callbacks",
+          "items": [
+            "Focus events",
+            "Click listeners & Long-click listeners",
+            "Accessibility events"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Window System",
+      "subtitle": "PhoneWindow, WindowManager & Insets",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Window Hierarchy",
+          "items": [
+            "Window & PhoneWindow",
+            "DecorView",
+            "WindowManager & Window tokens",
+            "Window flags & System overlays"
+          ]
+        },
+        {
+          "title": "Dialogs & System UI Insets",
+          "items": [
+            "Dialog & PopupWindow",
+            "Toast windows",
+            "WindowInsets (Status bar, Navigation bar, Display Cutouts)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Fragment",
+      "subtitle": "Lifecycle, Transactions & Navigation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Fragment Lifecycle & Management",
+          "items": [
+            "Fragment lifecycle",
+            "FragmentManager",
+            "Fragment transactions & Back stack",
+            "Nested fragments",
+            "DialogFragment",
+            "Retained fragments (historical)",
+            "Fragment restoration & Navigation Component integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Notifications",
+      "subtitle": "Notification Channels, Styles & Bubbles",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Notification Framework",
+          "items": [
+            "NotificationManager",
+            "Notification channels & Importance levels",
+            "PendingIntent integration",
+            "Foreground notifications",
+            "Heads-up notifications",
+            "Notification styles, Actions, Grouping, & Bubbles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Permissions",
+      "subtitle": "Runtime Requests, AppOps & Protection Levels",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Permission Workflows",
+          "items": [
+            "Runtime permissions workflow",
+            "Permission requests & Rationales",
+            "Permission groups",
+            "Special permissions & Signature permissions",
+            "AppOps framework overview",
+            "Permission enforcement boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Storage APIs",
+      "subtitle": "Scoped Storage, SAF & MediaStore",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Storage Frameworks",
+          "items": [
+            "Internal storage vs External storage",
+            "Cache directories",
+            "MediaStore API",
+            "Storage Access Framework (SAF)",
+            "DocumentFile & FileProvider",
+            "Scoped storage restrictions",
+            "App-specific directories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Preferences",
+      "subtitle": "SharedPreferences, Encrypted Storage & DataStore",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Persistence APIs",
+          "items": [
+            "SharedPreferences",
+            "Preference APIs & PreferenceFragment",
+            "EncryptedSharedPreferences (overview)",
+            "Jetpack DataStore (Preferences & Proto)",
+            "Migration strategies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Clipboard",
+      "subtitle": "ClipboardManager, Data Types & Restrictions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Clipboard Framework",
+          "items": [
+            "ClipboardManager",
+            "ClipData & ClipDescription",
+            "Cross-app clipboard sharing",
+            "Security & Privacy restrictions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Input Methods",
+      "subtitle": "InputMethodManager, Soft Keyboards & IME Lifecycle",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "IME Framework",
+          "items": [
+            "InputMethodManager",
+            "Soft keyboard interaction",
+            "IME lifecycle",
+            "Text input, Selection & Suggestions",
+            "InputConnection & EditorInfo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Sensors",
+      "subtitle": "SensorManager, Hardware Sensors & Listeners",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Sensor APIs",
+          "items": [
+            "SensorManager & Sensor listeners",
+            "Accelerometer, Gyroscope, Magnetometer",
+            "Barometer, Light & Proximity sensors",
+            "Step counter",
+            "Sensor batching & Power optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Location",
+      "subtitle": "LocationManager, Providers & Geofencing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Location Framework",
+          "items": [
+            "LocationManager",
+            "GPS & Network providers",
+            "Passive provider & GNSS",
+            "Geofencing concepts",
+            "Location permissions & Background restrictions",
+            "Mock location provider handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Camera",
+      "subtitle": "Camera2 API, Sessions, Surfaces & Characteristics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Camera2 Pipeline",
+          "items": [
+            "Camera2 API",
+            "CameraManager",
+            "CaptureRequest & CaptureSession",
+            "ImageReader & Surface targets",
+            "Camera characteristics & Capabilities",
+            "Permissions & Lifecycle management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Audio",
+      "subtitle": "AudioManager, Focus, Playback & Routing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Audio Subsystem APIs",
+          "items": [
+            "AudioManager & AudioFocus",
+            "MediaPlayer, AudioTrack, SoundPool",
+            "Audio recording",
+            "Volume management, Routing & Bluetooth audio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Media",
+      "subtitle": "Codecs, Extractors, Muxers & Playback Architecture",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Media Codec Pipeline",
+          "items": [
+            "MediaCodec",
+            "MediaExtractor & MediaMuxer",
+            "MediaRecorder",
+            "MediaSession & MediaBrowser",
+            "ExoPlayer / Media3 architecture (conceptual)",
+            "Media streaming & Playback pipelines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Connectivity",
+      "subtitle": "ConnectivityManager, Network Capabilities & VPN",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Monitoring & Management",
+          "items": [
+            "ConnectivityManager",
+            "NetworkCapabilities & LinkProperties",
+            "Network callbacks",
+            "VPN APIs",
+            "Metered networks & Captive portal detection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Wi-Fi",
+      "subtitle": "WifiManager, Networks & Scanning Restrictions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Wi-Fi Subsystem APIs",
+          "items": [
+            "WifiManager & WifiInfo",
+            "WifiNetworkSpecifier",
+            "Wi-Fi Suggestions API",
+            "Wi-Fi scanning, Permissions & Restrictions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Bluetooth",
+      "subtitle": "BLE, GATT, Scanning & Pairing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Bluetooth & BLE Framework",
+          "items": [
+            "BluetoothAdapter & BluetoothDevice",
+            "Bluetooth Low Energy (BLE)",
+            "GATT profiles",
+            "BLE Scanning & Advertising",
+            "Device pairing & Bluetooth permissions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — NFC",
+      "subtitle": "NfcAdapter, NDEF, Tags & Host Card Emulation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NFC Subsystem",
+          "items": [
+            "NfcAdapter",
+            "Foreground dispatch system",
+            "NDEF messages & Tag technologies",
+            "Reader mode",
+            "Host Card Emulation (HCE) overview"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — USB",
+      "subtitle": "UsbManager, Devices, Accessories & Host Mode",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "USB Subsystem",
+          "items": [
+            "UsbManager",
+            "UsbDevice & UsbAccessory",
+            "USB permissions & Communication",
+            "USB Host mode vs Accessory mode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Telephony",
+      "subtitle": "TelephonyManager, SIM Subscriptions & Carrier Config",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Cellular & Carrier Framework",
+          "items": [
+            "TelephonyManager",
+            "SubscriptionManager",
+            "CarrierConfigManager",
+            "SMS APIs & Call state monitoring",
+            "Cell information & Telephony permissions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-38",
+      "title": "Stage 38 — Biometrics",
+      "subtitle": "BiometricPrompt, CryptoObject & Hardware Auth",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Biometric Authentication",
+          "items": [
+            "BiometricPrompt API",
+            "FingerprintManager (legacy)",
+            "Face authentication",
+            "Strong vs Weak biometrics",
+            "CryptoObject integration",
+            "Hardware authentication flow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-39",
+      "title": "Stage 39 — Power Management",
+      "subtitle": "PowerManager, WakeLocks, Doze & Thermal APIs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Power & Idle State APIs",
+          "items": [
+            "PowerManager & WakeLock types",
+            "Battery optimization exemptions",
+            "Doze mode & App Standby",
+            "Device idle modes",
+            "Thermal Management APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-40",
+      "title": "Stage 40 — Alarm & Scheduling",
+      "subtitle": "AlarmManager, Clocks & Idle Restrictions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Alarm Subsystem",
+          "items": [
+            "AlarmManager",
+            "Exact alarms vs Inexact alarms",
+            "Doze / Idle restrictions",
+            "RTC vs Elapsed Realtime clocks",
+            "Repeating alarms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-41",
+      "title": "Stage 41 — Job Scheduling",
+      "subtitle": "JobScheduler, Work Constraints & Background Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Deferred Execution APIs",
+          "items": [
+            "JobScheduler & JobInfo",
+            "Work constraints (Network, Charging, Idle)",
+            "Background execution limits",
+            "Relationship to Jetpack WorkManager"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-42",
+      "title": "Stage 42 — Accessibility",
+      "subtitle": "AccessibilityService, Node Trees & Events",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Accessibility Framework",
+          "items": [
+            "AccessibilityManager",
+            "AccessibilityService",
+            "AccessibilityEvents",
+            "AccessibilityNodeInfo tree",
+            "Accessibility actions & Service lifecycle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-43",
+      "title": "Stage 43 — Printing",
+      "subtitle": "PrintManager, Document Adapters & PDF Spooling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Printing Subsystem",
+          "items": [
+            "PrintManager",
+            "PrintDocumentAdapter",
+            "Print jobs & Spooler",
+            "PDF generation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-44",
+      "title": "Stage 44 — Framework Reverse Engineering Perspective",
+      "subtitle": "Framework Traversal & Analysis Questions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Framework Call Chain Inquiry",
+          "items": [
+            "Which framework API starts this execution path?",
+            "Which Manager class is being used?",
+            "Which Binder interface does it call?",
+            "Which System Service receives the request?",
+            "Which native library implements the operation?",
+            "Which permission protects the API?",
+            "Which lifecycle callback triggers this behavior?",
+            "Does this API eventually reach the HAL?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-45",
+      "title": "Stage 45 — Framework Source Reading",
+      "subtitle": "AOSP Framework Codebases for In-Depth Review",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Framework Repositories",
+          "items": [
+            "frameworks/base/core/java/android/ — Core Framework Manager classes",
+            "frameworks/base/services/ — System Services implementations",
+            "frameworks/base/packages/ — System UI, Settings, Providers",
+            "frameworks/base/libs/ — Native Framework C++ libraries",
+            "frameworks/native/ — SurfaceFlinger, InputFlinger, Native Binder Services"
+          ]
+        },
+        {
+          "title": "Source Review Strategy",
+          "items": [
+            "Focus on: Context, Activity, Intent, PackageManager, Resources, View, Window, Notification, Media, Connectivity, Sensors, Storage",
+            "Follow API calls from Java into Binder, System Server, and C++ native implementations"
+          ]
+        }
+      ]
+    }
+  ]
+}

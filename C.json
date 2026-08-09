@@ -1,0 +1,1092 @@
+{
+  "meta": {
+    "id": "c_roadmap",
+    "title": "C Language (Beginner → Expert)",
+    "subtitle": "Complete Masterclass & Systems Programming Roadmap",
+    "completionTitle": "C SYSTEMS MASTERED",
+    "completionMessage": "Congratulations! You have covered the complete C roadmap, from low-level memory mechanics to compilers, ELF internals, and reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — C Ecosystem",
+      "subtitle": "Origins, Standards & Compilation Pipeline",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Language History & Standards",
+          "items": [
+            "History of C",
+            "Dennis Ritchie",
+            "UNIX origins",
+            "ANSI C",
+            "ISO C",
+            "C89",
+            "C90",
+            "C99",
+            "C11",
+            "C17",
+            "C23 overview"
+          ]
+        },
+        {
+          "title": "Role & Relationships",
+          "items": [
+            "Why operating systems use C",
+            "Why Android native components use C",
+            "Relationship with C++",
+            "Relationship with Assembly"
+          ]
+        },
+        {
+          "title": "Compilation Pipeline",
+          "items": [
+            "Source Code → Preprocessor → Compiler → Assembler → Object File → Linker → Executable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Development Environment",
+      "subtitle": "Compilers, Toolchains & Build Systems",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compilers & Toolchains",
+          "items": [
+            "GCC",
+            "Clang",
+            "LLVM",
+            "Compiler flags",
+            "Build systems",
+            "Make",
+            "CMake",
+            "Cross compilation",
+            "Android NDK toolchain overview"
+          ]
+        },
+        {
+          "title": "Build Workflows",
+          "items": [
+            "Compilation",
+            "Linking",
+            "Debug builds",
+            "Release builds",
+            "Optimization flags",
+            "Warnings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — C Syntax",
+      "subtitle": "Core Language Fundamentals",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Syntax Basics",
+          "items": [
+            "Variables",
+            "Identifiers",
+            "Keywords",
+            "Statements",
+            "Expressions",
+            "Scope",
+            "Storage duration",
+            "Comments",
+            "Coding conventions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Data Types",
+      "subtitle": "Primitives, Derived Types & Type Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Primitive Types",
+          "items": [
+            "char",
+            "signed char",
+            "unsigned char",
+            "short",
+            "unsigned short",
+            "int",
+            "unsigned int",
+            "long",
+            "unsigned long",
+            "long long",
+            "unsigned long long",
+            "float",
+            "double",
+            "long double",
+            "_Bool"
+          ]
+        },
+        {
+          "title": "Derived Types",
+          "items": [
+            "Arrays",
+            "Pointers",
+            "Structures",
+            "Unions",
+            "Enums",
+            "Typedefs"
+          ]
+        },
+        {
+          "title": "Type System Mechanics",
+          "items": [
+            "Integer limits",
+            "Overflow",
+            "Underflow",
+            "Integer promotions",
+            "Floating-point precision",
+            "Type conversions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Operators",
+      "subtitle": "Operators & Low-Level Manipulation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Operators",
+          "items": [
+            "Arithmetic",
+            "Comparison",
+            "Logical",
+            "Assignment",
+            "Unary",
+            "Increment",
+            "Decrement",
+            "sizeof",
+            "Comma operator",
+            "Bitwise",
+            "Shift",
+            "Conditional operator"
+          ]
+        },
+        {
+          "title": "Pointer Operators",
+          "items": [
+            "Address-of",
+            "Dereference"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Control Flow",
+      "subtitle": "Branching, Loops & State Logic",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structures",
+          "items": [
+            "if",
+            "else",
+            "switch",
+            "for",
+            "while",
+            "do-while",
+            "break",
+            "continue",
+            "goto",
+            "return",
+            "Nested control structures"
+          ]
+        },
+        {
+          "title": "Practical Implementations",
+          "items": [
+            "Finite-state machines",
+            "Parsers",
+            "Loop transformations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Functions",
+      "subtitle": "Prototyping, Stack Frames & Calling Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Function Declarations & Types",
+          "items": [
+            "Declarations",
+            "Definitions",
+            "Prototypes",
+            "Parameters",
+            "Return values",
+            "Inline functions",
+            "Static functions",
+            "Recursive functions",
+            "Variadic functions",
+            "Function pointers",
+            "Calling conventions"
+          ]
+        },
+        {
+          "title": "Low-Level Stack Mechanics",
+          "items": [
+            "Stack frames",
+            "Arguments",
+            "Return addresses",
+            "Compiler-generated prologue",
+            "Compiler-generated epilogue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Storage Classes",
+      "subtitle": "Scope, Duration & Linkage Rules",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Storage Class Keywords",
+          "items": [
+            "auto",
+            "register",
+            "static",
+            "extern",
+            "_Thread_local"
+          ]
+        },
+        {
+          "title": "Scope & Linkage Rules",
+          "items": [
+            "Storage duration",
+            "Scope",
+            "Linkage",
+            "Internal linkage",
+            "External linkage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Arrays",
+      "subtitle": "Memory Layout & Pointer Decay",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Array Mechanics",
+          "items": [
+            "Single-dimensional arrays",
+            "Multi-dimensional arrays",
+            "Variable Length Arrays (VLAs)",
+            "Array decay",
+            "Array initialization",
+            "Array copying",
+            "Array memory layout",
+            "Pointer equivalence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Strings",
+      "subtitle": "Character Arrays & Safety Handling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "String Concepts & Encodings",
+          "items": [
+            "Character arrays",
+            "Null termination",
+            "ASCII",
+            "UTF-8 basics",
+            "Wide characters",
+            "String literals"
+          ]
+        },
+        {
+          "title": "Operations & Safety",
+          "items": [
+            "String copying",
+            "String comparison",
+            "String formatting",
+            "Safe string handling",
+            "Buffer sizing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Pointers (Critical)",
+      "subtitle": "Memory Addressing & Pointer Mechanics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Pointer Fundamentals & Types",
+          "items": [
+            "Pointer basics",
+            "Null pointers",
+            "Void pointers",
+            "Pointer arithmetic",
+            "Pointer comparison",
+            "Pointer subtraction",
+            "Pointer casting",
+            "Const pointers",
+            "Pointer to const",
+            "Double pointers",
+            "Triple pointers",
+            "Arrays of pointers",
+            "Pointers to arrays",
+            "Function pointers",
+            "Pointers to functions returning pointers"
+          ]
+        },
+        {
+          "title": "Advanced Memory & Directives",
+          "items": [
+            "Pointer aliasing",
+            "restrict keyword",
+            "volatile pointers",
+            "Memory ownership",
+            "Pointer lifetime",
+            "Reverse engineering perspective on pointers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Structures",
+      "subtitle": "Composite Data & Memory Alignment",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Structure Declaration & Layout",
+          "items": [
+            "Structure declaration",
+            "Structure initialization",
+            "Nested structures",
+            "Anonymous structures",
+            "Flexible array members",
+            "Bit-fields"
+          ]
+        },
+        {
+          "title": "Memory Mechanics & Packing",
+          "items": [
+            "Alignment",
+            "Padding",
+            "Memory layout",
+            "Offsets",
+            "Compiler packing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Unions",
+      "subtitle": "Shared Memory & Type Punning",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Union Concepts",
+          "items": [
+            "Union declaration",
+            "Memory sharing",
+            "Tagged unions",
+            "Type punning",
+            "Alignment",
+            "Compiler behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Enumerations",
+      "subtitle": "Constants & Bitmask Representations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Enum Features",
+          "items": [
+            "Enum declaration",
+            "Underlying integer types",
+            "Compiler representation",
+            "Flags",
+            "Bitmask enums"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Dynamic Memory",
+      "subtitle": "Heap Allocations & Custom Allocators",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Allocations",
+          "items": [
+            "malloc()",
+            "calloc()",
+            "realloc()",
+            "free()",
+            "Memory ownership"
+          ]
+        },
+        {
+          "title": "Allocator Design & Strategies",
+          "items": [
+            "Heap allocators",
+            "Fragmentation",
+            "Alignment",
+            "Allocation strategies",
+            "Arena allocation concepts",
+            "Pool allocation concepts",
+            "Stack allocation vs Heap allocation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Memory Bugs",
+      "subtitle": "Vulnerabilities & Safety Hazards",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Vulnerabilities & Bugs",
+          "items": [
+            "Memory leaks",
+            "Double free",
+            "Use-after-free",
+            "Dangling pointers",
+            "Buffer overflow",
+            "Heap overflow",
+            "Stack overflow",
+            "Integer overflow",
+            "Integer underflow",
+            "Null pointer dereference",
+            "Out-of-bounds access"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Preprocessor",
+      "subtitle": "Macros & Conditional Compilation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Directives & Macros",
+          "items": [
+            "#include",
+            "#define",
+            "Macros",
+            "Header guards",
+            "Conditional compilation",
+            "Stringification (#)",
+            "Token pasting (##)",
+            "Compiler macros",
+            "Variadic macros",
+            "Macro pitfalls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Modular Programming",
+      "subtitle": "Translation Units & Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codebase Structure & Linking",
+          "items": [
+            "Header files",
+            "Source files",
+            "Translation units",
+            "Static libraries",
+            "Shared libraries",
+            "API design",
+            "Header organization",
+            "Compilation units"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Standard Library",
+      "subtitle": "Core Headers & Standard APIs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "I/O, Strings & Utilities",
+          "items": [
+            "stdio.h",
+            "stdlib.h",
+            "string.h",
+            "math.h",
+            "ctype.h",
+            "time.h",
+            "errno.h",
+            "assert.h",
+            "locale.h"
+          ]
+        },
+        {
+          "title": "Low-Level & C11 Additions",
+          "items": [
+            "signal.h",
+            "setjmp.h",
+            "stdarg.h",
+            "stdint.h",
+            "stdbool.h",
+            "limits.h",
+            "float.h",
+            "inttypes.h",
+            "threads.h (C11)",
+            "atomic.h (C11)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — File I/O",
+      "subtitle": "Streams, Buffering & File Descriptors",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "High-Level File Streams",
+          "items": [
+            "FILE type",
+            "Streams",
+            "Text files",
+            "Binary files",
+            "Buffering",
+            "fopen",
+            "fclose",
+            "fread",
+            "fwrite",
+            "fseek",
+            "ftell",
+            "rewind",
+            "Temporary files",
+            "Error handling"
+          ]
+        },
+        {
+          "title": "Low-Level I/O",
+          "items": [
+            "File descriptors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Bit Manipulation",
+      "subtitle": "Binary Operations & Serialization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Bitwise Operations & Intrinsics",
+          "items": [
+            "Masks",
+            "Flags",
+            "Packing",
+            "Unpacking",
+            "Bit fields",
+            "Population count",
+            "Leading zeros",
+            "Trailing zeros",
+            "Rotations",
+            "Endian conversion",
+            "Binary serialization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Data Structures",
+      "subtitle": "Manual Pointer-Based Structures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linear Structures",
+          "items": [
+            "Arrays",
+            "Linked Lists",
+            "Doubly Linked Lists",
+            "Circular Lists",
+            "Stacks",
+            "Queues"
+          ]
+        },
+        {
+          "title": "Non-Linear & Advanced Structures",
+          "items": [
+            "Hash Tables",
+            "Binary Trees",
+            "AVL Trees",
+            "Red-Black Trees",
+            "Heaps",
+            "Tries",
+            "Graphs",
+            "Bloom Filters",
+            "Memory pools"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Algorithms",
+      "subtitle": "Implementation & Optimization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Algorithm Paradigms",
+          "items": [
+            "Sorting",
+            "Searching",
+            "Graph traversal",
+            "Dynamic programming",
+            "Greedy algorithms",
+            "Hashing",
+            "String matching",
+            "Recursion"
+          ]
+        },
+        {
+          "title": "Analysis & Tradeoffs",
+          "items": [
+            "Complexity analysis",
+            "Memory optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Operating System Interfaces",
+      "subtitle": "POSIX Systems Programming & IPC",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Processes, Threads & IPC",
+          "items": [
+            "Processes",
+            "Threads",
+            "Signals",
+            "Pipes",
+            "Shared Memory",
+            "Semaphores",
+            "Mutexes",
+            "Condition Variables"
+          ]
+        },
+        {
+          "title": "System Calls & Multiplexing",
+          "items": [
+            "fork()",
+            "exec()",
+            "wait()",
+            "mmap()",
+            "munmap()",
+            "select()",
+            "poll()",
+            "epoll()",
+            "Timers",
+            "System calls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Networking",
+      "subtitle": "Socket API & Protocol Handling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Socket Protocols & Stack",
+          "items": [
+            "Socket API",
+            "TCP",
+            "UDP",
+            "IPv4",
+            "IPv6",
+            "DNS",
+            "HTTP",
+            "TLS concepts"
+          ]
+        },
+        {
+          "title": "Packet Serialization",
+          "items": [
+            "Packet structures",
+            "Network byte order",
+            "Serialization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Memory Model",
+      "subtitle": "Process Memory Organization & Pages",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory Segments",
+          "items": [
+            "Text segment",
+            "Data segment",
+            "BSS",
+            "Heap",
+            "Stack"
+          ]
+        },
+        {
+          "title": "Virtual Memory & Paging",
+          "items": [
+            "Memory alignment",
+            "Page boundaries",
+            "Page protection",
+            "Virtual memory",
+            "Memory mapping",
+            "Shared memory",
+            "Copy-On-Write"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Compiler Internals",
+      "subtitle": "AST, IR & Code Optimizations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Frontend & Middle-End",
+          "items": [
+            "Lexing",
+            "Parsing",
+            "AST",
+            "Intermediate Representation"
+          ]
+        },
+        {
+          "title": "Backend & Optimizations",
+          "items": [
+            "Optimization passes",
+            "Instruction selection",
+            "Register allocation",
+            "Code generation",
+            "Inlining",
+            "Constant folding",
+            "Dead-code elimination",
+            "Loop optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Linker Internals",
+      "subtitle": "Symbols, Relocations & Dynamic Binding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Linking Mechanics",
+          "items": [
+            "Object files",
+            "Static libraries",
+            "Shared libraries",
+            "Symbol resolution",
+            "Relocations",
+            "Dynamic linking",
+            "Static linking",
+            "Position Independent Code (PIC)",
+            "Lazy binding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — ELF Internals",
+      "subtitle": "Binary Format & Section Analysis",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ELF Structure & Headers",
+          "items": [
+            "ELF Header",
+            "Program Headers",
+            "Section Headers"
+          ]
+        },
+        {
+          "title": "Sections & Tables",
+          "items": [
+            ".text",
+            ".data",
+            ".rodata",
+            ".bss",
+            ".plt",
+            ".got",
+            ".dynamic",
+            ".symtab",
+            ".dynsym",
+            ".rela",
+            ".debug",
+            ".note",
+            "TLS sections"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — ABI & Calling Conventions",
+      "subtitle": "Register Allocation & AArch64 ABI",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ABI Specifications",
+          "items": [
+            "Application Binary Interface (ABI)",
+            "Argument passing",
+            "Return values",
+            "Register usage",
+            "Stack alignment",
+            "Variadic functions",
+            "Structure passing",
+            "Platform differences"
+          ]
+        },
+        {
+          "title": "Mobile Architecture Focus",
+          "items": [
+            "AArch64 ABI (standard for modern Android devices)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Assembly Mapping",
+      "subtitle": "Translating C Constructs to Assembly",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Mapping Stack",
+          "items": [
+            "Variables → Memory → Registers → Assembly"
+          ]
+        },
+        {
+          "title": "Pattern Recognition in Assembly",
+          "items": [
+            "Loops",
+            "Switches",
+            "Arrays",
+            "Pointers",
+            "Structures",
+            "Function calls",
+            "Recursion",
+            "Arithmetic",
+            "Bit operations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Android Native Development",
+      "subtitle": "NDK, JNI & Bionic Interoperability",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NDK & Interop Tools",
+          "items": [
+            "Android NDK",
+            "JNI basics",
+            "Bionic libc",
+            "libc++",
+            "Shared libraries (.so)",
+            "CMake",
+            "ABI selection",
+            "Native Activities",
+            "Cross-compilation"
+          ]
+        },
+        {
+          "title": "Runtime Integration",
+          "items": [
+            "Interaction with ART",
+            "Interaction with Java"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Native Debugging",
+      "subtitle": "Breakpoints, Crash Dumps & Inspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Inspection & Analysis Tools",
+          "items": [
+            "Breakpoints",
+            "Watchpoints",
+            "Memory inspection",
+            "Register inspection",
+            "Stack traces",
+            "Core dumps",
+            "Crash analysis",
+            "Symbol files",
+            "Debug information",
+            "Backtraces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Performance Optimization",
+      "subtitle": "Hardware-Aware Optimizations & Profiling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Optimization Techniques",
+          "items": [
+            "Compiler optimization levels",
+            "Inlining",
+            "Cache locality",
+            "Memory alignment",
+            "SIMD awareness",
+            "Loop optimization",
+            "Branch prediction concepts",
+            "False sharing",
+            "Memory bandwidth",
+            "Benchmarking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Defensive Programming",
+      "subtitle": "Sanitizers, Safety & UB Prevention",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Secure Coding Practices",
+          "items": [
+            "Bounds checking",
+            "Input validation",
+            "Error handling",
+            "Assertions",
+            "Secure APIs",
+            "Defensive memory management",
+            "Undefined behavior"
+          ]
+        },
+        {
+          "title": "Analysis & Sanitizers",
+          "items": [
+            "Static analysis warnings",
+            "Compiler sanitizers (concepts)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Native Reverse Engineering",
+      "subtitle": "Assembly Reconstruction & Binary Idioms",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Recognizing Native Artifacts",
+          "items": [
+            "Compiler-generated function prologues and epilogues",
+            "Stack-frame layouts",
+            "Pointer-heavy algorithms",
+            "Structure and union access patterns",
+            "Switch jump tables",
+            "Optimized loops",
+            "Inline functions",
+            "Static initialization",
+            "Function-pointer dispatch",
+            "Memory allocator behavior",
+            "Common library call patterns",
+            "Error-handling conventions",
+            "Cross-module function calls",
+            "Symbol stripping effects"
+          ]
+        },
+        {
+          "title": "Reconstruction Practice",
+          "items": [
+            "Reconstructing C source from optimized assembly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Large Codebase Reading",
+      "subtitle": "Production Open Source Codebases",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Real-World Projects",
+          "items": [
+            "Linux kernel (selected subsystems)",
+            "Bionic libc",
+            "musl libc",
+            "SQLite",
+            "OpenSSL",
+            "zlib",
+            "libpng",
+            "BusyBox"
+          ]
+        },
+        {
+          "title": "Code Review Focus Areas",
+          "items": [
+            "Memory ownership",
+            "API design",
+            "Performance",
+            "Error handling",
+            "Coding style",
+            "Cross-platform portability"
+          ]
+        }
+      ]
+    }
+  ]
+}

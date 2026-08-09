@@ -1,0 +1,720 @@
+{
+  "meta": {
+    "id": "android_networking_stack_roadmap",
+    "title": "Android Networking, Web Stack, IPC Beyond Binder & Communication Systems",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROID NETWORKING & COMMUNICATION SYSTEMS MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for Android Networking, Web Stack, IPC Beyond Binder, and Communication Systems—covering everything from Netd and ConnectivityService to OkHttp internals, Chromium WebViews, BLE/NFC/USB hardware protocols, and network traffic reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Android Networking Architecture",
+      "subtitle": "Full Networking Stack, Daemons & Layer Responsibilities",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Networking Stack Components",
+          "items": [
+            "Linux networking subsystem in Android Common Kernel",
+            "Android networking framework abstractions",
+            "ConnectivityService system service",
+            "NetworkStack apex module",
+            "DNS Resolver native module (netd / resolv)",
+            "Netd daemon (Network Daemon)",
+            "Application networking engines (OkHttp, Cronet, HttpURLConnection)"
+          ]
+        },
+        {
+          "title": "Execution Pipeline",
+          "items": [
+            "Application → OkHttp / Cronet / HttpURLConnection → Android Framework → ConnectivityService → Netd → Linux TCP/IP Stack → Network Interface → Internet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — OSI & TCP/IP Models",
+      "subtitle": "Protocol Layering & Android API Mappings",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OSI 7-Layer Model Taxonomy",
+          "items": [
+            "Physical Layer (Radio, Wi-Fi PHY, Ethernet PHY)",
+            "Data Link Layer (Wi-Fi MAC, Cellular L2, ARP, NetworkInterface)",
+            "Network Layer (IPv4, IPv6, ICMP, Routing tables)",
+            "Transport Layer (TCP, UDP, QUIC, Socket API)",
+            "Session Layer (TLS Session, Socket Handshake)",
+            "Presentation Layer (TLS Decryption, HPACK, Protobuf, JSON)",
+            "Application Layer (HTTP/1.1, HTTP/2, HTTP/3, WebSocket, gRPC)"
+          ]
+        },
+        {
+          "title": "TCP/IP Model Mapping",
+          "items": [
+            "Link Layer → Internet Layer → Transport Layer → Application Layer mapping to Android KTX and NDK APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — IP Networking",
+      "subtitle": "IPv4, IPv6, Subnetting, Routing & Neighbor Discovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "IP Layer Architecture",
+          "items": [
+            "IPv4 header structures and addressing",
+            "IPv6 dual-stack architecture and SLAAC addressing",
+            "Subnetting & CIDR notation (/24, /64)",
+            "Routing tables and gateway selection in kernel",
+            "Address Resolution Protocol (ARP) & IPv6 Neighbor Discovery (NDP)",
+            "Maximum Transmission Unit (MTU) & IP Packet Fragmentation",
+            "Time To Live (TTL) & Hop Limit mechanics",
+            "Network interface bindings (`wlan0`, `rmnet_data0`, `lo`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Transport Protocols",
+      "subtitle": "TCP, UDP, QUIC & Congestion Control",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Transport Protocol Mechanics",
+          "items": [
+            "TCP 3-Way Handshake & 4-Way Teardown connection lifecycles",
+            "TCP reliable delivery, sequence numbers, and sliding window flow control",
+            "TCP congestion control algorithms (CUBIC, BBR in Linux kernel)",
+            "UDP connectionless stateless datagram processing",
+            "QUIC multiplexed transport over UDP",
+            "SCTP protocol overview",
+            "Packet ordering, loss detection, and retransmission timeouts (RTO)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — DNS",
+      "subtitle": "Resolution, Caching, DoH, DoT & Private DNS",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DNS Architecture in Android",
+          "items": [
+            "Recursive DNS resolution pipeline",
+            "Local DNS caching in `resolv` module",
+            "DNS over TLS (DoT) implementation in Android Private DNS",
+            "DNS over HTTPS (DoH) support",
+            "Android Private DNS system settings and validation",
+            "Hostname resolution APIs (`InetAddress.getByName`)",
+            "DNS record types (A, AAAA, CNAME, TXT, MX, PTR)",
+            "Reverse DNS lookups"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — HTTP",
+      "subtitle": "HTTP/1.1 Specifications, Headers, Cookies & Caching",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "HTTP Protocol Mechanics",
+          "items": [
+            "HTTP/1.1 semantics and persistent connections (Keep-Alive)",
+            "HTTP Methods (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)",
+            "Request/Response header processing",
+            "HTTP Status Codes (1xx, 2xx, 3xx, 4xx, 5xx)",
+            "Cookie management (`CookieHandler`, `CookieManager`)",
+            "HTTP Caching headers (Cache-Control, ETag, If-None-Match)",
+            "GZIP / Brotli compression",
+            "Authentication schemes (Basic, Bearer, Digest)",
+            "Chunked transfer encoding (`Transfer-Encoding: chunked`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — HTTPS & TLS",
+      "subtitle": "TLS 1.2/1.3 Handshake, Cipher Suites, PKI & ALPN",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "TLS Encryption Pipeline",
+          "items": [
+            "TLS 1.2 vs TLS 1.3 Handshake execution steps",
+            "Cipher suites negotiation (AEAD, ECDHE, AES-GCM, ChaCha20-Poly1305)",
+            "X.509 Certificate parsing and Certificate Chains validation",
+            "Public Key Infrastructure (PKI) and Root CA Store (`/system/etc/security/cacerts`)",
+            "Strict Hostname verification (`HostnameVerifier`)",
+            "TLS Session Resumption & Session Tickets",
+            "Application-Layer Protocol Negotiation (ALPN)",
+            "Perfect Forward Secrecy (PFS) key exchanges"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — HTTP/2 & HTTP/3",
+      "subtitle": "Multiplexing, Streams, HPACK & QUIC",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Modern HTTP Protocols",
+          "items": [
+            "HTTP/2 single-connection multiplexing over TCP",
+            "HTTP/2 Streams, Frames, and Priority scheduling",
+            "HPACK header compression algorithm",
+            "HTTP/3 QUIC connection migration (IP address change resilience)",
+            "UDP-based loss recovery and congestion control in HTTP/3",
+            "Eliminating Head-of-Line (HoL) blocking",
+            "Connection reuse efficiency"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Android Network Stack",
+      "subtitle": "ConnectivityManager, Networks, Capabilities & VPNs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Framework Network Abstractions",
+          "items": [
+            "ConnectivityManager system service",
+            "Network object wrappers",
+            "NetworkCapabilities (NET_CAPABILITY_INTERNET, NET_CAPABILITY_VALIDATED)",
+            "LinkProperties (IP addresses, routes, DNS servers)",
+            "NetworkRequest & NetworkCallback registration",
+            "Default active network selection algorithm",
+            "VPN network binding & Per-app VPN routes",
+            "Metered networks detection & Data Saver mode",
+            "Captive portal detection and login evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Netd",
+      "subtitle": "Network Daemon, Kernel Routing, iptables & Socket Tagging",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Netd Daemon Subsystem",
+          "items": [
+            "Netd C++ daemon responsibilities",
+            "Kernel routing tables management (`ip rule`, `ip route`)",
+            "Firewalls management (`iptables`, `ip6tables`, `nftables`)",
+            "DNS forwarding and local server configuration",
+            "Traffic statistics collection (`/proc/net/xt_qtaguid` / `ebpf`)",
+            "Socket tagging via `TrafficStats` / `NetworkStatsManager`",
+            "Bandwidth management & App quota enforcement",
+            "Network policy enforcement (`NetworkPolicyManagerService`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Socket Programming",
+      "subtitle": "POSIX Sockets, TCP/UDP, Non-Blocking & Buffers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Low-Level Socket APIs",
+          "items": [
+            "Java `Socket` & `ServerSocket` abstractions",
+            "Unix Domain Sockets (`AF_UNIX` / `AF_LOCAL`)",
+            "TCP Sockets (`AF_INET` / `AF_INET6`, `SOCK_STREAM`)",
+            "UDP Sockets (`AF_INET` / `AF_INET6`, `SOCK_DGRAM`)",
+            "Socket options (`SO_REUSEADDR`, `SO_TIMEOUT`, `TCP_NODELAY`)",
+            "Blocking vs Non-blocking Sockets (`NIO` Selectors)",
+            "Read/Write timeouts & Connection timeouts",
+            "Send and Receive kernel buffer management"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Local IPC Beyond Binder",
+      "subtitle": "Unix Domain Sockets, Shared Memory & File Descriptor Passing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Non-Binder IPC Mechanisms",
+          "items": [
+            "Unix Domain Sockets (Abstract namespace vs Filesystem paths)",
+            "Anonymous Pipes & Named Pipes (FIFOs)",
+            "Android Shared Memory (`ashmem` / `memfd_create` / `HardwareBuffer`)",
+            "Memory-mapped files (`mmap` with file backing)",
+            "File Descriptor passing over Unix Sockets via `SCM_RIGHTS` ancillary data",
+            "POSIX Signals & Signal handlers",
+            "System V / POSIX Message Queues",
+            "IPC trade-offs and specific Android use cases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Serialization Formats",
+      "subtitle": "JSON, Protobuf, FlatBuffers, CBOR & AIDL Parceling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data Serialization Formats",
+          "items": [
+            "JSON text serialization (Moshi, kotlinx.serialization, Jackson)",
+            "XML document parsing (XmlPullParser)",
+            "Protocol Buffers (Protobuf) binary schema serialization",
+            "FlatBuffers zero-copy binary serialization",
+            "CBOR (Concise Binary Object Representation) & MessagePack",
+            "Java `Serializable` vs Android `Parcelable`",
+            "AIDL Parceling marshalling mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — OkHttp",
+      "subtitle": "OkHttpClient Engine, Interceptors, ConnectionPool & TLS",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "OkHttp Architecture & Execution",
+          "items": [
+            "OkHttpClient singleton setup and thread pools",
+            "Call execution model (Synchronous `execute()` vs Asynchronous `enqueue()`)",
+            "Request & Response immutable models",
+            "Dispatcher task queue management",
+            "ConnectionPool socket reuse engine",
+            "Interceptor Chain pipeline (Application Interceptors vs Network Interceptors)",
+            "Authenticator interface for automatic 401 token refresh",
+            "OkHttp Cache implementation (`DiskLruCache`)",
+            "TLS SocketFactory integration and Certificate Pinning (`CertificatePinner`)",
+            "WebSocket client support & EventListener telemetry hooks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Retrofit",
+      "subtitle": "Type-Safe REST Adapter, Converters & CallAdapters",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Retrofit Framework Architecture",
+          "items": [
+            "Dynamic Proxy generation (`Proxy.newProxyInstance`) for API interfaces",
+            "Annotations processing (`@GET`, `@POST`, `@Headers`, `@Body`, `@Path`, `@Query`)",
+            "Converter.Factory integration (MoshiConverterFactory, KotlinxSerializationConverterFactory)",
+            "CallAdapter.Factory integration (RxJava, Result, Custom wrappers)",
+            "Kotlin Coroutines support (`suspend fun`)",
+            "Kotlin Flow return type streaming support",
+            "Centralized network error handling and response mapping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Cronet",
+      "subtitle": "Chromium Networking Engine, QUIC & Play Services Engine",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Cronet Engine Architecture",
+          "items": [
+            "Chromium networking stack native library embeddability",
+            "CronetEngine initialization & UrlRequest execution",
+            "Native HTTP/3 and QUIC transport support",
+            "Connection racing and dynamic fallback mechanisms",
+            "Cronet disk caching & Memory caching",
+            "Google Play Services Cronet provider integration",
+            "Performance advantages over standard Java HTTP clients"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — WebSockets",
+      "subtitle": "Duplex Streaming, Frames, Ping/Pong & Auto-Reconnect",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "WebSocket Protocol Mechanics",
+          "items": [
+            "HTTP Upgrade Handshake (`Connection: Upgrade`, `Upgrade: websocket`)",
+            "Framing protocol (Op-codes: Text, Binary, Close, Ping, Pong)",
+            "Masking key requirements for client-to-server frames",
+            "Bi-directional full-duplex communication model",
+            "Heartbeat mechanisms (Ping/Pong control frames)",
+            "Exponential backoff auto-reconnect strategies",
+            "OkHttp WebSocket client integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — gRPC",
+      "subtitle": "Protobuf RPC, HTTP/2 Streaming & Client Generation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "gRPC Subsystem Architecture",
+          "items": [
+            "Protocol Buffers service interface definitions (`.proto`)",
+            "HTTP/2 transport layer framing and header compression",
+            "Unary RPC call patterns",
+            "Server streaming, Client streaming, & Bi-directional streaming RPCs",
+            "gRPC Android client stubs generation",
+            "Channel management, Name resolution, and Load balancing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — WebView",
+      "subtitle": "Chromium Engine, JS Bridges, WebClients & Storage",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "WebView Subsystem",
+          "items": [
+            "System WebView architecture and APK update model",
+            "Chromium rendering engine integration",
+            "Multi-process rendering architecture in WebView",
+            "V8 JavaScript engine integration",
+            "JavaScript bridges (`@JavascriptInterface` / `addJavascriptInterface`)",
+            "WebChromeClient (UI, Dialogs, Console logs, Favicons)",
+            "WebViewClient (Navigation URL interception, SSL errors, Resource loading)",
+            "CookieManager synchronization",
+            "LocalStorage, IndexedDB, and Cache storage",
+            "WebView security configurations and XSS/Bridge injection mitigation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — Chromium Integration",
+      "subtitle": "Blink, V8, Multi-Process Architecture & Sandboxing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Chromium Core Architecture",
+          "items": [
+            "Blink rendering engine layout passes",
+            "V8 JavaScript execution and JIT compiler",
+            "Chromium Multi-Process Architecture (Browser Process, Render Process, GPU Process)",
+            "Isolated Sandboxed Renderers (`isolated_app` SELinux domains)",
+            "GPU hardware acceleration pipeline in WebView",
+            "Network stack integration inside Chromium"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Browser Communication",
+      "subtitle": "Custom Tabs, Deep Links, App Links & OAuth Redirects",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Browser Integration Frameworks",
+          "items": [
+            "Chrome Custom Tabs API and session warm-up",
+            "Standard Deep Links (`http://` / `custom://` intent filters)",
+            "Android App Links (`https://` verified domain intent filters via Digital Asset Links)",
+            "URL handling and intent resolution",
+            "In-App Authentication flows (PKCE, OAuth 2.0 redirects)",
+            "Custom Tab security and cookie sharing boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Bluetooth",
+      "subtitle": "Classic, BLE, GATT Profiles, Scanning & Pairing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Bluetooth Subsystem APIs",
+          "items": [
+            "Bluetooth Classic (RFCOMM, SPP profiles)",
+            "Bluetooth Low Energy (BLE) architecture",
+            "GATT (Generic Attribute Profile) Client/Server, Services, Characteristics, Descriptors",
+            "BLE Advertising & Scan Filters (`BluetoothLeScanner`)",
+            "Device Pairing & Bonding lifecycles",
+            "Bluetooth permissions (`BLUETOOTH_SCAN`, `BLUETOOTH_CONNECT`, `BLUETOOTH_ADVERTISE`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — NFC",
+      "subtitle": "NDEF Messages, Reader Mode & Host Card Emulation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NFC Subsystem Architecture",
+          "items": [
+            "NDEF (NFC Data Exchange Format) records and payload parsing",
+            "Foreground Dispatch system (`NfcAdapter.enableForegroundDispatch`)",
+            "NFC Reader Mode for raw tag technology scanning (IsoDep, NfcA, Mifare)",
+            "Host Card Emulation (HCE / `HostApduService`) for contactless payments",
+            "Secure Element (eSE) communication boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — USB",
+      "subtitle": "Host Mode, Accessory Mode, UsbManager & Endpoints",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "USB Subsystem Framework",
+          "items": [
+            "UsbManager system service",
+            "USB Host Mode (`UsbDevice`, `UsbInterface`, `UsbEndpoint`)",
+            "USB Accessory Mode (Android Open Accessory - AOA protocol)",
+            "Bulk transfers & Interrupt transfers (`UsbDeviceConnection`)",
+            "USB device attachment permissions and intent filtering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Wi-Fi",
+      "subtitle": "WifiManager, Specifiers, Hotspots & Wi-Fi Direct",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Wi-Fi Framework APIs",
+          "items": [
+            "WifiManager system service",
+            "WifiNetworkSpecifier for peer/device network connections",
+            "Wi-Fi Network Suggestions API",
+            "Wi-Fi scanning APIs and OS throttling restrictions",
+            "Local Only Hotspot orchestration",
+            "Wi-Fi Direct / P2P (`WifiP2pManager`) discovery and socket creation",
+            "Wi-Fi permissions (`NEARBY_WIFI_DEVICES`, `ACCESS_FINE_LOCATION`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Cellular Networking",
+      "subtitle": "TelephonyManager, Subscriptions, SIMs & Data Conns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Cellular Framework APIs",
+          "items": [
+            "TelephonyManager system service",
+            "SubscriptionManager for Multi-SIM handling",
+            "CarrierConfigManager policies",
+            "Network registration state and Cell Info monitoring",
+            "Cellular Data connectivity setup and APN selection",
+            "IP Multimedia Subsystem (IMS) overview"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — VPN",
+      "subtitle": "VpnService, TUN Virtual Interface & Route Interception",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "VPN Subsystem Architecture",
+          "items": [
+            "VpnService framework API",
+            "Linux TUN virtual network interface creation (`ParcelFileDescriptor`)",
+            "Reading/Writing raw IP packets to TUN interface",
+            "Routing table manipulation and DNS redirection",
+            "Always-On VPN & Per-app VPN rules",
+            "Traffic interception, packet filtering, and local proxying"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Push Messaging",
+      "subtitle": "FCM, Token Lifecycle, Priorities & Data Messages",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Push Messaging Infrastructure",
+          "items": [
+            "Firebase Cloud Messaging (FCM) architecture",
+            "FCM Registration Token lifecycle and refresh triggers",
+            "Notification Messages (Handled by OS) vs Data Messages (Handled by App)",
+            "High priority vs Normal priority messages",
+            "Doze mode override policies for high-priority push payloads",
+            "Background delivery using `FirebaseMessagingService`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Download & Upload",
+      "subtitle": "DownloadManager, Multipart, Resumable & Range Requests",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data Transfer Mechanics",
+          "items": [
+            "DownloadManager system service orchestration",
+            "Streaming uploads and chunked request bodies",
+            "Multipart form-data HTTP uploads (`MultipartBody`)",
+            "HTTP Range requests (`Range: bytes=X-Y`) for resumable downloads",
+            "Progress tracking listeners and network notification integration",
+            "File checksum & SHA-256 integrity verification post-download"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Network Security",
+      "subtitle": "Network Security Config, Pinning, mTLS & Proxy Detection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Security Hardening",
+          "items": [
+            "Network Security Configuration (`network_security_config.xml`)",
+            "Certificate Pinning (OkHttp `CertificatePinner` & XML Pinning)",
+            "Custom TrustManager and SSLSocketFactory security risks",
+            "HostnameVerifier strict checks",
+            "Mutual TLS (mTLS) client certificate authentication",
+            "Cleartext HTTP traffic policies (`android:usesCleartextTraffic`)",
+            "Proxy detection (`System.getProperty(\"http.proxyHost\")` / `LinkProperties`)",
+            "Secure defaults implementation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Offline Networking",
+      "subtitle": "Offline-First Sync, Conflict Resolution & Exponential Backoff",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Offline Architecture",
+          "items": [
+            "Offline-first repository architecture",
+            "Local DB persistent caching (Room / DataStore)",
+            "Synchronization engines (Background sync via WorkManager)",
+            "Conflict resolution strategies (Server-wins, Client-wins, Timestamping)",
+            "Network retry policies with jittered exponential backoff",
+            "Outbound request queuing and persistent action tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Android IPC Comparison",
+      "subtitle": "Comparison of Android Inter-Process Communication",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "IPC Mechanism Selection Matrix",
+          "items": [
+            "Binder / AIDL (High performance cross-process RPC)",
+            "Messenger (Handler-based light Binder IPC)",
+            "Broadcasts (One-to-many asynchronous event system)",
+            "ContentProviders (Cross-process structured data sharing)",
+            "Unix Domain Sockets (High-throughput local streaming / FD passing)",
+            "Shared Memory (Zero-copy bulk data transfers)",
+            "Files / FileDescriptors (Persistent shared data)",
+            "PendingIntent (Delegated cross-process tokenized execution)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Reverse Engineering Network Traffic",
+      "subtitle": "Static/Dynamic Analysis Checklist for Network Inspection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Network Reverse Engineering Checklist",
+          "items": [
+            "Identifying HTTP client engines (OkHttp, Retrofit, Cronet, Ktor) in DEX bytecode",
+            "Extracting hardcoded API Base URLs and endpoint paths",
+            "Identifying WebSocket endpoints and frame handlers",
+            "Locating gRPC client stubs and `.proto` schema structures",
+            "Identifying binary serialization models (Protobuf, FlatBuffers, CBOR)",
+            "Auditing Certificate Pinning logic (OkHttp `CertificatePinner`, TrustKit, Native)",
+            "Locating custom TrustManagers and SSLBypasses in decompiled code",
+            "Tracing OAuth / OIDC authentication token request flows",
+            "Auditing WebView JavaScript bridges (`addJavascriptInterface`) and URL hooks",
+            "Locating BLE scanning, GATT characteristics, and service UUIDs",
+            "Inspecting NFC NDEF record handlers and HCE APDU command processing",
+            "Auditing USB Bulk Transfer endpoints and vendor commands",
+            "Identifying VPN TUN interface configuration and packet interception rules",
+            "Tracing FCM push notification token registration and data message payloads"
+          ]
+        },
+        {
+          "title": "Call Chain Tracing Pipeline",
+          "items": [
+            "UI View → ViewModel / Repository → Retrofit API Interface → OkHttp Client → Interceptor Chain → SSLSocket / Conscrypt → Netd / Linux Kernel Socket"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Reading AOSP Networking Source",
+      "subtitle": "AOSP Network Codebase Target Repositories",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AOSP Study Targets",
+          "items": [
+            "`packages/modules/Connectivity/` - ConnectivityService, NetworkStack APEX module",
+            "`system/netd/` - Netd C++ daemon, resolv, firewall, and iptables management",
+            "`frameworks/base/core/java/android/net/` - ConnectivityManager, Network, NetworkCapabilities",
+            "`frameworks/base/services/core/java/com/android/server/net/` - NetworkPolicyManagerService, NetworkStatsService",
+            "AOSP WebView implementation (`frameworks/webview/` & Chromium Android integration)",
+            "Focus on: Connectivity validation, Private DNS resolution, Network Policy, and Socket tagging"
+          ]
+        }
+      ]
+    }
+  ]
+}

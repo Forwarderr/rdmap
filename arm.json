@@ -1,0 +1,753 @@
+{
+  "meta": {
+    "id": "arm64_assembly_roadmap",
+    "title": "ARM64 (AArch64) Assembly, Native Code & Compiler Output",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ARM64 NATIVE ARCHITECTURE MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive ARM64 Assembly, Native Code & Compiler Output roadmap, mastering AArch64 registers, AAPCS64 calling conventions, SIMD/NEON instructions, C/C++ compiler output mapping, and low-level native reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — ARM Architecture",
+      "subtitle": "Evolution, ISAs & RISC Design Philosophy",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Architecture Evolution & ISAs",
+          "items": [
+            "History of ARM & ARM Holdings",
+            "ARMv7 vs ARMv8 vs ARMv8-A architecture",
+            "ARMv8.1–v8.9 extensions",
+            "ARMv9 architecture overview",
+            "AArch32 vs AArch64 Execution States",
+            "ISA (Instruction Set Architecture) vs Microarchitecture",
+            "RISC (Reduced Instruction Set Computer) philosophy",
+            "Fixed-length 32-bit instruction encoding",
+            "Key drivers behind Android's migration to 64-bit ARM64"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android CPU Landscape",
+      "subtitle": "Architectures, ABIs & Vendor Silicon Implementations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Supported Architectures & SoCs",
+          "items": [
+            "ARM64 (arm64-v8a — primary standard)",
+            "ARM32 (armeabi-v7a — legacy support)",
+            "x86 & x86_64 (Intel/AMD emulation & Chromebooks)",
+            "RISC-V (Emerging open ISA ecosystem)",
+            "ABI selection rules during app installation",
+            "Vendor Silicon Implementations: Qualcomm Snapdragon, MediaTek Dimensity, Samsung Exynos, Google Tensor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — ARM64 Programmer's Model",
+      "subtitle": "General Purpose, Special & System Registers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "General Purpose Registers",
+          "items": [
+            "X0–X30 (64-bit general purpose registers)",
+            "W0–W30 (32-bit lower-half views of X registers)",
+            "Zero Register: XZR (64-bit zero) / WZR (32-bit zero)"
+          ]
+        },
+        {
+          "title": "Special & System Registers",
+          "items": [
+            "SP (Stack Pointer — aligned to 16-byte boundary)",
+            "PC (Program Counter)",
+            "LR / X30 (Link Register — stores return address)",
+            "FP / X29 (Frame Pointer — base of stack frame)",
+            "NZCV (Condition Flags Register: Negative, Zero, Carry, oVerflow)",
+            "System Registers: Exception registers (ESR_EL1, FAR_EL1), Translation registers (TTBR0_EL1), Thread Pointer (TPIDR_EL0 for TLS)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Number Representation",
+      "subtitle": "Numeric Formats, Extensions & Floating Point",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Numeric & Bit Systems",
+          "items": [
+            "Binary & Hexadecimal representations",
+            "Signed vs Unsigned integer encodings",
+            "Two's complement arithmetic",
+            "IEEE-754 Floating-Point standards (Single/Double precision)",
+            "Bit fields & Bit masking",
+            "Sign extension (UXTB, UXTH, SXTB, SXTH, SXTW)",
+            "Zero extension semantics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Instruction Encoding",
+      "subtitle": "AArch64 Fixed-Length 32-bit Format & Opcode Fields",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Instruction Fields & Groups",
+          "items": [
+            "Fixed-length 32-bit instruction word layout",
+            "Opcode fields & class determination bits",
+            "Immediate operand encoding & shifting",
+            "Register specifier fields (5-bit fields for X0–X31)",
+            "Shift & extend fields in instructions",
+            "PC-relative branch encoding offsets",
+            "Instruction groups (Data processing, Load/Store, Branches)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — Memory Addressing",
+      "subtitle": "Addressing Modes, PC-Relative & Page Offsets",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Addressing Modes & Opcodes",
+          "items": [
+            "Immediate addressing (e.g., #0x10)",
+            "Register addressing ([Xn])",
+            "Offset addressing ([Xn, #offset])",
+            "Pre-indexed addressing ([Xn, #offset]! — update base before access)",
+            "Post-indexed addressing ([Xn], #offset — update base after access)",
+            "PC-relative addressing (ADR instruction)",
+            "Page-relative addressing (ADRP instruction — 4KB page alignment)",
+            "Literal loads (LDR X0, =label)",
+            "Address calculation & pointer arithmetic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — Data Movement",
+      "subtitle": "Load, Store, Move & Exclusive Pair Instructions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data Movement Opcodes",
+          "items": [
+            "MOV (Register copy) & MOVZ / MOVK / MOVN (Move immediate with keep/zero/not)",
+            "LDR / STR (Load / Store single register)",
+            "LDP / STP (Load Pair / Store Pair registers — critical for stack handling)",
+            "LDUR / STUR (Load / Store Unscaled Offset)",
+            "LDRB / LDRH / LDRSW (Load Byte / Halfword / Signed Word)",
+            "Exclusive Load/Store: LDXR / STXR, LDAXR / STLXR (Load-Acquire / Store-Release Exclusive)",
+            "Object reference loading, Constant loading & Pointer dereferencing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Arithmetic Instructions",
+      "subtitle": "32/64-bit Integer & Floating-Point Mathematics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Math Opcodes",
+          "items": [
+            "ADD / SUB (Add / Subtract without carry)",
+            "ADC / SBC (Add / Subtract with Carry)",
+            "NEG (Negate value)",
+            "MUL / MADD / MSUB (Multiply / Multiply-Add / Multiply-Subtract)",
+            "SDIV / UDIV (Signed / Unsigned Division)",
+            "CMP (Compare: SUB without writing destination) & CMN (Compare Negative)",
+            "32-bit (W) vs 64-bit (X) arithmetic variants",
+            "Floating-point arithmetic (FADD, FSUB, FMUL, FDIV, FCMP)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Logical Instructions",
+      "subtitle": "Bitwise Operations, Testing & Flag Updating",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Logical Opcodes",
+          "items": [
+            "AND (Bitwise AND) & ANDS (Bitwise AND updating flags)",
+            "ORR (Bitwise OR) & EOR (Bitwise Exclusive OR / XOR)",
+            "BIC (Bit Clear: AND with inverted mask)",
+            "MVN (Move Not / Bitwise invert)",
+            "TST (Test bits: ANDS without writing destination)",
+            "Bit masking, Flag evaluation & Boolean algebra implementation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Shift & Bit Instructions",
+      "subtitle": "Bit Shifts, Rotations & Intrinsic Bit Operations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Shift & Bit Manipulation Opcodes",
+          "items": [
+            "LSL (Logical Shift Left) & LSR (Logical Shift Right)",
+            "ASR (Arithmetic Shift Right — sign extended)",
+            "ROR (Rotate Right)",
+            "REV (Reverse Bytes) & RBIT (Reverse Bits)",
+            "CLZ (Count Leading Zeros) & CLS (Count Leading Sign bits)",
+            "Bit extraction (UBFX, SBFX) & Bit insertion (BFI, BFC)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Branch Instructions",
+      "subtitle": "Jumps, Link Calls, Returns & Conditional Test Branches",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Branch Opcodes",
+          "items": [
+            "B (Unconditional Relative Branch)",
+            "BL (Branch with Link — stores return address in LR/X30)",
+            "BR (Branch to Register) & BLR (Branch with Link to Register)",
+            "RET (Return from subroutine using LR/X30)",
+            "CBZ (Compare and Branch if Zero) & CBNZ (Branch if Non-Zero)",
+            "TBZ (Test Bit and Branch if Zero) & TBNZ (Test Bit and Branch if Non-Zero)",
+            "Conditional branches (B.eq, B.ne, B.gt, etc.)",
+            "Indirect branch execution & Branch jump tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Condition Flags",
+      "subtitle": "NZCV Register Bits & Conditional Suffixes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NZCV Bits & Condition Codes",
+          "items": [
+            "N (Negative), Z (Zero), C (Carry), V (oVerflow) flags",
+            "EQ (Equal / Z==1) & NE (Not Equal / Z==0)",
+            "GT (Signed Greater Than) & GE (Signed Greater or Equal)",
+            "LT (Signed Less Than) & LE (Signed Less or Equal)",
+            "HI (Unsigned Higher) & LS (Unsigned Lower or Same)",
+            "MI (Minus/Negative) & PL (Plus/Positive)",
+            "VS (Overflow set) & VC (Overflow clear)",
+            "Conditional instruction execution (CSEL, CSINC, CSET, CSINV)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Stack",
+      "subtitle": "Stack Alignment, Prologue, Epilogue & Frames",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Stack Structure & Frame Conventions",
+          "items": [
+            "Full descending stack model (Stack grows down toward lower addresses)",
+            "16-byte stack pointer (SP) alignment enforcement",
+            "Frame Pointer (FP / X29) & Link Register (LR / X30) pairing",
+            "Function Prologue (STP X29, X30, [SP, #-N]! — allocating stack frame)",
+            "Function Epilogue (LDP X29, X30, [SP], #N; RET — tearing down frame)",
+            "Local variable storage layout in stack frames",
+            "Callee-saved register preservation",
+            "Stack unwinding & Call chain analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Calling Convention (AAPCS64)",
+      "subtitle": "Register Allocation Rules & Parameter Passing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AAPCS64 Standard Rules",
+          "items": [
+            "Argument passing: X0–X7 for integer/pointer args; V0–V7 for SIMD/FP args",
+            "Return values: X0 (or X0–X1 for 128-bit); V0 for FP returns",
+            "Caller-saved registers (Volatile: X0–X17, V0–V7, V16–V31)",
+            "Callee-saved registers (Non-volatile: X19–X28, V8–V15)",
+            "Special registers: X18 (Platform register / TLS), X29 (FP), X30 (LR)",
+            "Structure passing rules (by value vs by reference)",
+            "Variadic function arguments passing on stack",
+            "Stack-based overflow arguments (> 8 parameters)",
+            "Tail-call optimization conventions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — SIMD & NEON",
+      "subtitle": "Vector Registers, Packed Operations & Auto-Vectorization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "SIMD / NEON Architecture",
+          "items": [
+            "32 Vector registers (V0–V31 — 128 bits wide each)",
+            "Register views: B (Byte), H (Halfword), S (Single), D (Double), Q (Quadword)",
+            "Packed vector arithmetic (FADD, FMLA, ADD, SUB on vector elements)",
+            "Vector load/store operations (LD1, ST1, LD4 multi-struct loads)",
+            "Compiler auto-vectorization passes (-O3 SIMD optimization)",
+            "High-performance multimedia & crypto processing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Memory Model",
+      "subtitle": "Weak Memory Ordering, Cache Lines & Barriers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Memory System Properties",
+          "items": [
+            "Weakly-ordered memory model architecture",
+            "Memory alignment rules & Unaligned access penalties",
+            "Page boundaries (4KB / 64KB pages) & Cache line sizes (typically 64 bytes)",
+            "Memory Barriers / Fences: DMB (Data Memory Barrier), DSB, ISB",
+            "Acquire semantics (LDAR) & Release semantics (STLR)",
+            "Atomic operations primitives & Exclusive monitors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Atomic Instructions",
+      "subtitle": "Exclusive Load/Store, CAS & Synchronization Primitives",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Atomics & Synchronization Opcodes",
+          "items": [
+            "Load-Exclusive: LDXR / LDAXR (Load-Acquire Exclusive)",
+            "Store-Exclusive: STXR / STLXR (Store-Release Exclusive)",
+            "Compare-And-Swap (CAS) instructions (CAS, CASA, CASL, CASAL in ARMv8.1+)",
+            "Atomic memory operations (LDADD, LDCLR, LDEOR, SWP)",
+            "Sequential consistency guarantees",
+            "Implementation of mutexes, spinlocks, and lock-free queues"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Function Calls",
+      "subtitle": "Calling Pipelines, Frame Types & Tail Calls",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Function Execution Sequence",
+          "items": [
+            "Call Sequence: Argument preparation in X0–X7 → BL target_func",
+            "Parameter loading & Register preservation in prologue",
+            "Stack allocation for local variables",
+            "Return sequence: Result in X0 → LDP X29, X30 → RET",
+            "Leaf functions (functions making no outbound calls — no LR stack push needed)",
+            "Non-leaf functions (functions saving LR/X30 to stack)",
+            "Tail-call elimination (B target_func instead of BL + RET)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Compiler Output",
+      "subtitle": "Optimization Levels (-O0 to -Oz) & Code Transformations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compiler Optimizations Recognition",
+          "items": [
+            "Optimization levels behavior (-O0, -O1, -O2, -O3, -Os, -Oz)",
+            "Function inlining recognition (eliminating BL call frames)",
+            "Loop unrolling & vectorization recognition",
+            "Tail-call optimization recognition",
+            "Constant folding & Constant propagation",
+            "Dead-code elimination (DCE) artifacts",
+            "Register allocation strategies (Graph coloring vs spilling)",
+            "Instruction scheduling & Pipeline hazard avoidance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — C to Assembly Mapping",
+      "subtitle": "Translating Core C Constructs to ARM64 Opcodes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "C Structure Mappings",
+          "items": [
+            "Local & Global Variables → Stack offsets / ADRP + LDR",
+            "Pointers & Arrays → Base register + Index scaling",
+            "Structures & Unions → Offset-based LDR/STR pairs with padding",
+            "Enums → Integer register operations",
+            "Loops (for, while, do-while) → CMP + B.cond / CBZ / TBNZ",
+            "Switch statements → Jump tables (BR) or CMP binary trees",
+            "Recursion → Stack frame pushes + BL self",
+            "Function Pointers → BLR register call",
+            "Memory allocation (malloc) → BL malloc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — C++ to Assembly Mapping",
+      "subtitle": "VTables, RTTI, Exceptions & Lambda Closures",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "C++ Feature Assemblies",
+          "items": [
+            "Constructors & Destructors → Implicit this pointer (X0) calls",
+            "VTables & Virtual Dispatch → LDR vptr from [X0] → LDR func_ptr from [vptr, #offset] → BLR func_ptr",
+            "RTTI structures → Type descriptor pointers embedded in VTable -8",
+            "Exception handling → __cxa_throw calls & .ARM.extab / DWARF unwinding tables",
+            "Templates → Instantiated concrete function duplication",
+            "Smart pointers (std::shared_ptr) → Atomic refcount increments/decrements",
+            "Lambdas & Closures → Generated struct passed as this pointer",
+            "Move semantics (std::move) → Register re-assignment without deep copy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — ELF Execution",
+      "subtitle": "Dynamic Linking, Relocations, PLT & GOT",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ELF Loading Subsystem",
+          "items": [
+            "Program startup & Kernel execve execution",
+            "ELF program headers loading via linker (linker64)",
+            "Dynamic linker initialization",
+            "Relocation processing (R_AARCH64_RELATIVE, R_AARCH64_GLOB_DAT, R_AARCH64_JUMP_SLOT)",
+            "Procedure Linkage Table (PLT) & Global Offset Table (GOT) resolution",
+            "Entry point execution (_start -> __libc_init -> main)",
+            "crt objects (crtbegin_dynamic.o, crtend_android.o)",
+            "Position Independent Code (PIC) & Position Independent Executables (PIE)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Android Native Libraries",
+      "subtitle": "Core System Shared Objects (.so) & Dependencies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Essential System Binaries",
+          "items": [
+            "libart.so (Android Runtime Engine)",
+            "libandroid_runtime.so (Framework JNI Bridges)",
+            "libbinder.so (Native Binder IPC)",
+            "libnativehelper.so (JNI Helpers)",
+            "bionic / libc.so, libdl.so, libm.so (Bionic C Library)",
+            "liblog.so (Logcat Native Interface)",
+            "Vendor hardware libraries (/vendor/lib64)",
+            "Application native shared objects (/data/app/pkg/lib/arm64)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — JNI Bridge",
+      "subtitle": "Java to Native Call Chains, JNIEnv & Dynamic Registration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Execution Architecture",
+          "items": [
+            "Static JNI Registration (dlsym lookup using Java_packagename_Class_method)",
+            "Dynamic JNI Registration (RegisterNatives using JNINativeMethod table)",
+            "JNIEnv pointer passing in X0 (first argument)",
+            "jobject / jclass reference passing in X1",
+            "Primitive & Object arguments marshaling into X2–X7",
+            "JavaVM invocation API & Thread attachment (AttachCurrentThread)",
+            "JNI Exception checking (ExceptionOccurred / ExceptionClear)",
+            "Reference management (DeleteLocalRef / NewGlobalRef)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Native Memory Analysis",
+      "subtitle": "Heap Allocators, Stack Layouts & Memory Maps",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Memory Subsystems",
+          "items": [
+            "Scudo / jemalloc native heap allocator layout",
+            "Stack layout & guard pages",
+            "Global data (.data, .rodata, .bss) segments",
+            "Thread Local Storage (TLS) allocation via TPIDR_EL0",
+            "Shared library mappings (/proc/PID/maps inspection)",
+            "Object ownership models & Allocation tracking",
+            "Heap fragmentation & Memory leak analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Compiler Idioms",
+      "subtitle": "Recognizing Assembly Patterns in Compiled Code",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compiler Idiom Identification",
+          "items": [
+            "Switch lowering via jump tables (ADRP + LDR + ADD + BR)",
+            "Loop lowering (Do-while structure with conditional bottom branch)",
+            "Inline expansion of string/memory operations (memcpy -> STP pairs)",
+            "Constant multiplication using shifts and additions (LSL + ADD)",
+            "Object construction sequences (malloc + constructor call)",
+            "C++ Exception handling unwinding entry points",
+            "Virtual dispatch sequences",
+            "Template instantiation duplications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Security Features",
+      "subtitle": "Mitigations: PAC, BTI, MTE, Canaries & ASLR",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware & OS Security Mitigations",
+          "items": [
+            "Address Space Layout Randomization (ASLR) & PIE",
+            "Read-Only Relocations (RELRO: Partial vs Full)",
+            "NX / XN (No-Execute / eXecute-Never page protections)",
+            "Stack Canaries (__stack_chk_guard check before RET)",
+            "Pointer Authentication (PAC: PACIASP / AUTIASP instructions)",
+            "Branch Target Identification (BTI: BTI C / BTI J instructions)",
+            "Memory Tagging Extension (MTE: Hardware-backed memory safety)",
+            "Fortify Source (__memcpy_chk, __strcpy_chk)",
+            "Control-Flow Integrity (CFI) forward-edge checks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Performance",
+      "subtitle": "Microarchitecture Hazards, Pipelines & Cache Locality",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hardware Performance Factors",
+          "items": [
+            "Execution pipeline stages & Pipeline hazards (data/control dependencies)",
+            "Instruction-Level Parallelism (ILP) & Superscalar execution",
+            "Out-of-order execution & Speculative execution",
+            "Cache locality (L1/L2/L3 cache misses minimization)",
+            "Branch prediction & Misprediction penalty reduction",
+            "Memory latency & Prefetching (PRFM instruction)",
+            "Profiling tools (Simpleperf, Perfetto, Systrace)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Reverse Engineering Fundamentals",
+      "subtitle": "Static Disassembly Analysis & Boundary Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Static Analysis Methodology",
+          "items": [
+            "Identifying function prologues (STP X29, X30) and epilogues (RET)",
+            "Stack frame boundary reconstruction",
+            "Basic block identification & Control flow boundary mapping",
+            "Call graph construction",
+            "Cross-references (XREFs) tracing (Code to Data, Data to Code)",
+            "String references resolution (ADRP + ADD / LDR pairs)",
+            "Import Table (PLT/GOT) & Export Table (.dynsym) parsing",
+            "Global variable & Static object identification"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Control Flow Reconstruction",
+      "subtitle": "Rebuilding High-Level Logic from Assembly",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Structure Recovery",
+          "items": [
+            "if / else branch reconstruction from CMP + B.cond",
+            "switch statement recovery from Jump Tables (BR Xn)",
+            "Loop recovery (while, for, do-while structures)",
+            "Nested loops & multidimensional array iteration recovery",
+            "Recursion path identification",
+            "State machine dispatch loops recovery",
+            "Early returns & error handling branch identification"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Data Flow Analysis",
+      "subtitle": "Register Tracking, Variable Liveness & Aliasing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data Flow Tracking",
+          "items": [
+            "Register state propagation across basic blocks",
+            "Memory pointer tracking & Stack offset tracing",
+            "Object reference propagation",
+            "Function parameter & Return value chain tracking",
+            "Constant propagation & Constant folding analysis",
+            "Register lifetime & Liveness analysis",
+            "Pointer aliasing relationships detection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Object Reconstruction",
+      "subtitle": "C++ Class, VTable & Inheritance Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Class Recovery",
+          "items": [
+            "C++ Class layout recovery (Offset-based field mapping)",
+            "Structure alignment & Padding determination",
+            "Inheritance hierarchy reconstruction (Base vs Derived layouts)",
+            "VTable reconstruction & Virtual Method indexing",
+            "RTTI type descriptor parsing",
+            "Constructor & Destructor behavior identification",
+            "Object factory & Singleton pattern recognition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Compiler Fingerprinting",
+      "subtitle": "Identifying Compiler Toolchains & Optimization Styles",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Toolchain Fingerprinting",
+          "items": [
+            "Clang / LLVM signature recognition (Android NDK default)",
+            "GCC signature recognition (Legacy toolchains)",
+            "Optimization styles fingerprinting (-O2 vs -O3 vs -Os)",
+            "Standard C++ library variants identification (libc++ vs libstdc++)",
+            "Code generation patterns & Prologue/Epilogue variations",
+            "Target ABI differences detection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Android Native Reverse Engineering",
+      "subtitle": "Targeting Binary Engines, Frameworks & Obfuscation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Native Analysis Targets",
+          "items": [
+            "Reversing proprietary application libraries (libapp.so)",
+            "Reversing Mobile Game Engines (Cocos2d-x, Unreal Engine native binaries)",
+            "Reversing Flutter native binaries (libapp.so Dart snapshot compilation)",
+            "Reversing Unity native binaries (libil2cpp.so & Metadata)",
+            "Reversing JNI bridges & Dynamic registration routines",
+            "Analyzing AOSP system libraries & Vendor HAL binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Advanced Reverse Engineering",
+      "subtitle": "Stripped Binaries, Deobfuscation & Instrumentation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Advanced Binary Analysis Methods",
+          "items": [
+            "Analyzing stripped binaries (No symbols/debug sections)",
+            "Type recovery & Function signature inference algorithms",
+            "Symbol recovery using pattern matching (FLIRT / Function Signatures)",
+            "Control Flow Graph (CFG) generation & SSA form concepts",
+            "Dominance analysis & Liveness analysis in decompilers",
+            "Recognizing Decompiler limitations & Manual assembly reconstruction",
+            "Binary Patching fundamentals (Modifying instructions in hex/disassembler)",
+            "Dynamic Binary Instrumentation (DBI) concepts (Frida, QDBI)",
+            "Recognizing Obfuscation: Control-Flow Flattening, Opaque Predicates, Virtualization Obfuscation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Reading ARM64 Source & Documentation",
+      "subtitle": "Core Reference Specifications & Architecture Manuals",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Reference Documentation",
+          "items": [
+            "ARM Architecture Reference Manual (ARMv8 / ARMv9 A-profile)",
+            "Procedure Call Standard for the Arm 64-bit Architecture (AAPCS64)",
+            "ELF for the Arm 64-bit Architecture (AArch64) ABI Specification",
+            "Android NDK Native ABI documentation",
+            "LLVM AArch64 Backend Architecture (High-level CodeGen passes)",
+            "AOSP Native Source Code (bionic, art, system/core)",
+            "Focus on instruction semantics and ABI rules rather than memorizing raw opcodes"
+          ]
+        }
+      ]
+    }
+  ]
+}

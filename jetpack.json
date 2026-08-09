@@ -1,0 +1,776 @@
+{
+  "meta": {
+    "id": "jetpack_compose_androidx_roadmap",
+    "title": "Jetpack Libraries, Jetpack Compose & AndroidX Internals",
+    "subtitle": "Beginner → Expert Masterclass Roadmap",
+    "completionTitle": "ANDROIDX & JETPACK COMPOSE MASTERED",
+    "completionMessage": "Congratulations! You have completed the masterclass roadmap for AndroidX, Jetpack Compose, the Compose Compiler, Slot Table internals, Room, WorkManager, and Jetpack reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — AndroidX Ecosystem",
+      "subtitle": "History, Namespaces, Semantic Versioning & Compatibility",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Ecosystem Origins & Philosophies",
+          "items": [
+            "Support Library history and deprecation rationale",
+            "AndroidX migration (`android.*` to `androidx.*` package names)",
+            "Jetpack philosophy: Unifying UI, architecture, and behavior components",
+            "AndroidX namespace organization",
+            "Versioning models and independent library release cycles",
+            "Semantic versioning (Major.Minor.Patch-alpha/beta/rc)",
+            "API stability guarantees (@RequiresOptIn, @Experimental)",
+            "Binary compatibility & ABI preservation",
+            "Source compatibility across Kotlin/Java updates",
+            "Backward compatibility strategy for modern Android features"
+          ]
+        },
+        {
+          "title": "Execution Hierarchy",
+          "items": [
+            "Application → Jetpack (AndroidX) → Android Framework → Binder → System Services"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — AndroidX Project Structure",
+      "subtitle": "Core Libraries Taxonomy & Responsibilities",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Jetpack Package Taxonomy",
+          "items": [
+            "androidx.activity — ComponentActivity and activity result contracts",
+            "androidx.fragment — Fragment management and transactions",
+            "androidx.lifecycle — ViewModel, LiveData, and LifecycleOwner",
+            "androidx.navigation — Type-safe component navigation graphs",
+            "androidx.room — SQLite Object Relational Mapping (ORM)",
+            "androidx.work — Persistent background work manager",
+            "androidx.datastore — Preferences and Proto data storage",
+            "androidx.startup — App initialization optimization",
+            "androidx.paging — Large dataset incremental loading",
+            "androidx.compose — Declarative UI runtime, compiler, and foundation",
+            "androidx.core / appcompat — Backward compatibility extensions",
+            "androidx.savedstate / recyclerview / constraintlayout",
+            "androidx.security / camera / biometric — Hardware & security integrations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Activity Library",
+      "subtitle": "ComponentActivity, Results, BackPress & SavedState",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Activity Abstractions & Contracts",
+          "items": [
+            "ComponentActivity base class architecture",
+            "ActivityResultRegistry & ActivityResultLauncher APIs",
+            "SavedStateRegistry & SavedStateRegistryOwner",
+            "OnBackPressedDispatcher & OnBackPressedCallback handling",
+            "Lifecycle integration via LifecycleRegistry",
+            "Configuration change callbacks (OnConfigurationChangedListener)",
+            "Generated callbacks and framework dispatch hooks"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Fragment Library",
+      "subtitle": "FragmentManager, Transactions, State & Animations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Fragment Internals & Management",
+          "items": [
+            "FragmentManager internal state machine",
+            "FragmentTransaction execution and BackStackRecord ops",
+            "FragmentStore & FragmentStateManager lifecycle tracking",
+            "SpecialEffectsController (Coordinating animations and transitions)",
+            "FragmentFactory custom dependency instantiation",
+            "FragmentContainerView vs traditional <fragment> tags",
+            "ViewLifecycleOwner vs Fragment LifecycleOwner",
+            "State restoration across process death",
+            "Nested FragmentManager configurations",
+            "Reverse Engineering Perspective: Recognizing FragmentManager state transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — Lifecycle Library",
+      "subtitle": "LifecycleOwner, Observers, Event States & Coroutines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lifecycle Components & Observers",
+          "items": [
+            "Lifecycle state machine (INITIALIZED, CREATED, STARTED, RESUMED, DESTROYED)",
+            "LifecycleOwner & LifecycleRegistry dispatch implementation",
+            "LifecycleObserver, DefaultLifecycleObserver, & LifecycleEventObserver",
+            "LifecycleService & ProcessLifecycleOwner",
+            "LifecycleScope coroutine binding",
+            "repeatOnLifecycle & Flow collection safety",
+            "Lifecycle-aware components construction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — ViewModel",
+      "subtitle": "Stores, Factories, SavedStateHandle & CreationExtras",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ViewModel Lifecycle & Persistence",
+          "items": [
+            "ViewModel base class responsibilities",
+            "ViewModelStore & ViewModelStoreOwner implementation",
+            "ViewModelProvider & ViewModelProvider.Factory",
+            "SavedStateHandle process death persistence",
+            "CreationExtras dynamic parameter injection",
+            "Retained instances during configuration changes",
+            "ViewModel relationship with Activity/Fragment lifecycles",
+            "State preservation algorithms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — LiveData",
+      "subtitle": "Observable Holder, Dispatch Algorithms & Versioning",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "LiveData Mechanics",
+          "items": [
+            "LiveData lifecycle-aware value container",
+            "MutableLiveData & MediatorLiveData sources aggregation",
+            "Transformations (`map`, `switchMap`)",
+            "Observer pattern and active/inactive state transitions",
+            "Thread safety (setValue vs postValue)",
+            "Dispatch algorithm (mVersion tracking to prevent stale dispatches)",
+            "Version tracking mechanics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — Saved State",
+      "subtitle": "SavedStateRegistry, Bundles & Process Death Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Saved State Infrastructure",
+          "items": [
+            "SavedStateRegistry & SavedStateRegistryOwner",
+            "SavedStateHandle binding with ViewModel",
+            "SavedStateProvider interface for component registration",
+            "Bundle serialization and size limits (1MB TransactionBuffer)",
+            "State restoration flow after system process death",
+            "Process death recovery strategies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Navigation Component",
+      "subtitle": "NavControllers, Destinations, Navigators & Safe Args",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Navigation Architecture",
+          "items": [
+            "NavController state management",
+            "NavHost & NavHostFragment",
+            "NavDestination & NavGraph compilation",
+            "Navigator abstractions (FragmentNavigator, ComposeNavigator, DialogNavigator)",
+            "Deep links parsing and handling",
+            "Back stack manipulation and pop behaviors",
+            "Arguments passing & Safe Args plugin generated classes",
+            "Generated navigation direction code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — RecyclerView",
+      "subtitle": "Adapters, RecyclerPool, LayoutManagers & DiffUtil",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "RecyclerView Subsystem Architecture",
+          "items": [
+            "RecyclerView view hierarchy integration",
+            "Adapter & ViewHolder binding pattern",
+            "Recycler (Scrap, Cache, RecycledViewPool layers)",
+            "RecycledViewPool shared view caching across lists",
+            "LayoutManagers (LinearLayoutManager, GridLayoutManager, StaggeredGridLayoutManager)",
+            "ItemAnimator & ItemDecorations",
+            "DiffUtil & ListAdapter (Myers diff algorithm execution)",
+            "AsyncListDiffer background threading",
+            "View recycling and prefetch algorithms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — ConstraintLayout",
+      "subtitle": "Constraint Solver, Chains, Helpers & MotionLayout",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Constraint Layout Engine",
+          "items": [
+            "Cassowary constraint solver algorithm",
+            "Chains (Packed, Spread, Spread Inside)",
+            "Guidelines, Barriers, & Groups helpers",
+            "Flow virtual layout helper",
+            "MotionLayout animation states and KeyFrames",
+            "Layout performance optimization",
+            "Generated constraint calculations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Room",
+      "subtitle": "ORM Architecture, DAOs, Invalidation & Migrations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Room ORM Architecture",
+          "items": [
+            "@Entity, @Dao, & @Database annotations",
+            "Generated `*Database_Impl` and `*Dao_Impl` classes",
+            "Schema validation & json file generation",
+            "SQL parser and compile-time verification",
+            "Transactions (@Transaction) and SQLite locks",
+            "InvalidationTracker table triggers",
+            "Migration & AutoMigration definitions",
+            "TypeConverters mapping",
+            "Flow & Paging 3 reactive integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — DataStore",
+      "subtitle": "Preferences DataStore, Proto DataStore & Flow",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DataStore Architecture",
+          "items": [
+            "Preferences DataStore (Key-value pairs using AtomicFile)",
+            "Proto DataStore (Typed objects backed by Protocol Buffers)",
+            "Serializer interface implementation",
+            "Transactional read/write guarantees",
+            "CorruptionHandler recovery policies",
+            "SharedPreferences to DataStore migration",
+            "Flow-based reactive read pipeline",
+            "Thread safety and concurrency handling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — WorkManager",
+      "subtitle": "Workers, Constraints, Schedulers & WorkDatabase",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "WorkManager Internal Subsystem",
+          "items": [
+            "Worker, CoroutineWorker, & ListenableWorker abstractions",
+            "WorkerFactory dependency injection",
+            "WorkRequest (OneTimeWorkRequest, PeriodicWorkRequest)",
+            "Constraints evaluation (Battery, Storage, Network, Idle)",
+            "WorkDatabase (Internal Room DB tracking job states)",
+            "Schedulers (GreedyScheduler, SystemJobScheduler)",
+            "Foreground work & Foreground notifications",
+            "Periodic work timing and drift limits",
+            "Retry policy & Exponential backoff",
+            "Unique work policies (KEEP, REPLACE, APPEND)",
+            "Chaining work sequences"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Paging 3",
+      "subtitle": "PagingSource, RemoteMediator, Pager & Streams",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Paging 3 Pipeline",
+          "items": [
+            "PagingSource implementation and load keys",
+            "Pager configuration and PagingConfig",
+            "PagingData immutable stream",
+            "RemoteMediator (Network + Local DB synchronization)",
+            "LoadState tracking (Loading, Error, NotLoading)",
+            "PagingState and anchor position evaluation",
+            "Data transformations (`map`, `filter`, `insertSeparators`)",
+            "In-memory caching and invalidation triggers",
+            "Flow, RecyclerView, and Compose UI integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — Startup Library",
+      "subtitle": "App Startup, Initializer Graph & Performance",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "App Startup Framework",
+          "items": [
+            "App Startup ContentProvider initialization",
+            "Initializer<T> interface implementation",
+            "Dependency graph building and DAG resolution",
+            "Initialization ordering enforcement",
+            "Lazy initialization and manual trigger execution",
+            "Cold startup performance optimization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — AppCompat",
+      "subtitle": "AppCompatActivity, Theme Compatibility & Tinting",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AppCompat Features",
+          "items": [
+            "AppCompatActivity and AppCompatDelegate architecture",
+            "Theme compatibility and attribute backporting",
+            "Night mode management (DayNight theme switching)",
+            "View tinting and AppCompatViewInflater",
+            "Toolbar and ActionBar compatibility",
+            "Per-app locale support",
+            "Configuration changes backports"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Core KTX",
+      "subtitle": "Kotlin Extensions, Inline Functions & Idioms",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core KTX Architecture",
+          "items": [
+            "Kotlin extension functions over framework APIs",
+            "Convenience APIs for Bundle, Uri, and Canvas",
+            "Inline functions and performance extensions",
+            "Coroutines integration extensions",
+            "Idiomatic Kotlin wrappers",
+            "Bytecode compilation analysis of KTX extensions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Security Library",
+      "subtitle": "EncryptedFile, MasterKeys & Keystore Binding",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AndroidX Security Mechanics",
+          "items": [
+            "EncryptedFile streaming encryption",
+            "EncryptedSharedPreferences key-value encryption",
+            "MasterKey creation and management",
+            "KeyGenParameterSpec integration",
+            "Android Keystore hardware binding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — CameraX",
+      "subtitle": "ProcessCameraProvider, Pipelines & Camera2 Interop",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "CameraX Architecture",
+          "items": [
+            "ProcessCameraProvider singleton initialization",
+            "Preview, ImageCapture, ImageAnalysis, VideoCapture use cases",
+            "LifecycleOwner binding (`bindToLifecycle`)",
+            "Camera pipeline execution and surface management",
+            "Vendor Extensions (HDR, Night, Portrait, Beauty)",
+            "Interop with low-level Camera2 APIs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — Biometric Library",
+      "subtitle": "BiometricPrompt, Hardware Auth & CryptoObject",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Biometric Authentication Framework",
+          "items": [
+            "BiometricPrompt UI dialog orchestration",
+            "PromptInfo configuration",
+            "CryptoObject binding for hardware-backed cipher operations",
+            "AuthenticationCallbacks handling",
+            "LifecycleOwner integration",
+            "Fallback behavior to device credential (PIN/Pattern/Password)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Compose Overview",
+      "subtitle": "Declarative Paradigm, Architecture & Composition",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Jetpack Compose Layering",
+          "items": [
+            "Compose Runtime (Slot Table, State, Applier)",
+            "Compose UI (Layout, Node tree, Drawing, Input)",
+            "Compose Compiler (Kotlin compiler plugin, IR transformations)",
+            "Compose Foundation (Lazy lists, Gestures, Modifiers)",
+            "Compose Material & Material3 (Design system components)",
+            "Composition, Recomposition, and Decomposition phases",
+            "Declarative vs Imperative UI paradigm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — Compose Compiler",
+      "subtitle": "Compiler Plugin, IR Transformation & Composer",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compose Compiler Internals",
+          "items": [
+            "Kotlin Compiler Plugin extension points",
+            "Intermediate Representation (IR) transformation passes",
+            "Injecting $composer parameter into @Composable functions",
+            "Restart groups generation (`$composer.startRestartGroup`)",
+            "Skippable functions evaluation (`$composer.changed`)",
+            "Remember insertion (`$composer.cache`)",
+            "Generated bytecode structure",
+            "Reverse Engineering Perspective: Recognizing compiler-generated Compose methods"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Compose Runtime",
+      "subtitle": "Slot Table, Composer, Recomposer & Snapshots",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compose Runtime Engine",
+          "items": [
+            "Composition tree data structure",
+            "Slot Table internal gap-buffer architecture",
+            "Composer state machine",
+            "Recomposer orchestration and frame clock",
+            "Applier tree mutation engine (LayoutNode tree mapping)",
+            "Snapshot state system (Multiversion Concurrency Control - MVCC)",
+            "CompositionLocal propagation",
+            "State observation tracking and invalidation scheduling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Compose State",
+      "subtitle": "State Holders, Remember, Snapshots & Hoisting",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "State Management Mechanics",
+          "items": [
+            "mutableStateOf() state creation",
+            "remember() memory slot cache",
+            "rememberSaveable() bundle restoration",
+            "derivedStateOf() calculation optimization",
+            "SnapshotStateList & SnapshotStateMap observable collections",
+            "State & MutableState interfaces",
+            "State hoisting design pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Recomposition",
+      "subtitle": "Invalidation, Skipping, Restart & Stability Inference",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Recomposition Optimization Engine",
+          "items": [
+            "Invalidation scope calculation",
+            "Recomposition execution loop",
+            "Skipping recomposition for unchanged parameters",
+            "Restart scope registration",
+            "Structural equality vs Referential equality in Compose",
+            "Stability inference (@Stable, @Immutable annotations)",
+            "Compiler stability optimizations and performance impact"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Compose UI",
+      "subtitle": "Modifier Chain, Layout, Measure, Draw & Semantics",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compose UI Subsystem",
+          "items": [
+            "Modifier chain compilation and Modifier.Node",
+            "LayoutNode hierarchy",
+            "Measure pass (Single-pass measurement constraint)",
+            "Placement pass (LayoutCoordinates)",
+            "Drawing pass and Canvas API",
+            "Semantics tree (Accessibility and Testing nodes)",
+            "Pointer input handling (PointerInputScope)",
+            "Focus management (FocusRequester, FocusModifier)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Compose Layout System",
+      "subtitle": "Containers, Lazy Layouts & Intrinsic Measurement",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Layout Components",
+          "items": [
+            "Row, Column, Box core containers",
+            "LazyColumn, LazyRow, LazyGrid (LazyLayout subcomposition)",
+            "ConstraintLayout Compose",
+            "Custom Layout composable creation",
+            "MeasurePolicy implementation",
+            "Intrinsic measurement pass (MinIntrinsic, MaxIntrinsic)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Compose Navigation",
+      "subtitle": "NavHost, Controllers, Back Stack & Transitions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Declarative Navigation",
+          "items": [
+            "NavHost composable setup",
+            "rememberNavController() state holder",
+            "Back stack state management in Compose",
+            "Type-safe argument parsing",
+            "Nested navigation graphs",
+            "Deep link route matching",
+            "Enter/Exit transition animations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Compose Animation",
+      "subtitle": "State Animations, Transitions & Physics Engine",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Animation Framework",
+          "items": [
+            "animate*AsState value animations",
+            "Transition API (updateTransition)",
+            "AnimatedVisibility & AnimatedContent",
+            "InfiniteTransition continuous animations",
+            "Physics-based spring animations & Easing specs",
+            "Gesture-driven drag and swipe animations",
+            "Animation execution performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Compose Side Effects",
+      "subtitle": "Effects, Coroutines, Lifecycles & Snapshot Flows",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Effect Handlers",
+          "items": [
+            "LaunchedEffect (Key-bound coroutine launcher)",
+            "DisposableEffect (Cleanup-capable effect handler)",
+            "SideEffect (Publishing Compose state to non-Compose targets)",
+            "rememberCoroutineScope (Bound coroutine scope creation)",
+            "produceState (Converting non-Compose state to Compose State)",
+            "snapshotFlow (Converting Compose State to Coroutine Flow)",
+            "derivedStateOf (State calculation caching)",
+            "LifecycleOwner event interaction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Compose Performance",
+      "subtitle": "Compiler Metrics, Stability, Layout Tuning & Tracing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Performance Optimization & Profiling",
+          "items": [
+            "Stable types vs Unstable types identification",
+            "Immutable collections usage",
+            "Avoiding unnecessary recompositions",
+            "Remember optimization patterns",
+            "Lazy list key assignment optimization",
+            "Snapshot system state read deferred optimizations",
+            "Composition tracing (System tracing / Perfetto)",
+            "Compiler metrics report analysis (`composeCompilerReports`)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — AndroidX Generated Code",
+      "subtitle": "Recognizing Compiler Artifacts & Infrastructure",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "CodeGen Identification Checklist",
+          "items": [
+            "Room generated implementations (`*Database_Impl`, `*Dao_Impl`)",
+            "Navigation Safe Args generated classes (`*Directions`, `*Args`)",
+            "ViewBinding generated classes (`*Binding`)",
+            "DataBinding generated classes (`*BindingImpl`)",
+            "Hilt generated components (`Hilt_*`, `*_Factory`)",
+            "Compose compiler generated output (`$composer`, restart groups)",
+            "Lifecycle generated adapter classes (`*LifecycleAdapter`)",
+            "Paging generated load wrappers",
+            "WorkManager generated factories",
+            "SavedState helper implementations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — AndroidX Internals",
+      "subtitle": "Reviewing Core AndroidX Source Repositories",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AndroidX Study Repositories",
+          "items": [
+            "androidx.activity — Activity result and back dispatch",
+            "androidx.fragment — FragmentManager state machine",
+            "androidx.lifecycle — LifecycleObserver dispatching",
+            "androidx.navigation — NavController back stack management",
+            "androidx.room — InvalidationTracker & DAO compilation",
+            "androidx.work — WorkManager database & schedulers",
+            "androidx.compose.runtime — Slot Table and Composer engine",
+            "androidx.compose.ui — LayoutNode measure & draw pipeline",
+            "androidx.compose.foundation — LazyLayout subcomposition",
+            "androidx.recyclerview — RecyclerPool caching",
+            "androidx.datastore — DataStore transaction handler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Reverse Engineering Jetpack",
+      "subtitle": "Decompilation Inspection & Infrastructure Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Jetpack Reverse Engineering Checklist",
+          "items": [
+            "Identifying ViewModel creation paths (`ViewModelProvider`)",
+            "Locating Lifecycle-aware observers (`LiveData.observe` / `repeatOnLifecycle`)",
+            "Tracing LiveData dispatch chains (`setValue` / `postValue`)",
+            "Tracking Flow collection pipelines (`collect`)",
+            "Locating Room-generated DAO implementations (`*Dao_Impl`)",
+            "Parsing Navigation-generated classes and graph IDs",
+            "Auditing WorkManager scheduling logic (`WorkManager.enqueue`)",
+            "Tracing Paging 3 pipelines (`PagingSource` / `RemoteMediator`)",
+            "Identifying Compose-generated functions and `$composer` calls",
+            "Inspecting Slot table operations and remembered state slots",
+            "Locating State holders and ViewModel connections",
+            "Tracing dependency injection entry points (`@AndroidEntryPoint` / Hilt)",
+            "Separating framework-generated infrastructure from application business logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Jetpack Source Reading",
+      "subtitle": "AOSP Study Guide for AndroidX Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Codebase Targets & Public API Tracing",
+          "items": [
+            "AndroidX Activity & Fragment source code",
+            "AndroidX Lifecycle source code",
+            "AndroidX Navigation source code",
+            "AndroidX Room source code",
+            "AndroidX Paging 3 source code",
+            "AndroidX WorkManager source code",
+            "AndroidX Compose Runtime source code (`Composer.kt`, `SlotTable.kt`)",
+            "AndroidX Compose UI source code (`LayoutNode.kt`, `Owner.kt`)",
+            "AndroidX Compose Foundation source code",
+            "AndroidX Startup & DataStore source code",
+            "Tracing calls from public Jetpack APIs into internal execution logic"
+          ]
+        }
+      ]
+    }
+  ]
+}

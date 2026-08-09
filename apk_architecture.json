@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "id": "android_app_architecture_roadmap",
+    "title": "Android Application Architecture, Design Patterns & Modern Development",
+    "subtitle": "Beginner → Expert Architecture & Application Design Masterclass Roadmap",
+    "completionTitle": "ANDROID APPLICATION ARCHITECTURE MASTERED",
+    "completionMessage": "Congratulations! You have completed the comprehensive Android Application Architecture, Design Patterns & Modern Development roadmap, mastering Clean Architecture, MVVM/MVI, Hilt/Dagger DI, Jetpack libraries, state management, and architecture reverse engineering!"
+  },
+  "stages": [
+    {
+      "id": "stage-1",
+      "title": "Stage 1 — Application Architecture Overview",
+      "subtitle": "Architectural Principles, Separation of Concerns & SOLID",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Software Architecture Foundations",
+          "items": [
+            "Software architecture fundamentals",
+            "Layered architecture patterns",
+            "Separation of concerns (SoC)",
+            "Coupling vs Cohesion",
+            "SOLID principles (SRP, OCP, LSP, ISP, DIP)",
+            "KISS (Keep It Simple, Stupid)",
+            "DRY (Don't Repeat Yourself)",
+            "YAGNI (You Aren't Gonna Need It)"
+          ]
+        },
+        {
+          "title": "Architectural Layering Pipeline",
+          "items": [
+            "Presentation Layer → Domain Layer → Data Layer → Platform Infrastructure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-2",
+      "title": "Stage 2 — Android Project Structure",
+      "subtitle": "Folder Layouts, Package Organization & Module Topologies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Industry Directory Layout",
+          "items": [
+            "app/ (Application entry point)",
+            "core/ & common/ (Shared utilities & base classes)",
+            "feature/ (Feature-based module packaging)",
+            "domain/ (Use cases, entities, repository contracts)",
+            "data/ (Repositories, network API, database DAOs)",
+            "presentation/ & ui/ (Activities, Fragments, ViewModels, Compose)",
+            "di/ (Hilt / Dagger components and modules)",
+            "network/ & database/ (Retrofit services, Room DB)",
+            "repository/ (Concrete repository implementations)",
+            "utils/ & test/ (Helper extensions and test suites)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-3",
+      "title": "Stage 3 — Android Build Structure",
+      "subtitle": "Gradle Modules, Flavors, Source Sets & Build Variants",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Modular Build Configuration",
+          "items": [
+            "Gradle build modules architecture",
+            "Feature modules vs Library modules",
+            "Dynamic feature modules (Play Feature Delivery)",
+            "Build variants & Product flavors",
+            "Source sets (main, debug, release, test)",
+            "Generated sources handling",
+            "Resource merging & AAPT2 link passes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-4",
+      "title": "Stage 4 — Software Design Principles",
+      "subtitle": "OOP Paradigms, Immutability & Composition",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Object-Oriented Design Rules",
+          "items": [
+            "Single Responsibility Principle (SRP)",
+            "Open/Closed Principle (OCP)",
+            "Liskov Substitution Principle (LSP)",
+            "Interface Segregation Principle (ISP)",
+            "Dependency Inversion Principle (DIP)",
+            "Composition over inheritance",
+            "Immutability in state models",
+            "Dependency Injection fundamentals",
+            "Encapsulation & boundary protection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-5",
+      "title": "Stage 5 — MVC",
+      "subtitle": "Model-View-Controller in Legacy Android Applications",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "MVC Architecture",
+          "items": [
+            "Model (Data & Business logic)",
+            "View (XML Layouts / Activity UI)",
+            "Controller (Activity / Fragment logic handling)",
+            "Advantages & Disadvantages of MVC in Android",
+            "Class relationships and coupling in Android MVC",
+            "Reverse Engineering Perspective: Recognizing tightly coupled God-Activities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-6",
+      "title": "Stage 6 — MVP",
+      "subtitle": "Model-View-Presenter & Interface Contracts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "MVP Architecture",
+          "items": [
+            "Model (Repositories / Data sources)",
+            "View (Activity / Fragment implementing View contract interface)",
+            "Presenter (Decoupled UI presentation logic)",
+            "Contract interfaces setup",
+            "Presenter lifecycle & memory leak handling",
+            "Advantages & Disadvantages of MVP",
+            "Generated class relationships in legacy projects"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-7",
+      "title": "Stage 7 — MVVM",
+      "subtitle": "Model-View-ViewModel, LiveData & State Flow",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "MVVM Architecture Components",
+          "items": [
+            "Model (Data sources & Repository layer)",
+            "View (UI Controllers observing ViewModel state)",
+            "ViewModel (Architecture Component ViewModel holding UI logic)",
+            "Repository (Centralized data layer contract)",
+            "LiveData & StateFlow observation",
+            "UI State encapsulation",
+            "Lifecycle awareness & Surviving configuration changes",
+            "State restoration with SavedStateHandle",
+            "End-to-end data flow pipeline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-8",
+      "title": "Stage 8 — MVI",
+      "subtitle": "Model-View-Intent & Unidirectional Data Flow",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "MVI Architecture & Reducers",
+          "items": [
+            "Intent (User actions / events)",
+            "Action (Processed business operations)",
+            "Reducer (Pure function computing new state)",
+            "State (Single immutable UI state representation)",
+            "Effect (One-time side effects: Navigation, Toasts, Dialogs)",
+            "Immutable state management",
+            "Finite-State Machine (FSM) modeling",
+            "Unidirectional Data Flow (UDF) loop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-9",
+      "title": "Stage 9 — Clean Architecture",
+      "subtitle": "Entities, Use Cases, Interactors & Domain Isolation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Clean Architecture Concentric Layers",
+          "items": [
+            "Entities (Enterprise business rules & models)",
+            "Use Cases / Interactors (Application specific business rules)",
+            "Repositories & Gateways (Abstract data contracts)",
+            "Framework & Platform Layer (Database, UI, Network, OS APIs)",
+            "Dependency Rule (Inner layers know nothing of outer layers)",
+            "Domain layer complete platform isolation",
+            "Interface boundaries & Mapper functions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10",
+      "title": "Stage 10 — Repository Pattern",
+      "subtitle": "Data Abstraction, Caching & Offline-First Strategy",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Repository Mechanics",
+          "items": [
+            "Repository contract & implementation separation",
+            "Data Sources (Remote vs Local abstraction)",
+            "Remote Data Source (Retrofit API services)",
+            "Local Data Source (Room DB / DataStore cache)",
+            "Caching strategies (Network-first, Cache-first, Stale-while-revalidate)",
+            "Data synchronization routines",
+            "Offline-first application architecture",
+            "Repository composition & merging multiple data sources"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11",
+      "title": "Stage 11 — Use Cases",
+      "subtitle": "Domain Logic Encapsulation & Interactors",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Use Case Architecture",
+          "items": [
+            "Business logic vs Application logic separation",
+            "Input models & Request parameters",
+            "Output models & Result wrappers (Resource / Result<T>)",
+            "Interactor single execution method (`operator fun invoke()`)",
+            "Single Responsibility in domain operations",
+            "Composing multiple repositories inside a Use Case"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12",
+      "title": "Stage 12 — Dependency Injection",
+      "subtitle": "Inversion of Control, Graphs & Lifetimes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "DI Fundamentals & Patterns",
+          "items": [
+            "Constructor injection (Recommended)",
+            "Field injection & Method injection",
+            "Manual DI setup & Service Locator pattern trade-offs",
+            "Dependency graph generation & lifecycle scopes",
+            "Object lifetimes & Scoped component storage",
+            "Lazy injection (`Lazy<T>`) & Provider pattern (`Provider<T>`)",
+            "Factory pattern for dynamic parameter creation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13",
+      "title": "Stage 13 — Hilt",
+      "subtitle": "Standardized Jetpack Dependency Injection",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Hilt Component Hierarchy & CodeGen",
+          "items": [
+            "Application graph (`SingletonComponent`)",
+            "ActivityRetainedComponent & ViewModelComponent",
+            "ActivityComponent, FragmentComponent, ViewComponent",
+            "Generated Hilt wrappers and entry points",
+            "Annotations (`@HiltAndroidApp`, `@AndroidEntryPoint`, `@Inject`)",
+            "Hilt Modules (`@Module`, `@InstallIn`)",
+            "Bindings (`@Provides`, `@Binds`)",
+            "EntryPoint access for non-standard framework classes",
+            "Component hierarchy and lifecycle matching",
+            "Reverse Engineering Perspective: Recognizing generated Hilt components in DEX"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14",
+      "title": "Stage 14 — Dagger",
+      "subtitle": "Compile-Time Static Dependency Graphs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Dagger Core Mechanics",
+          "items": [
+            "Components & Subcomponents setup",
+            "Modules & Provider functions",
+            "Binds & Multibindings (`@IntoMap`, `@IntoSet`)",
+            "Dagger compiler output analysis (Factory and Component classes)",
+            "Compile-time dependency validation and missing binding errors",
+            "Dagger execution performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15",
+      "title": "Stage 15 — Koin",
+      "subtitle": "Kotlin DSL Runtime Service Locator / DI",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Koin Framework Architecture",
+          "items": [
+            "Runtime dependency injection vs Compile-time DI",
+            "Koin modules DSL (`module { ... }`)",
+            "Definitions: `single`, `factory`, `viewModel`",
+            "Scope management (`scope { ... }`)",
+            "Lazy injection (`by inject()`)",
+            "Runtime dependency resolution graph"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-16",
+      "title": "Stage 16 — State Management",
+      "subtitle": "UI State, Single Source of Truth & Restoration",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "State Architecture",
+          "items": [
+            "Immutable State vs Mutable State",
+            "Single Source of Truth (SSOT) principle",
+            "UI State modeling (Sealed interfaces / Data classes)",
+            "Shared State across components",
+            "Transient State vs Persistent State",
+            "Process death state restoration with `SavedStateHandle`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-17",
+      "title": "Stage 17 — Reactive Programming",
+      "subtitle": "Asynchronous Streams, Flow & Reactive State",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Reactive Paradigms & Coroutines Flow",
+          "items": [
+            "Observer pattern implementation",
+            "Asynchronous data streams",
+            "Reactive UI state modeling",
+            "Kotlin Flow pipeline operators",
+            "StateFlow (Conflated hot state stream)",
+            "SharedFlow (Hot event stream)",
+            "Channel (Hot queue communication)",
+            "Backpressure strategies",
+            "Cold streams vs Hot streams behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-18",
+      "title": "Stage 18 — Lifecycle Awareness",
+      "subtitle": "Jetpack Lifecycle Subsystem & Scopes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lifecycle Components",
+          "items": [
+            "LifecycleOwner interface",
+            "LifecycleObserver & DefaultLifecycleObserver",
+            "LifecycleRegistry state machine",
+            "Lifecycle events propagation (ON_CREATE, ON_START, ON_RESUME, etc.)",
+            "Configuration change handling",
+            "SavedStateHandle state persistence",
+            "LifecycleScope & repeatOnLifecycle API"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-19",
+      "title": "Stage 19 — Navigation",
+      "subtitle": "Navigation Component, Graphs & Safe Args",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Navigation Architecture",
+          "items": [
+            "Jetpack Navigation Component overview",
+            "NavController & NavHostFragment",
+            "NavGraph XML / Kotlin DSL definitions",
+            "Destinations & Actions configuration",
+            "Argument passing & Type-safe arguments",
+            "Deep link handling and parsing",
+            "Back stack management & Single Top destinations",
+            "Nested navigation graphs & BottomNavigationView integration",
+            "Safe Args plugin generated Directions classes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-20",
+      "title": "Stage 20 — UI Binding",
+      "subtitle": "ViewBinding & DataBinding CodeGen",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binding Technologies",
+          "items": [
+            "ViewBinding generated binding classes",
+            "DataBinding expressions and Layout variables",
+            "Generated `*BindingImpl` classes",
+            "DataBinding binding adapters (`@BindingAdapter`)",
+            "Lifecycle integration in DataBinding",
+            "Performance impact & Generated bytecode patterns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-21",
+      "title": "Stage 21 — RecyclerView Architecture",
+      "subtitle": "Adapters, ViewHolders, DiffUtil & Paging",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "RecyclerView Optimization Pipeline",
+          "items": [
+            "Adapter & ViewHolder pattern",
+            "DiffUtil & AsyncListDiffer algorithm (Myers diff)",
+            "ListAdapter abstraction",
+            "Paging 3 library integration",
+            "Stable IDs for view recycling optimization",
+            "ItemDecorations & ItemTouchHelpers",
+            "LayoutManagers (LinearLayoutManager, GridLayoutManager, StaggeredGridLayoutManager)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-22",
+      "title": "Stage 22 — Room Architecture",
+      "subtitle": "ORM Abstraction, DAOs & Database Migrations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Room Components & CodeGen",
+          "items": [
+            "Entities (`@Entity`, primary keys, indices, foreign keys)",
+            "DAO (`@Dao` - Queries, Inserts, Updates, Deletes)",
+            "RoomDatabase abstraction (`@Database`)",
+            "Generated `*Database_Impl` and `*Dao_Impl` classes",
+            "Compile-time SQL validation",
+            "TypeConverters for custom data types",
+            "Database transactions (`@Transaction`)",
+            "Database migrations (AutoMigrations vs Manual `Migration`)",
+            "Repository layer integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-23",
+      "title": "Stage 23 — WorkManager",
+      "subtitle": "Guaranteed Background Processing & Constraints",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "WorkManager Architecture",
+          "items": [
+            "Worker & CoroutineWorker abstractions",
+            "WorkConstraints (Network, Storage, Charging, Idle)",
+            "PeriodicWorkRequest vs OneTimeWorkRequest",
+            "Work chains & parallel execution graph (`beginWith().then()`)",
+            "Unique work policies (KEEP, REPLACE, APPEND)",
+            "Generated WorkManager Room database and state tables",
+            "JobScheduler / AlarmManager underlying scheduler integration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-24",
+      "title": "Stage 24 — Paging",
+      "subtitle": "Paging 3, RemoteMediator & Lazy Datasets",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Paging 3 Architecture",
+          "items": [
+            "PagingSource implementation (Key-Value loading logic)",
+            "Pager configuration & PagingConfig",
+            "PagingData reactive stream",
+            "RemoteMediator (Coordinating local DB cache with network API)",
+            "Load states handling (Loading, Error, NotLoading)",
+            "In-memory caching and UI list presentation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-25",
+      "title": "Stage 25 — Networking Layer",
+      "subtitle": "Retrofit, OkHttp, Interceptors & Error Handling",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Networking Subsystem Architecture",
+          "items": [
+            "API Service Interface abstraction (Retrofit annotations)",
+            "OkHttp client & Interceptor pipeline (Auth, Logging, Headers)",
+            "Repository integration & Request mapping",
+            "Network error handling & HTTP status code mappers",
+            "Authentication token refresh mechanisms (Authenticator)",
+            "Cache-Control headers & OkHttp cache",
+            "Retry policies & Exponential backoff",
+            "Network serialization adapters",
+            "Offline synchronization strategies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-26",
+      "title": "Stage 26 — Serialization Layer",
+      "subtitle": "DTOs, Domain Models & Serializer Translators",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Serialization Architecture",
+          "items": [
+            "JSON mapping libraries (kotlinx.serialization, Moshi, Gson)",
+            "Data Transfer Objects (DTOs) definitions",
+            "Domain Model vs DTO separation",
+            "Entity Mappers & Data transformation functions",
+            "Model versioning and default field handling",
+            "Generated Serializer classes inspection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-27",
+      "title": "Stage 27 — Local Storage Architecture",
+      "subtitle": "Persistence Abstraction, DataStore & Caching",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Storage Layer Design",
+          "items": [
+            "Room ORM database persistence",
+            "SharedPreferences (Legacy storage)",
+            "Jetpack DataStore (Preferences DataStore & Proto DataStore)",
+            "File storage & App-private directories",
+            "Multi-level Caching (Memory + Disk + Network)",
+            "Repository integration & Storage abstraction",
+            "Storage migration strategies",
+            "Encryption integration (SQLCipher, EncryptedSharedPreferences)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-28",
+      "title": "Stage 28 — Background Architecture",
+      "subtitle": "Scheduling, Execution Limits & Work Models",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Background Execution Matrix",
+          "items": [
+            "Foreground Services (Immediate high-priority execution)",
+            "WorkManager (Guaranteed deferred constraint-based work)",
+            "JobScheduler (Legacy platform job scheduling)",
+            "AlarmManager (Exact time-based executions)",
+            "Coroutines & Dispatchers.IO for short-lived asynchronous tasks",
+            "Lifecycle-aware background task binding",
+            "Task cancellation propagation & Exception handling",
+            "Retry policies and exponential backoff"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-29",
+      "title": "Stage 29 — Modularization",
+      "subtitle": "Feature Modules, Core Modules & Dependency Graphs",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Multi-Module Architecture",
+          "items": [
+            "Feature modules isolation",
+            "Core modules (core:network, core:database, core:ui)",
+            "Shared domain modules",
+            "API modules vs Implementation modules strategy",
+            "Dynamic Feature Modules packaging",
+            "Module dependency graph optimization",
+            "Build time optimization via module parallelization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-30",
+      "title": "Stage 30 — Jetpack Integration",
+      "subtitle": "Systematic Composition of Android Jetpack Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Jetpack Subsystem Integration",
+          "items": [
+            "Lifecycle + ViewModel integration",
+            "Navigation + ViewModel + SavedState integration",
+            "Room + Flow + ViewModel integration",
+            "Paging + Room + Retrofit integration",
+            "WorkManager + Hilt integration",
+            "Compose + ViewModel + Navigation integration",
+            "App Startup library initialization",
+            "AppCompat & Core KTX foundation extensions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-31",
+      "title": "Stage 31 — Testing Architecture",
+      "subtitle": "Unit Testing, Test Doubles & UI Automation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Testing Pyramid & Testability Design",
+          "items": [
+            "Unit testing domain use cases and ViewModels",
+            "Integration testing repositories and Room databases",
+            "UI testing (Espresso / Compose Test Framework)",
+            "Test Doubles: Mocks, Fakes, Stubs, Spies",
+            "MockK / Mockito frameworks",
+            "Fake repository implementations for fast reliable tests",
+            "Dependency injection test modules replacement in Hilt",
+            "Architecture test enforcement (Consistdncy rules via ArchUnit)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-32",
+      "title": "Stage 32 — Error Handling",
+      "subtitle": "Domain Errors, Fallbacks & Retry Policies",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Error Propagation Subsystem",
+          "items": [
+            "Domain error modeling (Sealed Result classes)",
+            "Network error mapping (HTTP status codes to Domain Errors)",
+            "Database error handling (Room SQLiteExceptions)",
+            "Presentation error handling (Translating errors to UI State)",
+            "Exception mapping at layer boundaries",
+            "Retry policies and exponential backoff",
+            "Graceful fallback data state presentation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-33",
+      "title": "Stage 33 — Logging & Analytics",
+      "subtitle": "Telemetry Abstraction, Crash Reporting & Privacy",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Telemetry & Diagnostics Layer",
+          "items": [
+            "Logging abstraction (Timber / Custom Logger)",
+            "Crash reporting integration (Firebase Crashlytics)",
+            "Analytics tracking abstractions",
+            "User event tracking pipeline",
+            "Performance monitoring and trace metrics",
+            "Structured logging paradigms",
+            "Privacy considerations & PII data masking in logs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-34",
+      "title": "Stage 34 — Common Design Patterns",
+      "subtitle": "Creational, Structural & Behavioral Patterns in Android",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Design Patterns Catalog",
+          "items": [
+            "Creational: Singleton, Factory, Builder, Dependency Injection",
+            "Structural: Adapter, Decorator, Facade, Proxy",
+            "Behavioral: Observer, Strategy, State, Command, Mediator, Chain of Responsibility",
+            "Architectural: Repository, Use Case / Interactor, Service Locator",
+            "Kotlin Specific: Builder DSL, Delegate pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-35",
+      "title": "Stage 35 — Generated Code Recognition",
+      "subtitle": "Distinguishing Infrastructure Code from Business Logic",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "CodeGen Identification Checklist",
+          "items": [
+            "Hilt-generated components and modules (`Hilt_*`, `*_Factory`, `*_MembersInjector`)",
+            "Dagger component implementations (`Dagger*Component`)",
+            "ViewBinding / DataBinding classes (`*BindingImpl`)",
+            "Room database and DAO implementations (`*Database_Impl`, `*Dao_Impl`)",
+            "Navigation Safe Args generated directions (`*Directions`, `*Args`)",
+            "Paging 3 generated load handlers",
+            "WorkManager generated worker wrappers",
+            "Kotlin compiler synthetic methods and accessors",
+            "Jetpack Compose compiler generated group and restart structures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-36",
+      "title": "Stage 36 — Reverse Engineering Application Architecture",
+      "subtitle": "Decompilation Inspection & Layer Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Architecture Recovery Checklist",
+          "items": [
+            "Which architectural pattern is used (MVVM, MVI, MVP, Unstructured)?",
+            "Where is the presentation layer (Activities, Fragments, ViewModels)?",
+            "Where is business logic encapsulated (Use Cases, ViewModels, Repositories)?",
+            "Where are repository interfaces and concrete implementations?",
+            "Which classes are compiler/framework generated vs handwritten?",
+            "Where does dependency injection graph initialization start (Hilt/Dagger/Koin)?",
+            "Where does network communication enter (Retrofit interfaces, OkHttp interceptors)?",
+            "Where is local database persistence handled (Room, SQLite, DataStore)?",
+            "Which objects represent mutable UI state?",
+            "Which specific classes contain the actual target logic to analyze?"
+          ]
+        },
+        {
+          "title": "Static Call Chain Analysis Pipeline",
+          "items": [
+            "UI View → ViewModel / Presenter → Use Case Interactor → Repository → Remote API Service / Local DAO → Network Response / Database Entity → Repository Mapper → ViewModel UI State → UI View Render"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-37",
+      "title": "Stage 37 — Reading Real Android Projects",
+      "subtitle": "Open-Source Codebase Analysis Targets",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Production Codebase Targets",
+          "items": [
+            "Google Architecture Samples (Now in Android app)",
+            "AOSP System UI & Prebuilt Applications",
+            "Open-source MVVM + Clean Architecture + Hilt applications",
+            "Open-source Room + WorkManager + Paging 3 applications",
+            "Open-source Coroutines + Flow + Jetpack Compose applications",
+            "Focus on understanding architectural boundaries, layer mappers, and data flow pipelines"
+          ]
+        }
+      ]
+    }
+  ]
+}
