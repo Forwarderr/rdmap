@@ -1,0 +1,1012 @@
+{
+  "meta": {
+    "id": "rust_beginner_roadmap",
+    "title": "Rust Language Roadmap — Beginner",
+    "subtitle": "Comprehensive Systems & Reverse Engineering Foundations",
+    "completionTitle": "RUST FOUNDATIONS MASTERED",
+    "completionMessage": "Congratulations! You have covered the full 54-part Rust roadmap, from core ownership and memory safety to FFI, Android integration, compilation internals, and low-level reverse engineering analysis!"
+  },
+  "stages": [
+    {
+      "id": "part-1",
+      "title": "Part 1 — Rust Fundamentals",
+      "subtitle": "Installation, Toolchain & Core Syntax",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Toolchain & Package Management",
+          "items": [
+            "Rust installation & rustup management",
+            "rustc compiler execution",
+            "Cargo workflows: cargo build, cargo run, cargo check, cargo test, cargo doc, cargo bench",
+            "Toolchain channels (stable, beta, nightly)",
+            "Linters and formatters: rustfmt & Clippy"
+          ]
+        },
+        {
+          "title": "Language Fundamentals",
+          "items": [
+            "Variables & Mutability (mut)",
+            "Constants & Variable Shadowing",
+            "Primitive types, Tuples, Arrays, & Slices",
+            "Functions, Expressions, Statements, & Blocks",
+            "Comments & Module system basics"
+          ]
+        },
+        {
+          "title": "Practical Projects",
+          "items": [
+            "CLI utilities development",
+            "Number manipulation utilities",
+            "File & I/O utilities",
+            "Binary structure parsers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "Part 2 — Ownership",
+      "subtitle": "Move Semantics, Borrowing & Lifetimes",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Core Ownership Mechanics",
+          "items": [
+            "Ownership rules & single-owner principle",
+            "Move semantics vs Copy semantics",
+            "Clone trait & deep copying",
+            "Borrowing, References (&T) & Mutable references (&mut T)",
+            "Borrow checker validation rules",
+            "Lifetimes, Scopes, and Drop trait / RAII resource cleanup",
+            "Fundamental memory model differences from C++"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "Part 3 — Structs & Enums",
+      "subtitle": "Custom Types & Pattern Matching",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Custom Data Types",
+          "items": [
+            "Classic Named Structs, Tuple Structs, & Unit Structs",
+            "Methods & Associated functions (`impl` blocks)",
+            "Enums with associated data payloads",
+            "Pattern matching with `match` expressions",
+            "Control flow shortcuts: `if let` & `while let`",
+            "Tuple and struct destructuring",
+            "Reconstructing native data structures in reverse engineering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-4",
+      "title": "Part 4 — Traits",
+      "subtitle": "Interfaces, Trait Objects & Dispatch",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Trait System",
+          "items": [
+            "Trait definition & implementation syntax",
+            "Trait bounds (`T: Trait`) & Generic traits",
+            "Associated types in traits",
+            "Default method implementations",
+            "Trait objects (`dyn Trait`) & Fat pointers",
+            "Static dispatch (Monomorphization) vs Dynamic dispatch (Vtables)",
+            "Object safety rules",
+            "Mapping traits to C++ virtual dispatch and interfaces"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-5",
+      "title": "Part 5 — Generics",
+      "subtitle": "Parametric Polymorphism & Monomorphization",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Generic Programming",
+          "items": [
+            "Generic functions, structs, enums, and traits",
+            "Type parameters and constraints",
+            "`where` clauses for complex bounds",
+            "Associated types vs Generic type parameters",
+            "Compile-time Monomorphization pipeline",
+            "Specialization concepts (nightly)",
+            "Understanding how generics lower into native machine code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-6",
+      "title": "Part 6 — Collections",
+      "subtitle": "Heap Data Structures & Memory Layouts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Standard Collections",
+          "items": [
+            "Vec & VecDeque dynamic arrays",
+            "LinkedList structure",
+            "HashMap & HashSet (HashBrown implementation)",
+            "BTreeMap & BTreeSet ordered collections",
+            "BinaryHeap priority queue",
+            "Memory layouts, capacity allocation, and resizing strategies",
+            "Ownership transfer and iteration performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-7",
+      "title": "Part 7 — Strings",
+      "subtitle": "UTF-8 Representations & OS Encodings",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "String Types & Handling",
+          "items": [
+            "Owned `String` vs Borrowed `&str` slices",
+            "Strict UTF-8 validation rules",
+            "Byte slice representation (`&[u8]`)",
+            "OsString & OsStr for platform-native strings",
+            "Unicode scalar values, grapheme clusters, and indexing",
+            "Encoding/decoding routines in native binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-8",
+      "title": "Part 8 — Error Handling",
+      "subtitle": "Result, Option & Error Propagation",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Robust Error Architecture",
+          "items": [
+            "Result<T, E> & Option<T> types",
+            "Some, None, Ok, and Err variant handling",
+            "The `?` question mark operator for error propagation",
+            "Handling `unwrap()` and `expect()` panic boundaries",
+            "Custom error types with `std::error::Error`",
+            "Ecosystem crates: `thiserror` (library errors) & `anyhow` (application errors)",
+            "Recognizing error-handling discriminants in compiled binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-9",
+      "title": "Part 9 — Modules & Crates",
+      "subtitle": "Code Organization & Privacy Boundaries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Project Organization",
+          "items": [
+            "Module hierarchies and `mod` declarations",
+            "Visibility modifiers: `pub`, `pub(crate)`, `pub(super)`",
+            "Path resolution (`crate::`, `super::`, `self::`)",
+            "Packages, Crates (binary vs library), and Workspaces",
+            "Cargo manifest dependencies and multi-crate project structures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-10",
+      "title": "Part 10 — Cargo Ecosystem",
+      "subtitle": "Manifests, Build Scripts & Binary Influences",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Cargo Build Lifecycle",
+          "items": [
+            "Cargo.toml configuration & Cargo.lock reproducibility",
+            "Cargo Features & Conditional compilation flags",
+            "Build profiles (`dev`, `release`, `bench`)",
+            "Standard, build, and development dependencies",
+            "Custom build scripts (`build.rs`) integration",
+            "Procedural macros (`proc-macro`) execution",
+            "How Cargo build configurations shape target binary layouts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-11",
+      "title": "Part 11 — Iterators",
+      "subtitle": "Lazy Evaluation & Functional Transformations",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Iterator Architecture",
+          "items": [
+            "Iterator & IntoIterator traits",
+            "Iteration methods: `iter()`, `iter_mut()`, `into_iter()`",
+            "Transformations: `map`, `filter`, `fold`, `reduce`, `zip`, `enumerate`",
+            "Consumer collection (`collect()`)",
+            "Lazy evaluation execution model",
+            "Zero-cost abstraction compiler optimizations in iterator loops"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-12",
+      "title": "Part 12 — Closures",
+      "subtitle": "Fn Traits, Capture Mechanics & Environments",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Closure Subsystem",
+          "items": [
+            "Closure syntax and type inference",
+            "Variable capture modes (by reference, by mutable reference, by value)",
+            "Trait implementations: `Fn`, `FnMut`, `FnOnce`",
+            "`move` closures and ownership transfer",
+            "In-memory closure environment representations",
+            "Mapping closures to generated native anonymous structures"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-13",
+      "title": "Part 13 — Lifetimes",
+      "subtitle": "Compile-Time Lifetime Annotations & Bounds",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Lifetime Analysis",
+          "items": [
+            "Explicit lifetime annotations (`'a`)",
+            "Lifetime elision rules in function signatures",
+            "Generic lifetimes on structs and enums",
+            "The `'static` lifetime constraint",
+            "Lifetime subtyping & bounds (`T: 'a`)",
+            "Higher-Ranked Trait Bounds (HRTBs: `for<'a>`)",
+            "Lifetimes as a purely compile-time ownership verification mechanism"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-14",
+      "title": "Part 14 — Smart Pointers",
+      "subtitle": "Heap Allocation, Interior Mutability & Ref Counting",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Smart Pointer Catalog",
+          "items": [
+            "`Box<T>` for heap allocation",
+            "`Rc<T>` & `Arc<T>` for reference counting",
+            "`Weak<T>` pointers for breaking reference cycles",
+            "`Cell<T>` & `RefCell<T>` for interior mutability",
+            "`Mutex<T>` & `RwLock<T>` for thread-safe interior mutability",
+            "Deref and Drop traits integration",
+            "Memory layouts of smart pointer wrappers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-15",
+      "title": "Part 15 — Concurrency",
+      "subtitle": "Threads, Message Passing & Atomic Memory",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Concurrency Primitives",
+          "items": [
+            "OS thread spawning via `std::thread`",
+            "`Send` and `Sync` marker traits",
+            "Channel communication (`std::sync::mpsc`, crossbeam)",
+            "Shared state concurrency (`Arc<Mutex<T>>`)",
+            "Atomic primitives (`std::sync::atomic`) & memory ordering (SeqCst, Acquire, Release)",
+            "Thread pools and work-stealing concepts at the machine level"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-16",
+      "title": "Part 16 — Async Rust",
+      "subtitle": "Futures, Poll Loops, Pinning & Tokio",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Asynchronous Architecture",
+          "items": [
+            "`Future` trait and state machines",
+            "`async` / `await` syntax transformations",
+            "Async executors and runtimes (Tokio, async-std)",
+            "Task spawning and cooperative multitasking",
+            "Polling loops, Context, and `Waker` notifications",
+            "`Pin<P>` and `Unpin` for self-referential memory safety",
+            "Async channels, cancellation tokens, and structured concurrency"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-17",
+      "title": "Part 17 — Unsafe Rust",
+      "subtitle": "Raw Pointers, Invariants & Undefined Behavior",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Unsafe Operations & Rules",
+          "items": [
+            "`unsafe` blocks, functions, and traits",
+            "Raw pointers (`*const T`, `*mut T`) and dereferencing",
+            "Pointer arithmetic and manual offset calculations",
+            "Mutable aliasing violations",
+            "Memory safety invariants and undefined behavior (UB)",
+            "Foreign Function Interface (FFI) boundaries safety",
+            "Where Rust safety guarantees stop in native binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-18",
+      "title": "Part 18 — Raw Memory",
+      "subtitle": "Layouts, Alignments, Allocations & repr(C)",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Low-Level Memory Architecture",
+          "items": [
+            "Type alignment & struct padding in memory",
+            "Representation attributes: `#[repr(C)]`, `#[repr(transparent)]`, `#[repr(packed)]`",
+            "Uninitialized memory handling (`std::mem::MaybeUninit`)",
+            "Dynamic memory allocation via GlobalAlloc / Allocator API",
+            "Stack vs Heap vs Static data memory segments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-19",
+      "title": "Part 19 — FFI",
+      "subtitle": "C ABI, Calling Conventions & Type Interoperability",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "C Interoperability",
+          "items": [
+            "C ABI compliance and `extern \"C\"` blocks",
+            "Calling conventions and symbol unmangling (`#[no_mangle]`)",
+            "C-compatible data types (`std::ffi` / `libc` crate)",
+            "Struct interoperability and opaque pointer types",
+            "Function pointers and C callback bridges",
+            "Memory ownership and lifetime transfer across FFI boundaries",
+            "Pipeline: Rust → C ABI → C/C++ → Native Binary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-20",
+      "title": "Part 20 — Rust ↔ C/C++",
+      "subtitle": "Bindings Generation & Bi-Directional Bridges",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interop Tooling & Bridges",
+          "items": [
+            "Rust calling native C/C++ libraries",
+            "C/C++ calling compiled Rust static/dynamic libraries",
+            "Automated bindings generation: `bindgen` (C headers to Rust)",
+            "Automated header generation: `cbindgen` (Rust to C headers)",
+            "Building native dependencies via `cc` and `cmake` crates",
+            "Advanced C++ interop: `cxx` and `autocxx` bridges"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-21",
+      "title": "Part 21 — LLVM Connection",
+      "subtitle": "MIR, LLVM IR, Optimizations & ELF Output",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "LLVM Backend Compilation",
+          "items": [
+            "Pipeline: Rust Source → rustc → MIR → LLVM IR → LLVM Optimizer → Machine Code → ELF",
+            "Mid-level Intermediate Representation (MIR) passes",
+            "LLVM optimization passes (Inlining, Constant propagation, Vectorization)",
+            "Dead-code elimination & Link-Time Optimization (LTO)",
+            "DWARF debug information emission"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-22",
+      "title": "Part 22 — Rust Compiler Internals",
+      "subtitle": "AST, HIR, Type/Borrow Checking & Codegen",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Compiler Phases",
+          "items": [
+            "Lexical analysis, parsing, and AST construction",
+            "High-Level Intermediate Representation (HIR)",
+            "Type checking & Type inference engine",
+            "Polonius / NLL borrow checker implementation",
+            "MIR generation and Monomorphization of generic functions",
+            "Code generation (rustc_codegen_llvm) and final linking"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-23",
+      "title": "Part 23 — Rust ABI & Calling Conventions",
+      "subtitle": "System V, AArch64 ABI & Struct Returns",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ABI & Machine Registers",
+          "items": [
+            "Unspecified Rust ABI vs Stable C ABI",
+            "System V AMD64 ABI & AArch64 AAPCS64 calling conventions",
+            "Register-based argument passing (X0–X7 / RDI, RSI, etc.)",
+            "Scalar returns and large structure return pointers (sret)",
+            "Stack frame allocation, 16-byte alignment, and register preservation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-24",
+      "title": "Part 24 — Rust Binary Architecture",
+      "subtitle": "ELF Sections, Dynamic Symbols, PLT/GOT & TLS",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Structure",
+          "items": [
+            "ELF headers and section mapping (.text, .rodata, .data, .bss)",
+            "Static linking vs Dynamic linking in Rust outputs",
+            "Dynamic symbols, relocations, and PLT/GOT resolution",
+            "Thread Local Storage (.tdata, .tbss) sections",
+            "Embedded DWARF debug symbols and string tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-25",
+      "title": "Part 25 — Rust Reverse Engineering Fingerprinting",
+      "subtitle": "Identifying Rust Binaries & Standard Runtime Artifacts",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Binary Fingerprinting Artifacts",
+          "items": [
+            "Detecting core/alloc/std runtime structures",
+            "Panic machinery string tables and landing pads",
+            "Formatting infrastructure (`core::fmt`) signatures",
+            "Trait object vtable memory structures",
+            "Monomorphized function duplications",
+            "Async state machine struct patterns and iterator state trees",
+            "Distinguishing runtime infrastructure from custom application logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-26",
+      "title": "Part 26 — Rust Symbol & Metadata Analysis",
+      "subtitle": "Name Mangling, rustfilt & DWARF Extraction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Symbol & Metadata Deobfuscation",
+          "items": [
+            "Legacy vs Modern (v0) Rust symbol mangling formats",
+            "Symbol demangling utilities (`rustfilt`, binary disassembler plugins)",
+            "DWARF debugging information parsing",
+            "Extracting type information, generic parameters, and module paths",
+            "Symbol differences between development, unstripped, and release stripped binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-27",
+      "title": "Part 27 — Rust Decompilation",
+      "subtitle": "Decompiler Navigation & High-Level Type Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Decompilation Tools & Strategy",
+          "items": [
+            "Using Ghidra, IDA Pro, Binary Ninja, Rizin/Radare2, LLDB",
+            "Recovering function signatures and parameter registers",
+            "Reconstructing structs, enums, and tagged unions",
+            "Analyzing decompiled control flow and state machines",
+            "Identifying trait object dispatch and allocation calls"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-28",
+      "title": "Part 28 — Rust Control-Flow Reconstruction",
+      "subtitle": "Rebuilding Match, Iterators, Panics & State Machines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Control Flow Recovery",
+          "items": [
+            "Reconstructing `match` jump tables and binary decision trees",
+            "Decompiling iterator transformation loops",
+            "Recovering closure invocations and environment passes",
+            "Tracing error propagation and `unwrap` panic branches",
+            "Rebuilding async state machine poll transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-29",
+      "title": "Part 29 — Rust Data-Structure Reconstruction",
+      "subtitle": "Struct Layouts, Tagged Unions & Collection Types",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Data Layout Recovery",
+          "items": [
+            "Recovering struct fields, alignments, and offsets",
+            "Enum layout reconstruction (Discriminant + Variant payloads)",
+            "Tagged unions and Option/Result niche optimizations",
+            "Heap collections: Vec (ptr, cap, len) & HashMap buckets",
+            "Smart pointer wrappers and future state representations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-30",
+      "title": "Part 30 — Trait Object Reverse Engineering",
+      "subtitle": "Fat Pointers, Vtable Layouts & Dynamic Dispatch",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Trait Object Binary Layout",
+          "items": [
+            "Fat pointer structure: 2-word pointer (Data Pointer + Vtable Pointer)",
+            "Vtable anatomy: Destructor pointer, Size, Alignment, Method function pointers",
+            "Dynamic dispatch recovery through vtable function indexing",
+            "Comparing Rust trait vtables with C++ virtual tables"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-31",
+      "title": "Part 31 — Rust Enum Reverse Engineering",
+      "subtitle": "Discriminants, Niche Optimizations & Pattern Lowering",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Enum Binary Structure",
+          "items": [
+            "Explicit integer discriminants (0, 1, 2...)",
+            "Variant payload memory layouts and union sharing",
+            "Null-pointer niche optimization (e.g., `Option<&T>` zero-overhead)",
+            "Reconstructing pattern-matched branching from machine code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-32",
+      "title": "Part 32 — Rust Async Reverse Engineering",
+      "subtitle": "State Machines, Suspension Points & Poll Transitions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Async State Recovery",
+          "items": [
+            "Pipeline: async function → Future → State Machine → poll() → Waker → Executor",
+            "Recovering internal async state machine enum representations",
+            "Identifying suspension points (yield points) and await boundaries",
+            "Tracking captured variables across poll transitions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-33",
+      "title": "Part 33 — Rust Panic & Error Infrastructure",
+      "subtitle": "Panic Handlers, Stack Unwinding & Assertions",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Panic Subsystem",
+          "items": [
+            "Panic machinery (`panic!`, `core::panicking::panic`)",
+            "Stack unwinding (`panic=unwind`) vs Abort strategy (`panic=abort`)",
+            "Landing pads and DWARF exception handling tables",
+            "Extracting assertion failure strings for reverse engineering guidance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-34",
+      "title": "Part 34 — Rust Networking",
+      "subtitle": "Async Protocols, HTTP Stacks & Network Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Networking Ecosystem",
+          "items": [
+            "TCP, UDP, and Unix socket networking",
+            "HTTP/1.1, HTTP/2, and HTTP/3 QUIC implementations",
+            "Async network engines (Tokio, Hyper, Reqwest)",
+            "TLS implementations: `rustls` vs `native-tls` (OpenSSL / BoringSSL)",
+            "gRPC microservices via `tonic`"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-35",
+      "title": "Part 35 — Rust Serialization",
+      "subtitle": "Serde Data Formats, Schemas & Wire Protocols",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Serialization Subsystem",
+          "items": [
+            "`serde` framework derive architecture (Serialize / Deserialize)",
+            "Formats: JSON, CBOR, MessagePack, Protobuf, Bincode, Postcard",
+            "Recovering data structure schemas from serialization boundaries",
+            "Reverse engineering custom binary serialization wire protocols"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-36",
+      "title": "Part 36 — Rust Cryptographic Architecture",
+      "subtitle": "Ciphers, Hashing, Key Management & Secure Memory",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Crypto Implementations",
+          "items": [
+            "RustCrypto ecosystem (AES, ChaCha20, SHA-2, SHA-3)",
+            "Asymmetric crypto: RSA, Ed25519, `ring`, `subtle`",
+            "Key management & zero-on-drop secure memory handling",
+            "Identifying cryptographic boundaries and secret key data flow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-37",
+      "title": "Part 37 — Rust Android Connectivity",
+      "subtitle": "Full Native Boundary Stack on Android",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Boundary Architecture",
+          "items": [
+            "Full Stack: Android APK → Java/Kotlin → JNI → Rust → Native Libraries (.so) → Linux/Android OS",
+            "Understanding inter-language communication and security boundaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-38",
+      "title": "Part 38 — Rust + Android NDK",
+      "subtitle": "Cross-Compilation Targets, Linker & .so Packaging",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "NDK Toolchain Integration",
+          "items": [
+            "Cargo Android targets: `aarch64-linux-android`, `armv7-linux-androideabi`, `x86_64-linux-android`",
+            "NDK Clang cross-compiler integration with `cargo-ndk`",
+            "Compiling Rust into shared object libraries (`cdylib` → `.so`)",
+            "Packaging Rust `.so` libraries into APK `lib/<abi>/` directories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-39",
+      "title": "Part 39 — Rust + JNI",
+      "subtitle": "jni-rs, Java ↔ Rust Invocations & Object Mapping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "JNI Bindings in Rust",
+          "items": [
+            "The `jni` and `jni-sys` crates",
+            "Exporting `Java_packagename_Class_method` functions in Rust",
+            "Managing `JNIEnv` and `JavaVM` handles in Rust code",
+            "Translating jstring, jbyteArray, and jobject into Rust types",
+            "Throwing Java exceptions from Rust",
+            "Dynamic JNI registration (`RegisterNatives`) from Rust"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-40",
+      "title": "Part 40 — Rust + Android Framework",
+      "subtitle": "Interacting with Android System Services & Sensors",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Framework Integration",
+          "items": [
+            "Pipeline: Kotlin/Java → JNI → Rust → Native APIs → Android Framework",
+            "Interacting with Activity, Service, Storage, Networking, and Sensors from native Rust"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-41",
+      "title": "Part 41 — Rust + Kotlin/Java Interoperability",
+      "subtitle": "Wrapper Generators, Callbacks & Thread Attachment",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Interoperability Patterns",
+          "items": [
+            "UniFFI and automated multi-language binding generators",
+            "Passing complex data models across Kotlin-Rust boundaries",
+            "Asynchronous callback interfaces from Rust worker threads to Java",
+            "Attaching native background threads to JavaVM via JNI"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-42",
+      "title": "Part 42 — Rust + Flutter",
+      "subtitle": "Dart FFI, Platform Channels & Native Plugins",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Flutter Integration",
+          "items": [
+            "Pipeline: Dart → Platform Channel / FFI → Native C → Rust",
+            "Dart FFI direct C-ABI invocations to Rust functions",
+            "`flutter_rust_bridge` architecture and automated binding code"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-43",
+      "title": "Part 43 — Rust + React Native",
+      "subtitle": "JavaScript Interface (JSI), TurboModules & C++ Bridges",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "React Native Integration",
+          "items": [
+            "Pipeline: JavaScript → Native Module / JSI → Android Native C++ → Rust",
+            "Direct memory bridging using JavaScript Interface (JSI)",
+            "Cross-runtime data serialization and conversion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-44",
+      "title": "Part 44 — Rust + Unity / Game Engines",
+      "subtitle": "Unity Native Plugins, C# Interop & Game Engines",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Unity Plugin Architecture",
+          "items": [
+            "Pipeline: Unity C# → Native Plugin C ABI → Rust → Android",
+            "P/Invoke C# declarations calling Rust exported functions",
+            "Native shared library loading inside Android game environments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-45",
+      "title": "Part 45 — Rust in Games",
+      "subtitle": "Custom Game Engines, ECS & Physics Subsystems",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Game Subsystems",
+          "items": [
+            "Custom game engine architectures written in Rust (Bevy, Wgpu)",
+            "Entity Component System (ECS) architecture binary footprints",
+            "Physics, rendering pipelines, and asset loading modules in native binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-46",
+      "title": "Part 46 — Rust Android Binary Analysis Workflow",
+      "subtitle": "End-to-End Analysis Pipeline for Rust Native Libraries",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Systematic Analysis Pipeline",
+          "items": [
+            "APK → Technology Fingerprinting → Native Library Inventory → ELF Analysis → Rust Detection → Symbol Analysis → Function Recovery → Data-Structure Recovery → Call Graph → Cross-Language Boundary Mapping → Android Framework Correlation → Runtime Validation → Architecture Reconstruction"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-47",
+      "title": "Part 47 — Rust + ARM64 Reverse Engineering",
+      "subtitle": "Recognizing Rust Patterns in AArch64 Assembly",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "AArch64 Assembly Patterns",
+          "items": [
+            "Rust function calls and register allocation in AAPCS64",
+            "Struct member offsets and tuple struct indexing",
+            "Enum discriminant testing and conditional branches",
+            "Closure environments and trait object dynamic dispatch in ARM64",
+            "Atomic instructions (LDXR, STXR, CAS) and memory barriers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-48",
+      "title": "Part 48 — Rust + ELF Reverse Engineering",
+      "subtitle": "Analyzing .so Libraries, Relocations & Metadata",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "ELF Binary Introspection",
+          "items": [
+            "Pipeline: Rust Source → LLVM → Machine Code → ELF → Android .so",
+            "Parsing dynamic symbols (`.dynsym`), string tables (`.dynstr`), and relocations (`.rela.dyn`)",
+            "Analyzing `.init_array` constructors and static initializers",
+            "Extracting embedded build metadata and dependency records"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-49",
+      "title": "Part 49 — Rust Optimization & Release-Build Analysis",
+      "subtitle": "Inlining, Monomorphization, LTO & Stripping",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Optimization Effects",
+          "items": [
+            "Optimization levels (`opt-level = 3`, `opt-level = \"s\"/\"z\"`)",
+            "Link-Time Optimization (LTO) impact on cross-crate boundaries",
+            "Symbol stripping and function inlining transformations",
+            "Generic Monomorphization duplication vs function merging",
+            "Distinguishing compiler optimization artifacts from application logic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-50",
+      "title": "Part 50 — Rust Security & Hardening Architecture",
+      "subtitle": "Memory Safety Limits, FFI Surfaces & Sandboxing",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Security Architecture",
+          "items": [
+            "Memory safety guarantees and `unsafe` boundary auditing",
+            "FFI attack surface analysis and memory corruption vectors",
+            "Cryptographic API implementation validation",
+            "Binary hardening: ASLR, PIE, Stack Canaries, RELRO, PAC/BTI, and MTE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-51",
+      "title": "Part 51 — Rust Malware / Suspicious Native Component Analysis",
+      "subtitle": "Defensive Analysis, Evasion & Capability Extraction",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Malware Analysis Methodology",
+          "items": [
+            "Fingerprinting obfuscated Rust binaries",
+            "Mapping native capabilities, hidden commands, and network payloads",
+            "Persistence and anti-debugging mechanism identification",
+            "Configuration and embedded payload extraction",
+            "Correlating runtime network/file behavior with static analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-52",
+      "title": "Part 52 — Advanced Rust Reverse Engineering",
+      "subtitle": "MIR-to-LLVM Reasoning & Whole-Binary Recovery",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Advanced Binary Deconstruction",
+          "items": [
+            "MIR-to-LLVM compilation reasoning",
+            "Trait dispatch and fat pointer reconstruction",
+            "Complex async state-machine and closure recovery",
+            "Custom memory allocator and arena identification",
+            "Whole-binary architectural recovery for large multi-crate binaries"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-53",
+      "title": "Part 53 — Rust Toolchain for Reverse Engineering",
+      "subtitle": "Disassemblers, Decompilers & Symbol Demanglers",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "Tooling Ecosystem",
+          "items": [
+            "Static Disassemblers: Ghidra, IDA Pro, Binary Ninja, Rizin/Radare2",
+            "ELF Inspection: readelf, objdump, nm, strings, llvm-readelf",
+            "Rust-Specific Utilities: rustfilt, cargo-expand, cargo-bloat",
+            "Android Inspection: JADX, APKTool, ADB, NDK tools",
+            "Dynamic Debugging: LLDB, GDB, Frida instrumentation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-54",
+      "title": "Part 54 — Professional Rust RE Methodology",
+      "subtitle": "Systematic 9-Step Verification & Deliverable Framework",
+      "color": "text-blue-500",
+      "details": [
+        {
+          "title": "9-Step Professional Workflow",
+          "items": [
+            "1. Fingerprint: Confirm whether target native library is written in Rust",
+            "2. Inventory: Map .so files, dependencies, ABIs, symbols, and imports/exports",
+            "3. Separate Runtime: Isolate standard/alloc/panic artifacts from app code",
+            "4. Recover Structures: Reconstruct structs, enums, trait objects, and state machines",
+            "5. Recover Execution: Build call graphs, CFGs, data-flow graphs, and thread models",
+            "6. Find Language Boundaries: Map Kotlin/Java ↔ JNI ↔ Rust ↔ C/C++ transitions",
+            "7. Correlate with Android: Link native logic to Activities, Services, and Framework APIs",
+            "8. Validate Dynamically: Validate hypotheses using runtime tracing and Frida hooks",
+            "9. Document: Produce complete subsystem architecture maps and confidence assessments"
+          ]
+        }
+      ]
+    }
+  ]
+}
