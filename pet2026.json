@@ -1,0 +1,400 @@
+
+{
+  "meta": {
+    "id": "upsssc_pet_2026_official_syllabus",
+    "title": "UPSSSC PET-2026 Complete Syllabus",
+    "subtitle": "English translation of the syllabus and marks distribution in the official UPSSSC PET-2026 notification, pages 7–11.",
+    "completionTitle": "SYLLABUS COMPLETED!",
+    "completionMessage": "Congratulations! You have completed all 15 syllabus sections. Revise every topic, practise multiple-choice questions, and take full-length mock tests to prepare for the UPSSSC PET-2026 examination."
+  },
+  "examPattern": {
+    "totalQuestions": 100,
+    "totalMarks": 100,
+    "duration": "2 hours",
+    "questionType": "Objective-type, multiple-choice questions",
+    "negativeMarking": "One-fourth of the marks allotted to a question for each incorrect answer",
+    "difficultyLevel": "Secondary and Senior Secondary level, as prescribed by NCERT, for the academic subjects specified in the notification",
+    "scoreValidity": "3 years from the date the examination result is issued or uploaded to the Commission's website"
+  },
+  "stages": [
+    {
+      "id": "stage-01-indian-history",
+      "title": "Indian History",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-blue-600",
+      "details": [
+        {
+          "title": "Ancient and Medieval India",
+          "items": [
+            "Indus Valley Civilization",
+            "Vedic Culture",
+            "Buddhism: Gautama Buddha (biography and teachings)",
+            "Jainism: Mahavira (biography and teachings)",
+            "Maurya Dynasty: Emperor Ashoka",
+            "Gupta Dynasty: Samudragupta and Chandragupta II",
+            "Harshavardhana",
+            "Rajput Period",
+            "Delhi Sultanate",
+            "Mughal Empire",
+            "Marathas"
+          ]
+        },
+        {
+          "title": "Modern India",
+          "items": [
+            "Rise of British Rule and the First War of Independence",
+            "Socio-economic impact of British Rule"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-02-indian-national-movement",
+      "title": "Indian National Movement",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-emerald-600",
+      "details": [
+        {
+          "title": "Freedom Struggle",
+          "items": [
+            "Early years of the freedom movement",
+            "Swadeshi and Civil Disobedience Movements: Role of Mahatma Gandhi and other leaders",
+            "Revolutionary movement and the rise of militant nationalism",
+            "Legislative amendments and the Government of India Act, 1935",
+            "Quit India Movement, Indian National Army and Netaji Subhas Chandra Bose"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-03-geography",
+      "title": "Geography",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-cyan-600",
+      "details": [
+        {
+          "title": "Physical Geography",
+          "items": [
+            "Physical geography of India and the world",
+            "Rivers and river valleys",
+            "Groundwater resources",
+            "Mountains, hills and glaciers",
+            "Deserts and arid regions",
+            "Forests",
+            "Mineral resources, especially in India"
+          ]
+        },
+        {
+          "title": "Political and Human Geography",
+          "items": [
+            "Political geography of India and the world",
+            "Climate and weather",
+            "Time zones",
+            "Demographic changes and migration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-04-indian-economy",
+      "title": "Indian Economy",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-amber-600",
+      "details": [
+        {
+          "title": "Economic Development",
+          "items": [
+            "Indian economy from 1947 to 1991",
+            "Planning Commission and Five-Year Plans",
+            "Development of the mixed economy: private and public sectors",
+            "Green Revolution",
+            "Dairy development and Operation Flood"
+          ]
+        },
+        {
+          "title": "Economic Reforms",
+          "items": [
+            "Nationalisation of banks and banking reforms",
+            "Economic reforms in 1991 and the subsequent economy",
+            "Economic reforms after 2014",
+            "Agricultural reforms",
+            "Infrastructure reforms",
+            "Labour reforms",
+            "Other economic reforms",
+            "Goods and Services Tax (GST)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-05-indian-constitution-public-administration",
+      "title": "Indian Constitution and Public Administration",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-violet-600",
+      "details": [
+        {
+          "title": "Indian Constitution",
+          "items": [
+            "Indian Constitution",
+            "Main features of the Indian Constitution",
+            "Directive Principles of State Policy",
+            "Fundamental Rights and Duties",
+            "Parliamentary system",
+            "Federal system",
+            "Union and Union Territories",
+            "Centre-State relations",
+            "Judicial structure: Supreme Court and High Courts"
+          ]
+        },
+        {
+          "title": "Public Administration",
+          "items": [
+            "District administration",
+            "Local bodies and Panchayati Raj institutions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-06-general-science",
+      "title": "General Science",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-sky-600",
+      "details": [
+        {
+          "title": "Basic Science",
+          "items": [
+            "Elementary Physics",
+            "Elementary Chemistry",
+            "Elementary Biology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-07-elementary-arithmetic",
+      "title": "Elementary Arithmetic",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-orange-600",
+      "details": [
+        {
+          "title": "Numerical Mathematics",
+          "items": [
+            "Whole numbers, fractions and decimals",
+            "Percentages",
+            "Simple arithmetic equations",
+            "Squares and square roots",
+            "Exponents and powers",
+            "Average"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-08-general-hindi",
+      "title": "General Hindi",
+      "subtitle": "5 marks | Official syllabus translated into English",
+      "color": "text-rose-600",
+      "details": [
+        {
+          "title": "Grammar and Vocabulary",
+          "items": [
+            "Sandhi (word combination)",
+            "Antonyms",
+            "Synonyms",
+            "One-word substitutions for phrases",
+            "Gender",
+            "Words with multiple meanings and similar-sounding words with different meanings",
+            "Idioms and proverbs",
+            "Common grammatical errors",
+            "Authors and literary works (prose and poetry)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-09-general-english",
+      "title": "General English",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-indigo-600",
+      "details": [
+        {
+          "title": "English Language",
+          "items": [
+            "English grammar",
+            "Questions based on an unseen passage in English"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-10-logic-and-reasoning",
+      "title": "Logic and Reasoning",
+      "subtitle": "5 marks | Official syllabus",
+      "color": "text-fuchsia-600",
+      "details": [
+        {
+          "title": "Logical Reasoning",
+          "items": [
+            "Greater and smaller",
+            "Order and ranking",
+            "Relationships",
+            "Odd one out",
+            "Calendar and clock",
+            "Cause and effect",
+            "Coding and decoding (numbers and letters)",
+            "Deductive reasoning, statement analysis and decision-making"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-11-current-affairs",
+      "title": "Current Affairs",
+      "subtitle": "10 marks | Official syllabus",
+      "color": "text-red-600",
+      "details": [
+        {
+          "title": "Indian and Global Current Affairs",
+          "items": [
+            "Current affairs relating to India and the world"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-12-general-awareness",
+      "title": "General Awareness",
+      "subtitle": "10 marks | Official syllabus",
+      "color": "text-teal-600",
+      "details": [
+        {
+          "title": "General Knowledge",
+          "items": [
+            "Neighbouring countries of India",
+            "Countries, capitals and currencies",
+            "States and Union Territories of India",
+            "Indian Parliament: Rajya Sabha, Lok Sabha, Legislative Assemblies and Legislative Councils",
+            "National and international days",
+            "World organisations and their headquarters",
+            "Tourist destinations in India",
+            "Art and culture of India",
+            "Sports in India and the world",
+            "Indian research organisations",
+            "Famous books and authors",
+            "Awards and winners",
+            "Climate change and the environment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-13-unseen-hindi-passage",
+      "title": "Analysis and Interpretation of Unseen Passages",
+      "subtitle": "10 marks | 2 passages, 5 questions per passage",
+      "color": "text-purple-600",
+      "details": [
+        {
+          "title": "Passage Comprehension",
+          "items": [
+            "Analyse and interpret two unseen passages",
+            "Answer five questions based on each passage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-14-graph-interpretation",
+      "title": "Graph Interpretation and Analysis",
+      "subtitle": "10 marks | 2 graphs, 5 questions per graph",
+      "color": "text-lime-600",
+      "details": [
+        {
+          "title": "Graph-Based Questions",
+          "items": [
+            "Interpret and analyse two graphs",
+            "Answer five questions based on each graph"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stage-15-table-interpretation",
+      "title": "Table Interpretation and Analysis",
+      "subtitle": "10 marks | 2 tables, 5 questions per table",
+      "color": "text-emerald-600",
+      "details": [
+        {
+          "title": "Table-Based Questions",
+          "items": [
+            "Interpret and analyse two tables",
+            "Answer five questions based on each table"
+          ]
+        }
+      ]
+    }
+  ],
+  "marksDistribution": [
+    {
+      "subject": "Indian History",
+      "marks": 5
+    },
+    {
+      "subject": "Indian National Movement",
+      "marks": 5
+    },
+    {
+      "subject": "Geography",
+      "marks": 5
+    },
+    {
+      "subject": "Indian Economy",
+      "marks": 5
+    },
+    {
+      "subject": "Indian Constitution and Public Administration",
+      "marks": 5
+    },
+    {
+      "subject": "General Science",
+      "marks": 5
+    },
+    {
+      "subject": "Elementary Arithmetic",
+      "marks": 5
+    },
+    {
+      "subject": "General Hindi",
+      "marks": 5
+    },
+    {
+      "subject": "General English",
+      "marks": 5
+    },
+    {
+      "subject": "Logic and Reasoning",
+      "marks": 5
+    },
+    {
+      "subject": "Current Affairs",
+      "marks": 10
+    },
+    {
+      "subject": "General Awareness",
+      "marks": 10
+    },
+    {
+      "subject": "Analysis and Interpretation of Unseen Passages",
+      "marks": 10
+    },
+    {
+      "subject": "Graph Interpretation and Analysis",
+      "marks": 10
+    },
+    {
+      "subject": "Table Interpretation and Analysis",
+      "marks": 10
+    }
+  ],
+  "totalMarks": 100
+}
